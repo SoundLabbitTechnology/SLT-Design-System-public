@@ -12,7 +12,7 @@
 | Component | G3 Storybook + axe + play | visual、content、keyboard flow |
 | Documentation | docs contract + static build | 読者の task 完了、デモ |
 | Visual regression | G4 Chromatic | 意図した差分か、全 theme の妥当性 |
-| Product | G5 Lighthouse / product tests | 実データ、end-to-end、支援技術（[`templates/consumer-g5/`](../templates/consumer-g5/)） |
+| Product | G5 Lighthouse / product tests | 実データ、end-to-end、支援技術（consumer CI） |
 
 自動テストが通ることは必要条件であり、UX や視覚品質の十分条件ではありません。
 
@@ -49,7 +49,7 @@
 - `transform` / `opacity` 以外のレイアウトプロパティを動かさない。
 - レビューは Before / After / Why の表で返す。
 
-原本スキル: [docs/reference/emilkowalski-skills/](./reference/emilkowalski-skills/README.md)。
+深掘り: `.cursor/skills/`（Emil / Apple design 系）と https://github.com/emilkowalski/skills
 
 ## Component acceptance
 
@@ -60,7 +60,7 @@
 - theme / mode による崩れがない。
 - error や destructive action が [L3 パターン](./L3-patterns.md)に従う。
 
-詳細は [L2 DoD](./L2-components/dod.md) を参照してください。
+詳細は [Storybook 標準](./L2-components/storybook.md) と Docs site の component MDX を参照してください。
 
 ## Performance
 

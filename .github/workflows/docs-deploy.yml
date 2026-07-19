@@ -1,7 +1,7 @@
 # Docs site の静的ホストへのデプロイ。
 # 当面はローカル運用（npm run docs:dev）のため、main push では走らない。
 # 公開を再開するときは workflow_dispatch で手動実行するか、push トリガーを戻す。
-# 手順: docs/ROADMAP.md / site/README.md / Issue #28
+# 手順: site/README.md / Issue #28
 
 name: Docs site
 

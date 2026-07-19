@@ -46,10 +46,8 @@ import SiteHeaderDemo from "../../demos/SiteHeaderDemo";
 
 プロダクト共通のトップナビゲーションシェルとして使う。`logo` / `nav` / `actions` スロットで構成する。
 
-{/* Do/Don't の出典: docs/L2-components/guides.md#siteheader */}
+{/* Do/Don't: this page (Docs site) */}
 <DoDont
   dos={["logo / nav / actions スロットで composition する", "SiteHeaderLink で現在地表示（active）する", "本文揃えは contentMaxWidth と --site-header-padding-x で行う"]}
   donts={["DS 内にプロダクト固有 URL をハードコードする", "モバイル用に別リンクセットを二重定義する", "上下 padding でヘッダーを膨らませる・Docs でコンポーネント CSS を上書きする"]}
 />
-
-設計の背景: [ADR-002](https://github.com/SoundLabbitTechnology/SLT-Design-System-public/blob/main/docs/decisions/ADR-002-site-header-slots.md)

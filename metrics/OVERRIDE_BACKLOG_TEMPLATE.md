@@ -34,4 +34,4 @@
 一度きりの例外、期限付き `@harness-allow` で足りるもの。
 ```
 
-参照: [L6 harness L3](../docs/L6-harness-and-loops.md#l3--operations-loop) / [ADR-004](../docs/decisions/ADR-004-laws-of-ux.md) は UX 参照。本テンプレは token/compliance の ratchet。
+参照: [L6 harness L3](../docs/L6-harness-and-loops.md#l3--operations-loop)。本テンプレは token/compliance の ratchet。

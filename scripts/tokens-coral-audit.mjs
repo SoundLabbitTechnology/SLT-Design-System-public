@@ -108,6 +108,6 @@ console.log(
     ? "  Status: BLOCKED on brand decision — primitives-only placeholder; UI decoupled."
     : "  Status: coral referenced in semantic/component — review before swap.",
 );
-console.log("\nRunbook: docs/decisions/ADR-001-coral-brand-colors.md");
+console.log("\nRunbook: design-tokens/README.md / CHANGELOG.md");
 
 process.exit(0);

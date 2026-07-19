@@ -35,6 +35,7 @@ const REQUIRED_DOCS = [
   "AGENTS.md",
   "CLAUDE.md",
   "llms.txt",
+  "CHANGELOG.md",
   "docs/README.md",
   "docs/L0-principles.md",
   "docs/L1-foundations/tokens.md",
@@ -42,9 +43,6 @@ const REQUIRED_DOCS = [
   "docs/L1-foundations/typography.md",
   "docs/L1-foundations/spacing-motion.md",
   "docs/L1-foundations/motion-craft.md",
-  "docs/L2-components/README.md",
-  "docs/L2-components/dod.md",
-  "docs/L2-components/guides.md",
   "docs/L2-components/storybook.md",
   "docs/L3-patterns.md",
   "docs/L4-content.md",
@@ -55,18 +53,10 @@ const REQUIRED_DOCS = [
   "docs/CONTRIBUTING.md",
   "docs/DOCUMENTATION.md",
   "docs/RELEASING.md",
-  "docs/ROADMAP.md",
   "site/README.md",
   "stories/Introduction.mdx",
   "stories/L1/Theming.mdx",
   "stories/L1/Accessibility.mdx",
-];
-
-/** Required only outside the public mirror (skipped when docs/MIRROR.md exists). */
-const PRIVATE_LAB_DOCS = [
-  "docs/DUAL_REPO.md",
-  "docs/internal/README.md",
-  "docs/internal/L0-strategy.md",
 ];
 
 const REQUIRED_PUBLIC_DOCS = [
@@ -179,12 +169,6 @@ function checkMarkdownLinks() {
 function checkRequiredDocs() {
   for (const path of REQUIRED_DOCS) {
     if (!existsSync(join(ROOT, path))) fail(`missing required document: ${path}`);
-  }
-  const isPublicMirror = existsSync(join(ROOT, "docs/MIRROR.md"));
-  if (!isPublicMirror) {
-    for (const path of PRIVATE_LAB_DOCS) {
-      if (!existsSync(join(ROOT, path))) fail(`missing companion document (non-mirror): ${path}`);
-    }
   }
 }
 

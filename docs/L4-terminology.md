@@ -2,7 +2,7 @@
 
 プロダクト内の語彙、コード上の名称、ブランド表示名を揃えるための正本です。固有機能名は各プロダクトで管理し、横断語彙だけをここへ追加します。
 
-**正本 locale は `ja`。** locale 拡張・翻訳 ownership の方針は [ADR-005](./decisions/ADR-005-i18n-locale-architecture.md) と [L6 i18n](./L6-governance.md#i18n--用語拡張) を正とする。
+**正本 locale は `ja`。** locale 拡張・翻訳 ownership の方針は [L6 i18n](./L6-governance.md#i18n--用語拡張) を正とする。
 
 ## ブランド表示
 

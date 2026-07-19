@@ -91,9 +91,9 @@ import { Button } from '@soundlabbit/design-system/ui';
 | space / shape / elevation | 余白、角の形状、高さの度合い（semantic 層で公開） | [spacing-motion.md](./spacing-motion.md) |
 | motion | duration、easing、reduced motion | [spacing-motion.md](./spacing-motion.md) / [motion-craft.md](./motion-craft.md) |
 | breakpoint / z-index / focus | responsive、重なり、keyboard focus | [spacing-motion.md](./spacing-motion.md) |
-| component | Button、Input、Dialog、SiteHeader などの局所仕様（例: `site-header.padding-x`、高さ駆動の chrome） | [L2 コンポーネント](../L2-components/README.md) |
+| component | Button、Input、Dialog、SiteHeader などの局所仕様（例: `site-header.padding-x`、高さ駆動の chrome） | Docs site `/components/` |
 
-DADS の基本デザイン（カラー・タイポグラフィ・余白・角の形状・エレベーション等）との対応関係は [ADR-003](../decisions/ADR-003-dads-alignment.md) と [CHANGELOG](../../CHANGELOG.md) を参照してください。
+DADS の基本デザイン（カラー・タイポグラフィ・余白・角の形状・エレベーション等）との対応関係は [CHANGELOG](../../CHANGELOG.md) を参照してください。
 
 ## 編集と生成物
 

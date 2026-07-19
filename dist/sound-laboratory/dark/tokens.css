@@ -1,0 +1,531 @@
+/**
+ * AUTO-GENERATED — do not edit by hand.
+ * Theme: sound-laboratory / dark
+ * Run: npm run build
+ */
+
+:root {
+  /* accordion */
+  --accordion-border: #334155;
+  --accordion-content: #94A3B8;
+  --accordion-icon: #94A3B8;
+  /* タップターゲット最小44px(WCAG 2.2 / モバイル) */
+  --accordion-min-height: 44px;
+  --accordion-padding-x: 16px;
+  --accordion-padding-y: 8px;
+  --accordion-trigger: #FFFFFF;
+  /* badge */
+  --badge-padding-x: 8px;
+  --badge-padding-y: 4px;
+  --badge-radius: 9999px;
+  /* blockquote */
+  --blockquote-attribution: #64748B;
+  --blockquote-border: #D3C193;
+  --blockquote-padding: 16px;
+  --blockquote-text: #94A3B8;
+  /* bottom-navigation */
+  --bottom-navigation-bg: #0F172A;
+  --bottom-navigation-border: #334155;
+  --bottom-navigation-min-height: 56px;
+  --bottom-navigation-shadow: 0px 1px 3px 0px #0F172A1A;
+  --bottom-navigation-text: #94A3B8;
+  --bottom-navigation-text-current: #FFFFFF;
+  /* breadcrumb */
+  --breadcrumb-current: #FFFFFF;
+  --breadcrumb-gap: 4px;
+  --breadcrumb-link: #D3C193;
+  --breadcrumb-link-hover: #E8D5A3;
+  /* タップターゲット最小44px(WCAG 2.2 / モバイル) */
+  --breadcrumb-min-height: 44px;
+  --breadcrumb-separator: #64748B;
+  --breadcrumb-text: #94A3B8;
+  /* breakpoint */
+  --breakpoint-lg: 1024px;
+  --breakpoint-md: 768px;
+  --breakpoint-sm: 640px;
+  --breakpoint-xl: 1280px;
+  /* button */
+  /* 破壊的操作。必ずキャンセルボタンと併置する */
+  --button-danger-bg: #EF4444;
+  --button-danger-text: #0F172A;
+  /* タップターゲット最小44px(WCAG 2.2 / モバイル) */
+  --button-min-height: 44px;
+  --button-padding-x: 16px;
+  --button-padding-y: 8px;
+  --button-primary-bg: #D3C193;
+  --button-primary-bg-active: #C59367;
+  --button-primary-bg-hover: #E8D5A3;
+  --button-primary-text: #0F172A;
+  --button-radius: 8px;
+  --button-secondary-bg: #0F172A;
+  --button-secondary-border: rgba(211, 193, 147, 0.50);
+  --button-secondary-text: #FFFFFF;
+  /* card */
+  --card-bg: #0F172A;
+  --card-border: #334155;
+  --card-padding: 24px;
+  --card-radius: 12px;
+  --card-shadow: 0px 1px 3px 0px #0F172A1A;
+  /* checkbox */
+  --checkbox-bg: #0F172A;
+  --checkbox-bg-checked: #D3C193;
+  --checkbox-border: rgba(211, 193, 147, 0.50);
+  --checkbox-border-checked: #D3C193;
+  --checkbox-mark: #0F172A;
+  /* タップターゲット最小44px(WCAG 2.2 / モバイル) */
+  --checkbox-min-height: 44px;
+  --checkbox-radius: 4px;
+  /* 視覚上のボックスサイズ。タップ領域は min-height で44pxを別途確保 */
+  --checkbox-size: 20px;
+  /* chip */
+  --chip-bg: #1E293B;
+  --chip-bg-selected: #D3C193;
+  --chip-border: #334155;
+  /* コンパクトなタグ高さ。削除ボタンは44pxタップ領域を確保 */
+  --chip-min-height: 32px;
+  --chip-padding-x: 8px;
+  --chip-radius: 9999px;
+  --chip-text: #FFFFFF;
+  --chip-text-selected: #0F172A;
+  /* color */
+  /* dark CTA — gold on dark bg */
+  --color-action-primary: #D3C193;
+  --color-action-primary-active: #C59367;
+  --color-action-primary-hover: #E8D5A3;
+  --color-action-secondary: #C59367;
+  --color-action-secondary-hover: #D3C193;
+  --color-alpha-amber-15: rgba(245, 158, 11, 0.15);
+  --color-alpha-amber-30: rgba(245, 158, 11, 0.30);
+  --color-alpha-blue-15: rgba(59, 130, 246, 0.15);
+  --color-alpha-blue-30: rgba(59, 130, 246, 0.30);
+  --color-alpha-emerald-15: rgba(16, 185, 129, 0.15);
+  --color-alpha-emerald-30: rgba(16, 185, 129, 0.30);
+  --color-alpha-gold-15: rgba(211, 193, 147, 0.15);
+  --color-alpha-gold-50: rgba(211, 193, 147, 0.50);
+  --color-alpha-red-15: rgba(239, 68, 68, 0.15);
+  --color-alpha-red-30: rgba(239, 68, 68, 0.30);
+  --color-alpha-slate-60: rgba(15, 23, 42, 0.60);
+  --color-alpha-slate-90: rgba(30, 41, 59, 0.90);
+  --color-alpha-white-05: rgba(255, 255, 255, 0.05);
+  --color-alpha-white-08: rgba(255, 255, 255, 0.08);
+  --color-alpha-white-10: rgba(255, 255, 255, 0.10);
+  --color-alpha-white-15: rgba(255, 255, 255, 0.15);
+  --color-alpha-white-25: rgba(255, 255, 255, 0.25);
+  --color-amber-100: #FEF3C7;
+  --color-amber-400: #FBBF24;
+  --color-amber-500: #F59E0B;
+  --color-amber-700: #B45309;
+  --color-blue-100: #DBEAFE;
+  --color-blue-300: #93C5FD;
+  /* dark surface.secondary 上で 4.5:1 を満たすリンク色 */
+  --color-blue-400: #5596F8;
+  --color-blue-50: #EFF6FF;
+  --color-blue-500: #3B82F6;
+  /* AI-DASH アクセント(仮) */
+  --color-blue-600: #2563EB;
+  --color-blue-700: #1D4ED8;
+  --color-blue-800: #1E40AF;
+  /* dark-border 相当 */
+  --color-border-default: #334155;
+  --color-border-focus: #D3C193;
+  --color-border-strong: rgba(211, 193, 147, 0.50);
+  --color-coral-100: #FFE3DB;
+  --color-coral-200: #FFC5B8;
+  --color-coral-300: #FF9F8A;
+  --color-coral-400: #F97662;
+  --color-coral-50: #FFF4F1;
+  /* Sound Laboratory ブランドコア(仮) */
+  --color-coral-500: #E85A45;
+  --color-coral-600: #C74533;
+  --color-coral-700: #A13629;
+  --color-coral-800: #7C2A20;
+  --color-coral-900: #521B14;
+  --color-emerald-300: #6EE7B7;
+  /* システム成功(現行) */
+  --color-emerald-500: #10B981;
+  --color-feedback-danger: #EF4444;
+  --color-feedback-danger-on-surface: #FCA5A5;
+  --color-feedback-danger-surface: rgba(239, 68, 68, 0.30);
+  --color-feedback-info: #3B82F6;
+  --color-feedback-info-on-surface: #93C5FD;
+  --color-feedback-info-surface: rgba(59, 130, 246, 0.30);
+  --color-feedback-success: #10B981;
+  --color-feedback-success-on-surface: #6EE7B7;
+  --color-feedback-success-surface: rgba(16, 185, 129, 0.30);
+  --color-feedback-warning: #F59E0B;
+  --color-feedback-warning-on-surface: #FBBF24;
+  --color-feedback-warning-surface: rgba(245, 158, 11, 0.30);
+  --color-gold-100: #EAE1CF;
+  --color-gold-200: #D9D2C1;
+  /* accent-2 主アクセント */
+  --color-gold-300: #D3C193;
+  /* 明るいゴールドテキスト */
+  --color-gold-400: #E8D5A3;
+  /* semi-accent-1 オレンジ/カッパー */
+  --color-gold-500: #C59367;
+  --color-gold-600: #C6A576;
+  /* 白 / gold.100 背景上で 4.5:1 を満たすリンク色 */
+  --color-gold-700: #76583E;
+  /* gold.700 の hover 用。白 / gold.100 背景上で 4.5:1 以上 */
+  --color-gold-800: #644B35;
+  --color-gray-0: #FFFFFF;
+  --color-gray-100: #F1F5F9;
+  --color-gray-1000: #000000;
+  --color-gray-200: #E2E8F0;
+  --color-gray-300: #CBD5E1;
+  --color-gray-400: #94A3B8;
+  --color-gray-50: #F8FAFC;
+  --color-gray-500: #64748B;
+  --color-gray-600: #475569;
+  --color-gray-700: #334155;
+  --color-gray-800: #1E293B;
+  --color-gray-900: #0F172A;
+  --color-green-100: #DCFCE7;
+  --color-green-500: #22C55E;
+  --color-green-600: #16A34A;
+  --color-green-700: #15803D;
+  /* ダーク太線(ゴールド tint) — ai-dash / corporate 既定 */
+  --color-grid-major-dark: rgba(211, 193, 147, 0.15);
+  /* ライト太線 accent1 #D9D2C1 */
+  --color-grid-major-light: #D9D2C1;
+  /* ダーク細線 — ai-dash / corporate 既定 */
+  --color-grid-minor-dark: rgba(255, 255, 255, 0.08);
+  /* ライト細線 main #EAE1CF */
+  --color-grid-minor-light: #EAE1CF;
+  --color-interactive-active: rgba(255, 255, 255, 0.10);
+  --color-interactive-hover: rgba(255, 255, 255, 0.05);
+  --color-navy-100: #D8E0F2;
+  --color-navy-200: #AFC0E4;
+  --color-navy-300: #7E97CE;
+  --color-navy-400: #5171B4;
+  --color-navy-50: #EEF2FA;
+  /* AI-DASH ブランドコア(仮) */
+  --color-navy-500: #365395;
+  --color-navy-600: #2A4177;
+  --color-navy-700: #22345F;
+  --color-navy-800: #1B2A52;
+  --color-navy-900: #121D3A;
+  --color-red-100: #FEE2E2;
+  --color-red-300: #FCA5A5;
+  --color-red-500: #EF4444;
+  --color-red-600: #DC2626;
+  --color-red-700: #B91C1C;
+  /* dark-accent #D3C193 */
+  --color-surface-brand: #D3C193;
+  --color-surface-inverse: #FFFFFF;
+  --color-surface-overlay: rgba(30, 41, 59, 0.90);
+  /* dark-bg #0F172A */
+  --color-surface-primary: #0F172A;
+  /* dark-card #1E293B */
+  --color-surface-secondary: #1E293B;
+  --color-surface-tertiary: #334155;
+  --color-text-brand: #D3C193;
+  --color-text-disabled: #64748B;
+  --color-text-inverse: #0F172A;
+  --color-text-link: #D3C193;
+  --color-text-link-hover: #E8D5A3;
+  /* dark-text-primary */
+  --color-text-primary: #FFFFFF;
+  /* dark-text-secondary 相当 */
+  --color-text-secondary: #94A3B8;
+  /* description-list */
+  --description-list-details: #94A3B8;
+  --description-list-gap: 8px;
+  --description-list-row-gap: 16px;
+  --description-list-term: #FFFFFF;
+  /* dialog */
+  --dialog-bg: #0F172A;
+  --dialog-max-width: 560px;
+  --dialog-overlay: rgba(30, 41, 59, 0.90);
+  --dialog-radius: 12px;
+  --dialog-shadow: 0px 12px 32px -4px #0F172A2E;
+  /* disclosure */
+  --disclosure-content: #94A3B8;
+  --disclosure-icon: #D3C193;
+  /* タップターゲット最小44px(WCAG 2.2 / モバイル) */
+  --disclosure-min-height: 44px;
+  --disclosure-trigger: #D3C193;
+  --disclosure-trigger-hover: #E8D5A3;
+  /* divider */
+  --divider-color: #334155;
+  --divider-gap: 16px;
+  --divider-label: #94A3B8;
+  /* drawer */
+  --drawer-bg: #0F172A;
+  --drawer-body: #94A3B8;
+  --drawer-border: #334155;
+  --drawer-overlay: rgba(30, 41, 59, 0.90);
+  --drawer-padding: 16px;
+  --drawer-shadow: 0px 4px 12px -2px #0F172A21;
+  --drawer-title: #FFFFFF;
+  --drawer-width: 320px;
+  /* elevation */
+  /* Dialog など最前面 */
+  --elevation-modal: 0px 12px 32px -4px #0F172A2E;
+  /* Toast など一時的な浮き */
+  --elevation-overlay: 0px 4px 12px -2px #0F172A21;
+  /* Card など基本の浮き */
+  --elevation-raised: 0px 1px 3px 0px #0F172A1A;
+  /* file-upload */
+  --file-upload-bg: #1E293B;
+  --file-upload-border: #334155;
+  --file-upload-border-error: #EF4444;
+  --file-upload-button-bg: #0F172A;
+  --file-upload-min-height: 44px;
+  --file-upload-name: #94A3B8;
+  --file-upload-radius: 8px;
+  --file-upload-text: #FFFFFF;
+  /* focus */
+  --focus-ring-offset: 2px;
+  --focus-ring-width: 2px;
+  /* font */
+  --font-family-admin: Inter, 'Noto Sans JP', sans-serif;
+  --font-family-corporate: 'M PLUS Rounded 1c', Inter, sans-serif;
+  --font-family-display: Comfortaa, 'M PLUS Rounded 1c', Inter, sans-serif;
+  --font-family-en: Inter, 'Noto Sans JP', sans-serif;
+  --font-family-jp: 'M PLUS Rounded 1c', 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif;
+  --font-family-mono: 'Geist Mono', 'JetBrains Mono', Menlo, monospace;
+  --font-lineHeight-base: 1.7;
+  --font-lineHeight-relaxed: 1.9;
+  --font-lineHeight-tight: 1.4;
+  --font-size-2xl: 32px;
+  --font-size-3xl: 40px;
+  --font-size-lg: 20px;
+  --font-size-md: 16px;
+  --font-size-sm: 14px;
+  --font-size-xl: 24px;
+  --font-size-xs: 12px;
+  --font-weight-bold: 700;
+  --font-weight-medium: 500;
+  --font-weight-regular: 400;
+  /* hamburger-menu-button */
+  --hamburger-menu-button-bar: #FFFFFF;
+  --hamburger-menu-button-min-size: 44px;
+  /* heading */
+  --heading-color: #FFFFFF;
+  /* horizontal-menu */
+  --horizontal-menu-border-current: #D3C193;
+  --horizontal-menu-gap: 8px;
+  --horizontal-menu-min-height: 44px;
+  --horizontal-menu-text: #94A3B8;
+  --horizontal-menu-text-current: #FFFFFF;
+  --horizontal-menu-text-hover: #FFFFFF;
+  /* image */
+  --image-border: #334155;
+  --image-caption: #94A3B8;
+  --image-radius: 8px;
+  /* input */
+  --input-bg: #0F172A;
+  /* DADS Readonly ステート用背景 */
+  --input-bg-readonly: #1E293B;
+  --input-border: #334155;
+  --input-border-error: #EF4444;
+  --input-border-focus: #D3C193;
+  --input-min-height: 44px;
+  --input-placeholder: #64748B;
+  --input-radius: 8px;
+  --input-text: #FFFFFF;
+  /* list */
+  --list-gap: 4px;
+  --list-indent: 16px;
+  --list-marker: #FFFFFF;
+  --list-text: #94A3B8;
+  /* menu-list */
+  --menu-list-bg-current: #1E293B;
+  --menu-list-bg-hover: #1E293B;
+  --menu-list-border: #334155;
+  --menu-list-min-height: 44px;
+  --menu-list-radius: 4px;
+  --menu-list-text: #FFFFFF;
+  --menu-list-text-current: #FFFFFF;
+  /* motion */
+  --motion-duration-base: 300ms;
+  --motion-duration-fast: 150ms;
+  /* prefers-reduced-motion 用 */
+  --motion-duration-none: 0ms;
+  --motion-duration-slow: 500ms;
+  --motion-easing-accelerate: cubic-bezier(0.3, 0, 1, 1);
+  --motion-easing-decelerate: cubic-bezier(0, 0, 0, 1);
+  --motion-easing-standard: cubic-bezier(0.2, 0, 0, 1);
+  /* notice-block */
+  --notice-block-body: #94A3B8;
+  --notice-block-border: #334155;
+  --notice-block-danger-accent: #EF4444;
+  --notice-block-danger-bg: rgba(239, 68, 68, 0.30);
+  --notice-block-info-accent: #3B82F6;
+  --notice-block-info-bg: rgba(59, 130, 246, 0.30);
+  --notice-block-padding: 16px;
+  --notice-block-radius: 8px;
+  --notice-block-success-accent: #10B981;
+  --notice-block-success-bg: rgba(16, 185, 129, 0.30);
+  --notice-block-title: #FFFFFF;
+  --notice-block-warning-accent: #F59E0B;
+  --notice-block-warning-bg: rgba(245, 158, 11, 0.30);
+  /* page-navigation */
+  --page-navigation-bg-current: #D3C193;
+  --page-navigation-border: #334155;
+  --page-navigation-min-height: 44px;
+  --page-navigation-radius: 4px;
+  --page-navigation-text: #FFFFFF;
+  --page-navigation-text-current: #0F172A;
+  --page-navigation-text-disabled: #64748B;
+  /* progress-indicator */
+  --progress-indicator-fill: #D3C193;
+  --progress-indicator-height: 8px;
+  --progress-indicator-label: #FFFFFF;
+  --progress-indicator-radius: 9999px;
+  --progress-indicator-track: #1E293B;
+  --progress-indicator-value: #94A3B8;
+  /* radio */
+  --radio-bg: #0F172A;
+  --radio-border: rgba(211, 193, 147, 0.50);
+  --radio-border-checked: #D3C193;
+  --radio-mark: #D3C193;
+  /* タップターゲット最小44px(WCAG 2.2 / モバイル) */
+  --radio-min-height: 44px;
+  /* 視覚上の円サイズ。タップ領域は min-height で44pxを別途確保 */
+  --radio-size: 20px;
+  /* radius */
+  --radius-full: 9999px;
+  --radius-lg: 12px;
+  --radius-md: 8px;
+  --radius-none: 0px;
+  --radius-sm: 4px;
+  --radius-xl: 16px;
+  /* resource-list */
+  --resource-list-bg-hover: #1E293B;
+  --resource-list-border: #334155;
+  --resource-list-description: #94A3B8;
+  --resource-list-meta: #64748B;
+  --resource-list-padding: 16px;
+  --resource-list-radius: 8px;
+  --resource-list-title: #FFFFFF;
+  /* scroll-top-button */
+  --scroll-top-button-bg: #1E293B;
+  --scroll-top-button-border: #334155;
+  --scroll-top-button-min-size: 44px;
+  --scroll-top-button-radius: 9999px;
+  --scroll-top-button-shadow: 0px 1px 3px 0px #0F172A1A;
+  --scroll-top-button-text: #FFFFFF;
+  /* search-box */
+  --search-box-bg: #0F172A;
+  --search-box-border: #334155;
+  --search-box-border-focus: #D3C193;
+  --search-box-min-height: 44px;
+  --search-box-radius: 8px;
+  --search-box-text: #FFFFFF;
+  /* select */
+  --select-bg: #0F172A;
+  --select-border: #334155;
+  --select-border-error: #EF4444;
+  --select-border-focus: #D3C193;
+  --select-icon: #94A3B8;
+  --select-min-height: 44px;
+  --select-radius: 8px;
+  --select-text: #FFFFFF;
+  /* shadow */
+  --shadow-level1: 0px 1px 3px 0px #0F172A1A;
+  --shadow-level2: 0px 4px 12px -2px #0F172A21;
+  --shadow-level3: 0px 12px 32px -4px #0F172A2E;
+  /* shape */
+  --shape-radius-full: 9999px;
+  --shape-radius-lg: 12px;
+  --shape-radius-md: 8px;
+  --shape-radius-sm: 4px;
+  /* site-header */
+  --site-header-bg: #0F172A;
+  --site-header-border: #334155;
+  /* バーの最小高さ。縦余白は flex 中央寄せで確保し、padding-y は使わない */
+  --site-header-height: 64px;
+  /* 左右ガター。本文インセットと揃えるときは --site-header-padding-x で上書き可 */
+  --site-header-padding-x: 16px;
+  /* skeleton */
+  --skeleton-bg: #334155;
+  --skeleton-bg-highlight: #1E293B;
+  --skeleton-radius: 4px;
+  /* space */
+  --space-0: 0px;
+  --space-1: 4px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-2: 8px;
+  --space-2xl: 48px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-lg: 24px;
+  --space-md: 16px;
+  --space-sm: 8px;
+  --space-xl: 32px;
+  --space-xs: 4px;
+  /* step-navigation */
+  --step-navigation-connector: #334155;
+  --step-navigation-gap: 16px;
+  --step-navigation-index-bg: #1E293B;
+  --step-navigation-index-bg-current: #D3C193;
+  --step-navigation-index-text-current: #0F172A;
+  --step-navigation-text: #94A3B8;
+  --step-navigation-text-complete: #FFFFFF;
+  --step-navigation-text-current: #FFFFFF;
+  /* switch */
+  /* タップターゲット最小44px(WCAG 2.2 / モバイル) */
+  --switch-min-height: 44px;
+  --switch-thumb: #0F172A;
+  --switch-thumb-size: 20px;
+  --switch-track: rgba(211, 193, 147, 0.50);
+  --switch-track-checked: #D3C193;
+  --switch-track-height: 24px;
+  --switch-track-width: 44px;
+  /* tab */
+  --tab-border: #334155;
+  --tab-border-selected: #D3C193;
+  --tab-gap: 4px;
+  /* タップターゲット最小44px(WCAG 2.2 / モバイル) */
+  --tab-min-height: 44px;
+  --tab-padding-x: 16px;
+  --tab-text: #94A3B8;
+  --tab-text-selected: #FFFFFF;
+  /* table-of-contents */
+  --table-of-contents-border: #334155;
+  --table-of-contents-gap: 4px;
+  --table-of-contents-link: #D3C193;
+  --table-of-contents-link-hover: #E8D5A3;
+  --table-of-contents-title: #FFFFFF;
+  /* table */
+  --table-bg: #0F172A;
+  --table-border: #334155;
+  --table-cell-padding-x: 16px;
+  --table-cell-padding-y: 8px;
+  --table-header-bg: #1E293B;
+  --table-row-hover: rgba(255, 255, 255, 0.05);
+  --table-row-selected: #334155;
+  /* DADS ストライプ行背景 */
+  --table-row-stripe: #1E293B;
+  /* toast */
+  --toast-bg: #0F172A;
+  --toast-border: #334155;
+  --toast-padding: 16px;
+  --toast-radius: 8px;
+  --toast-shadow: 0px 4px 12px -2px #0F172A21;
+  /* typography */
+  --typography-body: 400 16px /1.9 'M PLUS Rounded 1c', 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif;
+  --typography-body-small: 400 14px /1.7 'M PLUS Rounded 1c', 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif;
+  --typography-caption: 400 12px /1.4 'M PLUS Rounded 1c', 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif;
+  --typography-code: 400 14px /1.7 'Geist Mono', 'JetBrains Mono', Menlo, monospace;
+  --typography-display: 700 40px /1.4 Comfortaa, 'M PLUS Rounded 1c', Inter, sans-serif;
+  --typography-heading-1: 700 32px /1.4 Comfortaa, 'M PLUS Rounded 1c', Inter, sans-serif;
+  --typography-heading-2: 700 24px /1.4 'M PLUS Rounded 1c', 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif;
+  --typography-heading-3: 500 20px /1.7 'M PLUS Rounded 1c', 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif;
+  /* utility-link */
+  --utility-link-text: #94A3B8;
+  --utility-link-text-hover: #D3C193;
+  /* zIndex */
+  --zIndex-dropdown: 1000;
+  --zIndex-modal: 1400;
+  --zIndex-overlay: 1300;
+  --zIndex-sticky: 1100;
+  --zIndex-toast: 1700;
+}

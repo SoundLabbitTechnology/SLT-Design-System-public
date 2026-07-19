@@ -204,7 +204,7 @@ const manifest = {
     keys: [...componentRecord.keys()].sort(),
     tokens: Object.fromEntries(componentRecord),
   },
-  componentPropsMapping: "docs/L2-components/figma-props-mapping.md",
+  componentPropsMapping: null,
   runbook: "design-tokens/README.md",
 };
 

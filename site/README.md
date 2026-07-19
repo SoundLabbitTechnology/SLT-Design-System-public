@@ -77,4 +77,4 @@ ADR、consumer 固有 migration、監査 snapshot、roadmap は GitHub へリン
 2. リポジトリ Settings → Pages（Source: GitHub Actions）を確認
 3. `docs-deploy.yml` に `push: branches: [main]` を戻すか、Actions から手動実行
 4. 候補値例: `DOCS_SITE=https://soundlabbittechnology.github.io` / `DOCS_BASE=/SLT-Design-System-public/`
-5. ルート README / ROADMAP に固定 URL を再掲
+5. ルート README / site/README に固定 URL を再掲

@@ -1,16 +1,16 @@
 # @soundlabbit/design-system
 
-> **Public mirror** of the SLT Design System. See [docs/MIRROR.md](./docs/MIRROR.md).
-
 Sound Labbit Technology のマルチブランド・デザインシステムです。DTCG トークン、テーマ対応 CSS、React コンポーネント、Storybook、Docs site（当面はローカル）を一つのリポジトリで管理します。
+
+**公開ドキュメントの入口は Docs site**（`npm run docs:dev`）。サイトに載せる Markdown だけを `docs/` に置きます（[docs/README.md](./docs/README.md)）。
 
 ## まず選ぶ
 
 | 目的 | 入口 |
 |------|------|
 | プロダクトへ導入する | [5 分で導入](#5-分で導入) |
-| コンポーネントを探す | [L2 コンポーネント索引](./docs/L2-components/README.md) / `npm run storybook` |
-| デザイン判断を確認する | `npm run docs:dev`（[site/README.md](./site/README.md)） / [ドキュメント索引](./docs/README.md) |
+| コンポーネントを探す | `npm run docs:dev` → `/components/` / `npm run storybook` |
+| デザイン判断を確認する | `npm run docs:dev`（[site/README.md](./site/README.md)） |
 | 変更を提案する | [CONTRIBUTING](./docs/CONTRIBUTING.md) |
 | リリースする | [RELEASING](./docs/RELEASING.md) |
 | AI エージェントで作業する | [CLAUDE.md](./CLAUDE.md) / [ハーネス](./docs/L6-harness-and-loops.md) |
@@ -89,7 +89,7 @@ export function DeleteProject() {
 }
 ```
 
-破壊的操作は確認とキャンセルを含む `Dialog` を使います。各 API と利用判断は [コンポーネント索引](./docs/L2-components/README.md) を参照してください。
+破壊的操作は確認とキャンセルを含む `Dialog` を使います。各 API と利用判断は Docs site の `/components/`（`npm run docs:dev`）または Storybook を参照してください。
 
 ## コンポーネント
 
@@ -99,7 +99,7 @@ export function DeleteProject() {
 | P1 | BrandBackground, WaveBackground, GridBackground, Toast, SiteHeader |
 | P2 | Skeleton, Table / DataTable |
 
-Tier は利用可否ではなく、システム内の優先度を表します。公開されている全コンポーネントは同じ DoD を満たします。
+Tier は利用可否ではなく、システム内の優先度を表します。公開コンポーネントの一覧は Docs site `/components/` が正です。
 
 ## トークン利用ルール
 
@@ -138,12 +138,12 @@ npm run docs:dev        # http://localhost:4321
 | [`design-tokens/`](./design-tokens/) | DTCG token source |
 | [`src/`](./src/) | React components と型 |
 | [`styles/`](./styles/) | component / utility CSS |
-| [`docs/`](./docs/) | 原則・仕様・運用の正本 |
+| [`docs/`](./docs/) | Docs site が読み込む公開 Markdown 正本 |
 | [`stories/`](./stories/) | Storybook の入口と判断用 samples |
-| [`site/`](./site/) | Astro Docs site |
+| [`site/`](./site/) | Astro Docs site（公開ドキュメントの閲覧面） |
 | [`scripts/harness/`](./scripts/harness/) | 自動品質ゲートとメトリクス |
 
-現在地は [ROADMAP](./docs/ROADMAP.md)、変更履歴は [CHANGELOG](./CHANGELOG.md) を参照してください。
+変更履歴は [CHANGELOG](./CHANGELOG.md) を参照してください。
 
 ## ライセンス
 

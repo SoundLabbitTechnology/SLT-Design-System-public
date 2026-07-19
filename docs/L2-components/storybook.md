@@ -107,7 +107,7 @@ Landing Canvas は複数 component を組み合わせたブランド判断用 sa
 1. implementation と public export を追加する。
 2. literal title、tier、layout を設定する。
 3. 代表 state と必要な `play` test を追加する。
-4. site component MDX と L2 索引 / guide を更新する。
+4. site component MDX と `COMPONENT_NAV` を更新する。
 5. `npm run check`、`npm run storybook:check`、`npm run docs:check` を通す。
 
-全体の完成条件は [DoD](./dod.md)、情報同期は [DOCUMENTATION](../DOCUMENTATION.md) を参照してください。
+情報同期は [DOCUMENTATION](../DOCUMENTATION.md) を参照してください。

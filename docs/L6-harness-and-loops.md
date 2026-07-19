@@ -107,8 +107,7 @@ P1 / P2 を対象外にすることは品質免除ではありません。高リ
 | 代表 | アプリ型・LP 型の P1 |
 | 検証 | Lighthouse CI（performance / a11y / CWV）+ E2E smoke 最小 3 本 |
 | Cadence | PR gate（目標）、release 前、週次 L3 と併用 |
-| 正本 | [`templates/consumer-g5/`](../templates/consumer-g5/)（#37） |
-| テンプレ | 同上 |
+| 正本 | consumer リポジトリの Lighthouse / E2E CI（#37） |
 
 失敗時の DS vs product ownership とエスカレーションは Runbook が正本。L3 の `npm run metrics`（#4）は diff-only の token compliance proxy — G5 と併用して採用・実画面品質を見る。
 
@@ -122,7 +121,7 @@ P1 / P2 を対象外にすることは品質免除ではありません。高リ
 | 2 | JSON の `alerts` と `trend` を読む（`metrics/history/YYYY-MM-DD.json`） |
 | 3 | `rawValueViolationLines` / 低 `tokenComplianceProxy` → PR または G1 修正候補を issue 化 |
 | 4 | 同一種類の override が 3 回以上 → [`metrics/OVERRIDE_BACKLOG_TEMPLATE.md`](../metrics/OVERRIDE_BACKLOG_TEMPLATE.md) で backlog |
-| 5 | consumer の採用・例外を定性メモ（issue コメント可）。G5 失敗があれば [`templates/consumer-g5/`](../templates/consumer-g5/) と DS / product 責務で切り分け |
+| 5 | consumer の採用・例外を定性メモ（issue コメント可）。G5 失敗があれば DS / product 責務で切り分け |
 | 6 | release 週は加えて Chromatic 失敗・未文書 API・exception allow の期限を確認 |
 
 ```bash
@@ -156,11 +155,11 @@ metric は評価目的ではなく、設計システムの不足を見つける 
 
 | 問い（公開リポ） | 証拠 |
 |------|------|
-| 恒常原則 A と DoD / 実装にずれはないか | Storybook、監査、issue |
-| Laws of UX アンカーに追随漏れはないか | [ADR-004](./decisions/ADR-004-laws-of-ux.md) |
-| 公開ドキュメントに社内戦略・PII が混入していないか | [DOCUMENTATION](./DOCUMENTATION.md) / [MIRROR](./MIRROR.md) |
+| 恒常原則 A と品質基準 / 実装にずれはないか | Storybook、Issues、L5 |
+| Laws of UX アンカーに追随漏れはないか | [lawsofux.com](https://lawsofux.com/)、公開 L0 |
+| 公開ドキュメントに社内戦略・PII が混入していないか | [DOCUMENTATION](./DOCUMENTATION.md) |
 
-結果は date 付き audit または ADR に残し、変更する場合は公開 L0 から downstream docs、token、component、gate へ反映します。
+結果は date 付きメモまたは CHANGELOG に残し、変更する場合は公開 L0 から downstream docs、token、component、gate へ反映します。
 
 手順・参加者・アジェンダ・DADS 同期は [L6 四半期ガバナンス Runbook](./L6-governance.md#四半期ガバナンスクラスタ)（#17 / #35）が正本。
 
