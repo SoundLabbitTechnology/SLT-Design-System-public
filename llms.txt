@@ -7,7 +7,7 @@
 
 - Docs site: `npm run docs:dev` → http://localhost:4321 (local only; see site/README.md)
 - Storybook: `npm run storybook` → http://localhost:6006
-- Public docs sources: only what DOC_ROUTES / site content load under docs/
+- Public Markdown: `site/src/content/docs/` + `site/src/content/components/` (DOC_ROUTES)
 
 ## Token Rules (MANDATORY for AI)
 
@@ -35,10 +35,11 @@ data-color-mode: light | dark (default: dark for products, light for admin)
 - No --spacing-* in @theme (Tailwind v4 collision)
 - danger buttons must pair with cancel
 - 44px min tap targets, focus rings required
-- Motion: docs/L1-foundations/motion-craft.md; deep dive .cursor/skills/
+- Motion: Docs site /foundations/motion/; deep dive .cursor/skills/
 
 ## More
 
-- Index: docs/README.md
+- Docs site: site/README.md
 - Agent rules: CLAUDE.md / AGENTS.md
 - Changelog: CHANGELOG.md
+- Long-form design/process authoring: Private repo

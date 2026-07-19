@@ -4,7 +4,7 @@ import DocLayout from "../layouts/DocLayout.astro";
 import PageHero from "../components/PageHero.astro";
 
 const entry = await getEntry("guidelines", "l0-principles");
-if (!entry) throw new Error("docs/L0-principles.md not found in guidelines collection");
+if (!entry) throw new Error("L0-principles.md not found in guidelines collection");
 const { Content } = await render(entry);
 ---
 

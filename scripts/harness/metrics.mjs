@@ -230,7 +230,7 @@ Options:
   --help              Show this help
 
 Thresholds: metrics/thresholds.json
-Runbook: docs/L6-harness-and-loops.md (L3 Operations)
+Runbook: site/src/content/docs/L6-harness-and-loops.md (L3 Operations)
 `);
 }
 

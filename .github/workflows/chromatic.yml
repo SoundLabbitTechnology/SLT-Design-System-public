@@ -1,7 +1,7 @@
 # G4 — Chromatic ビジュアル回帰（L2 統合ループ）
 # 要: GitHub Actions secret `CHROMATIC_PROJECT_TOKEN`
 # 取得: https://www.chromatic.com → プロジェクト Manage → Project token
-# 手順: docs/L6-harness-and-loops.md（G4 節）
+# 手順: site/src/content/docs/L6-harness-and-loops.md（G4 節）
 
 name: Chromatic
 
@@ -27,7 +27,7 @@ jobs:
         run: |
           echo "::notice::CHROMATIC_PROJECT_TOKEN 未設定のため G4 Chromatic をスキップします。"
           echo "Chromatic でプロジェクトを作成し、リポジトリ Secrets に追加してください。"
-          echo "docs/L6-harness-and-loops.md#g4--chromatic"
+          echo "site/src/content/docs/L6-harness-and-loops.md#g4--chromatic"
 
       - uses: actions/setup-node@v4
         if: env.CHROMATIC_PROJECT_TOKEN != ''

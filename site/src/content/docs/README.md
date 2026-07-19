@@ -1,9 +1,9 @@
 # SLT Design System — ドキュメント索引
 
 本リポジトリの **公開ドキュメント正本は Astro Docs site（`site/`）に載せるものだけ**です。
-`docs/` の Markdown はサイトが読み込むソースであり、サイトに出ない運用メモ・ADR・参考原本は置きません。
+`site/src/content/docs/` の Markdown はサイトが読み込むソースであり、サイトに出ない運用メモ・ADR・参考原本は置きません。
 
-閲覧: `npm run docs:dev` → http://localhost:4321（当面ローカルのみ。[site/README.md](../site/README.md)）
+閲覧: `npm run docs:dev` → http://localhost:4321（当面ローカルのみ。[site/README.md](../../../README.md)）
 
 ## Docs site に載る文書
 
@@ -29,17 +29,17 @@
 
 | 目的 | 入口 |
 |------|------|
-| 導入する | `npm run docs:dev` → はじめに / 導入方法、または [ルート README](../README.md) |
+| 導入する | `npm run docs:dev` → はじめに / 導入方法、または [ルート README](../../../../README.md) |
 | UI を設計・実装する | デザイン原則 → スタイル → コンポーネント → ガイドライン |
 | コンポーネントを追加する | [CONTRIBUTING](./CONTRIBUTING.md) / [Storybook 標準](./L2-components/storybook.md) |
-| リリースする | [RELEASING](./RELEASING.md) / [CHANGELOG](../CHANGELOG.md) |
-| AI で変更する | [CLAUDE.md](../CLAUDE.md) / [ハーネス](./L6-harness-and-loops.md) |
+| リリースする | [RELEASING](./RELEASING.md) / [CHANGELOG](../../../../CHANGELOG.md) |
+| AI で変更する | [CLAUDE.md](../../../../CLAUDE.md) / [ハーネス](./L6-harness-and-loops.md) |
 
 ## 正本と閲覧面
 
 | 面 | 責務 |
 |----|------|
-| `docs/`（本ディレクトリ） | サイトに載せる Markdown 正本のみ |
+| `site/src/content/docs/`（本ディレクトリ） | サイトに載せる Markdown 正本のみ |
 | Docs site（`site/`） | 導入・基盤・コンポーネント要約・ガイドライン |
 | Storybook | props、状態、操作、テーマ、a11y |
 | `design-tokens/` | DTCG トークンの機械可読正本 |

@@ -30,29 +30,31 @@ const SKIP_NAMES = new Set([
   "storybook-static",
 ]);
 
+const SITE_DOCS = "site/src/content/docs";
+
 const REQUIRED_DOCS = [
   "README.md",
   "AGENTS.md",
   "CLAUDE.md",
   "llms.txt",
   "CHANGELOG.md",
-  "docs/README.md",
-  "docs/L0-principles.md",
-  "docs/L1-foundations/tokens.md",
-  "docs/L1-foundations/colors.md",
-  "docs/L1-foundations/typography.md",
-  "docs/L1-foundations/spacing-motion.md",
-  "docs/L1-foundations/motion-craft.md",
-  "docs/L2-components/storybook.md",
-  "docs/L3-patterns.md",
-  "docs/L4-content.md",
-  "docs/L4-terminology.md",
-  "docs/L5-quality.md",
-  "docs/L6-governance.md",
-  "docs/L6-harness-and-loops.md",
-  "docs/CONTRIBUTING.md",
-  "docs/DOCUMENTATION.md",
-  "docs/RELEASING.md",
+  `${SITE_DOCS}/README.md`,
+  `${SITE_DOCS}/L0-principles.md`,
+  `${SITE_DOCS}/L1-foundations/tokens.md`,
+  `${SITE_DOCS}/L1-foundations/colors.md`,
+  `${SITE_DOCS}/L1-foundations/typography.md`,
+  `${SITE_DOCS}/L1-foundations/spacing-motion.md`,
+  `${SITE_DOCS}/L1-foundations/motion-craft.md`,
+  `${SITE_DOCS}/L2-components/storybook.md`,
+  `${SITE_DOCS}/L3-patterns.md`,
+  `${SITE_DOCS}/L4-content.md`,
+  `${SITE_DOCS}/L4-terminology.md`,
+  `${SITE_DOCS}/L5-quality.md`,
+  `${SITE_DOCS}/L6-governance.md`,
+  `${SITE_DOCS}/L6-harness-and-loops.md`,
+  `${SITE_DOCS}/CONTRIBUTING.md`,
+  `${SITE_DOCS}/DOCUMENTATION.md`,
+  `${SITE_DOCS}/RELEASING.md`,
   "site/README.md",
   "stories/Introduction.mdx",
   "stories/L1/Theming.mdx",
@@ -60,22 +62,22 @@ const REQUIRED_DOCS = [
 ];
 
 const REQUIRED_PUBLIC_DOCS = [
-  "docs/L0-principles.md",
-  "docs/L1-foundations/tokens.md",
-  "docs/L1-foundations/colors.md",
-  "docs/L1-foundations/typography.md",
-  "docs/L1-foundations/spacing-motion.md",
-  "docs/L1-foundations/motion-craft.md",
-  "docs/L2-components/storybook.md",
-  "docs/L3-patterns.md",
-  "docs/L4-content.md",
-  "docs/L4-terminology.md",
-  "docs/L5-quality.md",
-  "docs/L6-governance.md",
-  "docs/L6-harness-and-loops.md",
-  "docs/CONTRIBUTING.md",
-  "docs/DOCUMENTATION.md",
-  "docs/RELEASING.md",
+  `${SITE_DOCS}/L0-principles.md`,
+  `${SITE_DOCS}/L1-foundations/tokens.md`,
+  `${SITE_DOCS}/L1-foundations/colors.md`,
+  `${SITE_DOCS}/L1-foundations/typography.md`,
+  `${SITE_DOCS}/L1-foundations/spacing-motion.md`,
+  `${SITE_DOCS}/L1-foundations/motion-craft.md`,
+  `${SITE_DOCS}/L2-components/storybook.md`,
+  `${SITE_DOCS}/L3-patterns.md`,
+  `${SITE_DOCS}/L4-content.md`,
+  `${SITE_DOCS}/L4-terminology.md`,
+  `${SITE_DOCS}/L5-quality.md`,
+  `${SITE_DOCS}/L6-governance.md`,
+  `${SITE_DOCS}/L6-harness-and-loops.md`,
+  `${SITE_DOCS}/CONTRIBUTING.md`,
+  `${SITE_DOCS}/DOCUMENTATION.md`,
+  `${SITE_DOCS}/RELEASING.md`,
 ];
 
 /** @type {string[]} */
@@ -225,7 +227,9 @@ function checkComponentParity() {
 
 function checkPublicRoutes() {
   const routeSource = read("site/src/lib/doc-routes.ts");
-  const routes = [...routeSource.matchAll(/"(docs\/[^"]+\.md)"\s*:\s*"([^"]+)"/g)];
+  const routes = [
+    ...routeSource.matchAll(/"(site\/src\/content\/docs\/[^"]+\.md)"\s*:\s*"([^"]+)"/g),
+  ];
   const bySource = new Map(routes.map((match) => [match[1], match[2]]));
   const routeValues = routes.map((match) => match[2]);
 
@@ -234,27 +238,33 @@ function checkPublicRoutes() {
   }
   for (const [source] of bySource) {
     if (!existsSync(join(ROOT, source))) fail(`DOC_ROUTES source does not exist: ${source}`);
-    if (source.startsWith("docs/internal/")) {
+    if (source.includes("/internal/")) {
       fail(`internal document must not be in DOC_ROUTES: ${source}`);
     }
   }
   if (new Set(routeValues).size !== routeValues.length) fail("DOC_ROUTES contains duplicate public routes");
 
   const contentConfig = read("site/src/content.config.ts");
-  if (/docs\/internal|internal\/L0/.test(contentConfig)) {
-    fail("site/src/content.config.ts must not load docs/internal/ into content collections");
+  if (/content\/docs\/internal|internal\/L0/.test(contentConfig)) {
+    fail("site/src/content.config.ts must not load internal docs into content collections");
+  }
+  if (/\.\.\/docs/.test(contentConfig)) {
+    fail("site/src/content.config.ts must not load content from ../docs/ (use site/src/content/docs)");
   }
 }
 
-/** Keep docs/internal off the Docs site public surface. */
+/** Keep internal authoring off the Docs site public surface. */
 function checkInternalNotOnSite() {
   const routeSource = read("site/src/lib/doc-routes.ts");
-  if (/docs\/internal\//.test(routeSource)) {
-    fail("docs/internal/ must not appear in DOC_ROUTES");
+  if (/\/internal\//.test(routeSource)) {
+    fail("internal paths must not appear in DOC_ROUTES");
   }
   const contentConfig = read("site/src/content.config.ts");
-  if (/docs\/internal|internal\/L0/.test(contentConfig)) {
-    fail("site/src/content.config.ts must not load docs/internal/ into content collections");
+  if (/content\/docs\/internal|internal\/L0/.test(contentConfig)) {
+    fail("site/src/content.config.ts must not load internal docs into content collections");
+  }
+  if (existsSync(join(ROOT, "docs"))) {
+    fail("standalone docs/ must not exist; public Markdown lives under site/src/content/docs/");
   }
 }
 

@@ -6,7 +6,7 @@ import { DOC_ROUTES, GITHUB_BASE } from "./src/lib/doc-routes.ts";
 const REPO_ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 
 /**
- * docs/*.md 内の相対 Markdown リンクを書き換える remark プラグイン。
+ * site/src/content/docs/*.md 内の相対 Markdown リンクを書き換える remark プラグイン。
  * - DOC_ROUTES に載っているファイル → サイト内ルート（BASE_URL 付与）
  * - `/components/...` 等のサイト内絶対パス → BASE_URL 付与
  * - それ以外の repo 内ファイル（ADR 等） → GitHub blob URL

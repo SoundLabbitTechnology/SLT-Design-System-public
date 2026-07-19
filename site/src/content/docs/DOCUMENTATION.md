@@ -6,21 +6,21 @@
 
 - 正本 Markdown は `site/src/lib/doc-routes.ts`（`DOC_ROUTES`）と content collections から辿れるものに限定する。
 - サイト非掲載の運用メモ、ADR 集、長い参考原本、採用テンプレは置かない。
-- AI 向けの最短ルールはルートの [CLAUDE.md](../CLAUDE.md) / [AGENTS.md](../AGENTS.md) に集約する（サイト非掲載）。
+- AI 向けの最短ルールはルートの [CLAUDE.md](../../../../CLAUDE.md) / [AGENTS.md](../../../../AGENTS.md) に集約する（サイト非掲載）。
 - モーション深掘りは `.cursor/skills/` と upstream（[emilkowalski/skills](https://github.com/emilkowalski/skills)）。サイト正本は [motion-craft.md](./L1-foundations/motion-craft.md)。
 
 ## 役割分担
 
 | 情報 | 正本 | 閲覧面 |
 |------|------|--------|
-| 原則・基盤・パターン・品質・技術運用 | `docs/`（DOC_ROUTES 対象） | Docs site（`npm run docs:dev`） |
+| 原則・基盤・パターン・品質・技術運用 | `site/src/content/docs/`（DOC_ROUTES 対象） | Docs site（`npm run docs:dev`） |
 | コンポーネント利用判断・Do/Don't | `site/src/content/components/*.mdx` | Docs site `/components/` |
 | React API・props・型 | `src/` | Storybook Autodocs + Docs site の要約 |
 | 状態・操作・テーマ差・a11y | `*.stories.tsx` | Storybook |
 | トークン名と値 | semantic / component token files | Docs site のトークン表 |
 | Storybook 書式 | [L2-components/storybook.md](./L2-components/storybook.md) | `/guidelines/storybook/` |
 
-同じ文章を複数面で全文管理しません。Docs site の Markdown ページは `docs/` を直接読み込み、コンポーネントページは利用判断だけを要約し、API はコードへ追従させます。
+同じ文章を複数面で全文管理しません。Docs site の Markdown ページは `site/src/content/docs/` を直接読み込み、コンポーネントページは利用判断だけを要約し、API はコードへ追従させます。
 
 ## Docs site に載せない
 
@@ -54,7 +54,7 @@
 
 ## Docs site の基準
 
-当面はローカル運用（固定のインターネット公開 URL は使わない。再開手順は [site/README.md](../site/README.md)）。
+当面はローカル運用（固定のインターネット公開 URL は使わない。再開手順は [site/README.md](../../../README.md)）。
 
 - 導入、基盤、全コンポーネント、パターン、コンテンツ、品質、運用へナビゲーションできる。
 - すべてのコンポーネントに説明、デモ、最小コード、Props、Do/Don't または利用上の注意がある。

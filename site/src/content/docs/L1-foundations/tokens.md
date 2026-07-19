@@ -2,7 +2,7 @@
 
 文書番号: SLT-DS-001 §4
 
-正本: [`design-tokens/`](../../design-tokens/)
+正本: [`design-tokens/`](../../../../../design-tokens/)
 
 判断の上位: [L0 原則](../L0-principles.md)
 
@@ -93,7 +93,7 @@ import { Button } from '@soundlabbit/design-system/ui';
 | breakpoint / z-index / focus | responsive、重なり、keyboard focus | [spacing-motion.md](./spacing-motion.md) |
 | component | Button、Input、Dialog、SiteHeader などの局所仕様（例: `site-header.padding-x`、高さ駆動の chrome） | Docs site `/components/` |
 
-DADS の基本デザイン（カラー・タイポグラフィ・余白・角の形状・エレベーション等）との対応関係は [CHANGELOG](../../CHANGELOG.md) を参照してください。
+DADS の基本デザイン（カラー・タイポグラフィ・余白・角の形状・エレベーション等）との対応関係は [CHANGELOG](../../../../../CHANGELOG.md) を参照してください。
 
 ## 編集と生成物
 
@@ -114,10 +114,10 @@ npm run check:fast
 
 追加・変更時は全テーマで key が一致すること、参照が解決すること、公開ドキュメントが primitive 値を露出しないことを G0 と docs contract で検証します。
 
-Figma Variables との同期手順は [design-tokens README](../../design-tokens/README.md)（#15）。
+Figma Variables との同期手順は [design-tokens README](../../../../../design-tokens/README.md)（#15）。
 
 ## Tailwind v4
 
 カスタム `--spacing-*` を `@theme` に定義しません。`max-w-md` など Tailwind の名前空間と衝突します。余白は Tailwind 既定スケールまたは `var(--space-*)` を使います。
 
-導入時の CSS レイヤー順はルート [README](../../README.md#5-分で導入) を参照してください。
+導入時の CSS レイヤー順はルート [README](../../../../../README.md#5-分で導入) を参照してください。

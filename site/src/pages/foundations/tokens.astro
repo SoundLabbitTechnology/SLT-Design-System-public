@@ -3,7 +3,7 @@ import { getEntry, render } from "astro:content";
 import DocLayout from "../../layouts/DocLayout.astro";
 
 const entry = await getEntry("tokenGuides", "tokens");
-if (!entry) throw new Error("docs/L1-foundations/tokens.md not found in tokenGuides collection");
+if (!entry) throw new Error("tokens.md not found in tokenGuides collection");
 const { Content } = await render(entry);
 ---
 

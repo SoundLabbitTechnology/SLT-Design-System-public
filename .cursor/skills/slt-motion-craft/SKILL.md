@@ -11,8 +11,8 @@ description: >-
 
 ## Required reading (in order)
 
-1. [docs/L1-foundations/motion-craft.md](../../../docs/L1-foundations/motion-craft.md) — SLT token mapping and non-negotiables
-2. [docs/L1-foundations/spacing-motion.md](../../../docs/L1-foundations/spacing-motion.md) — token categories
+1. [motion-craft.md](../../../site/src/content/docs/L1-foundations/motion-craft.md) — SLT token mapping and non-negotiables
+2. [spacing-motion.md](../../../site/src/content/docs/L1-foundations/spacing-motion.md) — token categories
 3. Deep dive from vendored Emil skills under `.cursor/skills/` when needed
 
 ## Hard constraints (this repo)

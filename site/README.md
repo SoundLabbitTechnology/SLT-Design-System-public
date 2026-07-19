@@ -3,6 +3,8 @@
 SLT Design System のドキュメント閲覧面（Astro）。  
 **当面の運用はローカルのみ**です。固定の公開 URL は使いません。
 
+公開 Markdown の正本もこの `site/` 配下（`src/content/docs/`）にあります。設計・プロセスの長文執筆は Private リポジトリ側です。
+
 | 項目 | 値 |
 |------|-----|
 | 運用 | `npm run docs:dev`（ローカル） |
@@ -14,13 +16,11 @@ SLT Design System のドキュメント閲覧面（Astro）。
 
 | 内容 | 正本 | Site の役割 |
 |------|------|-------------|
-| L0 / L1 / L3〜L6 | [`docs/`](../docs/) | 直接 render |
-| Component usage | `site/src/content/components/*.mdx` | demo と要約 |
-| React API | [`src/`](../src/) | props 表へ要約 |
+| L0 / L1 / L3〜L6 | [`src/content/docs/`](./src/content/docs/) | 直接 render |
+| Component usage | `src/content/components/*.mdx` | demo と要約 |
+| React API | [`../src/`](../src/) | props 表へ要約 |
 | Token values | 生成済み `dist/slt-tokens.json` | semantic / component のみ表示 |
-| 情報設計 | [DOCUMENTATION](../docs/DOCUMENTATION.md) | nav と route へ反映 |
-
-長文を site 固有ファイルへ複製せず、canonical Markdown を content collection から読み込みます。
+| 情報設計 | [DOCUMENTATION](./src/content/docs/DOCUMENTATION.md) | nav と route へ反映 |
 
 ## 起動と検証（ローカル運用）
 
@@ -41,7 +41,7 @@ npm run docs:preview   # site/dist を preview
 |-------|---------------|
 | `/` | 対象読者と主要入口 |
 | `/getting-started/` | install、theme、CSS、React、verification |
-| `/principles/` | `docs/L0-principles.md` |
+| `/principles/` | `src/content/docs/L0-principles.md` |
 | `/foundations/*` | L1 Markdown + live token reference |
 | `/components/*` | public component の demo / code / props / usage |
 | `/guidelines/*` | L2 authoring、L3〜L6、contributing、releasing 等 |
@@ -55,6 +55,7 @@ ADR、consumer 固有 migration、監査 snapshot、roadmap は GitHub へリン
 | `src/lib/nav.ts` | sidebar と component / guideline 順序 |
 | `src/lib/doc-routes.ts` | canonical Markdown と route の対応 |
 | `src/content.config.ts` | content collections |
+| `src/content/docs/*.md` | 原則・基盤・ガイドラインの Markdown |
 | `src/content/components/*.mdx` | component ごとの demo / usage summary |
 | `remark-doc-links.mjs` | Markdown / MDX の内部リンクを base path / GitHub へ変換 |
 

@@ -1,6 +1,6 @@
 # L1. カラー
 
-正本: [`design-tokens/semantic.*.json`](../../design-tokens/)
+正本: [`design-tokens/semantic.*.json`](../../../../../design-tokens/)
 
 UI と AI は semantic / component token だけを参照します。
 

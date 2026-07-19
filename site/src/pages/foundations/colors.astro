@@ -5,7 +5,7 @@ import PageHero from "../../components/PageHero.astro";
 import ColorSwatchGrid from "../../components/ColorSwatchGrid.astro";
 
 const entry = await getEntry("tokenGuides", "colors");
-if (!entry) throw new Error("docs/L1-foundations/colors.md not found in tokenGuides collection");
+if (!entry) throw new Error("colors.md not found in tokenGuides collection");
 const { Content } = await render(entry);
 
 const groups: { group: "surface" | "text" | "border" | "action" | "feedback" | "interactive"; title: string }[] = [

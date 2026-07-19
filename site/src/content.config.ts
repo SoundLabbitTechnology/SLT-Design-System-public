@@ -24,10 +24,8 @@ export const collections = {
     }),
   }),
   guidelines: defineCollection({
-    // docs/ は site/ の外にあるが、content layer の glob loader は base を
-    // 任意の相対パスに向けられる（symlink / コピースクリプト不要）。
     loader: glob({
-      base: "../docs",
+      base: "./src/content/docs",
       pattern: [
         "L0-principles.md",
         "L2-components/storybook.md",
@@ -45,7 +43,7 @@ export const collections = {
   }),
   tokenGuides: defineCollection({
     loader: glob({
-      base: "../docs/L1-foundations",
+      base: "./src/content/docs/L1-foundations",
       pattern: [
         "tokens.md",
         "colors.md",

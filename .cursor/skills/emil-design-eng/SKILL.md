@@ -1,6 +1,6 @@
 ---
 name: emil-design-eng
-description: This skill encodes Emil Kowalski's philosophy on UI polish, component design, animation decisions, and the invisible details that make software feel great. In SLT Design System, prefer docs/L1-foundations/motion-craft.md token mapping over raw easing/duration values.
+description: This skill encodes Emil Kowalski's philosophy on UI polish, component design, animation decisions, and the invisible details that make software feel great. In SLT Design System, prefer site/src/content/docs/L1-foundations/motion-craft.md token mapping over raw easing/duration values.
 ---
 
 # Design Engineering
@@ -9,7 +9,7 @@ description: This skill encodes Emil Kowalski's philosophy on UI polish, compone
 
 When working in this repository:
 
-1. Read [docs/L1-foundations/motion-craft.md](../../../docs/L1-foundations/motion-craft.md) first.
+1. Read [motion-craft.md](../../../site/src/content/docs/L1-foundations/motion-craft.md) first.
 2. Map easings/durations to `var(--motion-easing-*)` / `var(--motion-duration-*)`.
 3. Do not invent parallel motion tokens or hardcode hex/px.
 

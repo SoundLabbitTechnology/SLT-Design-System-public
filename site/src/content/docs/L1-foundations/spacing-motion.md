@@ -2,7 +2,7 @@
 
 文書番号: SLT-DS-001 §4.4
 
-正本: [`design-tokens/`](../../design-tokens/) の semantic / component 層
+正本: [`design-tokens/`](../../../../../design-tokens/) の semantic / component 層
 
 ## 基本原則
 
@@ -23,7 +23,7 @@
 | ブレークポイント | `breakpoint.*` | レスポンシブ境界の共有 |
 | フォーカス | `var(--focus-ring-width)` | キーボードフォーカス |
 
-余白・角の形状・エレベーションは semantic 層（`design-tokens/semantic.*.json`）で全 theme 共通のラベルとして公開しています。primitives の生スケール（`radius.sm` など）は内部実装であり、UI からは semantic ラベル経由で参照してください。DADS の「余白」「角の形状」「エレベーション」カテゴリとの対応は [CHANGELOG](../../CHANGELOG.md) を参照。
+余白・角の形状・エレベーションは semantic 層（`design-tokens/semantic.*.json`）で全 theme 共通のラベルとして公開しています。primitives の生スケール（`radius.sm` など）は内部実装であり、UI からは semantic ラベル経由で参照してください。DADS の「余白」「角の形状」「エレベーション」カテゴリとの対応は [CHANGELOG](../../../../../CHANGELOG.md) を参照。
 
 ## 余白の使い分け
 

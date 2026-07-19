@@ -8,11 +8,11 @@
 
 | 領域 | 正本 | Owner の責務 |
 |------|------|--------------|
-| 原則 | `docs/L0-principles.md`（site 公開・恒常原則） | 品質優先順位。事業戦略は社内方針（本ミラー外） |
+| 原則 | `site/src/content/docs/L0-principles.md`（site 公開・恒常原則） | 品質優先順位。事業戦略は社内方針（本ミラー外） |
 | Token | semantic / component token source | key 一致、命名、theme mapping。Git の DTCG JSON が正本 |
 | Component API | `src/` | behavior、types、a11y、互換性 |
-| Pattern / content / quality | `docs/L3`〜`L5` | 製品横断の妥当性 |
-| Public docs | `docs/` + site component MDX | 読者 task、ナビ、公開品質 |
+| Pattern / content / quality | `site/src/content/docs/L3`〜`L5` | 製品横断の妥当性 |
+| Public docs | `site/src/content/docs/` + site component MDX | 読者 task、ナビ、公開品質 |
 | Locale / 用語 | `ja` 正本 + [L4 用語](./L4-terminology.md) | 翻訳 ownership、glossary 同期 |
 | Harness | `scripts/harness/` + 本文書群 | 自動化、失敗時の修正可能性 |
 | 履歴 | CHANGELOG / GitHub Issues | なぜ変わったかを残す |
@@ -54,7 +54,7 @@ Semantic Versioning を採用します。
 
 ## AI 可読性
 
-AI エージェントは [`CLAUDE.md`](../CLAUDE.md) と [`llms.txt`](../llms.txt) を入口にします。
+AI エージェントは [`CLAUDE.md`](../../../../CLAUDE.md) と [`llms.txt`](../../../../llms.txt) を入口にします。
 
 - semantic / component token のみ参照する。
 - `primitives.json` の値を読まない・UI へ直書きしない（ビルド用同梱）。
@@ -93,7 +93,7 @@ AI エージェントは [`CLAUDE.md`](../CLAUDE.md) と [`llms.txt`](../llms.tx
 | release / DS bump 後 | G5 consumer | 代表 consumer で Lighthouse + E2E smoke を 1 回（product 実施） |
 | 四半期 | L4 principles | 公開 L0（恒常原則）と DADS 同期のレビュー（下記）。事業戦略の反証は社内方針 |
 
-時点依存の進捗は GitHub Issues と [CHANGELOG](../CHANGELOG.md) に置き、本書へ複製しません。
+時点依存の進捗は GitHub Issues と [CHANGELOG](../../../../CHANGELOG.md) に置き、本書へ複製しません。
 
 ## 四半期ガバナンスクラスタ
 
@@ -106,7 +106,7 @@ AI エージェントは [`CLAUDE.md`](../CLAUDE.md) と [`llms.txt`](../llms.tx
 | Issue | #17 L0 review / #35 DADS sync |
 | 問いの正本（公開） | [L0 恒常原則](./L0-principles.md) / [L4 原則ループ（技術）](./L6-harness-and-loops.md#l4--principles-loop) |
 | 事業戦略の反証 | 社内方針文書（本ミラー・site 非掲載） |
-| 記録先 | 社内監査メモ。本リポは [CHANGELOG](../CHANGELOG.md) と GitHub Issues に要約のみ |
+| 記録先 | 社内監査メモ。本リポは [CHANGELOG](../../../../CHANGELOG.md) と GitHub Issues に要約のみ |
 
 ### 参加者
 
@@ -140,7 +140,7 @@ AI エージェントは [`CLAUDE.md`](../CLAUDE.md) と [`llms.txt`](../llms.tx
 | 出力 | 条件 |
 |------|------|
 | 社内監査メモ + CHANGELOG 要約 | **毎回** — 公開原則側の証拠・判断・未決（事業戦略の詳細は書かない） |
-| `docs/L0-principles.md` 更新 PR | 恒常原則 A・ブランド表現表に変更があるとき |
+| `site/src/content/docs/L0-principles.md` 更新 PR | 恒常原則 A・ブランド表現表に変更があるとき |
 | L0 / L5 更新 PR | Laws of UX 側に追記・改名があり公開原則へ影響するとき |
 | GitHub issue | DS 技術投資・延期・実装 backlog（token / component / pattern） |
 
@@ -150,7 +150,7 @@ AI エージェントは [`CLAUDE.md`](../CLAUDE.md) と [`llms.txt`](../llms.tx
 
 ### Runbook: 四半期 DADS 同期レビュー（#35）
 
-DADS アンカーと DADS 側更新の差分棚卸し。スナップショットは [CHANGELOG](../CHANGELOG.md)。
+DADS アンカーと DADS 側更新の差分棚卸し。スナップショットは [CHANGELOG](../../../../CHANGELOG.md)。
 
 **#17 と同週内**に実施する（推奨: L0 セッションの翌営業日）。
 
@@ -171,7 +171,7 @@ DADS アンカーと DADS 側更新の差分棚卸し。スナップショット
 | Step | Action |
 |------|--------|
 | 1 | 上表 5 URL を開き、前回レビュー日以降のエントリを一覧化する |
-| 2 | 各エントリを観点 A〜D に分類する（トークン構造 / コンポーネント / a11y / ドキュメント）。観点の説明は [CHANGELOG](../CHANGELOG.md) |
+| 2 | 各エントリを観点 A〜D に分類する（トークン構造 / コンポーネント / a11y / ドキュメント）。観点の説明は [CHANGELOG](../../../../CHANGELOG.md) |
 | 3 | 既存 SLT コンポーネントへの**差分追従**（例: Input Readonly、Table 行選択）と**新規ギャップ**を分ける |
 | 4 | 新規ギャップはティア（P0 / P1 / P2 / 保留）を付け、需要の有無を product 代表と確認する |
 | 5 | 差分なしの場合も「変更なし」を記録する |
@@ -180,7 +180,7 @@ DADS アンカーと DADS 側更新の差分棚卸し。スナップショット
 
 | 影響 | 更新先 |
 |------|--------|
-| DADS 本体・tokens のバージョン変更 | [CHANGELOG](../CHANGELOG.md) にアンカー要約 |
+| DADS 本体・tokens のバージョン変更 | [CHANGELOG](../../../../CHANGELOG.md) にアンカー要約 |
 | 既存コンポーネントの仕様差分 | 実装 issue（優先: 対応済み 9 種の差分追従） |
 | 新規コンポーネント（需要あり） | #34 wave 3 backlog へ追記、または単体 issue |
 | 新規コンポーネント（需要なし） | 監査に「保留」と記録 |

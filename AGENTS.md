@@ -11,15 +11,15 @@ Cursor / Copilot 等のエージェント向け最短ルール。詳細は [CLAU
 3. **After changes**: `npm run check` (iterate: `npm run check:fast`)
 4. **Theme**: `data-theme` + `data-color-mode` on `<html>`
 5. **No** `--spacing-*` in Tailwind `@theme`
-6. **Public docs** = Docs site only — `docs/` は `DOC_ROUTES` / site content から辿れるものに限る
+6. **Public docs** = `site/` only（Markdown は `site/src/content/docs/` + component MDX）
 
 ## Token Sources
 
 ```
 design-tokens/
-├── semantic.*.json   ← AI may read
-├── components.json   ← AI may read
-└── primitives.json   ← shipped for build; AI must not read values
+├── semantic.*.json ← AI may read
+├── components.json ← AI may read
+└── primitives.json ← shipped for build; AI must not read values
 ```
 
 ## Default Theme
@@ -33,12 +33,8 @@ design-tokens/
 
 - `button.danger` → pair with cancel
 - Min height 44px, WCAG 2.2 AA focus rings
-- Motion: [docs/L1-foundations/motion-craft.md](./docs/L1-foundations/motion-craft.md); deep dive `.cursor/skills/`
+- Motion: Docs site `/foundations/motion/`; deep dive `.cursor/skills/`
 
 ## Docs entry
 
-`npm run docs:dev` → [site/README.md](./site/README.md). Index: [docs/README.md](./docs/README.md).
-
-## Spacing Warning
-
-Tailwind v4: custom `--spacing-md` in `@theme` breaks `max-w-md`. Use Tailwind defaults or `--space-*` vars.
+`npm run docs:dev` → [site/README.md](./site/README.md)。長文の設計・プロセス執筆は Private リポジトリ。

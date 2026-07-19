@@ -4,7 +4,7 @@
 |------|------|
 | 正本コピー | [`sound-laboratory-home-content.ts`](./sound-laboratory-home-content.ts) |
 | 本番参照 | [sound-laboratory.org](https://sound-laboratory.org/) |
-| DS トークン | [`docs/L1-foundations/typography.md`](../../docs/L1-foundations/typography.md) |
+| DS トークン | [`typography.md`](../../site/src/content/docs/L1-foundations/typography.md) |
 
 Storybook **Samples → Landing Canvas → Sound Laboratory** で使うテキスト階層と CSS クラスの対応表。
 

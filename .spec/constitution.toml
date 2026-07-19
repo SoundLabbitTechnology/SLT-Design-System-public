@@ -27,4 +27,4 @@ scripts = ["tokens", "components", "styles"]
 [steering]
 codingStandards = "npm run check 必須。semantic トークンのみ参照。raw hex/px 禁止。"
 technologyStack = "DTCG design-tokens, React, Storybook, Radix UI, Vitest"
-designPrinciples = "L0原則 docs/L0-principles.md。danger ボタンは cancel と併置。CLAUDE.md を参照。"
+designPrinciples = "L0原則 site/src/content/docs/L0-principles.md。danger ボタンは cancel と併置。CLAUDE.md を参照。"

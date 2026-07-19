@@ -120,7 +120,7 @@ P1 / P2 を対象外にすることは品質免除ではありません。高リ
 | 1 | `npm run metrics -- --since=1.week.ago --save` |
 | 2 | JSON の `alerts` と `trend` を読む（`metrics/history/YYYY-MM-DD.json`） |
 | 3 | `rawValueViolationLines` / 低 `tokenComplianceProxy` → PR または G1 修正候補を issue 化 |
-| 4 | 同一種類の override が 3 回以上 → [`metrics/OVERRIDE_BACKLOG_TEMPLATE.md`](../metrics/OVERRIDE_BACKLOG_TEMPLATE.md) で backlog |
+| 4 | 同一種類の override が 3 回以上 → [`metrics/OVERRIDE_BACKLOG_TEMPLATE.md`](../../../../metrics/OVERRIDE_BACKLOG_TEMPLATE.md) で backlog |
 | 5 | consumer の採用・例外を定性メモ（issue コメント可）。G5 失敗があれば DS / product 責務で切り分け |
 | 6 | release 週は加えて Chromatic 失敗・未文書 API・exception allow の期限を確認 |
 
@@ -130,7 +130,7 @@ npm run metrics -- --since=1.week.ago --save
 npm run metrics -- --base=origin/main
 ```
 
-変更差分から semantic token reference と raw value violation の **proxy** を出力します。閾値は [`metrics/thresholds.json`](../metrics/thresholds.json)。alert があっても L1 gate は fail しません（soft signal）。
+変更差分から semantic token reference と raw value violation の **proxy** を出力します。閾値は [`metrics/thresholds.json`](../../../../metrics/thresholds.json)。alert があっても L1 gate は fail しません（soft signal）。
 
 | Metric | 意味 |
 |--------|------|

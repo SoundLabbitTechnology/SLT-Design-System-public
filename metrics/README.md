@@ -12,4 +12,4 @@ L3 operations の diff-only compliance proxy。
 npm run metrics -- --since=1.week.ago --save
 ```
 
-手順の正本: [docs/L6-harness-and-loops.md](../docs/L6-harness-and-loops.md#l3--operations-loop)
+手順の正本: [L6 harness](../site/src/content/docs/L6-harness-and-loops.md#l3--operations-loop)
