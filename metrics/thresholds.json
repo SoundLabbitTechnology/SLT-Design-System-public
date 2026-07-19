@@ -1,0 +1,7 @@
+{
+  "$comment": "L3 metrics soft thresholds. Alerts appear in npm run metrics JSON; they do not fail L1 gates.",
+  "tokenComplianceProxyMin": 0.85,
+  "rawValueViolationLinesMax": 0,
+  "exceptionLinesWarn": 3,
+  "overrideBacklogRule": "Same class of CSS/token override observed 3+ times → open backlog issue using metrics/OVERRIDE_BACKLOG_TEMPLATE.md"
+}

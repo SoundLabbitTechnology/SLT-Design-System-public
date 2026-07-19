@@ -1,0 +1,20 @@
+---
+import { getEntry, render } from "astro:content";
+import DocLayout from "../../layouts/DocLayout.astro";
+import PageHero from "../../components/PageHero.astro";
+
+const entry = await getEntry("tokenGuides", "motion-craft");
+if (!entry) throw new Error("docs/L1-foundations/motion-craft.md not found in tokenGuides collection");
+const { Content } = await render(entry);
+---
+
+<DocLayout title="モーションクラフト">
+  <PageHero
+    eyebrow="スタイル"
+    title="モーションクラフト"
+    description="頻度ゲート、easing、物理性、a11y。SLT トークンに対応した Design Engineering 判断基準です。"
+  />
+  <div class="docs-prose">
+    <Content />
+  </div>
+</DocLayout>

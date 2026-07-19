@@ -1,0 +1,67 @@
+import { Meta } from "@storybook/addon-docs/blocks";
+
+<Meta title="SLT Design System/L1 Foundations/Theming" />
+
+# L1 テーマ切替
+
+SLT DS は **ブランド** × **カラーモード** の二軸でトークンを切り替えます。
+
+## HTML 属性
+
+```html
+<html data-theme="ai-dash" data-color-mode="dark">
+```
+
+| 属性 | 値 |
+|------|-----|
+| `data-theme` | `ai-dash` / `sound-laboratory` / `slt-corporate` / `admin` |
+| `data-color-mode` | `light` / `dark` |
+
+未指定時のデフォルト: `ai-dash` + `dark`（`dist/slt-tokens.css` の `:root`）
+
+## CSS 読み込み
+
+### 後方互換バンドル（推奨）
+
+```css
+@import '@soundlabbit/design-system/tokens.css';
+@import '@soundlabbit/design-system/components.css';
+@import '@soundlabbit/design-system/utilities.css'; /* 任意: glass-card 等 */
+```
+
+### ブランド別（軽量）
+
+```css
+@import '@soundlabbit/design-system/ai-dash/dark.css';
+@import '@soundlabbit/design-system/components.css';
+```
+
+| パス | 用途 |
+|------|------|
+| `ai-dash/dark.css` / `ai-dash/light.css` | AI-DASH |
+| `sound-laboratory/dark.css` / `sound-laboratory/light.css` | Sound Laboratory |
+| `slt-corporate/dark.css` | SLT コーポレート |
+| `admin/light.css` | 管理画面 |
+
+## セマンティックトークン
+
+コンポーネント・Storybook では **semantic 層** の CSS 変数のみ参照:
+
+- `--color-surface-primary`
+- `--color-text-primary`
+- `--color-action-primary`
+- `--button-primary-bg` 等（`components.json` 由来）
+
+`primitives.json` の生値 / raw value は UI から参照しない（G0/G1）。参照は semantic / component のみ。
+
+## Tailwind v4 との共存
+
+消費者アプリで `@theme inline` を使う場合、`--color-action-*` 等が自己参照で上書きされることがあります。  
+ブリッジ例はルート README の Theme 指定を参照。
+
+## 関連ドキュメント
+
+- [トークン標準](https://github.com/SoundLabbitTechnology/SLT-Design-System-public/blob/main/docs/L1-foundations/tokens.md)
+- [カラー](https://github.com/SoundLabbitTechnology/SLT-Design-System-public/blob/main/docs/L1-foundations/colors.md)
+- [タイポグラフィ](https://github.com/SoundLabbitTechnology/SLT-Design-System-public/blob/main/docs/L1-foundations/typography.md)
+- [余白・形状・モーション](https://github.com/SoundLabbitTechnology/SLT-Design-System-public/blob/main/docs/L1-foundations/spacing-motion.md)

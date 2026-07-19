@@ -1,0 +1,207 @@
+{
+  "$description": "SLT Design Tokens — Tier 1: Primitives(原始値)。UIコードから直接参照しないこと。参照は必ずsemantic層を経由する。値はv0.1時点の仮値であり、ブランドカラー確定後に差し替える。",
+  "color": {
+    "$description": "カラーパレット。navy=AI-DASH系 / coral=Sound Laboratory系 / gold=SLTコーポレート系 / gray=共通ニュートラル",
+    "navy": {
+      "50":  { "$type": "color", "$value": "#EEF2FA" },
+      "100": { "$type": "color", "$value": "#D8E0F2" },
+      "200": { "$type": "color", "$value": "#AFC0E4" },
+      "300": { "$type": "color", "$value": "#7E97CE" },
+      "400": { "$type": "color", "$value": "#5171B4" },
+      "500": { "$type": "color", "$value": "#365395", "$description": "AI-DASH ブランドコア(仮)" },
+      "600": { "$type": "color", "$value": "#2A4177" },
+      "700": { "$type": "color", "$value": "#22345F" },
+      "800": { "$type": "color", "$value": "#1B2A52" },
+      "900": { "$type": "color", "$value": "#121D3A" }
+    },
+    "blue": {
+      "50":  { "$type": "color", "$value": "#EFF6FF" },
+      "100": { "$type": "color", "$value": "#DBEAFE" },
+      "300": { "$type": "color", "$value": "#93C5FD" },
+      "400": { "$type": "color", "$value": "#5596F8", "$description": "dark surface.secondary 上で 4.5:1 を満たすリンク色" },
+      "500": { "$type": "color", "$value": "#3B82F6" },
+      "600": { "$type": "color", "$value": "#2563EB", "$description": "AI-DASH アクセント(仮)" },
+      "700": { "$type": "color", "$value": "#1D4ED8" },
+      "800": { "$type": "color", "$value": "#1E40AF" }
+    },
+    "coral": {
+      "50":  { "$type": "color", "$value": "#FFF4F1" },
+      "100": { "$type": "color", "$value": "#FFE3DB" },
+      "200": { "$type": "color", "$value": "#FFC5B8" },
+      "300": { "$type": "color", "$value": "#FF9F8A" },
+      "400": { "$type": "color", "$value": "#F97662" },
+      "500": { "$type": "color", "$value": "#E85A45", "$description": "Sound Laboratory ブランドコア(仮)" },
+      "600": { "$type": "color", "$value": "#C74533" },
+      "700": { "$type": "color", "$value": "#A13629" },
+      "800": { "$type": "color", "$value": "#7C2A20" },
+      "900": { "$type": "color", "$value": "#521B14" }
+    },
+    "gold": {
+      "$description": "SLTコーポレート / AI-DASH ゴールド系(現行プロダクト抽出値)",
+      "100": { "$type": "color", "$value": "#EAE1CF" },
+      "200": { "$type": "color", "$value": "#D9D2C1" },
+      "300": { "$type": "color", "$value": "#D3C193", "$description": "accent-2 主アクセント" },
+      "400": { "$type": "color", "$value": "#E8D5A3", "$description": "明るいゴールドテキスト" },
+      "500": { "$type": "color", "$value": "#C59367", "$description": "semi-accent-1 オレンジ/カッパー" },
+      "600": { "$type": "color", "$value": "#C6A576" },
+      "700": { "$type": "color", "$value": "#76583E", "$description": "白 / gold.100 背景上で 4.5:1 を満たすリンク色" },
+      "800": { "$type": "color", "$value": "#644B35", "$description": "gold.700 の hover 用。白 / gold.100 背景上で 4.5:1 以上" }
+    },
+    "amber": {
+      "100": { "$type": "color", "$value": "#FEF3C7" },
+      "400": { "$type": "color", "$value": "#FBBF24" },
+      "500": { "$type": "color", "$value": "#F59E0B" },
+      "700": { "$type": "color", "$value": "#B45309" }
+    },
+    "green": {
+      "100": { "$type": "color", "$value": "#DCFCE7" },
+      "500": { "$type": "color", "$value": "#22C55E" },
+      "600": { "$type": "color", "$value": "#16A34A" },
+      "700": { "$type": "color", "$value": "#15803D" }
+    },
+    "emerald": {
+      "300": { "$type": "color", "$value": "#6EE7B7" },
+      "500": { "$type": "color", "$value": "#10B981", "$description": "システム成功(現行)" }
+    },
+    "red": {
+      "100": { "$type": "color", "$value": "#FEE2E2" },
+      "300": { "$type": "color", "$value": "#FCA5A5" },
+      "500": { "$type": "color", "$value": "#EF4444" },
+      "600": { "$type": "color", "$value": "#DC2626" },
+      "700": { "$type": "color", "$value": "#B91C1C" }
+    },
+    "gray": {
+      "0":   { "$type": "color", "$value": "#FFFFFF" },
+      "50":  { "$type": "color", "$value": "#F8FAFC" },
+      "100": { "$type": "color", "$value": "#F1F5F9" },
+      "200": { "$type": "color", "$value": "#E2E8F0" },
+      "300": { "$type": "color", "$value": "#CBD5E1" },
+      "400": { "$type": "color", "$value": "#94A3B8" },
+      "500": { "$type": "color", "$value": "#64748B" },
+      "600": { "$type": "color", "$value": "#475569" },
+      "700": { "$type": "color", "$value": "#334155" },
+      "800": { "$type": "color", "$value": "#1E293B" },
+      "900": { "$type": "color", "$value": "#0F172A" },
+      "1000": { "$type": "color", "$value": "#000000" }
+    },
+    "alpha": {
+      "white-05": { "$type": "color", "$value": "rgba(255, 255, 255, 0.05)" },
+      "white-08": { "$type": "color", "$value": "rgba(255, 255, 255, 0.08)" },
+      "white-10": { "$type": "color", "$value": "rgba(255, 255, 255, 0.10)" },
+      "white-15": { "$type": "color", "$value": "rgba(255, 255, 255, 0.15)" },
+      "white-25": { "$type": "color", "$value": "rgba(255, 255, 255, 0.25)" },
+      "gold-15":  { "$type": "color", "$value": "rgba(211, 193, 147, 0.15)" },
+      "gold-50":  { "$type": "color", "$value": "rgba(211, 193, 147, 0.50)" },
+      "emerald-15": { "$type": "color", "$value": "rgba(16, 185, 129, 0.15)" },
+      "amber-15":   { "$type": "color", "$value": "rgba(245, 158, 11, 0.15)" },
+      "red-15":     { "$type": "color", "$value": "rgba(239, 68, 68, 0.15)" },
+      "blue-15":    { "$type": "color", "$value": "rgba(59, 130, 246, 0.15)" },
+      "emerald-30": { "$type": "color", "$value": "rgba(16, 185, 129, 0.30)" },
+      "amber-30":   { "$type": "color", "$value": "rgba(245, 158, 11, 0.30)" },
+      "red-30":     { "$type": "color", "$value": "rgba(239, 68, 68, 0.30)" },
+      "blue-30":    { "$type": "color", "$value": "rgba(59, 130, 246, 0.30)" },
+      "slate-90": { "$type": "color", "$value": "rgba(30, 41, 59, 0.90)" },
+      "slate-60": { "$type": "color", "$value": "rgba(15, 23, 42, 0.60)" }
+    },
+    "grid": {
+      "$description": "方眼紙グリッド線(Sound Laboratory 等)。semantic 名は --color-grid-*",
+      "major-light": { "$type": "color", "$value": "{color.gold.200}", "$description": "ライト太線 accent1 #D9D2C1" },
+      "minor-light": { "$type": "color", "$value": "{color.gold.100}", "$description": "ライト細線 main #EAE1CF" },
+      "major-dark":  { "$type": "color", "$value": "{color.alpha.gold-15}", "$description": "ダーク太線(ゴールド tint) — ai-dash / corporate 既定" },
+      "minor-dark":  { "$type": "color", "$value": "{color.alpha.white-08}", "$description": "ダーク細線 — ai-dash / corporate 既定" }
+    }
+  },
+  "font": {
+    "family": {
+      "jp":        { "$type": "fontFamily", "$value": ["M PLUS Rounded 1c", "Noto Sans JP", "Hiragino Kaku Gothic ProN", "sans-serif"] },
+      "en":        { "$type": "fontFamily", "$value": ["Inter", "Noto Sans JP", "sans-serif"] },
+      "display":   { "$type": "fontFamily", "$value": ["Comfortaa", "M PLUS Rounded 1c", "Inter", "sans-serif"] },
+      "corporate": { "$type": "fontFamily", "$value": ["M PLUS Rounded 1c", "Inter", "sans-serif"] },
+      "admin":     { "$type": "fontFamily", "$value": ["Inter", "Noto Sans JP", "sans-serif"] },
+      "mono":      { "$type": "fontFamily", "$value": ["Geist Mono", "JetBrains Mono", "Menlo", "monospace"] }
+    },
+    "weight": {
+      "regular": { "$type": "fontWeight", "$value": 400 },
+      "medium":  { "$type": "fontWeight", "$value": 500 },
+      "bold":    { "$type": "fontWeight", "$value": 700 }
+    },
+    "size": {
+      "$description": "1.25倍スケール(Major Third近似)、基準16px",
+      "xs":   { "$type": "dimension", "$value": { "value": 12, "unit": "px" } },
+      "sm":   { "$type": "dimension", "$value": { "value": 14, "unit": "px" } },
+      "md":   { "$type": "dimension", "$value": { "value": 16, "unit": "px" } },
+      "lg":   { "$type": "dimension", "$value": { "value": 20, "unit": "px" } },
+      "xl":   { "$type": "dimension", "$value": { "value": 24, "unit": "px" } },
+      "2xl":  { "$type": "dimension", "$value": { "value": 32, "unit": "px" } },
+      "3xl":  { "$type": "dimension", "$value": { "value": 40, "unit": "px" } }
+    },
+    "lineHeight": {
+      "$description": "和文は欧文より広めに取る",
+      "tight":   { "$type": "number", "$value": 1.4 },
+      "base":    { "$type": "number", "$value": 1.7 },
+      "relaxed": { "$type": "number", "$value": 1.9 }
+    }
+  },
+  "space": {
+    "$description": "4pxベーススケール",
+    "0":  { "$type": "dimension", "$value": { "value": 0,  "unit": "px" } },
+    "1":  { "$type": "dimension", "$value": { "value": 4,  "unit": "px" } },
+    "2":  { "$type": "dimension", "$value": { "value": 8,  "unit": "px" } },
+    "3":  { "$type": "dimension", "$value": { "value": 12, "unit": "px" } },
+    "4":  { "$type": "dimension", "$value": { "value": 16, "unit": "px" } },
+    "5":  { "$type": "dimension", "$value": { "value": 20, "unit": "px" } },
+    "6":  { "$type": "dimension", "$value": { "value": 24, "unit": "px" } },
+    "8":  { "$type": "dimension", "$value": { "value": 32, "unit": "px" } },
+    "10": { "$type": "dimension", "$value": { "value": 40, "unit": "px" } },
+    "12": { "$type": "dimension", "$value": { "value": 48, "unit": "px" } },
+    "16": { "$type": "dimension", "$value": { "value": 64, "unit": "px" } }
+  },
+  "radius": {
+    "none": { "$type": "dimension", "$value": { "value": 0,    "unit": "px" } },
+    "sm":   { "$type": "dimension", "$value": { "value": 4,    "unit": "px" } },
+    "md":   { "$type": "dimension", "$value": { "value": 8,    "unit": "px" } },
+    "lg":   { "$type": "dimension", "$value": { "value": 12,   "unit": "px" } },
+    "xl":   { "$type": "dimension", "$value": { "value": 16,   "unit": "px" } },
+    "full": { "$type": "dimension", "$value": { "value": 9999, "unit": "px" } }
+  },
+  "shadow": {
+    "level1": {
+      "$type": "shadow",
+      "$value": { "color": "#0F172A1A", "offsetX": { "value": 0, "unit": "px" }, "offsetY": { "value": 1, "unit": "px" }, "blur": { "value": 3, "unit": "px" }, "spread": { "value": 0, "unit": "px" } }
+    },
+    "level2": {
+      "$type": "shadow",
+      "$value": { "color": "#0F172A21", "offsetX": { "value": 0, "unit": "px" }, "offsetY": { "value": 4, "unit": "px" }, "blur": { "value": 12, "unit": "px" }, "spread": { "value": -2, "unit": "px" } }
+    },
+    "level3": {
+      "$type": "shadow",
+      "$value": { "color": "#0F172A2E", "offsetX": { "value": 0, "unit": "px" }, "offsetY": { "value": 12, "unit": "px" }, "blur": { "value": 32, "unit": "px" }, "spread": { "value": -4, "unit": "px" } }
+    }
+  },
+  "motion": {
+    "duration": {
+      "fast":   { "$type": "duration", "$value": { "value": 150, "unit": "ms" } },
+      "base":   { "$type": "duration", "$value": { "value": 300, "unit": "ms" } },
+      "slow":   { "$type": "duration", "$value": { "value": 500, "unit": "ms" } },
+      "none":   { "$type": "duration", "$value": { "value": 0,   "unit": "ms" }, "$description": "prefers-reduced-motion 用" }
+    },
+    "easing": {
+      "standard":   { "$type": "cubicBezier", "$value": [0.2, 0, 0, 1] },
+      "decelerate": { "$type": "cubicBezier", "$value": [0, 0, 0, 1] },
+      "accelerate": { "$type": "cubicBezier", "$value": [0.3, 0, 1, 1] }
+    }
+  },
+  "breakpoint": {
+    "sm": { "$type": "dimension", "$value": { "value": 640,  "unit": "px" } },
+    "md": { "$type": "dimension", "$value": { "value": 768,  "unit": "px" } },
+    "lg": { "$type": "dimension", "$value": { "value": 1024, "unit": "px" } },
+    "xl": { "$type": "dimension", "$value": { "value": 1280, "unit": "px" } }
+  },
+  "zIndex": {
+    "dropdown": { "$type": "number", "$value": 1000 },
+    "sticky":   { "$type": "number", "$value": 1100 },
+    "overlay":  { "$type": "number", "$value": 1300 },
+    "modal":    { "$type": "number", "$value": 1400 },
+    "toast":    { "$type": "number", "$value": 1700 }
+  }
+}

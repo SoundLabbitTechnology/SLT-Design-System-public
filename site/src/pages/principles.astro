@@ -1,0 +1,20 @@
+---
+import { getEntry, render } from "astro:content";
+import DocLayout from "../layouts/DocLayout.astro";
+import PageHero from "../components/PageHero.astro";
+
+const entry = await getEntry("guidelines", "l0-principles");
+if (!entry) throw new Error("docs/L0-principles.md not found in guidelines collection");
+const { Content } = await render(entry);
+---
+
+<DocLayout title="デザイン原則">
+  <PageHero
+    eyebrow="概要"
+    title="デザイン原則"
+    description="UI 品質の判断順序（恒常原則）。企業戦略・投資判断は公開しません。"
+  />
+  <div class="docs-prose">
+    <Content />
+  </div>
+</DocLayout>

@@ -1,0 +1,27 @@
+---
+import { getCollection } from "astro:content";
+import DocLayout from "../../layouts/DocLayout.astro";
+import PageHero from "../../components/PageHero.astro";
+
+const entries = (await getCollection("components")).sort((a, b) => a.data.order - b.data.order);
+const base = import.meta.env.BASE_URL.replace(/\/$/, "");
+---
+
+<DocLayout title="コンポーネント">
+  <PageHero
+    eyebrow="コンポーネント"
+    title="コンポーネント一覧"
+    description="P0（必須）→ P2（補助）の順に13種のコンポーネントを掲載しています。各ページでデモ・コード・Do/Don't・トークンを確認できます。"
+  />
+  <div class="docs-card-grid">
+    {
+      entries.map((entry) => (
+        <a class="slt-card" href={`${base}/components/${entry.id}/`}>
+          <span class="slt-badge slt-badge--default docs-section-card__tier">{entry.data.tier}</span>
+          <h2 class="docs-section-card__title">{entry.data.titleJa}</h2>
+          <p class="docs-section-card__desc">{entry.data.description}</p>
+        </a>
+      ))
+    }
+  </div>
+</DocLayout>

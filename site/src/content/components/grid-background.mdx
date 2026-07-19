@@ -1,0 +1,33 @@
+---
+title: GridBackground
+titleJa: グリッド背景
+tier: P1
+order: 16
+description: "CSS 方眼紙 + マウスパララックス背景（sound-laboratory 公式サイトパターン）。"
+tokenPrefix: ""
+props:
+  - { name: spec, type: GridBackgroundSpec, description: "minor/major の CSS 変数名・サイズ・パララックス量などを定義するスペック（BRAND_BACKGROUNDS レジストリから取得するのが基本）" }
+  - { name: colorMode, type: '"light" | "dark"', default: '"light"', description: "グリッド線の色モード" }
+  - { name: className, type: string, description: background element へ追加する class }
+---
+
+import Demo from "../../components/Demo.astro";
+import GridBackgroundDemo from "../../demos/GridBackgroundDemo";
+
+## デモ
+
+<Demo>
+  <GridBackgroundDemo client:visible slot="stage" />
+  <Fragment slot="code">
+    ```tsx
+    import { BRAND_BACKGROUNDS, GridBackground } from "@soundlabbit/design-system/ui";
+
+    const { grid } = BRAND_BACKGROUNDS["sound-laboratory"];
+    <GridBackground spec={grid} colorMode="light" />
+    ```
+  </Fragment>
+</Demo>
+
+## 使い方
+
+`sound-laboratory` ブランド専用（公式サイトパターン）。複数ブランドを横断する画面では [BrandBackground](/components/brand-background/) を使う。

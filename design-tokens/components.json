@@ -1,0 +1,321 @@
+{
+  "$description": "SLT Design Tokens — Tier 3: Component。semantic層のみを参照する(primitivesへの直接参照は禁止)。コンポーネント固有の上書きが必要な場合だけ定義し、原則semantic層で足りる状態を保つ。",
+  "button": {
+    "primary": {
+      "bg":        { "$type": "color", "$value": "{color.action.primary}" },
+      "bg-hover":  { "$type": "color", "$value": "{color.action.primary-hover}" },
+      "bg-active": { "$type": "color", "$value": "{color.action.primary-active}" },
+      "text":      { "$type": "color", "$value": "{color.text.inverse}" }
+    },
+    "secondary": {
+      "bg":     { "$type": "color", "$value": "{color.surface.primary}" },
+      "border": { "$type": "color", "$value": "{color.border.strong}" },
+      "text":   { "$type": "color", "$value": "{color.text.primary}" }
+    },
+    "danger": {
+      "bg":   { "$type": "color", "$value": "{color.feedback.danger}", "$description": "破壊的操作。必ずキャンセルボタンと併置する" },
+      "text": { "$type": "color", "$value": "{color.text.inverse}" }
+    },
+    "radius":     { "$type": "dimension", "$value": "{shape.radius-md}" },
+    "padding-x":  { "$type": "dimension", "$value": "{space.md}" },
+    "padding-y":  { "$type": "dimension", "$value": "{space.sm}" },
+    "min-height": { "$type": "dimension", "$value": { "value": 44, "unit": "px" }, "$description": "タップターゲット最小44px(WCAG 2.2 / モバイル)" }
+  },
+  "input": {
+    "bg":            { "$type": "color", "$value": "{color.surface.primary}" },
+    "border":        { "$type": "color", "$value": "{color.border.default}" },
+    "border-focus":  { "$type": "color", "$value": "{color.border.focus}" },
+    "border-error":  { "$type": "color", "$value": "{color.feedback.danger}" },
+    "bg-readonly":   { "$type": "color", "$value": "{color.surface.secondary}", "$description": "DADS Readonly ステート用背景" },
+    "text":          { "$type": "color", "$value": "{color.text.primary}" },
+    "placeholder":   { "$type": "color", "$value": "{color.text.disabled}" },
+    "radius":        { "$type": "dimension", "$value": "{shape.radius-md}" },
+    "min-height":    { "$type": "dimension", "$value": { "value": 44, "unit": "px" } }
+  },
+  "card": {
+    "bg":      { "$type": "color", "$value": "{color.surface.primary}" },
+    "border":  { "$type": "color", "$value": "{color.border.default}" },
+    "radius":  { "$type": "dimension", "$value": "{shape.radius-lg}" },
+    "shadow":  { "$type": "shadow", "$value": "{elevation.raised}" },
+    "padding": { "$type": "dimension", "$value": "{space.lg}" }
+  },
+  "dialog": {
+    "bg":        { "$type": "color", "$value": "{color.surface.primary}" },
+    "overlay":   { "$type": "color", "$value": "{color.surface.overlay}" },
+    "radius":    { "$type": "dimension", "$value": "{shape.radius-lg}" },
+    "shadow":    { "$type": "shadow", "$value": "{elevation.modal}" },
+    "max-width": { "$type": "dimension", "$value": { "value": 560, "unit": "px" } }
+  },
+  "badge": {
+    "radius":    { "$type": "dimension", "$value": "{shape.radius-full}" },
+    "padding-x": { "$type": "dimension", "$value": "{space.sm}" },
+    "padding-y": { "$type": "dimension", "$value": "{space.xs}" }
+  },
+  "toast": {
+    "bg":      { "$type": "color", "$value": "{color.surface.primary}" },
+    "border":  { "$type": "color", "$value": "{color.border.default}" },
+    "radius":  { "$type": "dimension", "$value": "{shape.radius-md}" },
+    "shadow":  { "$type": "shadow", "$value": "{elevation.overlay}" },
+    "padding": { "$type": "dimension", "$value": "{space.md}" }
+  },
+  "site-header": {
+    "bg":        { "$type": "color", "$value": "{color.surface.primary}" },
+    "border":    { "$type": "color", "$value": "{color.border.default}" },
+    "height":    { "$type": "dimension", "$value": { "value": 64, "unit": "px" }, "$description": "バーの最小高さ。縦余白は flex 中央寄せで確保し、padding-y は使わない" },
+    "padding-x": { "$type": "dimension", "$value": "{space.md}", "$description": "左右ガター。本文インセットと揃えるときは --site-header-padding-x で上書き可" }
+  },
+  "skeleton": {
+    "bg":           { "$type": "color", "$value": "{color.surface.tertiary}" },
+    "bg-highlight": { "$type": "color", "$value": "{color.surface.secondary}" },
+    "radius":       { "$type": "dimension", "$value": "{shape.radius-sm}" }
+  },
+  "table": {
+    "bg":            { "$type": "color", "$value": "{color.surface.primary}" },
+    "border":        { "$type": "color", "$value": "{color.border.default}" },
+    "header-bg":     { "$type": "color", "$value": "{color.surface.secondary}" },
+    "row-hover":     { "$type": "color", "$value": "{color.interactive.hover}" },
+    "row-selected":  { "$type": "color", "$value": "{color.surface.tertiary}" },
+    "row-stripe":    { "$type": "color", "$value": "{color.surface.secondary}", "$description": "DADS ストライプ行背景" },
+    "cell-padding-x": { "$type": "dimension", "$value": "{space.md}" },
+    "cell-padding-y": { "$type": "dimension", "$value": "{space.sm}" }
+  },
+  "checkbox": {
+    "size":          { "$type": "dimension", "$value": { "value": 20, "unit": "px" }, "$description": "視覚上のボックスサイズ。タップ領域は min-height で44pxを別途確保" },
+    "border":        { "$type": "color", "$value": "{color.border.strong}" },
+    "border-checked": { "$type": "color", "$value": "{color.action.primary}" },
+    "bg":            { "$type": "color", "$value": "{color.surface.primary}" },
+    "bg-checked":    { "$type": "color", "$value": "{color.action.primary}" },
+    "mark":          { "$type": "color", "$value": "{color.text.inverse}" },
+    "radius":        { "$type": "dimension", "$value": "{shape.radius-sm}" },
+    "min-height":    { "$type": "dimension", "$value": { "value": 44, "unit": "px" }, "$description": "タップターゲット最小44px(WCAG 2.2 / モバイル)" }
+  },
+  "radio": {
+    "size":           { "$type": "dimension", "$value": { "value": 20, "unit": "px" }, "$description": "視覚上の円サイズ。タップ領域は min-height で44pxを別途確保" },
+    "border":         { "$type": "color", "$value": "{color.border.strong}" },
+    "border-checked": { "$type": "color", "$value": "{color.action.primary}" },
+    "bg":             { "$type": "color", "$value": "{color.surface.primary}" },
+    "mark":           { "$type": "color", "$value": "{color.action.primary}" },
+    "min-height":     { "$type": "dimension", "$value": { "value": 44, "unit": "px" }, "$description": "タップターゲット最小44px(WCAG 2.2 / モバイル)" }
+  },
+  "select": {
+    "bg":           { "$type": "color", "$value": "{color.surface.primary}" },
+    "border":       { "$type": "color", "$value": "{color.border.default}" },
+    "border-focus": { "$type": "color", "$value": "{color.border.focus}" },
+    "border-error": { "$type": "color", "$value": "{color.feedback.danger}" },
+    "text":         { "$type": "color", "$value": "{color.text.primary}" },
+    "icon":         { "$type": "color", "$value": "{color.text.secondary}" },
+    "radius":       { "$type": "dimension", "$value": "{shape.radius-md}" },
+    "min-height":   { "$type": "dimension", "$value": { "value": 44, "unit": "px" } }
+  },
+  "switch": {
+    "track-width":    { "$type": "dimension", "$value": { "value": 44, "unit": "px" } },
+    "track-height":   { "$type": "dimension", "$value": { "value": 24, "unit": "px" } },
+    "thumb-size":     { "$type": "dimension", "$value": { "value": 20, "unit": "px" } },
+    "track":          { "$type": "color", "$value": "{color.border.strong}" },
+    "track-checked":  { "$type": "color", "$value": "{color.action.primary}" },
+    "thumb":          { "$type": "color", "$value": "{color.surface.primary}" },
+    "min-height":     { "$type": "dimension", "$value": { "value": 44, "unit": "px" }, "$description": "タップターゲット最小44px(WCAG 2.2 / モバイル)" }
+  },
+  "heading": {
+    "color": { "$type": "color", "$value": "{color.text.primary}" }
+  },
+  "divider": {
+    "color":  { "$type": "color", "$value": "{color.border.default}" },
+    "gap":    { "$type": "dimension", "$value": "{space.md}" },
+    "label":  { "$type": "color", "$value": "{color.text.secondary}" }
+  },
+  "notice-block": {
+    "radius":     { "$type": "dimension", "$value": "{shape.radius-md}" },
+    "padding":    { "$type": "dimension", "$value": "{space.md}" },
+    "border":     { "$type": "color", "$value": "{color.border.default}" },
+    "title":      { "$type": "color", "$value": "{color.text.primary}" },
+    "body":       { "$type": "color", "$value": "{color.text.secondary}" },
+    "info-bg":    { "$type": "color", "$value": "{color.feedback.info-surface}" },
+    "info-accent": { "$type": "color", "$value": "{color.feedback.info}" },
+    "success-bg": { "$type": "color", "$value": "{color.feedback.success-surface}" },
+    "success-accent": { "$type": "color", "$value": "{color.feedback.success}" },
+    "warning-bg": { "$type": "color", "$value": "{color.feedback.warning-surface}" },
+    "warning-accent": { "$type": "color", "$value": "{color.feedback.warning}" },
+    "danger-bg":  { "$type": "color", "$value": "{color.feedback.danger-surface}" },
+    "danger-accent": { "$type": "color", "$value": "{color.feedback.danger}" }
+  },
+  "breadcrumb": {
+    "text":       { "$type": "color", "$value": "{color.text.secondary}" },
+    "current":    { "$type": "color", "$value": "{color.text.primary}" },
+    "link":       { "$type": "color", "$value": "{color.text.link}" },
+    "link-hover": { "$type": "color", "$value": "{color.text.link-hover}" },
+    "separator":  { "$type": "color", "$value": "{color.text.disabled}" },
+    "gap":        { "$type": "dimension", "$value": "{space.xs}" },
+    "min-height": { "$type": "dimension", "$value": { "value": 44, "unit": "px" }, "$description": "タップターゲット最小44px(WCAG 2.2 / モバイル)" }
+  },
+  "tab": {
+    "text":          { "$type": "color", "$value": "{color.text.secondary}" },
+    "text-selected": { "$type": "color", "$value": "{color.text.primary}" },
+    "border":        { "$type": "color", "$value": "{color.border.default}" },
+    "border-selected": { "$type": "color", "$value": "{color.action.primary}" },
+    "gap":           { "$type": "dimension", "$value": "{space.xs}" },
+    "padding-x":     { "$type": "dimension", "$value": "{space.md}" },
+    "min-height":    { "$type": "dimension", "$value": { "value": 44, "unit": "px" }, "$description": "タップターゲット最小44px(WCAG 2.2 / モバイル)" }
+  },
+  "accordion": {
+    "border":        { "$type": "color", "$value": "{color.border.default}" },
+    "trigger":       { "$type": "color", "$value": "{color.text.primary}" },
+    "content":       { "$type": "color", "$value": "{color.text.secondary}" },
+    "icon":          { "$type": "color", "$value": "{color.text.secondary}" },
+    "padding-x":     { "$type": "dimension", "$value": "{space.md}" },
+    "padding-y":     { "$type": "dimension", "$value": "{space.sm}" },
+    "min-height":    { "$type": "dimension", "$value": { "value": 44, "unit": "px" }, "$description": "タップターゲット最小44px(WCAG 2.2 / モバイル)" }
+  },
+  "disclosure": {
+    "trigger":       { "$type": "color", "$value": "{color.text.link}" },
+    "trigger-hover": { "$type": "color", "$value": "{color.text.link-hover}" },
+    "content":       { "$type": "color", "$value": "{color.text.secondary}" },
+    "icon":          { "$type": "color", "$value": "{color.text.link}" },
+    "min-height":    { "$type": "dimension", "$value": { "value": 44, "unit": "px" }, "$description": "タップターゲット最小44px(WCAG 2.2 / モバイル)" }
+  },
+  "list": {
+    "text":     { "$type": "color", "$value": "{color.text.secondary}" },
+    "marker":   { "$type": "color", "$value": "{color.text.primary}" },
+    "gap":      { "$type": "dimension", "$value": "{space.xs}" },
+    "indent":   { "$type": "dimension", "$value": "{space.md}" }
+  },
+  "description-list": {
+    "term":     { "$type": "color", "$value": "{color.text.primary}" },
+    "details":  { "$type": "color", "$value": "{color.text.secondary}" },
+    "gap":      { "$type": "dimension", "$value": "{space.sm}" },
+    "row-gap":  { "$type": "dimension", "$value": "{space.md}" }
+  },
+  "blockquote": {
+    "text":     { "$type": "color", "$value": "{color.text.secondary}" },
+    "border":   { "$type": "color", "$value": "{color.action.primary}" },
+    "attribution": { "$type": "color", "$value": "{color.text.disabled}" },
+    "padding":  { "$type": "dimension", "$value": "{space.md}" }
+  },
+  "chip": {
+    "bg":           { "$type": "color", "$value": "{color.surface.secondary}" },
+    "bg-selected":  { "$type": "color", "$value": "{color.action.primary}" },
+    "text":         { "$type": "color", "$value": "{color.text.primary}" },
+    "text-selected": { "$type": "color", "$value": "{color.text.inverse}" },
+    "border":       { "$type": "color", "$value": "{color.border.default}" },
+    "radius":       { "$type": "dimension", "$value": "{shape.radius-full}" },
+    "padding-x":    { "$type": "dimension", "$value": "{space.sm}" },
+    "min-height":   { "$type": "dimension", "$value": { "value": 32, "unit": "px" }, "$description": "コンパクトなタグ高さ。削除ボタンは44pxタップ領域を確保" }
+  },
+  "page-navigation": {
+    "text":           { "$type": "color", "$value": "{color.text.primary}" },
+    "text-disabled":  { "$type": "color", "$value": "{color.text.disabled}" },
+    "border":         { "$type": "color", "$value": "{color.border.default}" },
+    "bg-current":     { "$type": "color", "$value": "{color.action.primary}" },
+    "text-current":   { "$type": "color", "$value": "{color.text.inverse}" },
+    "min-height":     { "$type": "dimension", "$value": { "value": 44, "unit": "px" } },
+    "radius":         { "$type": "dimension", "$value": "{shape.radius-sm}" }
+  },
+  "step-navigation": {
+    "text":           { "$type": "color", "$value": "{color.text.secondary}" },
+    "text-current":   { "$type": "color", "$value": "{color.text.primary}" },
+    "text-complete":  { "$type": "color", "$value": "{color.text.primary}" },
+    "index-bg":       { "$type": "color", "$value": "{color.surface.secondary}" },
+    "index-bg-current": { "$type": "color", "$value": "{color.action.primary}" },
+    "index-text-current": { "$type": "color", "$value": "{color.text.inverse}" },
+    "connector":      { "$type": "color", "$value": "{color.border.default}" },
+    "gap":            { "$type": "dimension", "$value": "{space.md}" }
+  },
+  "progress-indicator": {
+    "track":   { "$type": "color", "$value": "{color.surface.secondary}" },
+    "fill":    { "$type": "color", "$value": "{color.action.primary}" },
+    "label":   { "$type": "color", "$value": "{color.text.primary}" },
+    "value":   { "$type": "color", "$value": "{color.text.secondary}" },
+    "height":  { "$type": "dimension", "$value": { "value": 8, "unit": "px" } },
+    "radius":  { "$type": "dimension", "$value": "{shape.radius-full}" }
+  },
+  "search-box": {
+    "bg":           { "$type": "color", "$value": "{color.surface.primary}" },
+    "border":       { "$type": "color", "$value": "{color.border.default}" },
+    "border-focus": { "$type": "color", "$value": "{color.border.focus}" },
+    "text":         { "$type": "color", "$value": "{color.text.primary}" },
+    "radius":       { "$type": "dimension", "$value": "{shape.radius-md}" },
+    "min-height":   { "$type": "dimension", "$value": { "value": 44, "unit": "px" } }
+  },
+  "scroll-top-button": {
+    "bg":         { "$type": "color", "$value": "{color.surface.secondary}" },
+    "text":       { "$type": "color", "$value": "{color.text.primary}" },
+    "border":     { "$type": "color", "$value": "{color.border.default}" },
+    "shadow":     { "$type": "shadow", "$value": "{elevation.raised}" },
+    "radius":     { "$type": "dimension", "$value": "{shape.radius-full}" },
+    "min-size":   { "$type": "dimension", "$value": { "value": 44, "unit": "px" } }
+  },
+  "utility-link": {
+    "text":       { "$type": "color", "$value": "{color.text.secondary}" },
+    "text-hover": { "$type": "color", "$value": "{color.text.link}" }
+  },
+  "hamburger-menu-button": {
+    "bar":        { "$type": "color", "$value": "{color.text.primary}" },
+    "min-size":   { "$type": "dimension", "$value": { "value": 44, "unit": "px" } }
+  },
+  "drawer": {
+    "bg":         { "$type": "color", "$value": "{color.surface.primary}" },
+    "overlay":    { "$type": "color", "$value": "{color.surface.overlay}" },
+    "border":     { "$type": "color", "$value": "{color.border.default}" },
+    "title":      { "$type": "color", "$value": "{color.text.primary}" },
+    "body":       { "$type": "color", "$value": "{color.text.secondary}" },
+    "width":      { "$type": "dimension", "$value": { "value": 320, "unit": "px" } },
+    "padding":    { "$type": "dimension", "$value": "{space.md}" },
+    "shadow":     { "$type": "shadow", "$value": "{elevation.overlay}" }
+  },
+  "file-upload": {
+    "border":       { "$type": "color", "$value": "{color.border.default}" },
+    "border-error": { "$type": "color", "$value": "{color.feedback.danger}" },
+    "bg":           { "$type": "color", "$value": "{color.surface.secondary}" },
+    "button-bg":    { "$type": "color", "$value": "{color.surface.primary}" },
+    "text":         { "$type": "color", "$value": "{color.text.primary}" },
+    "name":         { "$type": "color", "$value": "{color.text.secondary}" },
+    "radius":       { "$type": "dimension", "$value": "{shape.radius-md}" },
+    "min-height":   { "$type": "dimension", "$value": { "value": 44, "unit": "px" } }
+  },
+  "table-of-contents": {
+    "title":      { "$type": "color", "$value": "{color.text.primary}" },
+    "link":       { "$type": "color", "$value": "{color.text.link}" },
+    "link-hover": { "$type": "color", "$value": "{color.text.link-hover}" },
+    "border":     { "$type": "color", "$value": "{color.border.default}" },
+    "gap":        { "$type": "dimension", "$value": "{space.xs}" }
+  },
+  "resource-list": {
+    "border":       { "$type": "color", "$value": "{color.border.default}" },
+    "title":        { "$type": "color", "$value": "{color.text.primary}" },
+    "description":  { "$type": "color", "$value": "{color.text.secondary}" },
+    "meta":         { "$type": "color", "$value": "{color.text.disabled}" },
+    "bg-hover":     { "$type": "color", "$value": "{color.surface.secondary}" },
+    "radius":       { "$type": "dimension", "$value": "{shape.radius-md}" },
+    "padding":      { "$type": "dimension", "$value": "{space.md}" }
+  },
+  "image": {
+    "caption":  { "$type": "color", "$value": "{color.text.secondary}" },
+    "radius":   { "$type": "dimension", "$value": "{shape.radius-md}" },
+    "border":   { "$type": "color", "$value": "{color.border.default}" }
+  },
+  "horizontal-menu": {
+    "text":           { "$type": "color", "$value": "{color.text.secondary}" },
+    "text-hover":     { "$type": "color", "$value": "{color.text.primary}" },
+    "text-current":   { "$type": "color", "$value": "{color.text.primary}" },
+    "border-current": { "$type": "color", "$value": "{color.action.primary}" },
+    "gap":            { "$type": "dimension", "$value": "{space.sm}" },
+    "min-height":     { "$type": "dimension", "$value": { "value": 44, "unit": "px" } }
+  },
+  "menu-list": {
+    "text":         { "$type": "color", "$value": "{color.text.primary}" },
+    "text-current": { "$type": "color", "$value": "{color.text.primary}" },
+    "bg-hover":     { "$type": "color", "$value": "{color.surface.secondary}" },
+    "bg-current":   { "$type": "color", "$value": "{color.surface.secondary}" },
+    "border":       { "$type": "color", "$value": "{color.border.default}" },
+    "radius":       { "$type": "dimension", "$value": "{shape.radius-sm}" },
+    "min-height":   { "$type": "dimension", "$value": { "value": 44, "unit": "px" } }
+  },
+  "bottom-navigation": {
+    "bg":             { "$type": "color", "$value": "{color.surface.primary}" },
+    "border":         { "$type": "color", "$value": "{color.border.default}" },
+    "text":           { "$type": "color", "$value": "{color.text.secondary}" },
+    "text-current":   { "$type": "color", "$value": "{color.text.primary}" },
+    "shadow":         { "$type": "shadow", "$value": "{elevation.raised}" },
+    "min-height":     { "$type": "dimension", "$value": { "value": 56, "unit": "px" } }
+  }
+}

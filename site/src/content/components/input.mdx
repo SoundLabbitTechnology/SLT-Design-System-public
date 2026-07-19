@@ -1,0 +1,47 @@
+---
+title: Input
+titleJa: インプット
+tier: P0
+order: 2
+description: 単一行テキスト・メール・パスワード等の入力フィールド。
+tokenPrefix: input
+props:
+  - { name: label, type: string, description: フィールドラベル（省略時は非表示だが原則必須） }
+  - { name: hint, type: string, description: 補足説明テキスト }
+  - { name: error, type: boolean, default: "false", description: エラー状態の表示切替 }
+  - { name: errorMessage, type: string, description: エラーメッセージ本文 }
+  - { name: layout, type: '"vertical" | "horizontal"', default: '"vertical"', description: "ラベル横並び（DADS 作例）" }
+  - { name: readOnly, type: boolean, default: "false", description: "読み取り専用（ネイティブ readOnly）" }
+---
+
+import Demo from "../../components/Demo.astro";
+import DoDont from "../../components/DoDont.astro";
+import InputDemo from "../../demos/InputDemo";
+
+## デモ
+
+<Demo>
+  <InputDemo client:visible slot="stage" />
+  <Fragment slot="code">
+    ```tsx
+    import { Input } from "@soundlabbit/design-system/ui";
+
+    <div className="slt-field-stack">
+      <Input label="メールアドレス" placeholder="you@example.com" />
+      <Input label="ユーザー名" error errorMessage="このユーザー名は既に使われています" />
+    </div>
+    ```
+  </Fragment>
+</Demo>
+
+## 使い方
+
+単一行テキスト・メール・パスワード等に使う。複数行入力には [Textarea](/components/textarea/) を使う。複数 field は `.slt-field-stack` で項目間を広く取る。
+
+{/* Do/Don't の出典: docs/L2-components/guides.md#input */}
+<DoDont
+  dos={["label を必ず付与し control と近接させる", "複数 field は slt-field-stack で項目間を広く", "エラー時は error + errorMessage"]}
+  donts={["placeholder のみでラベル代用", "field 同士をラベル間隔と同じ密さで並べる", "色だけ変えてメッセージなし"]}
+/>
+
+**状態**: `error` / `disabled` / `readOnly`。`layout="horizontal"` でラベル横並び。focus はキーボード操作で確認できる。

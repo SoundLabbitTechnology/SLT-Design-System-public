@@ -1,0 +1,39 @@
+---
+import DocLayout from "../layouts/DocLayout.astro";
+import { BrandBackground } from "@soundlabbit/design-system/ui";
+
+const sections = [
+  { title: "導入する", description: "Version、CSS、Theme、React component を最小構成で導入", href: "/getting-started/" },
+  { title: "原則", description: "デザイン品質の判断順序（恒常原則）。企業戦略は含まない", href: "/principles/" },
+  { title: "スタイル", description: "Color、typography、spacing、motion、token", href: "/foundations/" },
+  { title: "コンポーネント", description: "全 public component の demo、code、props、usage", href: "/components/" },
+  { title: "ガイドライン", description: "Pattern、content、quality、contribution、release", href: "/guidelines/" },
+];
+const base = import.meta.env.BASE_URL.replace(/\/$/, "");
+---
+
+<DocLayout title="はじめに">
+  <section class="docs-hero">
+    <div class="docs-hero__background">
+      <BrandBackground client:load />
+    </div>
+    <div class="docs-hero__content">
+      <p class="docs-page-hero__eyebrow">SLT Design System</p>
+      <h1 class="docs-page-hero__title">一つの語彙で、複数ブランドを設計する</h1>
+      <p class="docs-page-hero__description">
+        Semantic token、React component、実装 pattern、品質 gate を共有し、AI-DASH、Sound Laboratory、Corporate、Admin の体験を一貫して構築します。
+      </p>
+    </div>
+  </section>
+
+  <div class="docs-card-grid">
+    {
+      sections.map((section) => (
+        <a class="slt-card" href={`${base}${section.href}`}>
+          <h2 class="docs-section-card__title">{section.title}</h2>
+          <p class="docs-section-card__desc">{section.description}</p>
+        </a>
+      ))
+    }
+  </div>
+</DocLayout>

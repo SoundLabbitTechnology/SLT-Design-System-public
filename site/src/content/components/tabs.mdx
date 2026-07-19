@@ -1,0 +1,46 @@
+---
+title: Tabs
+titleJa: タブ
+tier: P1
+order: 20
+description: "関連するパネルを切り替え表示するナビゲーション。"
+tokenPrefix: tab
+props:
+  - { name: "Tabs.value / defaultValue", type: string, description: "選択中のタブ value（制御 / 非制御）" }
+  - { name: "Tabs.orientation", type: '"horizontal" | "vertical"', default: '"horizontal"', description: "タブリストの向き" }
+  - { name: "Tab.value", type: string, description: "パネルと対応する識別子" }
+  - { name: "TabPanel.forceMount", type: boolean, default: "false", description: "非選択時もパネルを DOM に残す" }
+---
+
+import Demo from "../../components/Demo.astro";
+import DoDont from "../../components/DoDont.astro";
+import TabsDemo from "../../demos/TabsDemo";
+
+## デモ
+
+<Demo>
+  <TabsDemo client:visible slot="stage" />
+  <Fragment slot="code">
+    ```tsx
+    import { Tab, TabList, TabPanel, Tabs } from "@soundlabbit/design-system/ui";
+
+    <Tabs defaultValue="overview">
+      <TabList aria-label="製品情報">
+        <Tab value="overview">概要</Tab>
+        <Tab value="specs">仕様</Tab>
+      </TabList>
+      <TabPanel value="overview">…</TabPanel>
+      <TabPanel value="specs">…</TabPanel>
+    </Tabs>
+    ```
+  </Fragment>
+</Demo>
+
+## 使い方
+
+同じ階層の関連コンテンツを切り替える。矢印キーでタブ間を移動し、選択とフォーカスが連動する（automatic activation）。ページ遷移が本質ならリンクナビを使う。
+
+<DoDont
+  dos={["TabList に aria-label（または labelledby）を付ける", "各 Tab の value と TabPanel を対応させる"]}
+  donts={["タブ内にさらに深いページ遷移フローを詰め込む", "2 択しかない設定を Tabs にする（Radio / Switch を検討）"]}
+/>

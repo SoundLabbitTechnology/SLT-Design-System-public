@@ -1,0 +1,35 @@
+---
+title: TableOfContents
+titleJa: 目次
+tier: P2
+order: 38
+description: "ページ内見出しへの目次ナビ。"
+tokenPrefix: table-of-contents
+props:
+  - { name: items, type: "TableOfContentsItem[]", description: "id / label / level" }
+  - { name: title, type: string, default: '"目次"', description: "ナビの見出し" }
+---
+
+import Demo from "../../components/Demo.astro";
+import DoDont from "../../components/DoDont.astro";
+import TableOfContentsDemo from "../../demos/TableOfContentsDemo";
+
+## デモ
+
+<Demo>
+  <TableOfContentsDemo client:visible slot="stage" />
+  <Fragment slot="code">
+    ```tsx
+    import { TableOfContents } from "@soundlabbit/design-system/ui";
+    ```
+  </Fragment>
+</Demo>
+
+## 使い方
+
+長いドキュメントのスキップリンク。
+
+<DoDont
+  dos={["実在する見出し id にリンクする", "階層 level を反映する"]}
+  donts={["サイト全体ナビの代わりに使う", "空の目次を出す"]}
+/>

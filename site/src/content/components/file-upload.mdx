@@ -1,0 +1,36 @@
+---
+title: FileUpload
+titleJa: ファイルアップロード
+tier: P2
+order: 37
+description: "ファイル選択入力。"
+tokenPrefix: file-upload
+props:
+  - { name: label, type: string, description: "フィールドラベル" }
+  - { name: onFilesChange, type: "(files: FileList | null) => void", description: "選択変更" }
+  - { name: errorMessage, type: string, description: "エラー文言" }
+---
+
+import Demo from "../../components/Demo.astro";
+import DoDont from "../../components/DoDont.astro";
+import FileUploadDemo from "../../demos/FileUploadDemo";
+
+## デモ
+
+<Demo>
+  <FileUploadDemo client:visible slot="stage" />
+  <Fragment slot="code">
+    ```tsx
+    import { FileUpload } from "@soundlabbit/design-system/ui";
+    ```
+  </Fragment>
+</Demo>
+
+## 使い方
+
+フォームの添付に使う。
+
+<DoDont
+  dos={["受け入れ形式を hint で示す", "エラーは色だけに依存しない"]}
+  donts={["ドラッグ&ドロップ必須 UX を暗黙に求める", "選択結果を視覚表示しない"]}
+/>

@@ -1,0 +1,26 @@
+---
+import { getEntry, render } from "astro:content";
+import DocLayout from "../../layouts/DocLayout.astro";
+import PageHero from "../../components/PageHero.astro";
+import SpacingScale from "../../components/SpacingScale.astro";
+
+const entry = await getEntry("tokenGuides", "spacing-motion");
+if (!entry) throw new Error("docs/L1-foundations/spacing-motion.md not found in tokenGuides collection");
+const { Content } = await render(entry);
+---
+
+<DocLayout title="余白・形状">
+  <PageHero
+    eyebrow="スタイル"
+    title="余白・形状"
+    description="space / radius / shadow / motion / zIndex / breakpoint / focus のトークンです。"
+  />
+  <div class="docs-prose">
+    <h2>現在のテーマ</h2>
+    <p>下の一覧はヘッダーで選択した Theme / Mode に追従します。</p>
+    <SpacingScale />
+    <hr />
+    <h2>ガイド</h2>
+    <Content />
+  </div>
+</DocLayout>

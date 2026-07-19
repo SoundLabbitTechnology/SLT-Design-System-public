@@ -1,0 +1,80 @@
+---
+import DocLayout from "../layouts/DocLayout.astro";
+import PageHero from "../components/PageHero.astro";
+
+const base = import.meta.env.BASE_URL;
+const href = (path: string) => `${base}${path.replace(/^\//, "")}`;
+---
+
+<DocLayout title="導入方法">
+  <PageHero
+    eyebrow="概要"
+    title="導入方法"
+    description="CSS token、theme attributes、React component を最小構成から導入します。"
+  />
+  <div class="docs-prose">
+    <h2>1. Version を固定する</h2>
+    <p>現在は Git dependency で配布します。再現可能な build のため、release tag または commit を固定します。</p>
+    <pre><code>{`{
+  "dependencies": {
+    "@soundlabbit/design-system": "github:SoundLabbitTechnology/SLT-Design-System-public#v0.4.5"
+  }
+}`}</code></pre>
+
+    <h2>2. CSS を読み込む</h2>
+    <pre><code>{`@import '@soundlabbit/design-system/tokens.css';
+@import '@soundlabbit/design-system/components.css';`}</code></pre>
+    <p>共有 utility が必要な場合だけ追加します。</p>
+    <pre><code>{`@import '@soundlabbit/design-system/utilities.css';`}</code></pre>
+
+    <h2>3. Theme と mode を指定する</h2>
+    <pre><code>{`<html data-theme="ai-dash" data-color-mode="dark">`}</code></pre>
+    <table>
+      <thead><tr><th>Theme</th><th>対応 mode</th><th>既定</th></tr></thead>
+      <tbody>
+        <tr><td><code>ai-dash</code></td><td>light / dark</td><td>dark</td></tr>
+        <tr><td><code>sound-laboratory</code></td><td>light / dark</td><td>dark</td></tr>
+        <tr><td><code>slt-corporate</code></td><td>dark</td><td>dark</td></tr>
+        <tr><td><code>admin</code></td><td>light</td><td>light</td></tr>
+      </tbody>
+    </table>
+    <p>Theme 間で token 名は同じです。値だけが切り替わります。</p>
+
+    <h2>4. React component を使う</h2>
+    <pre><code>{`import { Button, Card, Input } from '@soundlabbit/design-system/ui';
+
+export function ProfileForm() {
+  return (
+    <Card>
+      <Input label="表示名" />
+      <Button>変更を保存</Button>
+    </Card>
+  );
+}`}</code></pre>
+    <p><a href={href("components/")}>コンポーネント一覧</a>から demo、props、利用判断を確認できます。</p>
+
+    <h2>5. 導入を確認する</h2>
+    <ul>
+      <li>surface、text、focus ring が選択 theme に追従する。</li>
+      <li>Button / Input の高さと font が component CSS から適用される。</li>
+      <li>keyboard で focus が見え、主要操作を完了できる。</li>
+      <li>production build で package exports が解決する。</li>
+    </ul>
+
+    <h2>重要な制約</h2>
+    <ul>
+      <li>semantic / component token だけを参照する。</li>
+      <li>raw color、任意の寸法、`primitives.json` の生値を UI に持ち込まない（semantic / component のみ）。</li>
+      <li>Tailwind v4 の <code>@theme</code> に custom <code>--spacing-*</code> を追加しない。</li>
+      <li><code>danger</code> action は cancel、undo、confirmation のいずれかと組み合わせる。</li>
+    </ul>
+
+    <h2>次に読む</h2>
+    <ul>
+      <li><a href={href("foundations/tokens/")}>トークンの使い方</a></li>
+      <li><a href={href("components/")}>コンポーネント</a></li>
+      <li><a href={href("guidelines/patterns/")}>パターン</a></li>
+      <li><a href={href("guidelines/quality/")}>品質基準</a></li>
+    </ul>
+  </div>
+</DocLayout>

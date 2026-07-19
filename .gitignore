@@ -1,0 +1,23 @@
+node_modules/
+.DS_Store
+*.log
+.turbo/
+.cache/
+
+# インポート元ドキュメント（docx / zip — リポジトリ外参照用）
+import_docs/
+
+*storybook.log
+storybook-static
+
+# UI build output is committed for git-based installs (like dist/)
+
+# Docs site (site/) build output — regenerated via npm run docs:build
+site/dist/
+site/.astro/
+
+# Figma / Tokens Studio local exports (not committed)
+design-tokens/figma-export/
+
+# Style Dictionary spike output (regenerated via npm run tokens:sd-spike)
+.cache/

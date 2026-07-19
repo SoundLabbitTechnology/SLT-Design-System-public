@@ -1,0 +1,34 @@
+---
+title: ResourceList
+titleJa: リソースリスト
+tier: P2
+order: 39
+description: "関連リソースへのリンクリスト。"
+tokenPrefix: resource-list
+props:
+  - { name: items, type: "ResourceListItem[]", description: "title / href / description / meta" }
+---
+
+import Demo from "../../components/Demo.astro";
+import DoDont from "../../components/DoDont.astro";
+import ResourceListDemo from "../../demos/ResourceListDemo";
+
+## デモ
+
+<Demo>
+  <ResourceListDemo client:visible slot="stage" />
+  <Fragment slot="code">
+    ```tsx
+    import { ResourceList } from "@soundlabbit/design-system/ui";
+    ```
+  </Fragment>
+</Demo>
+
+## 使い方
+
+関連ドキュメントやツールへの導線。
+
+<DoDont
+  dos={["タイトルで到達先が分かるようにする", "説明は短く保つ"]}
+  donts={["本文の箇条書きの代わりに使う（List）", "アクションボタン群の代わりに使う"]}
+/>

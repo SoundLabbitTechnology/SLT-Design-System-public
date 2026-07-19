@@ -1,0 +1,78 @@
+# SLT Design System
+
+> Sound Labbit Technology shared design system. DTCG tokens, 7-layer docs, AI-readable.
+> Version: 0.4.5
+
+## Structure (7 Layers)
+
+- L0 Principles: docs/L0-principles.md
+- L1 Foundations: design-tokens/, docs/L1-foundations/
+- L2 Components: design-tokens/components.json, docs/L2-components/README.md
+- L3 Patterns: docs/L3-patterns.md
+- L4 Content: docs/L4-content.md
+- L5 Quality: docs/L5-quality.md
+- L6 Governance: docs/L6-governance.md, docs/L6-harness-and-loops.md, docs/ROADMAP.md, CLAUDE.md
+
+## Browse docs
+
+- Docs site (Astro): npm run docs:dev → http://localhost:4321 (local only for now; no public URL — see site/README.md)
+- Storybook: npm run storybook → http://localhost:6006
+- Markdown source of truth: docs/
+
+## UI Components (@soundlabbit/design-system/ui)
+
+P0: Button, Input, Textarea, Card, Dialog, Badge, Checkbox, Radio, Select, Switch, Heading, Divider, NoticeBlock
+P1: BrandBackground, WaveBackground, GridBackground, Toast, SiteHeader, Breadcrumb, Tabs, Accordion, Disclosure, List, DescriptionList, Blockquote, Chip, PageNavigation, StepNavigation, ProgressIndicator, SearchBox
+P2: Skeleton, Table (DataTable), ScrollTopButton, UtilityLink, HamburgerMenuButton, Drawer, FileUpload, TableOfContents, ResourceList, Image, HorizontalMenu, MenuList, BottomNavigation, MobileMenu
+
+## Token Rules (MANDATORY for AI)
+
+- Use semantic tokens ONLY: color.surface.primary, color.action.primary, etc.
+- NO raw hex or px in generated code
+- primitives.json is shipped for builds; AI must NOT read or copy its values
+- Docs site shows semantic / component tokens only (not primitive scales)
+- Reference: design-tokens/semantic.*.json, design-tokens/components.json
+
+## Build & Harness
+
+npm run check          # G0-G3 + docs contract + isotc (L1 loop)
+npm run check:fast     # skip G3; keep docs contract
+npm run check:docs     # links + canonical/public surface parity
+npm run check:g4       # Chromatic (needs CHROMATIC_PROJECT_TOKEN; L2/CI)
+npm run test:stories   # G3 only
+npm run storybook:check # G3 + static Storybook build
+npm run docs:check     # docs contract + static Docs site build
+npm run docs:dev       # Astro docs site
+
+Gates: G0 tokens | G1 no-raw | G2 tsc | G3 storybook+a11y | docs contract | G4 Chromatic (CI) | isotc
+G5: consumer-repo Lighthouse (not in this repo)
+
+Output: dist/{brand}/{mode}/tokens.css, dist/slt-tokens.css, dist-ui/
+
+## Themes
+
+data-theme: ai-dash | sound-laboratory | slt-corporate | admin
+data-color-mode: light | dark (default: dark for products, light for admin)
+
+## Brands
+
+- AI-DASH (B2B): logical, navy+gold, dark-first
+- Sound Laboratory (B2C): warm, coral+gold (coral placeholder — see ADR-001)
+
+## Constraints
+
+- No --spacing-* in @theme (Tailwind v4 collision)
+- danger buttons must pair with cancel
+- 44px min tap targets, focus rings required
+- Motion craft: docs/L1-foundations/motion-craft.md (map to --motion-*; source docs/reference/emilkowalski-skills/)
+
+
+## Docs
+
+Full index: docs/README.md
+Motion craft: docs/L1-foundations/motion-craft.md
+
+
+Roadmap: docs/ROADMAP.md
+Changelog: CHANGELOG.md
+Adoption: templates/consumer-g5/

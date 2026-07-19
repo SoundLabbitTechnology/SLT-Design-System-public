@@ -1,0 +1,53 @@
+---
+title: Toast
+titleJa: トースト
+tier: P1
+order: 17
+description: 操作結果の短いフィードバック（保存完了・エラー通知）。
+tokenPrefix: toast
+props:
+  - { name: title, type: string, description: トーストのタイトル（必須） }
+  - { name: description, type: string, description: 補足説明 }
+  - { name: variant, type: '"default" | "success" | "warning" | "danger" | "info"', default: '"default"', description: トーン }
+  - { name: duration, type: number, description: "自動 dismiss までの ms。省略時は Provider の値（既定 5000）" }
+  - { name: open, type: boolean, description: controlled open state }
+  - { name: defaultOpen, type: boolean, default: "true", description: Toast 単体の初期 open state }
+  - { name: onOpenChange, type: "(open: boolean) => void", description: dismiss を含む open state 変更 callback }
+  - { name: ToastProvider.duration, type: number, default: "5000", description: 配下 Toast の既定 duration }
+---
+
+import Demo from "../../components/Demo.astro";
+import DoDont from "../../components/DoDont.astro";
+import ToastDemo from "../../demos/ToastDemo";
+
+## デモ
+
+ボタンを押すとトーストが右下に表示されます。
+
+<Demo>
+  <ToastDemo client:visible slot="stage" />
+  <Fragment slot="code">
+    ```tsx
+    import { ToastProvider, useToast } from "@soundlabbit/design-system/ui";
+
+    <ToastProvider>
+      <App />
+    </ToastProvider>
+
+    const { toast } = useToast();
+    toast({ title: "保存しました", variant: "success" });
+    ```
+  </Fragment>
+</Demo>
+
+## 使い方
+
+操作結果の短いフィードバック（保存完了・エラー通知）に使う。重要な確認には [Dialog](/components/dialog/) を、常時表示のステータスには [Badge](/components/badge/) やインライン文言を使う。
+
+{/* Do/Don't の出典: docs/L2-components/guides.md#toast */}
+<DoDont
+  dos={["アプリルートを ToastProvider でラップする", "成功 / 警告 / エラーに variant を使う", "複数件はスタックで表示する（自動）"]}
+  donts={["Provider なしで useToast を呼ぶ", "長文やフォーム全体を Toast に入れる", "同時に大量の Toast を発火する"]}
+/>
+
+**状態**: 5 トーン。デフォルト 5 秒 auto-dismiss。スワイプ / Close ボタン / キーボードで閉じられる。

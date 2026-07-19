@@ -1,0 +1,43 @@
+import { Meta } from "@storybook/addon-docs/blocks";
+
+<Meta title="SLT Design System/L1 Foundations/Accessibility" />
+
+# Accessibility in Storybook
+
+Storybook は、コンポーネントの semantics、keyboard interaction、focus、theme ごとの視認性を確認する作業面です。自動テストと手動確認の両方を行います。
+
+## 自動で確認すること
+
+- axe による検出可能な WCAG 違反
+- `play` test による keyboard focus、Dialog の Escape / focus trap、Table の sort / selection
+- 全 story の smoke rendering
+- P0 と Landing Canvas の visual regression
+
+```bash
+npm run test:stories
+npm run storybook:check
+```
+
+自動テストは content の分かりやすさ、自然な focus order、全 theme の contrast を完全には判断しません。
+
+## 手動確認
+
+1. Toolbar で Theme と Mode を切り替える。
+2. Controls で disabled、loading、error などの状態を作る。
+3. Tab / Shift+Tab / Enter / Space / Escape だけで目的を完了する。
+4. focus ring、focus return、scroll position を確認する。
+5. OS の reduced motion と browser zoom を切り替える。
+6. Accessibility panel と accessibility tree で name / role / state を確認する。
+
+## Component story の最低要件
+
+| 対象 | Story / 確認 |
+|------|--------------|
+| Interactive component | keyboard focus と activation |
+| Form field | label、hint、error、disabled |
+| Async action | loading、二重送信防止、status feedback |
+| Overlay | initial focus、trap、Escape、return focus |
+| Data | headers、sort state、selection、empty |
+| Motion | reduced motion で意味を保つ |
+
+詳細な基準は [L5 品質基準](https://github.com/SoundLabbitTechnology/SLT-Design-System-public/blob/main/docs/L5-quality.md)、story の書式は [Storybook 標準](https://github.com/SoundLabbitTechnology/SLT-Design-System-public/blob/main/docs/L2-components/storybook.md) を参照してください。

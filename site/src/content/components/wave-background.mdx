@@ -1,0 +1,32 @@
+---
+title: WaveBackground
+titleJa: ウェーブ背景
+tier: P1
+order: 15
+description: "Canvas による 3D ウェーブメッシュ背景（wave-mesh ブランド専用）。"
+tokenPrefix: ""
+props:
+  - { name: palette, type: '"ai-dash" | "slt-corporate"', default: '"ai-dash"', description: トークンベースのカラープリセット }
+  - { name: colorVars, type: "string[]", description: "CSS 変数名で色を上書き（例: --color-action-secondary）" }
+  - { name: className, type: string, description: background wrapper へ追加する class }
+---
+
+import Demo from "../../components/Demo.astro";
+import WaveBackgroundDemo from "../../demos/WaveBackgroundDemo";
+
+## デモ
+
+<Demo>
+  <WaveBackgroundDemo client:visible slot="stage" />
+  <Fragment slot="code">
+    ```tsx
+    import { WaveBackground } from "@soundlabbit/design-system/ui";
+
+    <WaveBackground palette="ai-dash" />
+    ```
+  </Fragment>
+</Demo>
+
+## 使い方
+
+`ai-dash` / `slt-corporate` の wave-mesh ブランド専用。複数ブランドを横断する画面では [BrandBackground](/components/brand-background/) を使い、ブランド固定の画面でのみ本コンポーネントを直接使う。`prefers-reduced-motion` 設定時はアニメーションを行わない。

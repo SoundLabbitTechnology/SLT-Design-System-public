@@ -1,0 +1,38 @@
+---
+title: PageNavigation
+titleJa: ページナビゲーション
+tier: P1
+order: 27
+description: "複数ページの結果を前後・番号で移動する。"
+tokenPrefix: page-navigation
+props:
+  - { name: page, type: number, description: "現在ページ（1始まり）" }
+  - { name: totalPages, type: number, description: "総ページ数" }
+  - { name: onPageChange, type: "(page: number) => void", description: "ページ変更" }
+---
+
+import Demo from "../../components/Demo.astro";
+import DoDont from "../../components/DoDont.astro";
+import PageNavigationDemo from "../../demos/PageNavigationDemo";
+
+## デモ
+
+<Demo>
+  <PageNavigationDemo client:visible slot="stage" />
+  <Fragment slot="code">
+    ```tsx
+    import { PageNavigation } from "@soundlabbit/design-system/ui";
+
+    <PageNavigation page={1} totalPages={10} onPageChange={setPage} />
+    ```
+  </Fragment>
+</Demo>
+
+## 使い方
+
+一覧のページ分割に使う。現在ページは `aria-current="page"`。
+
+<DoDont
+  dos={["総ページ数と現在位置を明確にする", "前後ボタンを無効状態で端を示す"]}
+  donts={["無限スクロールの代替として無理に使う", "ページ番号を装飾だけのテキストにする"]}
+/>

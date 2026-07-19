@@ -1,0 +1,25 @@
+---
+import TokenTable from "./TokenTable.astro";
+import { tokensByPrefix } from "../lib/tokens";
+
+const rows = tokensByPrefix("typography");
+const SAMPLE = "あのイーハトーヴォのすきとおった風、夏でも底に冷たさをもつ青いそら ABC123";
+---
+
+<div class="docs-type-scale">
+  {
+    rows.map((row) => (
+      <div class="docs-type-specimen">
+        <p class="docs-type-specimen__label">
+          {row.key} — <code>var({row.cssVar})</code>
+        </p>
+        <p style={`font: var(${row.cssVar}); margin: 0;`}>{SAMPLE}</p>
+      </div>
+    ))
+  }
+</div>
+
+<TokenTable prefix="font.size" title="フォントサイズ" />
+<TokenTable prefix="font.weight" title="フォントウェイト" />
+<TokenTable prefix="font.lineHeight" title="行間" />
+<TokenTable prefix="font.family" title="フォントファミリー" />

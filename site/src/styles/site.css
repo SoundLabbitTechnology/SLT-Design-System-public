@@ -1,0 +1,531 @@
+/*
+ * ドキュメントサイト独自のレイアウト CSS。
+ * 値はすべて design-tokens 由来の CSS 変数（var(--…)）を参照する。
+ * raw hex / raw px のハードコードはしない。
+ * 例外: @media のブレークポイントは CSS 仕様上 var() を使えないため、
+ * --breakpoint-lg 等のトークン値と同じ px を直書きしている。
+ */
+
+.docs-skip-link {
+  position: absolute;
+  top: -100%;
+  left: var(--space-4);
+  z-index: var(--z-index-overlay, 1000);
+  padding: var(--space-2) var(--space-4);
+  background: var(--color-surface-primary);
+  color: var(--color-text-primary);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-level2);
+}
+
+.docs-skip-link:focus {
+  top: var(--space-4);
+}
+
+body {
+  margin: 0;
+  background: var(--color-surface-secondary);
+  color: var(--color-text-primary);
+  font: var(--typography-body);
+  /* 本文とヘッダー内側バーを同じガター / 幅で揃える */
+  --docs-content-max: 75rem;
+  --docs-gutter: var(--space-6);
+  --site-header-padding-x: var(--docs-gutter);
+}
+
+.docs-shell {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-6);
+  max-width: var(--docs-content-max);
+  margin: 0 auto;
+  padding: var(--space-6) var(--docs-gutter);
+}
+
+@media (min-width: 1024px) {
+  .docs-shell {
+    grid-template-columns: 15rem 1fr;
+    gap: var(--space-8);
+    padding: var(--space-8) var(--docs-gutter);
+  }
+}
+
+.docs-sidebar {
+  display: none;
+}
+
+@media (min-width: 1024px) {
+  .docs-sidebar {
+    display: block;
+    align-self: start;
+    position: sticky;
+    top: calc(var(--site-header-height, 64px) + var(--space-4));
+    max-height: calc(100vh - var(--site-header-height, 64px) - var(--space-8));
+    overflow-y: auto;
+    overscroll-behavior: contain;
+  }
+}
+
+.docs-sidebar__group + .docs-sidebar__group {
+  margin-top: var(--space-6);
+}
+
+.docs-sidebar__group-label {
+  margin: 0 0 var(--space-2);
+  font: var(--typography-caption);
+  color: var(--color-text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.docs-sidebar__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.docs-sidebar__link {
+  display: block;
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-md);
+  color: var(--color-text-secondary);
+  text-decoration: none;
+  font: var(--typography-body-small);
+}
+
+.docs-sidebar__link:hover {
+  background: var(--color-surface-tertiary);
+  color: var(--color-text-primary);
+}
+
+.docs-sidebar__link[aria-current="page"] {
+  background: var(--color-action-primary);
+  color: var(--color-text-inverse);
+}
+
+.docs-sidebar__link:focus-visible {
+  outline: var(--focus-ring-width) solid var(--color-action-primary);
+  outline-offset: var(--focus-ring-offset);
+}
+
+.docs-main {
+  min-width: 0;
+}
+
+.docs-footer {
+  max-width: var(--docs-content-max, 75rem);
+  margin: 0 auto;
+  padding: var(--space-8) var(--docs-gutter, var(--space-6)) var(--space-10);
+  color: var(--color-text-secondary);
+  font: var(--typography-body-small);
+}
+
+.docs-footer a {
+  color: inherit;
+}
+
+/* テーマスイッチャー */
+.docs-theme-switcher {
+  display: flex;
+  gap: var(--space-3);
+  align-items: center;
+  padding-inline: var(--space-1);
+}
+
+.docs-theme-switcher__field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  font: var(--typography-caption);
+  color: var(--color-text-secondary);
+}
+
+.docs-theme-switcher__select {
+  min-width: 8rem;
+  min-height: var(--input-min-height, 44px);
+}
+
+/* ページヒーロー */
+.docs-page-hero {
+  margin-bottom: var(--space-8);
+}
+
+.docs-page-hero__eyebrow {
+  margin: 0 0 var(--space-2);
+  font: var(--typography-caption);
+  color: var(--color-text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.docs-page-hero__title {
+  margin: 0 0 var(--space-3);
+  font: var(--typography-display);
+  color: var(--color-text-primary);
+}
+
+.docs-page-hero__description {
+  margin: 0;
+  max-width: 40rem;
+  font: var(--typography-body);
+  color: var(--color-text-secondary);
+}
+
+/* Markdown / prose 本文 */
+.docs-prose {
+  max-width: 47.5rem;
+}
+
+.docs-prose h2 {
+  margin-top: var(--space-10);
+  margin-bottom: var(--space-3);
+  font: var(--typography-heading-1);
+  color: var(--color-text-primary);
+}
+
+.docs-prose h3 {
+  margin-top: var(--space-8);
+  margin-bottom: var(--space-2);
+  font: var(--typography-heading-2, var(--typography-heading-1));
+  color: var(--color-text-primary);
+}
+
+.docs-prose p {
+  margin: var(--space-3) 0;
+  color: var(--color-text-primary);
+}
+
+.docs-prose a {
+  color: var(--color-action-primary);
+}
+
+.docs-prose table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: var(--space-4) 0;
+  font: var(--typography-body-small);
+}
+
+.docs-prose th,
+.docs-prose td {
+  border: 1px solid var(--color-border-secondary, var(--color-border-primary));
+  padding: var(--space-2) var(--space-3);
+  text-align: left;
+}
+
+.docs-prose code {
+  font: var(--typography-code);
+  background: var(--color-surface-tertiary);
+  padding: 0 var(--space-1);
+  border-radius: var(--radius-sm);
+}
+
+.docs-prose pre {
+  border-radius: var(--radius-md);
+  padding: var(--space-4);
+  overflow-x: auto;
+}
+
+.docs-prose pre code {
+  background: none;
+  padding: 0;
+}
+
+/* Shiki デュアルテーマ切替: markdown.shikiConfig defaultColor:false と対
+   （defaultColor:false は色の適用を Astro に任せず自前 CSS で行うモード） */
+.astro-code,
+.astro-code span {
+  color: var(--shiki-light);
+  background-color: var(--shiki-light-bg);
+  font-style: var(--shiki-light-font-style);
+  font-weight: var(--shiki-light-font-weight);
+  text-decoration: var(--shiki-light-text-decoration);
+}
+
+:root[data-color-mode="dark"] .astro-code,
+:root[data-color-mode="dark"] .astro-code span {
+  color: var(--shiki-dark) !important;
+  background-color: var(--shiki-dark-bg) !important;
+  font-style: var(--shiki-dark-font-style) !important;
+  font-weight: var(--shiki-dark-font-weight) !important;
+  text-decoration: var(--shiki-dark-text-decoration) !important;
+}
+
+/* デモステージ */
+.docs-demo {
+  border: 1px solid var(--color-border-primary);
+  border-radius: var(--radius-lg);
+  margin: var(--space-4) 0;
+}
+
+.docs-demo__stage {
+  padding: var(--space-6);
+  background: var(--color-surface-primary);
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  align-items: center;
+  min-height: var(--space-16);
+  position: relative;
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+}
+
+.docs-demo__code {
+  border-top: 1px solid var(--color-border-primary);
+  overflow: hidden;
+  border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+}
+
+.docs-demo__code pre {
+  margin: 0;
+  border-radius: 0;
+}
+
+.docs-demo-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  align-items: center;
+}
+
+.docs-bg-stage {
+  position: relative;
+  width: 100%;
+  height: 16rem;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: var(--color-surface-primary);
+}
+
+.docs-site-header-stage {
+  width: 100%;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--color-border-default);
+  background: var(--color-surface-secondary);
+}
+
+.docs-field-stack {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  /* product の .slt-field-stack と同じ項目間（Proximity: 項目間は広く） */
+  gap: var(--space-md);
+  width: 100%;
+  max-width: 22rem;
+}
+
+.docs-field-stack--narrow {
+  max-width: 12rem;
+}
+
+.docs-demo-row--top {
+  align-items: flex-start;
+}
+
+.docs-demo-card {
+  max-width: 16rem;
+}
+
+.docs-demo-card__text {
+  margin: 0;
+}
+
+/* Do / Don't */
+.docs-dodont {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-4);
+  margin: var(--space-4) 0;
+}
+
+@media (min-width: 640px) {
+  .docs-dodont {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.docs-dodont__card {
+  border-radius: var(--radius-md);
+  padding: var(--space-4);
+  border: 1px solid var(--color-border-primary);
+}
+
+.docs-dodont__card--do {
+  border-color: var(--color-feedback-success, var(--color-border-primary));
+}
+
+.docs-dodont__card--dont {
+  border-color: var(--color-feedback-danger, var(--color-border-primary));
+}
+
+.docs-dodont__title {
+  margin: 0 0 var(--space-2);
+  font: var(--typography-heading-2, var(--typography-body));
+}
+
+.docs-dodont__list {
+  margin: 0;
+  padding-left: var(--space-4);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+/* トークンテーブル */
+.docs-token-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: var(--space-4) 0;
+  font: var(--typography-body-small);
+}
+
+.docs-token-table th,
+.docs-token-table td {
+  border: 1px solid var(--color-border-primary);
+  padding: var(--space-2) var(--space-3);
+  text-align: left;
+  white-space: nowrap;
+}
+
+.docs-token-table__wrap {
+  max-width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.docs-swatch-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr));
+  gap: var(--space-3);
+  margin: var(--space-4) 0;
+}
+
+.docs-swatch {
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  border: 1px solid var(--color-border-primary);
+}
+
+.docs-swatch__color {
+  height: var(--space-12);
+}
+
+.docs-swatch__meta {
+  padding: var(--space-2) var(--space-3);
+  background: var(--color-surface-primary);
+}
+
+.docs-swatch__name {
+  display: block;
+  font: var(--typography-body-small);
+  color: var(--color-text-primary);
+}
+
+.docs-swatch__var {
+  display: block;
+  font: var(--typography-caption);
+  color: var(--color-text-secondary);
+}
+
+/* タイポグラフィ見本 */
+.docs-type-specimen {
+  padding: var(--space-4);
+  border: 1px solid var(--color-border-primary);
+  border-radius: var(--radius-md);
+  margin-bottom: var(--space-3);
+}
+
+.docs-type-specimen__label {
+  margin: 0 0 var(--space-2);
+  font: var(--typography-caption);
+  color: var(--color-text-secondary);
+}
+
+/* 余白・形状スケール */
+.docs-scale-row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin-bottom: var(--space-2);
+}
+
+.docs-scale-row__bar {
+  height: var(--space-4);
+  background: var(--color-action-primary);
+  border-radius: var(--radius-sm);
+}
+
+.docs-scale-row__label {
+  font: var(--typography-body-small);
+  color: var(--color-text-secondary);
+  min-width: 6rem;
+}
+
+/* カード一覧グリッド（トップ・コンポーネント一覧） */
+.docs-card-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-4);
+}
+
+@media (min-width: 640px) {
+  .docs-card-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .docs-card-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.docs-card-grid a.slt-card {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
+.docs-section-card__tier {
+  margin-bottom: var(--space-2);
+  display: inline-block;
+}
+
+.docs-section-card__title {
+  margin: 0 0 var(--space-2);
+  font: var(--typography-heading-1);
+}
+
+.docs-section-card__desc {
+  margin: 0;
+  color: var(--color-text-secondary);
+}
+
+.docs-hero {
+  position: relative;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  padding: var(--space-10) var(--space-6);
+  margin-bottom: var(--space-10);
+  background: var(--color-surface-brand);
+  color: var(--color-text-inverse);
+  min-height: 17.5rem;
+  display: flex;
+  align-items: center;
+}
+
+.docs-hero__content {
+  position: relative;
+  z-index: 1;
+  max-width: 40rem;
+}
+
+.docs-hero__background {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}

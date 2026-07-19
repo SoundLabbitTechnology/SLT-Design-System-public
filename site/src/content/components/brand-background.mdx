@@ -1,0 +1,39 @@
+---
+title: BrandBackground
+titleJa: ブランド背景
+tier: P1
+order: 14
+description: "html の data-theme / data-color-mode を自動読取し、ブランドごとの背景表現に切り替える。"
+tokenPrefix: ""
+props:
+  - { name: brand, type: '"ai-dash" | "sound-laboratory" | "slt-corporate"', description: "明示指定。省略時は <html> の data-theme を自動読取（admin は未対応）" }
+  - { name: colorVars, type: "string[]", description: "wave-mesh ブランドのみ。CSS 変数名で色を上書き" }
+  - { name: className, type: string, description: wrapper / background へ追加する class }
+---
+
+import Demo from "../../components/Demo.astro";
+import BrandBackgroundDemo from "../../demos/BrandBackgroundDemo";
+
+## デモ
+
+ページ右上のブランドスイッチャーを切り替えると、この背景も連動して変わります（`ai-dash` / `slt-corporate` は3Dウェーブメッシュ、`sound-laboratory` はグリッド+パララックス）。
+
+<Demo>
+  <BrandBackgroundDemo client:visible slot="stage" />
+  <Fragment slot="code">
+    ```tsx
+    import { BrandBackground } from "@soundlabbit/design-system/ui";
+
+    // html の data-theme / data-color-mode を自動読取
+    <BrandBackground />
+
+    // 明示指定
+    <BrandBackground brand="sound-laboratory" />
+    ```
+  </Fragment>
+</Demo>
+
+## 使い方
+
+ブランドごとに背景表現が異なる（`ai-dash` / `slt-corporate` = Canvas 3D ウェーブ、`sound-laboratory` = CSS 方眼紙 + マウスパララックス）。
+`BrandBackground` は `BRAND_BACKGROUNDS` レジストリを参照して自動切り替えするため、複数ブランドを横断する画面では個別の [WaveBackground](/components/wave-background/) / [GridBackground](/components/grid-background/) より本コンポーネントを推奨する。

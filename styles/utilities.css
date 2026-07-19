@@ -1,0 +1,189 @@
+/**
+ * SLT shared CSS utilities
+ * Requires design tokens (import dist/slt-tokens.css first).
+ *
+ * Usage:
+ *   @import '@soundlabbit/design-system/tokens.css';
+ *   @import '@soundlabbit/design-system/utilities.css';
+ */
+
+/* ---------- Glassmorphism card ---------- */
+.glass-card {
+  background: color-mix(in srgb, var(--color-surface-secondary) 60%, transparent);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--color-border-default);
+}
+
+.glass-card--elevated {
+  background: var(--color-surface-overlay);
+  border: 1px solid var(--color-border-default);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+/* ---------- Scrollbar (dark-first) ---------- */
+.slt-scrollbar::-webkit-scrollbar,
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+.slt-scrollbar::-webkit-scrollbar-track,
+::-webkit-scrollbar-track {
+  background: var(--color-surface-primary);
+}
+
+.slt-scrollbar::-webkit-scrollbar-thumb,
+::-webkit-scrollbar-thumb {
+  background: var(--color-border-strong);
+  border-radius: var(--radius-sm, 4px);
+}
+
+.slt-scrollbar::-webkit-scrollbar-thumb:hover,
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-surface-tertiary);
+}
+
+.slt-scrollbar--accent::-webkit-scrollbar {
+  width: 12px;
+}
+
+.slt-scrollbar--accent::-webkit-scrollbar-track {
+  background: var(--color-surface-secondary);
+}
+
+.slt-scrollbar--accent::-webkit-scrollbar-thumb {
+  background-color: var(--color-action-primary);
+  border-radius: var(--radius-xl, 20px);
+  border: 3px solid var(--color-surface-secondary);
+}
+
+/* ---------- Glow / motion ---------- */
+@keyframes slt-glow {
+  0%,
+  100% {
+    box-shadow:
+      0 0 5px var(--color-text-brand),
+      0 0 10px var(--color-text-brand);
+  }
+  50% {
+    box-shadow:
+      0 0 20px var(--color-text-brand),
+      0 0 30px var(--color-text-brand);
+  }
+}
+
+@keyframes slt-subtle-glow {
+  0%,
+  100% {
+    box-shadow: 0 0 8px 0 color-mix(in srgb, var(--color-action-secondary) 20%, transparent);
+  }
+  50% {
+    box-shadow: 0 0 20px 5px color-mix(in srgb, var(--color-action-secondary) 50%, transparent);
+  }
+}
+
+@keyframes slt-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slt-pulse-glow {
+  0%,
+  100% {
+    box-shadow: 0 0 4px 1px color-mix(in srgb, var(--color-feedback-success) 50%, transparent);
+    opacity: 0.8;
+  }
+  50% {
+    box-shadow: 0 0 10px 3px color-mix(in srgb, var(--color-feedback-success) 70%, transparent);
+    opacity: 1;
+  }
+}
+
+@keyframes slt-pulse-glow-accent {
+  0%,
+  100% {
+    box-shadow: 0 0 3px 1px color-mix(in srgb, var(--color-action-secondary) 50%, transparent);
+    opacity: 0.7;
+  }
+  50% {
+    box-shadow: 0 0 8px 2px color-mix(in srgb, var(--color-action-secondary) 70%, transparent);
+    opacity: 1;
+  }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .glow-on-hover:hover {
+    animation: slt-subtle-glow 2s ease-in-out infinite;
+  }
+
+  .glow-on-hover--strong:hover {
+    animation: slt-glow 1.5s infinite alternate;
+  }
+}
+
+.fade-in {
+  animation: slt-fade-in var(--motion-duration-base, 300ms)
+    var(--motion-easing-decelerate, cubic-bezier(0, 0, 0, 1)) forwards;
+}
+
+.animate-pulse-glow {
+  animation: slt-pulse-glow 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.animate-pulse-glow-accent {
+  animation: slt-pulse-glow-accent 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .glow-on-hover:hover,
+  .glow-on-hover--strong:hover,
+  .fade-in,
+  .animate-pulse-glow,
+  .animate-pulse-glow-accent {
+    animation: none;
+  }
+}
+
+/* ---------- Accessibility ---------- */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.focus\:not-sr-only:focus {
+  position: static;
+  width: auto;
+  height: auto;
+  padding: inherit;
+  margin: inherit;
+  overflow: visible;
+  clip: auto;
+  white-space: normal;
+}
+
+/* ---------- Typography helpers ---------- */
+.font-heading {
+  font-family: var(--font-family-display, system-ui, sans-serif);
+}
+
+.font-body {
+  font-family: var(--font-family-jp, system-ui, sans-serif);
+}
+
+.slt-palt {
+  font-feature-settings: "palt";
+}

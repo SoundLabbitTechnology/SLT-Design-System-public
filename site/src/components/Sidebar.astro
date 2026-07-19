@@ -1,0 +1,47 @@
+---
+import { SIDEBAR } from "../lib/nav";
+
+interface Props {
+  currentPath: string;
+}
+
+const { currentPath } = Astro.props;
+const base = import.meta.env.BASE_URL.replace(/\/$/, "");
+---
+
+<nav class="docs-sidebar" aria-label="ドキュメント目次">
+  {
+    SIDEBAR.map((group) => (
+      <div class="docs-sidebar__group">
+        <p class="docs-sidebar__group-label">{group.label}</p>
+        <ul class="docs-sidebar__list">
+          {group.links.map((link) => {
+            const href = `${base}${link.href}`;
+            const isActive = currentPath === link.href;
+            return (
+              <li>
+                <a
+                  href={href}
+                  class="docs-sidebar__link"
+                  aria-current={isActive ? "page" : undefined}
+                >
+                  {link.label}
+                </a>
+              </li>
+            );
+          })}
+        </ul>
+      </div>
+    ))
+  }
+</nav>
+
+<script>
+  const active = document.querySelector(".docs-sidebar__link[aria-current='page']");
+  if (active instanceof HTMLElement) {
+    // Wait for sticky + max-height layout before scrolling the nav pane.
+    requestAnimationFrame(() => {
+      active.scrollIntoView({ block: "center", inline: "nearest" });
+    });
+  }
+</script>

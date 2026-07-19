@@ -1,0 +1,36 @@
+---
+import DocLayout from "../../layouts/DocLayout.astro";
+import PageHero from "../../components/PageHero.astro";
+
+const sections = [
+  { title: "パターン", description: "フォーム、状態、データ、AI 体験の標準", href: "/guidelines/patterns/" },
+  { title: "コンテンツ", description: "Voice、action label、状態文言、inclusive content", href: "/guidelines/content/" },
+  { title: "用語と命名", description: "ブランド表示、UI 語彙、AI 体験の用語", href: "/guidelines/terminology/" },
+  { title: "品質基準", description: "アクセシビリティ、テスト、性能、互換性", href: "/guidelines/quality/" },
+  { title: "Storybook 標準", description: "Story coverage、interaction、visual regression", href: "/guidelines/storybook/" },
+  { title: "ドキュメント運用", description: "正本と公開面の役割、同期、公開基準", href: "/guidelines/documentation/" },
+  { title: "コントリビューション", description: "変更の分類、実装、レビュー準備", href: "/guidelines/contributing/" },
+  { title: "リリース", description: "SemVer、公開前後、ロールバック", href: "/guidelines/releasing/" },
+  { title: "ハーネス", description: "AI 自己修正、CI、Chromatic、改善ループ", href: "/guidelines/harness/" },
+  { title: "ガバナンス", description: "正本、所有権、非推奨、例外", href: "/guidelines/governance/" },
+];
+const base = import.meta.env.BASE_URL.replace(/\/$/, "");
+---
+
+<DocLayout title="ガイドライン">
+  <PageHero
+    eyebrow="ガイドライン"
+    title="設計・品質・運用"
+    description="単体コンポーネントを製品体験へ組み上げ、継続的に保守するための基準です。"
+  />
+  <div class="docs-card-grid">
+    {
+      sections.map((section) => (
+        <a class="slt-card" href={`${base}${section.href}`}>
+          <h2 class="docs-section-card__title">{section.title}</h2>
+          <p class="docs-section-card__desc">{section.description}</p>
+        </a>
+      ))
+    }
+  </div>
+</DocLayout>

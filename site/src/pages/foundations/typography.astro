@@ -1,0 +1,25 @@
+---
+import { getEntry, render } from "astro:content";
+import DocLayout from "../../layouts/DocLayout.astro";
+import PageHero from "../../components/PageHero.astro";
+import TypeScale from "../../components/TypeScale.astro";
+
+const entry = await getEntry("tokenGuides", "typography");
+if (!entry) throw new Error("docs/L1-foundations/typography.md not found in tokenGuides collection");
+const { Content } = await render(entry);
+---
+
+<DocLayout title="タイポグラフィ">
+  <PageHero
+    eyebrow="スタイル"
+    title="タイポグラフィ"
+    description="typography.* は font-family / size / weight / line-height をまとめたショートハンドトークンです。"
+  />
+  <div class="docs-prose">
+    <h2>スケール</h2>
+    <TypeScale />
+    <hr />
+    <h2>ガイド（docs）</h2>
+    <Content />
+  </div>
+</DocLayout>

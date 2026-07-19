@@ -1,0 +1,54 @@
+# G4 — Chromatic ビジュアル回帰（L2 統合ループ）
+# 要: GitHub Actions secret `CHROMATIC_PROJECT_TOKEN`
+# 取得: https://www.chromatic.com → プロジェクト Manage → Project token
+# 手順: docs/L6-harness-and-loops.md（G4 節）
+
+name: Chromatic
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  chromatic:
+    name: G4 Chromatic
+    runs-on: ubuntu-latest
+    env:
+      CHROMATIC_PROJECT_TOKEN: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Skip when token unset
+        if: env.CHROMATIC_PROJECT_TOKEN == ''
+        run: |
+          echo "::notice::CHROMATIC_PROJECT_TOKEN 未設定のため G4 Chromatic をスキップします。"
+          echo "Chromatic でプロジェクトを作成し、リポジトリ Secrets に追加してください。"
+          echo "docs/L6-harness-and-loops.md#g4--chromatic"
+
+      - uses: actions/setup-node@v4
+        if: env.CHROMATIC_PROJECT_TOKEN != ''
+        with:
+          node-version: "20"
+          cache: npm
+
+      - name: Install dependencies
+        if: env.CHROMATIC_PROJECT_TOKEN != ''
+        run: npm ci
+
+      - name: Build tokens + UI (Storybook 前提)
+        if: env.CHROMATIC_PROJECT_TOKEN != ''
+        run: npm run build:all
+
+      - name: Publish to Chromatic
+        if: env.CHROMATIC_PROJECT_TOKEN != ''
+        uses: chromaui/action@latest
+        with:
+          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+          buildScriptName: build-storybook
+          exitZeroOnChanges: false
+          onlyChanged: true
+          autoAcceptChanges: main

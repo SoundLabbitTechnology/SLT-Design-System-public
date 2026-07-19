@@ -1,0 +1,48 @@
+---
+title: Accordion
+titleJa: アコーディオン
+tier: P1
+order: 21
+description: "同種のセクションを連続して折りたたみ、一覧性を高める。"
+tokenPrefix: accordion
+props:
+  - { name: type, type: '"single" | "multiple"', default: '"multiple"', description: "同時に開ける項目数" }
+  - { name: "value / defaultValue", type: "string | string[]", description: "開いている項目（制御 / 非制御）" }
+  - { name: "AccordionItem.value", type: string, description: "項目の識別子" }
+---
+
+import Demo from "../../components/Demo.astro";
+import DoDont from "../../components/DoDont.astro";
+import AccordionDemo from "../../demos/AccordionDemo";
+
+## デモ
+
+<Demo>
+  <AccordionDemo client:visible slot="stage" />
+  <Fragment slot="code">
+    ```tsx
+    import {
+      Accordion,
+      AccordionContent,
+      AccordionItem,
+      AccordionTrigger,
+    } from "@soundlabbit/design-system/ui";
+
+    <Accordion type="multiple" defaultValue={["q1"]}>
+      <AccordionItem value="q1">
+        <AccordionTrigger>質問</AccordionTrigger>
+        <AccordionContent>回答</AccordionContent>
+      </AccordionItem>
+    </Accordion>
+    ```
+  </Fragment>
+</Demo>
+
+## 使い方
+
+FAQ や更新履歴など、同種セクションが連続するときに使う。単一の補足折りたたみは Disclosure。重要な情報を隠す用途には使わない。
+
+<DoDont
+  dos={["同種の連続セクションに使う", "ヘッダーだけで概要が分かる文言にする"]}
+  donts={["領域節約だけを目的に使う", "セクション内の一部補足に使う（Disclosure）"]}
+/>

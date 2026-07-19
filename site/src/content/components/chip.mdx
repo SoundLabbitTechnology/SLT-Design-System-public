@@ -1,0 +1,40 @@
+---
+title: Chip
+titleJa: チップタグ
+tier: P1
+order: 26
+description: "フィルタやカテゴリなどの短いラベル。削除や選択状態を持てる。"
+tokenPrefix: chip
+props:
+  - { name: selected, type: boolean, default: "false", description: "選択状態" }
+  - { name: onRemove, type: "() => void", description: "削除ハンドラ（あると削除ボタンを表示）" }
+  - { name: removeLabel, type: string, default: '"削除"', description: "削除ボタンの accessible name" }
+---
+
+import Demo from "../../components/Demo.astro";
+import DoDont from "../../components/DoDont.astro";
+import ChipDemo from "../../demos/ChipDemo";
+
+## デモ
+
+<Demo>
+  <ChipDemo client:visible slot="stage" />
+  <Fragment slot="code">
+    ```tsx
+    import { Chip } from "@soundlabbit/design-system/ui";
+
+    <Chip>ラベル</Chip>
+    <Chip selected>選択中</Chip>
+    <Chip onRemove={() => {}}>フィルタ</Chip>
+    ```
+  </Fragment>
+</Demo>
+
+## 使い方
+
+フィルタ条件やカテゴリタグに使う。ステータス表示は Badge を優先する。
+
+<DoDont
+  dos={["短いラベルに留める", "削除時は removeLabel で目的を伝える"]}
+  donts={["長い説明文を Chip に入れる", "成功 / 警告などの状態語彙に Badge の代わりに使う"]}
+/>

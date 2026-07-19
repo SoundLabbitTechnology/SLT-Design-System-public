@@ -1,0 +1,34 @@
+---
+title: BottomNavigation
+titleJa: ボトムナビゲーション
+tier: P2
+order: 43
+description: "モバイル向け下部タブナビ。"
+tokenPrefix: bottom-navigation
+props:
+  - { name: items, type: "BottomNavigationItem[]", description: "label / href / current / icon" }
+---
+
+import Demo from "../../components/Demo.astro";
+import DoDont from "../../components/DoDont.astro";
+import BottomNavigationDemo from "../../demos/BottomNavigationDemo";
+
+## デモ
+
+<Demo>
+  <BottomNavigationDemo client:visible slot="stage" />
+  <Fragment slot="code">
+    ```tsx
+    import { BottomNavigation } from "@soundlabbit/design-system/ui";
+    ```
+  </Fragment>
+</Demo>
+
+## 使い方
+
+主要4〜5画面への常時アクセス。
+
+<DoDont
+  dos={["項目は少なく保つ", "現在地を aria-current で示す"]}
+  donts={["デスクトップの主ナビ代わりにする", "深い階層を載せる"]}
+/>

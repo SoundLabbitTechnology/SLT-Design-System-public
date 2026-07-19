@@ -1,0 +1,121 @@
+{
+  "name": "@soundlabbit/design-system",
+  "version": "0.4.5",
+  "description": "Sound Labbit Technology shared design system — tokens, CSS utilities, and brand guidelines",
+  "license": "UNLICENSED",
+  "private": false,
+  "type": "module",
+  "main": "./dist/slt-tokens.ts",
+  "types": "./dist/slt-tokens.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/slt-tokens.ts",
+      "import": "./dist/slt-tokens.ts",
+      "default": "./dist/slt-tokens.ts"
+    },
+    "./css": "./dist/slt-tokens.css",
+    "./tokens.css": "./dist/slt-tokens.css",
+    "./utilities.css": "./styles/utilities.css",
+    "./tokens.json": "./dist/slt-tokens.json",
+    "./ai-dash/dark.css": "./dist/ai-dash/dark/tokens.css",
+    "./ai-dash/light.css": "./dist/ai-dash/light/tokens.css",
+    "./sound-laboratory/dark.css": "./dist/sound-laboratory/dark/tokens.css",
+    "./sound-laboratory/light.css": "./dist/sound-laboratory/light/tokens.css",
+    "./components.css": "./styles/components.css",
+    "./ui": {
+      "types": "./dist-ui/index.d.ts",
+      "import": "./dist-ui/index.js",
+      "default": "./dist-ui/index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist",
+    "dist-ui",
+    "styles",
+    "design-tokens",
+    "README.md"
+  ],
+  "workspaces": [
+    "site"
+  ],
+  "scripts": {
+    "build": "node scripts/build-dtcg.mjs",
+    "build:ui": "tsup",
+    "build:all": "npm run build && npm run build:ui",
+    "build:legacy": "node scripts/build-tokens.mjs",
+    "build:types": "node scripts/harness/generate-token-types.mjs",
+    "lint:tokens": "node scripts/lint-tokens.mjs",
+    "tokens:figma-manifest": "node scripts/figma-token-manifest.mjs --out design-tokens/figma-manifest.json",
+    "tokens:figma-drift": "node scripts/figma-drift-check.mjs",
+    "tokens:coral-audit": "node scripts/tokens-coral-audit.mjs",
+    "tokens:sd-spike": "node scripts/style-dictionary/spike.mjs",
+    "tokens:sd-parity": "node scripts/style-dictionary/parity-check.mjs",
+    "check": "node scripts/check.mjs",
+    "check:fast": "node scripts/check.mjs --gates g0,g1,g2,docs,isotc",
+    "check:docs": "node scripts/harness/gate-docs.mjs",
+    "check:g4": "node scripts/check.mjs --gates g4 --skip-build",
+    "metrics": "node scripts/harness/metrics.mjs",
+    "test:stories": "vitest run --project storybook",
+    "storybook:check": "npm run build:all && npm run test:stories && npm run build-storybook",
+    "docs:check": "npm run build:all && npm run check:docs && npm run build -w site",
+    "ci": "npm run check && npm run build-storybook && npm run build -w site",
+    "chromatic": "chromatic --exit-zero-on-changes=false --only-changed",
+    "prepublishOnly": "npm run build:all",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build",
+    "docs:dev": "npm run build:all && npm run dev -w site",
+    "docs:build": "npm run build:all && npm run build -w site",
+    "docs:preview": "npm run preview -w site"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SoundLabbitTechnology/SLT-Design-System-public.git"
+  },
+  "keywords": [
+    "design-system",
+    "design-tokens",
+    "soundlabbit",
+    "ai-dash"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "peerDependencies": {
+    "react": ">=18",
+    "react-dom": ">=18"
+  },
+  "dependencies": {
+    "@radix-ui/react-dialog": "^1.1.18",
+    "@radix-ui/react-slot": "^1.3.0",
+    "@radix-ui/react-toast": "^1.2.18",
+    "clsx": "^2.1.1"
+  },
+  "devDependencies": {
+    "@chromatic-com/storybook": "^5.2.1",
+    "@radix-ui/react-dialog": "^1.1.18",
+    "@radix-ui/react-slot": "^1.3.0",
+    "@storybook/addon-a11y": "^10.4.6",
+    "@storybook/addon-docs": "^10.4.6",
+    "@storybook/addon-mcp": "^0.6.0",
+    "@storybook/addon-vitest": "^10.4.6",
+    "@storybook/react-vite": "^10.4.6",
+    "@types/react": "^19.2.17",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^6.0.3",
+    "@vitest/browser-playwright": "4.1.9",
+    "@vitest/coverage-v8": "4.1.9",
+    "chromatic": "^13.3.5",
+    "clsx": "^2.1.1",
+    "isotc-cli": "^0.5.0",
+    "playwright": "^1.61.1",
+    "react": "^19.2.7",
+    "react-dom": "^19.2.7",
+    "storybook": "^10.4.6",
+    "style-dictionary": "^4.4.0",
+    "tsup": "^8.5.1",
+    "typescript": "^6.0.3",
+    "vite": "^8.1.2",
+    "vitest": "4.1.9"
+  }
+}

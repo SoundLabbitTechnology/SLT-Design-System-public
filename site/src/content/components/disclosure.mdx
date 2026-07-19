@@ -1,0 +1,40 @@
+---
+title: Disclosure
+titleJa: ディスクロージャー
+tier: P1
+order: 22
+description: "メイン情報に対する追加・補足を折りたたんで提示する。"
+tokenPrefix: disclosure
+props:
+  - { name: summary, type: ReactNode, description: "トリガー文言" }
+  - { name: "open / defaultOpen", type: boolean, description: "開閉（制御 / 非制御）" }
+  - { name: onOpenChange, type: "(open: boolean) => void", description: "開閉変化コールバック" }
+---
+
+import Demo from "../../components/Demo.astro";
+import DoDont from "../../components/DoDont.astro";
+import DisclosureDemo from "../../demos/DisclosureDemo";
+
+## デモ
+
+<Demo>
+  <DisclosureDemo client:visible slot="stage" />
+  <Fragment slot="code">
+    ```tsx
+    import { Disclosure } from "@soundlabbit/design-system/ui";
+
+    <Disclosure summary="詳細を表示">
+      補足テキスト
+    </Disclosure>
+    ```
+  </Fragment>
+</Demo>
+
+## 使い方
+
+フォームの例外説明や、グラフの元データなど、主題の邪魔にならない補足に使う。セクション全体の連続折りたたみは Accordion。ネイティブの `details` / `summary` を使う。
+
+<DoDont
+  dos={["展開せずとも最低限の情報が伝わる構成にする", "補足・注釈・詳細オプションに使う"]}
+  donts={["必須情報を隠す", "セクション全体を折りたたむ（Accordion）"]}
+/>
