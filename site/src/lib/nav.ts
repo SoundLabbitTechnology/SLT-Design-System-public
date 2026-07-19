@@ -106,11 +106,9 @@ export const SIDEBAR: NavGroup[] = [
   {
     label: "開発と運用",
     links: [
-      { label: "Storybook 標準", href: "/guidelines/storybook/" },
       { label: "ドキュメント運用", href: "/guidelines/documentation/" },
       { label: "コントリビューション", href: "/guidelines/contributing/" },
       { label: "リリース", href: "/guidelines/releasing/" },
-      { label: "ハーネス", href: "/guidelines/harness/" },
       { label: "ガバナンス", href: "/guidelines/governance/" },
     ],
   },
@@ -121,11 +119,9 @@ export const GUIDELINE_SLUGS = [
   "content",
   "terminology",
   "quality",
-  "storybook",
   "documentation",
   "contributing",
   "releasing",
-  "harness",
   "governance",
 ] as const;
 
@@ -142,14 +138,8 @@ export const GUIDELINES: Record<GuidelineSlug, GuidelineEntry> = {
   content: { id: "l4-content", source: "L4-content.md", title: "コンテンツ" },
   terminology: { id: "l4-terminology", source: "L4-terminology.md", title: "用語と命名" },
   quality: { id: "l5-quality", source: "L5-quality.md", title: "品質基準" },
-  storybook: {
-    id: "l2-components/storybook",
-    source: "L2-components/storybook.md",
-    title: "Storybook 標準",
-  },
   documentation: { id: "documentation", source: "DOCUMENTATION.md", title: "ドキュメント運用" },
   contributing: { id: "contributing", source: "CONTRIBUTING.md", title: "コントリビューション" },
   releasing: { id: "releasing", source: "RELEASING.md", title: "リリース" },
-  harness: { id: "l6-harness-and-loops", source: "L6-harness-and-loops.md", title: "ハーネス" },
   governance: { id: "l6-governance", source: "L6-governance.md", title: "ガバナンス" },
 };

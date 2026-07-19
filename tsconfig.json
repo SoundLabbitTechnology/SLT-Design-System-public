@@ -17,6 +17,6 @@
       "@/*": ["src/*"]
     }
   },
-  "include": ["src", ".storybook"],
-  "exclude": ["node_modules", "dist", "stories"]
+  "include": ["src"],
+  "exclude": ["node_modules", "dist", "dist-ui"]
 }

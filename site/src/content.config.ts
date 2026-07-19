@@ -28,13 +28,11 @@ export const collections = {
       base: "./src/content/docs",
       pattern: [
         "L0-principles.md",
-        "L2-components/storybook.md",
         "L3-patterns.md",
         "L4-content.md",
         "L4-terminology.md",
         "L5-quality.md",
         "L6-governance.md",
-        "L6-harness-and-loops.md",
         "CONTRIBUTING.md",
         "DOCUMENTATION.md",
         "RELEASING.md",

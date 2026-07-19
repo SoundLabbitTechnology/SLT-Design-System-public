@@ -3,7 +3,7 @@
 SLT Design System のドキュメント閲覧面（Astro）。  
 **当面の運用はローカルのみ**です。固定の公開 URL は使いません。
 
-公開 Markdown の正本もこの `site/` 配下（`src/content/docs/`）にあります。設計・プロセスの長文執筆は Private リポジトリ側です。
+公開 Markdown の正本もこの `site/` 配下（`src/content/docs/`）にあります。設計・プロセスの長文や品質ハーネスは Private リポジトリ側です。
 
 | 項目 | 値 |
 |------|-----|
@@ -28,12 +28,11 @@ SLT Design System のドキュメント閲覧面（Astro）。
 
 ```bash
 npm run docs:dev       # build:all + Astro dev → http://localhost:4321
-npm run docs:check     # docs contract + static build
 npm run docs:build     # build:all + static build → site/dist/
 npm run docs:preview   # site/dist を preview
 ```
 
-日常の閲覧は **`docs:dev`** で十分です。`npm run ci` は package / Storybook / Docs 静的ビルドをまとめて検証します（デプロイは含みません）。
+日常の閲覧は **`docs:dev`** で十分です。CI は `npm run docs:build` で package と Docs 静的ビルドを検証します（デプロイは含みません）。
 
 ## ページ構成
 
@@ -44,7 +43,7 @@ npm run docs:preview   # site/dist を preview
 | `/principles/` | `src/content/docs/L0-principles.md` |
 | `/foundations/*` | L1 Markdown + live token reference |
 | `/components/*` | public component の demo / code / props / usage |
-| `/guidelines/*` | L2 authoring、L3〜L6、contributing、releasing 等 |
+| `/guidelines/*` | L3〜L6、contributing、releasing 等 |
 
 ADR、consumer 固有 migration、監査 snapshot、roadmap は GitHub へリンクし、ガイド本文へ混在させません。
 
@@ -58,8 +57,6 @@ ADR、consumer 固有 migration、監査 snapshot、roadmap は GitHub へリン
 | `src/content/docs/*.md` | 原則・基盤・ガイドラインの Markdown |
 | `src/content/components/*.mdx` | component ごとの demo / usage summary |
 | `remark-doc-links.mjs` | Markdown / MDX の内部リンクを base path / GitHub へ変換 |
-
-`npm run check:docs` が component 実装、Storybook story、component MDX、nav の対応と local Markdown link を検証します。
 
 ## 環境変数（ローカルでは通常不要）
 

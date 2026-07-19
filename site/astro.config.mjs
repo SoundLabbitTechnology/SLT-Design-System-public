@@ -12,7 +12,7 @@ import { remarkDocLinks } from "./remark-doc-links.mjs";
 // DS 本体を npm 依存にはせず、公開エントリポイントへの Vite エイリアスで参照する。
 // （npm ワークスペース経由で "@soundlabbit/design-system" を site の依存に置くと、
 //   ルートパッケージ自身の名前と一致するため node_modules に自己参照シンボリックリンクが
-//   でき、他ゲート（isotc の再帰探索など）が無限ループで壊れる — 実際に踏んだ地雷）
+//   でき、自己参照シンボリックリンクが無限ループを起こす — 実際に踏んだ地雷）
 const ROOT = fileURLToPath(new URL("..", import.meta.url));
 
 // 公開先は未定のため、site / base は環境変数で差し替え可能にしておく。

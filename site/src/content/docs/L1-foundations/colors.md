@@ -54,7 +54,7 @@ Button や Input の見た目は component token が semantic token を参照し
 }
 ```
 
-component 利用側はこれらを上書きせず、props で意図を指定します。新しい見た目が必要なら [Storybook 標準](../L2-components/storybook.md) と Docs site MDX に沿って variant と token を設計します。
+component 利用側はこれらを上書きせず、props で意図を指定します。新しい見た目が必要なら Docs site の component MDX に沿って variant と token を設計します。
 
 ## アクセシビリティ
 

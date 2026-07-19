@@ -101,7 +101,6 @@ DADS の基本デザイン（カラー・タイポグラフィ・余白・角の
 
 ```bash
 npm run build
-npm run check:fast
 ```
 
 | 出力 | 用途 |

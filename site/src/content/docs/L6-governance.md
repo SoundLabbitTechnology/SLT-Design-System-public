@@ -14,7 +14,7 @@
 | Pattern / content / quality | `site/src/content/docs/L3`〜`L5` | 製品横断の妥当性 |
 | Public docs | `site/src/content/docs/` + site component MDX | 読者 task、ナビ、公開品質 |
 | Locale / 用語 | `ja` 正本 + [L4 用語](./L4-terminology.md) | 翻訳 ownership、glossary 同期 |
-| Harness | `scripts/harness/` + 本文書群 | 自動化、失敗時の修正可能性 |
+| 品質ハーネス | Private リポジトリ | 自動化、失敗時の修正可能性（本ミラー外） |
 | 履歴 | CHANGELOG / GitHub Issues | なぜ変わったかを残す |
 
 生成物を正本にせず、変更は正本から build します。
@@ -24,8 +24,8 @@
 1. 問題、利用者、影響する theme / product を定義する。
 2. 既存 token / component / pattern で解けるか確認する。
 3. 変更種別と SemVer 影響を判定する。
-4. 実装、Storybook、Docs site、正本 Markdown を同期する。
-5. [L1 harness](./L6-harness-and-loops.md) を green にする。
+4. 実装、Docs site、正本 Markdown を同期する。
+5. `npm run docs:build` を green にする（詳細ゲートは Private）。
 6. PR で visual と L0 判断を人間が確認する。
 7. CHANGELOG と必要な migration メモを追加して公開する。
 
@@ -37,7 +37,7 @@
 |------|------------------|
 | Token 追加 | 既存語彙では表せない利用例、全 theme mapping |
 | Token 値変更 | before / after、contrast、影響 component |
-| Component 追加 | 複数 product での需要、API、states、Storybook / site MDX |
+| Component 追加 | 複数 product での需要、API、states、site MDX |
 | Pattern 昇格 | 実利用、再利用範囲、製品固有 logic の分離 |
 | Deprecation / removal | 利用箇所、代替、migration、期限 |
 | 原則変更 | 反証記録、適用例、L0 owner の判断 |
@@ -54,32 +54,28 @@ Semantic Versioning を採用します。
 
 ## AI 可読性
 
-AI エージェントは [`CLAUDE.md`](../../../../CLAUDE.md) と [`llms.txt`](../../../../llms.txt) を入口にします。
+本 Public ミラーでは Docs site と semantic / component token を入口にします。開発用エージェント規則・ハーネスは Private 側です。
 
 - semantic / component token のみ参照する。
 - `primitives.json` の値を読まない・UI へ直書きしない（ビルド用同梱）。
 - component を再実装する前に `@soundlabbit/design-system/ui` を探す。
-- 変更後は `check:fast`、完了前は `check` を実行する。
-- raw value や許可リストで失敗を回避せず、正本へ知識を戻す。
-
-新しい逸脱が見つかったら、文言だけで警告せず可能な限り harness rule を一つ追加します。
+- 変更後は `npm run docs:build` で package と Docs を確認する。
+- raw value で失敗を回避せず、正本へ知識を戻す。
 
 ## 例外
 
 例外は最小範囲・期限付きにします。
 
-1. code に `@harness-allow: <reason> <expiry/issue>` を記録する。
-2. CHANGELOG または issue に影響と解消条件を残す。
-3. 同種例外が 3 回発生したら token / component / pattern の不足として再設計する。
-4. 期限切れ例外は release blocker とする。
+1. CHANGELOG または issue に影響と解消条件を残す。
+2. 同種例外が 3 回発生したら token / component / pattern の不足として再設計する。
+3. 期限切れ例外は release blocker とする。
 
 ## 公開面
 
-| 面 | 公開前 gate | 人間レビュー |
+| 面 | 公開前確認 | 人間レビュー |
 |----|-------------|--------------|
-| Package | build、G0〜G2、isotc | API、SemVer、migration |
-| Storybook | G3、static build、G4 | state、theme、visual |
-| Docs site | docs contract、static build | 読者 task、リンク、内容の過不足 |
+| Package | `npm run build:all` | API、SemVer、migration |
+| Docs site | `npm run docs:build` | 読者 task、リンク、内容の過不足 |
 
 情報設計の詳細は [DOCUMENTATION](./DOCUMENTATION.md) を参照してください。
 
@@ -87,9 +83,9 @@ AI エージェントは [`CLAUDE.md`](../../../../CLAUDE.md) と [`llms.txt`](.
 
 | 頻度 | ループ | 出力 |
 |------|--------|------|
-| 変更ごと | L1 generation | green gates、自己修正された変更 |
-| PR / main | L2 integration | CI、visual review、公開 artifact |
-| 週次 / release ごと | L3 operations | `npm run metrics -- --since=1.week.ago --save`、alerts / trend review、3× override backlog（[Runbook](./L6-harness-and-loops.md#l3--operations-loop)）、G5 失敗の triage（consumer 側） |
+| 変更ごと | Public 検証 | `docs:build` green、同期された docs |
+| PR / main | CI | package + Docs 静的ビルド |
+| 週次 / release ごと | Private operations | metrics / visual / harness（Private） |
 | release / DS bump 後 | G5 consumer | 代表 consumer で Lighthouse + E2E smoke を 1 回（product 実施） |
 | 四半期 | L4 principles | 公開 L0（恒常原則）と DADS 同期のレビュー（下記）。事業戦略の反証は社内方針 |
 
@@ -104,7 +100,7 @@ AI エージェントは [`CLAUDE.md`](../../../../CLAUDE.md) と [`llms.txt`](.
 | Cadence | 暦四半期の第 1 営業週（1 月 / 4 月 / 7 月 / 10 月） |
 | 初回実施 | **2026-Q3** — 2026-07-21 週（月曜起算） |
 | Issue | #17 L0 review / #35 DADS sync |
-| 問いの正本（公開） | [L0 恒常原則](./L0-principles.md) / [L4 原則ループ（技術）](./L6-harness-and-loops.md#l4--principles-loop) |
+| 問いの正本（公開） | [L0 恒常原則](./L0-principles.md) |
 | 事業戦略の反証 | 社内方針文書（本ミラー・site 非掲載） |
 | 記録先 | 社内監査メモ。本リポは [CHANGELOG](../../../../CHANGELOG.md) と GitHub Issues に要約のみ |
 
@@ -130,7 +126,7 @@ AI エージェントは [`CLAUDE.md`](../../../../CLAUDE.md) と [`llms.txt`](.
 | # | 議題 | 参照 | 時間 |
 |---|------|------|------|
 | 1 | 前回アクションの確認 | 直近 CHANGELOG / Issues | 10m |
-| 2 | 恒常原則 A と実装・品質基準のずれ | [L0](./L0-principles.md)、[L5](./L5-quality.md)、[Storybook 標準](./L2-components/storybook.md) | 15m |
+| 2 | 恒常原則 A と実装・品質基準のずれ | [L0](./L0-principles.md)、[L5](./L5-quality.md) | 15m |
 | 3 | Laws of UX アンカー差分 | [lawsofux.com](https://lawsofux.com/) | 15m |
 | 4 | 公開文書の機微混入チェック | [DOCUMENTATION](./DOCUMENTATION.md) | 10m |
 | 5 | 決定と次アクション | GitHub issue 起票 | 10m |
@@ -184,7 +180,7 @@ DADS アンカーと DADS 側更新の差分棚卸し。スナップショット
 | 既存コンポーネントの仕様差分 | 実装 issue（優先: 対応済み 9 種の差分追従） |
 | 新規コンポーネント（需要あり） | #34 wave 3 backlog へ追記、または単体 issue |
 | 新規コンポーネント（需要なし） | 監査に「保留」と記録 |
-| トークン構造・a11y 方針 | 新規 issue。実装は L1 harness green を維持 |
+| トークン構造・a11y 方針 | 新規 issue。実装は `docs:build` green を維持 |
 | 名称変更・用語 | [L4 用語集](./L4-terminology.md) 対応表を検討（#38 と連携可） |
 
 #### 成果物
@@ -236,7 +232,7 @@ L5 の product 層品質を代表 consumer で継続検証する。実行は pro
 
 | 項目 | 内容 |
 |------|------|
-| 正本 locale | **`ja`**（docs / L4 定義 / Storybook 既定 / コンポーネント既定 accessible name） |
+| 正本 locale | **`ja`**（docs / L4 定義 / コンポーネント既定 accessible name） |
 | 最初の拡張 | **`en`** — #39 |
 | 識別子 | export 名・token key・props 名は **翻訳しない**（英語固定） |
 
@@ -246,7 +242,6 @@ L5 の product 層品質を代表 consumer で継続検証する。実行は pro
 |----|-------|------|
 | L0〜L6 / Docs site 本文 | DS docs | 当面 `ja` のみ。全文 `en` は需要後 |
 | L4 横断用語 | DS content | `ja` 定義正本。`en` 列は #39 で追加可 |
-| Storybook | DS components | 当面 `ja`。i18n addon は必須化しない |
 | コンポーネント既定文言 | DS components | `ja` 既定 + product が props で override |
 | 製品 UI・機能名 | **Product** | product glossary。横断化時のみ L4 へ昇格 |
 
@@ -265,7 +260,7 @@ L5 の product 層品質を代表 consumer で継続検証する。実行は pro
 | 2 | [L4-terminology.md](./L4-terminology.md) に `en` 推奨訳列（または同等の対応表）を追加する案がある |
 | 3 | 共有コンポーネントの既定文言 inventory（aria-label 等）を列挙する |
 | 4 | override 不能な hardcoded 文言があれば props 化の PR 範囲を切っている |
-| 5 | Docs / Storybook は翻訳しない、またはパイロット 1 ページまでに限定している |
+| 5 | Docs は翻訳しない、またはパイロット 1 ページまでに限定している |
 | 6 | product glossary との差分確認担当（DS content + product 1 名）を明記している |
 | 7 | 完了後に #39 と CHANGELOG を更新する |
 
