@@ -5,6 +5,8 @@ DTCG トークン、テーマ対応 CSS、React コンポーネントを **GitHu
 
 このリポジトリは **配布ミラー**です。品質ハーネス・Storybook・社内運用文書は Private リポジトリ側にあります。
 
+**Docs site**: https://soundlabbittechnology.github.io/SLT-Design-System-public/（`main` push で GitHub Pages へ自動デプロイ）
+
 ## 5 分で導入
 
 ### 1. インストール

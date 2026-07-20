@@ -1,16 +1,16 @@
 # Docs site (`site/`)
 
-SLT Design System のドキュメント閲覧面（Astro）。  
-**当面の運用はローカルのみ**です。固定の公開 URL は使いません。
-
-公開 Markdown の正本もこの `site/` 配下（`src/content/docs/`）にあります。設計・プロセスの長文や品質ハーネスは Private リポジトリ側です。
+SLT Design System のドキュメント閲覧面（Astro）。
 
 | 項目 | 値 |
 |------|-----|
-| 運用 | `npm run docs:dev`（ローカル） |
-| 公開デプロイ | **見送り**（再開時は #28 / 下記「公開を再開するとき」） |
+| 公開 URL | https://soundlabbittechnology.github.io/SLT-Design-System-public/ |
+| デプロイ | `main` push → GitHub Pages（[`docs-deploy.yml`](../.github/workflows/docs-deploy.yml)） |
+| ローカル | `npm run docs:dev` |
 | 技術 | Astro + MDX + React デモ |
 | テーマ | `data-theme` / `data-color-mode`（DS トークン） |
+
+公開 Markdown の正本もこの `site/` 配下（`src/content/docs/`）にあります。設計・プロセスの長文や品質ハーネスは Private リポジトリ側です。
 
 ## 正本との役割
 
@@ -22,7 +22,7 @@ SLT Design System のドキュメント閲覧面（Astro）。
 | Token values | 生成済み `dist/slt-tokens.json` | semantic / component のみ表示 |
 | 情報設計 | [DOCUMENTATION](./src/content/docs/DOCUMENTATION.md) | nav と route へ反映 |
 
-## 起動と検証（ローカル運用）
+## 起動と検証
 
 リポジトリ root から:
 
@@ -32,7 +32,7 @@ npm run docs:build     # build:all + static build → site/dist/
 npm run docs:preview   # site/dist を preview
 ```
 
-日常の閲覧は **`docs:dev`** で十分です。CI は `npm run docs:build` で package と Docs 静的ビルドを検証します（デプロイは含みません）。
+CI は `npm run docs:build` で package と Docs 静的ビルドを検証します。`main` への push で Pages へデプロイします。
 
 ## ページ構成
 
@@ -58,21 +58,9 @@ ADR、consumer 固有 migration、監査 snapshot、roadmap は GitHub へリン
 | `src/content/components/*.mdx` | component ごとの demo / usage summary |
 | `remark-doc-links.mjs` | Markdown / MDX の内部リンクを base path / GitHub へ変換 |
 
-## 環境変数（ローカルでは通常不要）
+## 環境変数（Pages ビルド時）
 
-| Variable | 用途 | ローカル既定 |
-|----------|------|--------------|
-| `DOCS_SITE` | canonical origin | 未設定で可 |
-| `DOCS_BASE` | サブパス配信の base | `/` |
-
-## 公開を再開するとき
-
-ワークフロー [`.github/workflows/docs-deploy.yml`](../.github/workflows/docs-deploy.yml) は **手動 `workflow_dispatch` のみ**残してあります（`main` push ではデプロイしません）。
-
-再開手順の概要:
-
-1. Issue #28 を再開または更新
-2. リポジトリ Settings → Pages（Source: GitHub Actions）を確認
-3. `docs-deploy.yml` に `push: branches: [main]` を戻すか、Actions から手動実行
-4. 候補値例: `DOCS_SITE=https://soundlabbittechnology.github.io` / `DOCS_BASE=/SLT-Design-System-public/`
-5. ルート README / site/README に固定 URL を再掲
+| Variable | 本番値 | ローカル既定 |
+|----------|--------|--------------|
+| `DOCS_SITE` | `https://soundlabbittechnology.github.io` | 未設定で可 |
+| `DOCS_BASE` | `/SLT-Design-System-public/` | `/` |

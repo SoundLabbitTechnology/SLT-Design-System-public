@@ -1,11 +1,12 @@
-# Docs site の静的ホストへのデプロイ。
-# 当面はローカル運用（npm run docs:dev）のため、main push では走らない。
-# 公開を再開するときは workflow_dispatch で手動実行するか、push トリガーを戻す。
-# 手順: site/README.md / Issue #28
+# Docs site → GitHub Pages（Public ミラー正本）
+# Private の同名ファイルは雛形ではない。export は本ファイルを PUBLIC_DOCS_DEPLOY_YML として書き出す。
+# 公開 URL: https://soundlabbittechnology.github.io/SLT-Design-System-public/
 
 name: Docs site
 
 on:
+  push:
+    branches: [main]
   workflow_dispatch:
 
 permissions:
@@ -33,7 +34,6 @@ jobs:
 
       - name: Build Docs site
         env:
-          # 公開再開時の候補値（ローカル運用中は未使用）
           DOCS_SITE: https://soundlabbittechnology.github.io
           DOCS_BASE: /SLT-Design-System-public/
         run: npm run docs:build

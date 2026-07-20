@@ -1,5 +1,11 @@
 # Changelog
 
+## Unreleased
+
+### Changed
+
+- Docs site を GitHub Pages で公開（`main` push 自動デプロイ）: https://soundlabbittechnology.github.io/SLT-Design-System-public/
+
 ## 0.4.6 — 2026-07-20
 
 ### Changed
