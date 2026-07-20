@@ -8,11 +8,11 @@
 
 | 層 | 自動検証 | 人間の確認 |
 |----|----------|------------|
-| Token / code | `npm run build:all` | 命名と意図 |
-| Component | Docs site demo / MDX | visual、content、keyboard flow |
-| Documentation | `npm run docs:build` | 読者の task 完了、デモ |
-| Visual regression | Private（Chromatic 等） | 意図した差分か、全 theme の妥当性 |
-| Product | G5 Lighthouse / product tests | 実データ、end-to-end、支援技術（consumer CI） |
+| Token / code | G0〜G2、isotc | 命名と意図 |
+| Component | G3 Storybook + axe + play | visual、content、keyboard flow |
+| Documentation | docs contract + static build | 読者の task 完了、デモ |
+| Visual regression | G4 Chromatic | 意図した差分か、全 theme の妥当性 |
+| Product | G5 Lighthouse / product tests | 実データ、end-to-end、支援技術（G5 Runbook（社内 adoption）） |
 
 自動テストが通ることは必要条件であり、UX や視覚品質の十分条件ではありません。
 
@@ -23,11 +23,11 @@
 | 領域 | 必須要件 | 検証 |
 |------|----------|------|
 | Semantics | native element と正しい name / role / state | Accessibility tree、axe |
-| Keyboard | 全操作、論理的な順序、escape / focus return | Docs demo + 手動 |
+| Keyboard | 全操作、論理的な順序、escape / focus return | Storybook play + 手動 |
 | Focus | 常に視認でき、overlay で失われない | theme ごとの手動確認 |
 | Contrast | 通常 text 4.5:1、large text / UI 3:1 を基準（[DADS](https://design.digital.go.jp/dads/foundations/) の統一方針に整合） | token review + 実画面 |
 | Target size | 主要操作は 44px 以上 | component spec + mobile |
-| Motion | reduced motion で不要な動きを停止。頻度・easing・GPU 制約は [motion-craft](./L1-foundations/motion-craft.md) | OS setting + craft review |
+| Motion | reduced motion で不要な動きを停止。頻度・easing・GPU 制約は [motion-craft](./L1-foundations/motion-craft.md) | OS setting + story + craft review |
 | Zoom / reflow | 200% zoom、狭幅で欠落しない | browser 手動確認 |
 | Content | 色だけに依存せず、error の回復手段がある | L4 review |
 
@@ -49,18 +49,18 @@
 - `transform` / `opacity` 以外のレイアウトプロパティを動かさない。
 - レビューは Before / After / Why の表で返す。
 
-深掘り: https://github.com/emilkowalski/skills（開発用スキルは Private）
+原本スキル: [docs/reference/emilkowalski-skills/](./reference/emilkowalski-skills/README.md)。
 
 ## Component acceptance
 
 - public props と DOM contract が文書化されている。
-- default、disabled、loading、error、empty など該当状態を Docs site の demo / MDX で確認できる。
-- pointer 以外の操作を手動で確認している。
+- default、disabled、loading、error、empty など該当状態が Storybook にある。
+- pointer 以外の操作を play test または手動で確認している。
 - semantic / component token だけを使う。
 - theme / mode による崩れがない。
 - error や destructive action が [L3 パターン](./L3-patterns.md)に従う。
 
-詳細は Docs site の component MDX を参照してください。
+詳細は [L2 DoD](./L2-components/dod.md) を参照してください。
 
 ## Performance
 

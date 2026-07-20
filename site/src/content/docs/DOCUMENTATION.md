@@ -1,32 +1,45 @@
 # ドキュメント運用標準
 
-**サイトに載せるものだけ**を本リポジトリの公開ドキュメントとします。Markdown と Docs site を一つの情報システムとして保守します。
-
-開発用ハーネス・Storybook・エージェント向け長文ルールは Private リポジトリ側です。
-
-## 方針
-
-- 正本 Markdown は `site/src/lib/doc-routes.ts`（`DOC_ROUTES`）と content collections から辿れるものに限定する。
-- サイト非掲載の運用メモ、ADR 集、長い参考原本、採用テンプレは置かない。
-- モーションのサイト正本は [motion-craft.md](./L1-foundations/motion-craft.md)。深掘りは Private / upstream（[emilkowalski/skills](https://github.com/emilkowalski/skills)）。
+Markdown、Docs site（当面はローカル）、Storybook を一つの情報システムとして保守するための標準です。
 
 ## 役割分担
 
 | 情報 | 正本 | 閲覧面 |
 |------|------|--------|
-| 原則・基盤・パターン・品質・技術運用 | `site/src/content/docs/`（DOC_ROUTES 対象） | Docs site（`npm run docs:dev`） |
-| コンポーネント利用判断・Do/Don't | `site/src/content/components/*.mdx` | Docs site `/components/` |
-| React API・props・型 | `src/` | Docs site の要約 |
+| 原則・基盤・パターン・品質・技術運用（**public**） | `site/src/content/docs/` | Docs site（`npm run docs:dev`） |
+| 企業戦略・製品移行・PII（**private**） | リポジトリ外 companion（`../SLT-Design-System-private/`） | Private GitHub のみ |
+| モーションクラフト（外部原本） | `site/src/content/docs/L1-foundations/motion-craft.md` + `site/src/content/docs/reference/emilkowalski-skills/` | Docs site `/foundations/motion/`、Cursor `.cursor/skills/` |
+| React API・props・型 | `src/` | Storybook Autodocs + Docs site の要約 |
+| 状態・操作・テーマ差・a11y | `*.stories.tsx` | Storybook |
 | トークン名と値 | semantic / component token files | Docs site のトークン表 |
+| 設計判断 | `site/src/content/docs/decisions/` | GitHub（必要に応じ Docs site からリンク） |
+| 時点監査（技術） | `site/src/content/docs/audits/` | GitHub |
 
 同じ文章を複数面で全文管理しません。Docs site の Markdown ページは `site/src/content/docs/` を直接読み込み、コンポーネントページは利用判断だけを要約し、API はコードへ追従させます。
 
-## Docs site に載せない
+## 公開と内部の境界
 
-- `DOC_ROUTES` / content collection に無い文書
-- primitive 生値の一覧表示（Docs site は semantic / component のみ）
-- 個人メール・GCP・NotebookLM 等の私有 URL、未公開製品の具体名、社内専用リポジトリ名
-- 社内 issue tracker への直リンク（番号参照は可、URL は付けない）
+本リポジトリは **Private 実験場**です。Public は別リポへスナップショット移行します（二リポ運用（Private 正本））。
+
+| Visibility | Private 正本 | Public 反映先 |
+|------------|--------------|---------------|
+| **public-bound** | `site/src/content/docs/`（L0、L1、L3〜L6 等） | `site/src/content/docs/`（export 時に変換） |
+| **public-bound** | `site/src/content/components/*.mdx` | そのまま |
+| **private-lab** | `（社内戦略・非公開）`、製品 adoption 詳細、audits | 移行しない |
+| **private-lab** | Storybook、harness、metrics | 移行しない |
+
+自社 consumer（AI-Dash 等）は Public tag を参照します（public-consumer-install.md（社内 adoption））。
+
+### Docs site に載せない（必須）
+
+- `（社内戦略・非公開）`（`DOC_ROUTES` / content collection 禁止）
+- semantic 以外の primitive 生値
+
+### Public ミラーに載せない（必須）
+
+- 上記に加え、個人メール・GCP・NotebookLM 私有 URL・未公開製品一覧を含むファイル
+- ルート `site/src/content/docs/`（Public は `site/src/content/docs/` のみ）
+- 移行コマンド: `npm run check:public-export`
 
 ## 読者別の完了条件
 
@@ -37,42 +50,47 @@
 | デザイナー | ブランド差、状態、禁止パターンは何か |
 | レビュアー | 何を自動化し、何を人間が判断するか |
 | 保守者 | 変更、非推奨、公開、ロールバックをどう行うか |
+| AI エージェント | 読める正本、禁止ファイル、実行すべきゲートは何か |
 
 ## 変更時の同期表
 
 | 変更 | 必ず更新 | 条件付きで更新 |
 |------|----------|----------------|
-| semantic token | L1 ガイド、CHANGELOG | Docs トークン表の説明 |
-| component props / state | サイト component MDX | L3 パターン |
-| brand / mode | L0、L1、切替 UI | 導入ガイド |
-| Docs ルート | site nav、doc-routes、content collection | README |
-| 横断用語 | [L4 用語](./L4-terminology.md) | product glossary |
-| breaking change | CHANGELOG、RELEASING | 移行メモ |
+| semantic token | L1 ガイド、CHANGELOG | Docs トークン表の説明、移行ガイド |
+| component props / state | story、サイト component MDX、L2 索引 | L3 パターン、ADR |
+| brand / mode | L0、L1、Theming MDX、切替 UI | 導入ガイド、監査 |
+| Docs ルート | site nav、doc-routes、content collection | README、リダイレクト |
+| 横断用語・locale 方針 | [L4 用語](./L4-terminology.md)、ADR-005（Private ADR） | product glossary、#39 |
+| breaking change | CHANGELOG、RELEASING、移行ガイド | ADR、消費者監査 |
 
 ## Docs site の基準
 
-当面はローカル運用（固定のインターネット公開 URL は使わない。再開手順は [site/README.md](../../../README.md)）。
+当面はローカル運用（固定のインターネット公開 URL は使わない。再開手順は [site/README.md](../site/README.md)）。
 
 - 導入、基盤、全コンポーネント、パターン、コンテンツ、品質、運用へナビゲーションできる。
 - すべてのコンポーネントに説明、デモ、最小コード、Props、Do/Don't または利用上の注意がある。
 - サブパス配信でも内部リンクとアセットが解決する（将来の公開再開に備える）。
-- semantic / component トークンだけを表示し、primitive 生値の一覧は出さない。
-- `npm run docs:build` が通る（デプロイは含まない）。
+- semantic / component トークンだけを表示し、非公開の内部値を露出しない。
+- `npm run docs:build
+
 
 ## 文書の書き方
 
 - 冒頭で文書の目的と正本を示す。
-- 「現状」「必須」「将来」を混ぜず、将来項目は GitHub Issues / CHANGELOG へ寄せる。
+- 「現状」「必須」「将来」を混ぜず、将来項目は CHANGELOG へ寄せる。
 - 数値やテスト件数など変動しやすい情報を本文へ固定しない。
 - raw 値ではなく semantic token 名と用途を説明する。
 - 相対リンクを使い、リンク先の責務が分かるラベルを付ける。
-- 公開文書に事業戦略・PII・私有 URL・社内リポ名を書かない。
+- 監査には日付を入れ、現行仕様と誤認されない注記を付ける。
+- 公開リポ向け文書に事業戦略・PII・私有 URL を書かない。
 
 ## 検証
 
 ```bash
-npm run docs:dev    # Docs site（ローカル）
-npm run docs:build  # package + Docs site 静的ビルド
+npm run docs:build
+npm run docs:build
+
+npm run docs:build
 ```
 
 失敗した場合は生成物を直接直さず、正本を修正して同じコマンドを再実行します。

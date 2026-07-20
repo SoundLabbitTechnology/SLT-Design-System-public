@@ -1,5 +1,5 @@
 {
-  "$description": "SLT Design Tokens — Tier 2: Semantic(SLT Corporate / ダークモード)。コーポレートサイトのゴールド+ダークスレート体系。",
+  "$description": "SLT Design Tokens — Tier 2: Semantic(SLT Corporate / ダークモード)。Homepages コーポレートサイトのゴールド+ダークスレート体系。",
   "color": {
     "surface": {
       "primary":   { "$type": "color", "$value": "{color.gray.900}" },

@@ -1,5 +1,5 @@
 {
-  "$description": "SLT Design Tokens — Tier 2: Semantic(AI-DASH / ダークモード)。AI-DASH プロダクトの globals.css 体系に準拠。",
+  "$description": "SLT Design Tokens — Tier 2: Semantic(AI-DASH / ダークモード)。現行 SLT-AI-Dash-Website の globals.css 体系に準拠。",
   "color": {
     "surface": {
       "primary":   { "$type": "color", "$value": "{color.gray.900}", "$description": "ページ基準背景 #0F172A" },

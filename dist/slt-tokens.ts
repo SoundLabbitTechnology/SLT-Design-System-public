@@ -161,7 +161,7 @@ export const themes = {
 
 export type ThemeKey = keyof typeof themes;
 
-/** @deprecated Use semantic token CSS variables. Kept for マーケ／コーポレート LP compat. */
+/** @deprecated Use semantic token CSS variables. Kept for SLT-Homepages compat. */
 export const COLORS = {
   accent2: "#D3C193",
   semiAccent1: "#C59367",

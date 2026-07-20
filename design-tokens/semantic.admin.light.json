@@ -1,5 +1,5 @@
 {
-  "$description": "SLT Design Tokens — Tier 2: Semantic(Admin / ライトモード)。管理画面用。コーポレートダーク系とは意図的に分離。",
+  "$description": "SLT Design Tokens — Tier 2: Semantic(Admin / ライトモード)。AI-Dash 管理画面用。コーポレートダーク系とは意図的に分離。",
   "color": {
     "surface": {
       "primary":   { "$type": "color", "$value": "{color.gray.50}",  "$description": "ページ背景 #F8FAFC" },

@@ -1,6 +1,6 @@
 # L1. カラー
 
-正本: [`design-tokens/semantic.*.json`](../../../../../design-tokens/)
+正本: [`design-tokens/semantic.*.json`](../../design-tokens/)
 
 UI と AI は semantic / component token だけを参照します。
 
@@ -54,7 +54,7 @@ Button や Input の見た目は component token が semantic token を参照し
 }
 ```
 
-component 利用側はこれらを上書きせず、props で意図を指定します。新しい見た目が必要なら Docs site の component MDX に沿って variant と token を設計します。
+component 利用側はこれらを上書きせず、props で意図を指定します。新しい見た目が必要なら [L2 DoD](../L2-components/dod.md) に沿って variant と token を設計します。
 
 ## アクセシビリティ
 
