@@ -63,7 +63,7 @@ Semantic Versioning を採用します。
 自社アプリは本リポの **release tag** を pin して参照します。
 
 ```json
-"@soundlabbit/design-system": "github:SoundLabbitTechnology/SLT-Design-System-public#v0.4.5"
+"@soundlabbit/design-system": "github:SoundLabbitTechnology/SLT-Design-System-public#v0.4.6"
 ```
 
 DS 更新後は代表 consumer で CSS import、theme attributes、主要 component の smoke test を行います。

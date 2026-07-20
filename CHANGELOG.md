@@ -1,11 +1,13 @@
 # Changelog
 
-## Unreleased
+## 0.4.6 — 2026-07-20
 
 ### Changed
 
 - 配布ミラーとして README / Docs 運用文言を整理（Private 開発資産への誤リンクを除去）
-- 自社アプリは `github:SoundLabbitTechnology/SLT-Design-System-public#<tag>` を標準参照とする
+- CONTRIBUTING / DOCUMENTATION / RELEASING / L6 governance を Public 向けに再構成
+- getting-started の CSS 例を Tailwind `@layer` パターンに更新
+- 自社アプリは `github:SoundLabbitTechnology/SLT-Design-System-public#v0.4.6` を標準参照とする
 
 ## 0.4.5 — 2026-07-10
 

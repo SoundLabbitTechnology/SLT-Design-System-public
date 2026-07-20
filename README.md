@@ -14,7 +14,7 @@ DTCG トークン、テーマ対応 CSS、React コンポーネントを **GitHu
 ```json
 {
   "dependencies": {
-    "@soundlabbit/design-system": "github:SoundLabbitTechnology/SLT-Design-System-public#v0.4.5"
+    "@soundlabbit/design-system": "github:SoundLabbitTechnology/SLT-Design-System-public#v0.4.6"
   }
 }
 ```
