@@ -4,44 +4,8 @@
 
 ### Changed
 
-- Docs を **Private 実験場 / Public ミラー**の二リポ運用に再編（DUAL_REPO（Private）、`npm run check:public-export`）。戦略は `（社内戦略・非公開）` に戻し、site には恒常原則のみ
-
-### Added
-
-- G5 consumer harness — [Runbook](docs/adoption/g5-consumer-runbook.md)、`templates/consumer-g5/`（Lighthouse CI + E2E smoke checklist）、L6 cadence / ownership（[#37](（Private issue）)）
-- DADS（デジタル庁デザインシステム）参照モデル追従の方針・ギャップ分析 — [ADR-003](docs/decisions/ADR-003-dads-alignment.md) / [dads-alignment-audit-2026-07-16.md](docs/audits/dads-alignment-audit-2026-07-16.md)
-- semantic token カテゴリ `space`（xs〜2xl）/ `shape`（radius-sm〜full）/ `elevation`（raised / overlay / modal）— 全 6 semantic ファイルに追加、primitives の薄いラッパーとして公開
-- `color.text.link-hover` — 全 6 semantic ファイルに追加
-- `color.blue.400` / `color.gold.700` / `color.gold.800` primitives — コントラスト 4.5:1 棚卸しで検出した未達リンク色の是正用
-- [コントラスト 4.5:1 棚卸し監査](docs/audits/contrast-45-audit-2026-07-16.md) — 全 6 semantic ファイル × text/surface 60 ペアを実測、2 件の未達を是正
-- L1 基盤にアイコン配置原則・レイアウト原則（DADS 基本デザイン準拠）を追記
-- `Checkbox` component（P0）— DADS「チェックボックス」に対応。DADS コンポーネント拡充 wave 1 [#32](（Private issue）) 着手分
-- Docs site デプロイ workflow（`.github/workflows/docs-deploy.yml`）— 当面はローカル運用のため `workflow_dispatch` のみ。固定公開は保留 [#28](（Private issue）)
-- [ADR-004](docs/decisions/ADR-004-laws-of-ux.md) — Laws of UX を UX 参照モデルとする。L0 / L3 に原則対応表を追加
-- Laws of UX P1 適用 — `.slt-field-stack`（Proximity）、Primary 1 ビュー 1 つ（DoD / guides）、Doherty &lt;400ms 方針（L3 / motion）
-- `SiteHeader`: sticky full-bleed + 内側バー（高さ 64px・左右ガターのみ）。本文揃えは `contentMaxWidth` + `--site-header-padding-x`
-- Input: `readOnly` 見た目、`layout="horizontal"`（DADS Readonly / ラベル横並び）
-- Table / DataTable: `striped`、セル結合作例（`colSpan` / `rowSpan`）
-- ドキュメント契約ゲート — local link、canonical docs、version、component / Storybook / Docs site / nav の同期を検証
-- L1 spacing / motion、L4 terminology、contributing、releasing、documentation operations の正本
-- Storybook Accessibility ガイドと `GridBackground` の専用 stories
-- Docs site の guideline index、保守者向けページ、canonical metadata
-- L3 metrics 週次運用 — `--since` / `--base` / `--save`、`metrics/thresholds.json`、`metrics/history/`、3× override テンプレ、L6 Runbook（[#4](（Private issue）)）
-- `Breadcrumb`（P1）— DADS パンくずリスト。`wrap` / `scroll`、aria-current、component tokens（[#33](（Private issue）) wave 2 着手）
-- `Tabs`（P1）— `Tabs` / `TabList` / `Tab` / `TabPanel`、矢印キー、horizontal / vertical（[#33](（Private issue）)）
-- `Accordion` / `Disclosure`（P1）— DADS の開閉区別。Accordion は同種連続、Disclosure は `details` による補足（[#33](（Private issue）)）
-- `List` / `DescriptionList` / `Blockquote` / `Chip`（P1）— 箇条書き（項番は地テキスト）、説明リスト、引用、チップタグ（[#33](（Private issue）)）
-- `PageNavigation` / `StepNavigation` / `ProgressIndicator` / `SearchBox`（P1）— wave 2 完了（[#33](（Private issue）)）
-- DADS wave 3 需要優先バッチ（P2）— `ScrollTopButton` / `UtilityLink` / `HamburgerMenuButton` / `Drawer` / `FileUpload` / `TableOfContents` / `ResourceList` / `Image`（[#34](（Private issue）)）
-- wave 3 続: `HorizontalMenu` / `MenuList` / `BottomNavigation` / `MobileMenu`（[#34](（Private issue）)）
-
-### Changed
-
-- `design-tokens/components.json` — `radius.*` / `space.*` / `shadow.*`（primitives 直接参照）を `shape.radius-*` / `space.*` / `elevation.*`（semantic 参照）に是正。ヘッダー注記「semantic層のみを参照する」との不整合を解消
-- ルート README と L0〜L6 文書を読者 task と正本責務に沿って再編
-- `npm run check` に docs contract、`npm run ci` に Docs site static build を追加
-- Storybook / Docs site / Markdown の役割分担と Docs 完了条件を明文化
-- L3 metrics を diff-only の token compliance signal に変更
+- 配布ミラーとして README / Docs 運用文言を整理（Private 開発資産への誤リンクを除去）
+- 自社アプリは `github:SoundLabbitTechnology/SLT-Design-System-public#<tag>` を標準参照とする
 
 ## 0.4.5 — 2026-07-10
 

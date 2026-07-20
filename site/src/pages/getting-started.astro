@@ -22,6 +22,14 @@ const href = (path: string) => `${base}${path.replace(/^\//, "")}`;
 }`}</code></pre>
 
     <h2>2. CSS を読み込む</h2>
+    <p>Tailwind v4 を使う場合は、DS components を <code>layer(components)</code> に置き、utility が上書きできるようにします。</p>
+    <pre><code>{`@layer theme, base, components, utilities;
+
+@import '@soundlabbit/design-system/tokens.css';
+@import '@soundlabbit/design-system/components.css' layer(components);
+@import '@soundlabbit/design-system/utilities.css';
+@import 'tailwindcss';`}</code></pre>
+    <p>Tailwind を使わない場合の最小構成:</p>
     <pre><code>{`@import '@soundlabbit/design-system/tokens.css';
 @import '@soundlabbit/design-system/components.css';`}</code></pre>
     <p>共有 utility が必要な場合だけ追加します。</p>

@@ -1,7 +1,7 @@
 {
   "name": "@soundlabbit/design-system",
   "version": "0.4.5",
-  "description": "Sound Labbit Technology shared design system — tokens, CSS utilities, and brand guidelines",
+  "description": "Sound Labbit Technology design system — DTCG tokens, themed CSS, and React components (public distribution mirror)",
   "license": "UNLICENSED",
   "private": false,
   "type": "module",
