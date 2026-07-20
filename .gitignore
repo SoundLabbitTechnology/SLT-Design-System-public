@@ -21,3 +21,4 @@ design-tokens/figma-export/
 
 # Style Dictionary spike output (regenerated via npm run tokens:sd-spike)
 .cache/
+.public-export.json
