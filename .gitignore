@@ -15,3 +15,6 @@ site/.astro/
 
 # Figma / Tokens Studio local exports (not committed)
 design-tokens/figma-export/
+
+# Export metadata (local only)
+.public-export.json
