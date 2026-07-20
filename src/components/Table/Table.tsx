@@ -185,6 +185,8 @@ export interface DataTableProps<T extends Record<string, unknown>> {
   selectedKeys?: Set<string>;
   onSelectionChange?: (keys: Set<string>) => void;
   rowLabel?: (row: T) => string;
+  /** ヘッダ「すべて選択」チェックの accessible name（既定: すべて選択） */
+  selectAllLabel?: string;
   striped?: boolean;
 }
 
@@ -200,6 +202,7 @@ export function DataTable<T extends Record<string, unknown>>({
   selectedKeys = new Set(),
   onSelectionChange,
   rowLabel,
+  selectAllLabel = "すべて選択",
   striped = false,
 }: DataTableProps<T>) {
   const allKeys = rows.map(getRowKey);
@@ -227,7 +230,7 @@ export function DataTable<T extends Record<string, unknown>>({
               checked={allSelected}
               indeterminate={!allSelected && someSelected}
               onChange={toggleAll}
-              label="すべて選択"
+              label={selectAllLabel}
             />
           ) : null}
           {columns.map((col) => (

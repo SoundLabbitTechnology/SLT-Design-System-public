@@ -66,6 +66,8 @@
   --card-padding: 24px;
   --card-radius: 12px;
   --card-shadow: 0px 1px 3px 0px #0F172A1A;
+  /* carousel */
+  --carousel-nav-size: 44px;
   /* checkbox */
   --checkbox-bg: #0F172A;
   --checkbox-bg-checked: #D3C193;
@@ -228,6 +230,22 @@
   --color-text-primary: #FFFFFF;
   /* dark-text-secondary 相当 */
   --color-text-secondary: #94A3B8;
+  /* combobox */
+  --combobox-bg: #0F172A;
+  --combobox-border: #334155;
+  --combobox-border-error: #EF4444;
+  --combobox-border-focus: #D3C193;
+  --combobox-icon: #94A3B8;
+  --combobox-min-height: 44px;
+  --combobox-radius: 8px;
+  --combobox-text: #FFFFFF;
+  /* datepicker */
+  --datepicker-bg: #0F172A;
+  --datepicker-border: #334155;
+  --datepicker-border-error: #EF4444;
+  --datepicker-min-height: 44px;
+  --datepicker-radius: 8px;
+  --datepicker-text: #FFFFFF;
   /* description-list */
   --description-list-details: #94A3B8;
   --description-list-gap: 8px;
@@ -330,6 +348,10 @@
   --list-indent: 16px;
   --list-marker: #FFFFFF;
   --list-text: #94A3B8;
+  /* mega-menu */
+  --mega-menu-min-height: 44px;
+  --mega-menu-text: #94A3B8;
+  --mega-menu-text-current: #FFFFFF;
   /* menu-list */
   --menu-list-bg-current: #1E293B;
   --menu-list-bg-hover: #1E293B;
@@ -338,6 +360,8 @@
   --menu-list-radius: 4px;
   --menu-list-text: #FFFFFF;
   --menu-list-text-current: #FFFFFF;
+  /* menu-listbox */
+  --menu-listbox-min-height: 44px;
   /* motion */
   --motion-duration-base: 300ms;
   --motion-duration-fast: 150ms;

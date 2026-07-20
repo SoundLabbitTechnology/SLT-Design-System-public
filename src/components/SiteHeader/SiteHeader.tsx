@@ -18,6 +18,12 @@ export interface SiteHeaderProps {
    */
   contentMaxWidth?: string;
   className?: string;
+  /** デスクトップ nav の accessible name（既定: メイン） */
+  navLabel?: string;
+  /** モバイル drawer nav の accessible name（既定: モバイルメニュー） */
+  mobileNavLabel?: string;
+  openMenuLabel?: string;
+  closeMenuLabel?: string;
 }
 
 export function SiteHeader({
@@ -27,6 +33,10 @@ export function SiteHeader({
   variant = "default",
   contentMaxWidth,
   className,
+  navLabel = "メイン",
+  mobileNavLabel = "モバイルメニュー",
+  openMenuLabel = "メニューを開く",
+  closeMenuLabel = "メニューを閉じる",
 }: SiteHeaderProps) {
   const [menuOpen, setMenuOpen] = useState(false);
   const menuId = useId();
@@ -39,7 +49,7 @@ export function SiteHeader({
       <div className="slt-site-header__bar" style={barStyle}>
         {logo ? <div className="slt-site-header__logo">{logo}</div> : null}
         {nav ? (
-          <nav className="slt-site-header__nav" aria-label="メイン">
+          <nav className="slt-site-header__nav" aria-label={navLabel}>
             {nav}
           </nav>
         ) : null}
@@ -53,7 +63,7 @@ export function SiteHeader({
             onClick={() => setMenuOpen((open) => !open)}
           >
             <span className="slt-site-header__menu-label">
-              {menuOpen ? "メニューを閉じる" : "メニューを開く"}
+              {menuOpen ? closeMenuLabel : openMenuLabel}
             </span>
           </button>
         )}
@@ -65,7 +75,7 @@ export function SiteHeader({
           onClick={() => setMenuOpen(false)}
         >
           {nav ? (
-            <nav className="slt-site-header__drawer-nav" aria-label="モバイルメニュー">
+            <nav className="slt-site-header__drawer-nav" aria-label={mobileNavLabel}>
               {nav}
             </nav>
           ) : null}

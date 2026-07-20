@@ -43,12 +43,14 @@ export function Skeleton({
 export interface SkeletonListProps {
   count?: number;
   className?: string;
+  /** ローディング領域の accessible name（既定: 読み込み中） */
+  label?: string;
 }
 
 /** リスト行のローディングプレースホルダ */
-export function SkeletonList({ count = 3, className }: SkeletonListProps) {
+export function SkeletonList({ count = 3, className, label = "読み込み中" }: SkeletonListProps) {
   return (
-    <div className={cn("slt-skeleton-list", className)} aria-busy="true" aria-label="読み込み中">
+    <div className={cn("slt-skeleton-list", className)} aria-busy="true" aria-label={label}>
       {Array.from({ length: count }, (_, i) => (
         <div key={i} className="slt-skeleton-list__item">
           <Skeleton variant="circle" />
@@ -62,10 +64,16 @@ export function SkeletonList({ count = 3, className }: SkeletonListProps) {
   );
 }
 
+export interface SkeletonCardProps {
+  className?: string;
+  /** ローディング領域の accessible name（既定: 読み込み中） */
+  label?: string;
+}
+
 /** Card 内コンテンツのローディングプレースホルダ */
-export function SkeletonCard({ className }: { className?: string }) {
+export function SkeletonCard({ className, label = "読み込み中" }: SkeletonCardProps) {
   return (
-    <Card className={cn("slt-skeleton-card", className)} aria-busy="true" aria-label="読み込み中">
+    <Card className={cn("slt-skeleton-card", className)} aria-busy="true" aria-label={label}>
       <Skeleton variant="text" width="55%" height="var(--font-size-xl, 24px)" />
       <Skeleton variant="text" />
       <Skeleton variant="text" width="80%" />

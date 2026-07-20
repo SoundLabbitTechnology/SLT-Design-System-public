@@ -1,0 +1,37 @@
+---
+title: MegaMenu
+titleJa: メガメニュー
+tier: P2
+order: 47
+description: 複数セクションのパネル付き水平ナビ。
+tokenPrefix: mega-menu
+props:
+  - { name: items, type: "MegaMenuItem[]", description: "リンク、または sections 付きトリガー" }
+  - { name: "aria-label", type: string, default: '"メインメニュー"', description: nav の名前 }
+---
+
+import Demo from "../../components/Demo.astro";
+import DoDont from "../../components/DoDont.astro";
+import MegaMenuDemo from "../../demos/MegaMenuDemo";
+
+## デモ
+
+<Demo>
+  <MegaMenuDemo client:visible slot="stage" />
+  <Fragment slot="code">
+    ```tsx
+    import { MegaMenu } from "@soundlabbit/design-system/ui";
+
+    <MegaMenu items={[{ label: "製品", sections: [...] }]} />
+    ```
+  </Fragment>
+</Demo>
+
+## 使い方
+
+情報設計が深いグローバルナビ向け。単純なリンク列は HorizontalMenu。
+
+<DoDont
+  dos={["セクション title でグループを示す", "Escape でパネルを閉じられることを確認する"]}
+  donts={["深い入れ子をパネル内にさらに重ねる", "モバイルの主ナビ代わりに使う（MobileMenu）"]}
+/>

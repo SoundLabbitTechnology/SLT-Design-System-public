@@ -20,6 +20,8 @@ export interface ToastItemProps {
   open?: boolean;
   defaultOpen?: boolean;
   onOpenChange?: (open: boolean) => void;
+  /** 閉じるボタンの accessible name（既定: 閉じる） */
+  closeLabel?: string;
 }
 
 interface ToastRecord extends ToastItemProps {
@@ -90,6 +92,7 @@ export function Toast({
   open,
   defaultOpen = true,
   onOpenChange,
+  closeLabel = "閉じる",
 }: ToastItemProps) {
   return (
     <ToastPrimitive.Root
@@ -107,7 +110,7 @@ export function Toast({
           </ToastPrimitive.Description>
         ) : null}
       </div>
-      <ToastPrimitive.Close className="slt-toast__close" aria-label="閉じる">
+      <ToastPrimitive.Close className="slt-toast__close" aria-label={closeLabel}>
         ×
       </ToastPrimitive.Close>
     </ToastPrimitive.Root>

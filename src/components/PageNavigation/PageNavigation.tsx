@@ -7,6 +7,8 @@ export interface PageNavigationProps extends Omit<HTMLAttributes<HTMLElement>, "
   onPageChange?: (page: number) => void;
   previousLabel?: string;
   nextLabel?: string;
+  /** 各ページ番号ボタンの accessible name（既定: `{n}ページ`） */
+  getPageLabel?: (page: number) => string;
   /** 省略記号の前後に表示する隣ページ数（既定 1） */
   siblingCount?: number;
 }
@@ -35,6 +37,7 @@ export function PageNavigation({
   onPageChange,
   previousLabel = "前へ",
   nextLabel = "次へ",
+  getPageLabel = (n) => `${n}ページ`,
   siblingCount = 1,
   className,
   "aria-label": ariaLabel = "ページナビゲーション",
@@ -77,7 +80,7 @@ export function PageNavigation({
                   item === current && "slt-page-nav__page--current",
                 )}
                 aria-current={item === current ? "page" : undefined}
-                aria-label={`${item}ページ`}
+                aria-label={getPageLabel(item)}
                 onClick={() => go(item)}
               >
                 {item}

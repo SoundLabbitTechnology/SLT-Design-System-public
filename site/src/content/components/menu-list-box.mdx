@@ -1,0 +1,38 @@
+---
+title: MenuListBox
+titleJa: メニューリストボックス
+tier: P2
+order: 48
+description: listbox として候補から選ぶ縦リスト（ナビの MenuList とは別）。
+tokenPrefix: menu-listbox
+props:
+  - { name: options, type: "MenuListBoxOption[]", description: "value / label / disabled" }
+  - { name: "value / values", type: "string | string[]", description: 単一 / 複数選択 }
+  - { name: multiple, type: boolean, default: "false", description: 複数選択 }
+---
+
+import Demo from "../../components/Demo.astro";
+import DoDont from "../../components/DoDont.astro";
+import MenuListBoxDemo from "../../demos/MenuListBoxDemo";
+
+## デモ
+
+<Demo>
+  <MenuListBoxDemo client:visible slot="stage" />
+  <Fragment slot="code">
+    ```tsx
+    import { MenuListBox } from "@soundlabbit/design-system/ui";
+
+    <MenuListBox aria-label="ステータス" options={[...]} defaultValue="draft" />
+    ```
+  </Fragment>
+</Demo>
+
+## 使い方
+
+フォームやフィルタの選択リスト。ページ遷移ナビは MenuList。
+
+<DoDont
+  dos={["role=listbox のままキーボード操作する", "長い候補の絞り込みは Combobox"]}
+  donts={["href 付きナビに使う（MenuList）", "少数の固定選択肢に使う（Radio）"]}
+/>

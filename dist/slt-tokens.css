@@ -73,6 +73,8 @@
   --card-padding: 24px;
   --card-radius: 12px;
   --card-shadow: 0px 1px 3px 0px #0F172A1A;
+  /* carousel */
+  --carousel-nav-size: 44px;
   /* checkbox */
   --checkbox-bg: #0F172A;
   --checkbox-bg-checked: #D3C193;
@@ -239,6 +241,22 @@
   --color-text-primary: #FFFFFF;
   /* 本文。~11.5:1 */
   --color-text-secondary: #E2E8F0;
+  /* combobox */
+  --combobox-bg: #0F172A;
+  --combobox-border: rgba(255, 255, 255, 0.15);
+  --combobox-border-error: #EF4444;
+  --combobox-border-focus: #D3C193;
+  --combobox-icon: #E2E8F0;
+  --combobox-min-height: 44px;
+  --combobox-radius: 8px;
+  --combobox-text: #FFFFFF;
+  /* datepicker */
+  --datepicker-bg: #0F172A;
+  --datepicker-border: rgba(255, 255, 255, 0.15);
+  --datepicker-border-error: #EF4444;
+  --datepicker-min-height: 44px;
+  --datepicker-radius: 8px;
+  --datepicker-text: #FFFFFF;
   /* description-list */
   --description-list-details: #E2E8F0;
   --description-list-gap: 8px;
@@ -341,6 +359,10 @@
   --list-indent: 16px;
   --list-marker: #FFFFFF;
   --list-text: #E2E8F0;
+  /* mega-menu */
+  --mega-menu-min-height: 44px;
+  --mega-menu-text: #E2E8F0;
+  --mega-menu-text-current: #FFFFFF;
   /* menu-list */
   --menu-list-bg-current: #1E293B;
   --menu-list-bg-hover: #1E293B;
@@ -349,6 +371,8 @@
   --menu-list-radius: 4px;
   --menu-list-text: #FFFFFF;
   --menu-list-text-current: #FFFFFF;
+  /* menu-listbox */
+  --menu-listbox-min-height: 44px;
   /* motion */
   --motion-duration-base: 300ms;
   --motion-duration-fast: 150ms;
@@ -620,6 +644,16 @@
   --color-text-link-hover: #1E40AF;
   --color-text-primary: #0F172A;
   --color-text-secondary: #475569;
+  --combobox-bg: #FFFFFF;
+  --combobox-border: #E2E8F0;
+  --combobox-border-error: #DC2626;
+  --combobox-border-focus: #2563EB;
+  --combobox-icon: #475569;
+  --combobox-text: #0F172A;
+  --datepicker-bg: #FFFFFF;
+  --datepicker-border: #E2E8F0;
+  --datepicker-border-error: #DC2626;
+  --datepicker-text: #0F172A;
   --description-list-details: #475569;
   --description-list-term: #0F172A;
   --dialog-bg: #FFFFFF;
@@ -658,6 +692,8 @@
   --input-text: #0F172A;
   --list-marker: #0F172A;
   --list-text: #475569;
+  --mega-menu-text: #475569;
+  --mega-menu-text-current: #0F172A;
   --menu-list-bg-current: #F8FAFC;
   --menu-list-bg-hover: #F8FAFC;
   --menu-list-border: #E2E8F0;
@@ -809,6 +845,16 @@
   --color-text-link-hover: #644B35;
   --color-text-primary: #0F172A;
   --color-text-secondary: #475569;
+  --combobox-bg: #FFFFFF;
+  --combobox-border: #D9D2C1;
+  --combobox-border-error: #DC2626;
+  --combobox-border-focus: #C59367;
+  --combobox-icon: #475569;
+  --combobox-text: #0F172A;
+  --datepicker-bg: #FFFFFF;
+  --datepicker-border: #D9D2C1;
+  --datepicker-border-error: #DC2626;
+  --datepicker-text: #0F172A;
   --description-list-details: #475569;
   --description-list-term: #0F172A;
   --dialog-bg: #FFFFFF;
@@ -847,6 +893,8 @@
   --input-text: #0F172A;
   --list-marker: #0F172A;
   --list-text: #475569;
+  --mega-menu-text: #475569;
+  --mega-menu-text-current: #0F172A;
   --menu-list-bg-current: #EAE1CF;
   --menu-list-bg-hover: #EAE1CF;
   --menu-list-border: #D9D2C1;
@@ -955,6 +1003,9 @@
   --color-text-link: #D3C193;
   --color-text-link-hover: #E8D5A3;
   --color-text-secondary: #94A3B8;
+  --combobox-border: #334155;
+  --combobox-icon: #94A3B8;
+  --datepicker-border: #334155;
   --description-list-details: #94A3B8;
   --disclosure-content: #94A3B8;
   --disclosure-icon: #D3C193;
@@ -971,6 +1022,7 @@
   --image-caption: #94A3B8;
   --input-border: #334155;
   --list-text: #94A3B8;
+  --mega-menu-text: #94A3B8;
   --menu-list-border: #334155;
   --notice-block-body: #94A3B8;
   --notice-block-border: #334155;
@@ -1023,6 +1075,9 @@
   --color-text-link-hover: #D3C193;
   --color-text-primary: #F1F5F9;
   --color-text-secondary: #94A3B8;
+  --combobox-icon: #94A3B8;
+  --combobox-text: #F1F5F9;
+  --datepicker-text: #F1F5F9;
   --description-list-details: #94A3B8;
   --description-list-term: #F1F5F9;
   --disclosure-content: #94A3B8;
@@ -1043,6 +1098,8 @@
   --input-text: #F1F5F9;
   --list-marker: #F1F5F9;
   --list-text: #94A3B8;
+  --mega-menu-text: #94A3B8;
+  --mega-menu-text-current: #F1F5F9;
   --menu-list-text: #F1F5F9;
   --menu-list-text-current: #F1F5F9;
   --notice-block-body: #94A3B8;
@@ -1144,6 +1201,14 @@
   --color-text-link-hover: #2563EB;
   --color-text-primary: #0F172A;
   --color-text-secondary: #475569;
+  --combobox-bg: #F8FAFC;
+  --combobox-border: #E2E8F0;
+  --combobox-border-focus: #2563EB;
+  --combobox-icon: #475569;
+  --combobox-text: #0F172A;
+  --datepicker-bg: #F8FAFC;
+  --datepicker-border: #E2E8F0;
+  --datepicker-text: #0F172A;
   --description-list-details: #475569;
   --description-list-term: #0F172A;
   --dialog-bg: #F8FAFC;
@@ -1180,6 +1245,8 @@
   --input-text: #0F172A;
   --list-marker: #0F172A;
   --list-text: #475569;
+  --mega-menu-text: #475569;
+  --mega-menu-text-current: #0F172A;
   --menu-list-bg-current: #FFFFFF;
   --menu-list-bg-hover: #FFFFFF;
   --menu-list-border: #E2E8F0;
@@ -1292,6 +1359,9 @@
   --color-text-link: #D3C193;
   --color-text-link-hover: #E8D5A3;
   --color-text-secondary: #94A3B8;
+  --combobox-border: #334155;
+  --combobox-icon: #94A3B8;
+  --datepicker-border: #334155;
   --description-list-details: #94A3B8;
   --disclosure-content: #94A3B8;
   --disclosure-icon: #D3C193;
@@ -1308,6 +1378,7 @@
   --image-caption: #94A3B8;
   --input-border: #334155;
   --list-text: #94A3B8;
+  --mega-menu-text: #94A3B8;
   --menu-list-border: #334155;
   --notice-block-body: #94A3B8;
   --notice-block-border: #334155;
@@ -1359,6 +1430,9 @@
   --color-text-link-hover: #D3C193;
   --color-text-primary: #F1F5F9;
   --color-text-secondary: #94A3B8;
+  --combobox-icon: #94A3B8;
+  --combobox-text: #F1F5F9;
+  --datepicker-text: #F1F5F9;
   --description-list-details: #94A3B8;
   --description-list-term: #F1F5F9;
   --disclosure-content: #94A3B8;
@@ -1379,6 +1453,8 @@
   --input-text: #F1F5F9;
   --list-marker: #F1F5F9;
   --list-text: #94A3B8;
+  --mega-menu-text: #94A3B8;
+  --mega-menu-text-current: #F1F5F9;
   --menu-list-text: #F1F5F9;
   --menu-list-text-current: #F1F5F9;
   --notice-block-body: #94A3B8;
@@ -1479,6 +1555,14 @@
   --color-text-link-hover: #2563EB;
   --color-text-primary: #0F172A;
   --color-text-secondary: #475569;
+  --combobox-bg: #F8FAFC;
+  --combobox-border: #E2E8F0;
+  --combobox-border-focus: #2563EB;
+  --combobox-icon: #475569;
+  --combobox-text: #0F172A;
+  --datepicker-bg: #F8FAFC;
+  --datepicker-border: #E2E8F0;
+  --datepicker-text: #0F172A;
   --description-list-details: #475569;
   --description-list-term: #0F172A;
   --dialog-bg: #F8FAFC;
@@ -1515,6 +1599,8 @@
   --input-text: #0F172A;
   --list-marker: #0F172A;
   --list-text: #475569;
+  --mega-menu-text: #475569;
+  --mega-menu-text-current: #0F172A;
   --menu-list-bg-current: #FFFFFF;
   --menu-list-bg-hover: #FFFFFF;
   --menu-list-border: #E2E8F0;

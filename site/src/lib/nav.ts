@@ -51,6 +51,13 @@ export const COMPONENT_NAV: ComponentNavEntry[] = [
   { slug: "menu-list", titleJa: "メニューリスト", tier: "P2", order: 42 },
   { slug: "bottom-navigation", titleJa: "ボトムナビゲーション", tier: "P2", order: 43 },
   { slug: "mobile-menu", titleJa: "モバイルメニュー", tier: "P2", order: 44 },
+  { slug: "combobox", titleJa: "コンボボックス", tier: "P2", order: 45 },
+  { slug: "date-picker", titleJa: "日付ピッカー", tier: "P2", order: 46 },
+  { slug: "mega-menu", titleJa: "メガメニュー", tier: "P2", order: 47 },
+  { slug: "menu-list-box", titleJa: "メニューリストボックス", tier: "P2", order: 48 },
+  { slug: "table-controls", titleJa: "テーブルコントロール", tier: "P2", order: 49 },
+  { slug: "carousel", titleJa: "カルーセル", tier: "P2", order: 50 },
+  { slug: "image-slider", titleJa: "イメージスライダー", tier: "P2", order: 51 },
 ];
 
 export interface NavLink {

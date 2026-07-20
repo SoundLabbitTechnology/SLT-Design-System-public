@@ -12,6 +12,8 @@ export interface DialogProps {
   children?: ReactNode;
   confirmLabel?: string;
   cancelLabel?: string;
+  /** 閉じるボタンの accessible name（既定: 閉じる） */
+  closeLabel?: string;
   onConfirm?: () => void;
   destructive?: boolean;
   showClose?: boolean;
@@ -29,6 +31,7 @@ export function Dialog({
   children,
   confirmLabel = "確認",
   cancelLabel = "キャンセル",
+  closeLabel = "閉じる",
   onConfirm,
   destructive = false,
   showClose = true,
@@ -48,7 +51,7 @@ export function Dialog({
               <Button
                 variant="ghost"
                 className="slt-dialog__close"
-                aria-label="閉じる"
+                aria-label={closeLabel}
               >
                 ×
               </Button>

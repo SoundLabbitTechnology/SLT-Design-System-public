@@ -2,6 +2,13 @@
 
 ## Unreleased
 
+## 0.4.7 — 2026-07-20
+
+### Added
+
+- DADS wave 3 完了（19/19）— **Combobox**, **DatePicker/Calendar**, **MegaMenu**, **MenuListBox**, **TableControls**, **Carousel**, **ImageSlider**（#34）
+- i18n 最初の locale 拡張（`en`）— [L4 用語](docs/L4-terminology.md) に `en` 推奨訳列、[既定文言 inventory](docs/L2-components/default-copy-inventory.md)。既定文言の props override（#39）
+
 ### Changed
 
 - Docs に **Pagefind サイト内検索**、導入面の平易化、[L4 用語](docs/L4-terminology.md) に基盤・運用用語を追加
