@@ -6,26 +6,29 @@
 
 判断の上位: [L0 原則](../L0-principles.md)
 
+用語のやさしい言い方: [用語と命名 — 基盤・運用用語](../L4-terminology.md#基盤運用用語)
+
 ## 目的
 
-トークンは、ブランドやモードが変わっても同じ用途名で UI を実装するための契約です。値を選ぶ仕組みと、値を使うコードを分離します。
+**デザイン変数（トークン）**は、ブランドや明るさが変わっても、同じ用途名で画面を書けるようにするための約束です。  
+「どの色を使うか」を決める仕組みと、「画面コードが参照する名前」を分けます。
 
-## 3 層アーキテクチャ
+## 3 層の考え方
 
-| 層 | 役割 | UI / AI からの参照 |
-|----|------|--------------------|
-| Primitive | ビルド内部の生値とスケール | 禁止 |
-| Semantic | `color.action.primary` など用途を表す共有語彙 | 標準 |
-| Component | `button.primary.bg` など部品固有の決定 | component 実装で使用 |
+| 層 | やさしい言い方 | 役割 | 画面コードからの参照 |
+|----|----------------|------|----------------------|
+| Primitive | 内部の生の色・数値 | ビルド内部の材料 | 禁止 |
+| Semantic | 用途つきのデザイン変数 | `color.action.primary` など用途の共有語彙 | 標準（これを使う） |
+| Component | 部品用の変数 | `button.primary.bg` など部品固有の決定 | 部品の実装の中で使う |
 
-Primitive source は semantic を構築する内部実装です。UI、文書のコード例、AI エージェントは読み取り・参照・転載をしません。
+内部の生値（primitive）は、用途つき変数を組み立てるための材料です。画面コード・文書のコード例・AI エージェントは読み取り・転載しません。
 
-## 参照の選び方
+## どれを使うか
 
-1. 画面やパターンでは semantic token を使う。
-2. 共有 component の内部では component token を優先する。
-3. 既存語彙で意図を表せない場合、raw 値で回避せず token 追加を提案する。
-4. 同種の上書きが 3 回現れたら semantic token または component 化を検討する。
+1. 画面やパターンでは、用途つきのデザイン変数（セマンティック）を使う。
+2. 共有部品の内側では、部品用の変数（コンポーネント）を優先する。
+3. 既存の名前で意図を表せないときは、色コードでごまかさず、変数の追加を提案する。
+4. 同じ上書きが 3 回出たら、用途つき変数か部品化を検討する。
 
 ```css
 .product-panel {
@@ -51,10 +54,10 @@ import { Button } from '@soundlabbit/design-system/ui';
 - ブランド・モード間で semantic key を一致させ、値だけを差し替える。
 - CSS variable は `.` を `-` に変換する: `color.text.primary` → `--color-text-primary`。
 
-## ブランド × カラーモード
+## ブランド × 明るさ
 
-| Theme ID | Mode | 既定 |
-|----------|------|------|
+| ブランド（data-theme） | 明るさ（data-color-mode） | 指定しないときの既定 |
+|------------------------|---------------------------|----------------------|
 | `ai-dash` | light / dark | dark |
 | `sound-laboratory` | light / dark | dark |
 | `slt-corporate` | dark | dark |
@@ -64,7 +67,7 @@ import { Button } from '@soundlabbit/design-system/ui';
 <html data-theme="ai-dash" data-color-mode="dark">
 ```
 
-未対応の組み合わせへ暗黙にフォールバックさせません。製品は上表の対応 mode を指定し、Storybook と Docs site では切替結果を確認します。
+対応していない組み合わせへ勝手に切り替えません。製品は上表の組み合わせを指定し、Docs site（必要なら社内 Storybook）で結果を確認します。
 
 ## CSS の読み込み
 
@@ -114,7 +117,7 @@ npm run check:fast
 
 追加・変更時は全テーマで key が一致すること、参照が解決すること、公開ドキュメントが primitive 値を露出しないことを G0 と docs contract で検証します。
 
-Figma Variables との同期手順は [design-tokens/figma-sync-runbook.md](../../design-tokens/figma-sync-runbook.md)（[#15](（Private issue）)）。
+Figma Variables との同期手順は [design-tokens/figma-sync-runbook.md](../../design-tokens/figma-sync-runbook.md)（#15）。
 
 ## Tailwind v4
 

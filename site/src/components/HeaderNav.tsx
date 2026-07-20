@@ -1,4 +1,5 @@
 import { SiteHeader, SiteHeaderLink } from "@soundlabbit/design-system/ui";
+import DocsSearch from "./DocsSearch";
 import ThemeSwitcher from "./ThemeSwitcher";
 
 export interface HeaderNavProps {
@@ -32,7 +33,12 @@ export default function HeaderNav({ currentPath, base }: HeaderNavProps) {
           {link.label}
         </SiteHeaderLink>
       ))}
-      actions={<ThemeSwitcher />}
+      actions={
+        <div className="docs-header-actions">
+          <DocsSearch base={base} />
+          <ThemeSwitcher />
+        </div>
+      }
     />
   );
 }

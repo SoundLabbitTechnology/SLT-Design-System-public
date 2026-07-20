@@ -2,19 +2,24 @@
 
 文書番号: SLT-DS-001 §8
 
+## このページの読み方
+
+部品・ドキュメント・実プロダクトの三段階で「足りているか」を見ます。  
+**G0〜G5** は自動チェックの段階番号です。やさしい言い方は [用語と命名](./L4-terminology.md#基盤運用用語) を参照してください。社内の詳細手順は Private のハーネス文書にあります。
+
 品質は component 単体、公開面、消費者プロダクトの三段階で確認します。
 
 ## 品質モデル
 
 | 層 | 自動検証 | 人間の確認 |
 |----|----------|------------|
-| Token / code | G0〜G2、isotc | 命名と意図 |
-| Component | G3 Storybook + axe + play | visual、content、keyboard flow |
-| Documentation | docs contract + static build | 読者の task 完了、デモ |
-| Visual regression | G4 Chromatic | 意図した差分か、全 theme の妥当性 |
-| Product | G5 Lighthouse / product tests | 実データ、end-to-end、支援技術（G5 Runbook（社内 adoption）） |
+| デザイン変数 / コード | G0〜G2、isotc | 命名と意図 |
+| 部品 | G3 Storybook + axe + play | 見た目、文言、キーボード操作 |
+| ドキュメント | docs contract + static build | 読者がやりたいことを完了できるか、デモ |
+| 見た目の差分 | G4 Chromatic | 意図した差分か、全テーマの妥当性 |
+| 製品 | G5 Lighthouse / product tests | 実データ、通し操作、支援技術（G5 Runbook（社内 adoption）） |
 
-自動テストが通ることは必要条件であり、UX や視覚品質の十分条件ではありません。
+自動テストが通ることは必要条件であり、使いやすさや見た目の十分条件ではありません。
 
 ## アクセシビリティ
 

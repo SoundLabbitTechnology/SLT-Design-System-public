@@ -107,7 +107,7 @@ export const SIDEBAR: NavGroup[] = [
     label: "開発と運用",
     links: [
       { label: "ドキュメント運用", href: "/guidelines/documentation/" },
-      { label: "コントリビューション", href: "/guidelines/contributing/" },
+      { label: "メンテナー向け（社内）", href: "/guidelines/contributing/" },
       { label: "リリース", href: "/guidelines/releasing/" },
       { label: "ガバナンス", href: "/guidelines/governance/" },
     ],
@@ -139,7 +139,7 @@ export const GUIDELINES: Record<GuidelineSlug, GuidelineEntry> = {
   terminology: { id: "l4-terminology", source: "L4-terminology.md", title: "用語と命名" },
   quality: { id: "l5-quality", source: "L5-quality.md", title: "品質基準" },
   documentation: { id: "documentation", source: "DOCUMENTATION.md", title: "ドキュメント運用" },
-  contributing: { id: "contributing", source: "CONTRIBUTING.md", title: "コントリビューション" },
+  contributing: { id: "contributing", source: "CONTRIBUTING.md", title: "メンテナー向け（社内）" },
   releasing: { id: "releasing", source: "RELEASING.md", title: "リリース" },
   governance: { id: "l6-governance", source: "L6-governance.md", title: "ガバナンス" },
 };

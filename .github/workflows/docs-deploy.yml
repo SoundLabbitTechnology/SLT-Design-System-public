@@ -1,6 +1,6 @@
-# Docs site → GitHub Pages（Public ミラー正本）
-# Private の同名ファイルは雛形ではない。export は本ファイルを PUBLIC_DOCS_DEPLOY_YML として書き出す。
+# Docs site → GitHub Pages（Public ミラー）
 # 公開 URL: https://soundlabbittechnology.github.io/SLT-Design-System-public/
+# export 正本: scripts/export-public-tree.mjs (PUBLIC_DOCS_DEPLOY_YML)
 
 name: Docs site
 
@@ -22,9 +22,9 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
 
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
         with:
           node-version: "20"
           cache: npm
@@ -39,7 +39,7 @@ jobs:
         run: npm run docs:build
 
       - name: Upload Pages artifact
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@fc324d3547104276b827a68afc52ff2a11cc49c9 # v5.0.0
         with:
           path: site/dist
 
@@ -52,4 +52,4 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@cd2ce8fcbc39b97be8ca5fce6e763baed58fa128 # v5.0.0
