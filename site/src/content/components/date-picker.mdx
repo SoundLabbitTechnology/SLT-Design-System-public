@@ -1,0 +1,40 @@
+---
+title: DatePicker
+titleJa: 日付ピッカー
+tier: P2
+order: 46
+description: 日付入力と任意のカレンダーグリッド。
+tokenPrefix: datepicker
+props:
+  - { name: label, type: string, description: フィールドラベル }
+  - { name: "value / defaultValue", type: string, description: "YYYY-MM-DD" }
+  - { name: onValueChange, type: "(value: string) => void", description: 日付変更 }
+  - { name: showCalendar, type: boolean, default: "false", description: カレンダーグリッドを併記 }
+  - { name: "hint / error / errorMessage", type: "string | boolean", description: フィールド補助 }
+---
+
+import Demo from "../../components/Demo.astro";
+import DoDont from "../../components/DoDont.astro";
+import DatePickerDemo from "../../demos/DatePickerDemo";
+
+## デモ
+
+<Demo>
+  <DatePickerDemo client:visible slot="stage" />
+  <Fragment slot="code">
+    ```tsx
+    import { DatePicker, Calendar } from "@soundlabbit/design-system/ui";
+
+    <DatePicker label="開始日" showCalendar />
+    ```
+  </Fragment>
+</Demo>
+
+## 使い方
+
+フォームの日付入力に使う。モバイルでは OS の date 入力を優先し、`showCalendar` で視覚カレンダーを足せる。
+
+<DoDont
+  dos={["値は ISO 日付（YYYY-MM-DD）で扱う", "範囲があるときは min / max を付ける"]}
+  donts={["日時（時刻）入力に転用する", "カレンダーだけを必須にして native 入力を捨てる"]}
+/>

@@ -61,6 +61,153 @@ interface SelectProps extends SelectHTMLAttributes<HTMLSelectElement> {
 }
 declare function Select({ label, hint, error, errorMessage, layout, id, className, children, "aria-describedby": ariaDescribedBy, ...props }: SelectProps): react.JSX.Element;
 
+interface ComboboxOption {
+    value: string;
+    label: string;
+    disabled?: boolean;
+}
+interface ComboboxProps extends Omit<HTMLAttributes<HTMLDivElement>, "onChange" | "defaultValue"> {
+    label?: string;
+    hint?: string;
+    error?: boolean;
+    errorMessage?: string;
+    options: ComboboxOption[];
+    /** 選択値（controlled） */
+    value?: string;
+    defaultValue?: string;
+    onValueChange?: (value: string) => void;
+    placeholder?: string;
+    disabled?: boolean;
+    /** 一致なし時の listbox 文言（既定: 該当なし） */
+    emptyLabel?: string;
+    /** リスト開閉ボタンの accessible name（既定: 候補を開く） */
+    toggleLabel?: string;
+    name?: string;
+    id?: string;
+}
+declare function Combobox({ label, hint, error, errorMessage, options, value: valueProp, defaultValue, onValueChange, placeholder, disabled, emptyLabel, toggleLabel, name, id, className, ...props }: ComboboxProps): react.JSX.Element;
+
+interface CalendarProps extends Omit<HTMLAttributes<HTMLDivElement>, "onChange"> {
+    /** YYYY-MM-DD */
+    value?: string;
+    defaultValue?: string;
+    onValueChange?: (value: string) => void;
+    /** 表示月の基準（YYYY-MM-DD または YYYY-MM）。未指定時は value / 今日 */
+    displayMonth?: string;
+    onDisplayMonthChange?: (yearMonth: string) => void;
+    min?: string;
+    max?: string;
+    disabled?: boolean;
+    previousMonthLabel?: string;
+    nextMonthLabel?: string;
+    "aria-label"?: string;
+}
+declare function Calendar({ value: valueProp, defaultValue, onValueChange, displayMonth: displayMonthProp, onDisplayMonthChange, min, max, disabled, previousMonthLabel, nextMonthLabel, "aria-label": ariaLabel, className, ...props }: CalendarProps): react.JSX.Element;
+interface DatePickerProps extends Omit<InputHTMLAttributes<HTMLInputElement>, "type" | "value" | "defaultValue" | "onChange"> {
+    label?: string;
+    hint?: string;
+    error?: boolean;
+    errorMessage?: string;
+    value?: string;
+    defaultValue?: string;
+    onValueChange?: (value: string) => void;
+    /** true のときカレンダーグリッドも表示 */
+    showCalendar?: boolean;
+}
+declare function DatePicker({ label, hint, error, errorMessage, value: valueProp, defaultValue, onValueChange, showCalendar, id, className, disabled, min, max, "aria-describedby": ariaDescribedBy, ...props }: DatePickerProps): react.JSX.Element;
+
+interface MegaMenuLink {
+    label: ReactNode;
+    href: string;
+    description?: ReactNode;
+}
+interface MegaMenuSection {
+    title?: ReactNode;
+    links: MegaMenuLink[];
+}
+interface MegaMenuItem {
+    label: ReactNode;
+    href?: string;
+    current?: boolean;
+    /** あるときメガパネルを開く */
+    sections?: MegaMenuSection[];
+}
+interface MegaMenuProps extends HTMLAttributes<HTMLElement> {
+    items: MegaMenuItem[];
+    "aria-label"?: string;
+}
+declare function MegaMenu({ items, className, "aria-label": ariaLabel, ...props }: MegaMenuProps): react.JSX.Element;
+
+interface MenuListBoxOption {
+    value: string;
+    label: ReactNode;
+    disabled?: boolean;
+}
+interface MenuListBoxProps extends Omit<HTMLAttributes<HTMLUListElement>, "onChange"> {
+    options: MenuListBoxOption[];
+    /** 単一選択（既定） */
+    value?: string;
+    defaultValue?: string;
+    onValueChange?: (value: string) => void;
+    /** 複数選択 */
+    multiple?: boolean;
+    values?: string[];
+    defaultValues?: string[];
+    onValuesChange?: (values: string[]) => void;
+    "aria-label"?: string;
+}
+declare function MenuListBox({ options, value: valueProp, defaultValue, onValueChange, multiple, values: valuesProp, defaultValues, onValuesChange, className, "aria-label": ariaLabel, ...props }: MenuListBoxProps): react.JSX.Element;
+
+interface TableControlsSearchProps {
+    label: string;
+    hideLabel?: boolean;
+    value?: string;
+    defaultValue?: string;
+    onValueChange?: (value: string) => void;
+    onSearch?: (value: string) => void;
+    placeholder?: string;
+}
+interface TableControlsProps extends Omit<HTMLAttributes<HTMLDivElement>, "title"> {
+    /** ツールバー全体の accessible name */
+    "aria-label"?: string;
+    /** 左側の見出し（件数など） */
+    title?: ReactNode;
+    /** 右側アクション（追加・エクスポート等） */
+    actions?: ReactNode;
+    /** 検索ボックスを内蔵する場合 */
+    search?: TableControlsSearchProps;
+    /** フィルタチップ等 */
+    children?: ReactNode;
+}
+/** DataTable 上部の検索・フィルタ・アクション帯 */
+declare function TableControls({ title, actions, search, children, className, "aria-label": ariaLabel, ...props }: TableControlsProps): react.JSX.Element;
+
+interface CarouselProps extends Omit<HTMLAttributes<HTMLDivElement>, "onChange"> {
+    slides: ReactNode[];
+    index?: number;
+    defaultIndex?: number;
+    onIndexChange?: (index: number) => void;
+    /** 自動送り ms。0 / 未指定で無効。reduced motion では無効化 */
+    autoPlayMs?: number;
+    previousLabel?: string;
+    nextLabel?: string;
+    "aria-label"?: string;
+    showDots?: boolean;
+    getDotLabel?: (index: number) => string;
+}
+declare function Carousel({ slides, index: indexProp, defaultIndex, onIndexChange, autoPlayMs, previousLabel, nextLabel, "aria-label": ariaLabel, showDots, getDotLabel, className, ...props }: CarouselProps): react.JSX.Element;
+
+interface ImageSliderItem {
+    src: string;
+    alt: string;
+    caption?: ReactNode;
+}
+interface ImageSliderProps extends Omit<CarouselProps, "slides"> {
+    images: ImageSliderItem[];
+}
+/** 画像専用カルーセル（Carousel + Image） */
+declare function ImageSlider({ images, className, "aria-label": ariaLabel, getDotLabel, ...props }: ImageSliderProps): react.JSX.Element;
+
 interface SwitchProps extends Omit<InputHTMLAttributes<HTMLInputElement>, "type" | "role"> {
     label?: string;
     hint?: string;
@@ -227,10 +374,12 @@ interface PageNavigationProps extends Omit<HTMLAttributes<HTMLElement>, "onChang
     onPageChange?: (page: number) => void;
     previousLabel?: string;
     nextLabel?: string;
+    /** 各ページ番号ボタンの accessible name（既定: `{n}ページ`） */
+    getPageLabel?: (page: number) => string;
     /** 省略記号の前後に表示する隣ページ数（既定 1） */
     siblingCount?: number;
 }
-declare function PageNavigation({ page, totalPages, onPageChange, previousLabel, nextLabel, siblingCount, className, "aria-label": ariaLabel, ...props }: PageNavigationProps): react.JSX.Element;
+declare function PageNavigation({ page, totalPages, onPageChange, previousLabel, nextLabel, getPageLabel, siblingCount, className, "aria-label": ariaLabel, ...props }: PageNavigationProps): react.JSX.Element;
 
 interface StepNavigationItem {
     label: ReactNode;
@@ -251,7 +400,7 @@ interface ProgressIndicatorProps extends Omit<ProgressHTMLAttributes<HTMLProgres
     label?: string;
     showValueLabel?: boolean;
 }
-declare function ProgressIndicator({ value, max, label, showValueLabel, className, id, ...props }: ProgressIndicatorProps): react.JSX.Element;
+declare function ProgressIndicator({ value, max, label, showValueLabel, className, id, "aria-label": ariaLabel, ...props }: ProgressIndicatorProps): react.JSX.Element;
 
 interface SearchBoxProps extends Omit<FormHTMLAttributes<HTMLFormElement>, "onSubmit"> {
     label: string;
@@ -298,8 +447,10 @@ interface DrawerProps {
     children?: ReactNode;
     side?: DrawerSide;
     showClose?: boolean;
+    /** 閉じるボタンの accessible name（既定: 閉じる） */
+    closeLabel?: string;
 }
-declare function Drawer({ open, defaultOpen, onOpenChange, trigger, title, description, children, side, showClose, }: DrawerProps): react.JSX.Element;
+declare function Drawer({ open, defaultOpen, onOpenChange, trigger, title, description, children, side, showClose, closeLabel, }: DrawerProps): react.JSX.Element;
 declare const DrawerClose: react.ForwardRefExoticComponent<DialogPrimitive.DialogCloseProps & react.RefAttributes<HTMLButtonElement>>;
 declare const DrawerTrigger: react.ForwardRefExoticComponent<DialogPrimitive.DialogTriggerProps & react.RefAttributes<HTMLButtonElement>>;
 
@@ -311,8 +462,12 @@ interface FileUploadProps extends Omit<InputHTMLAttributes<HTMLInputElement>, "t
     /** 選択ファイル名の表示（制御しない場合は内部表示） */
     onFilesChange?: (files: FileList | null) => void;
     buttonLabel?: ReactNode;
+    /** 未選択時の表示（既定: 選択されていません） */
+    emptyLabel?: string;
+    /** 複数選択時の表示（既定: `{n} 件のファイル`） */
+    multipleFilesLabel?: (count: number) => string;
 }
-declare function FileUpload({ label, hint, error, errorMessage, onFilesChange, buttonLabel, id, className, disabled, "aria-describedby": ariaDescribedBy, ...props }: FileUploadProps): react.JSX.Element;
+declare function FileUpload({ label, hint, error, errorMessage, onFilesChange, buttonLabel, emptyLabel, multipleFilesLabel, id, className, disabled, "aria-describedby": ariaDescribedBy, ...props }: FileUploadProps): react.JSX.Element;
 
 interface TableOfContentsItem {
     id: string;
@@ -418,13 +573,15 @@ interface DialogProps {
     children?: ReactNode;
     confirmLabel?: string;
     cancelLabel?: string;
+    /** 閉じるボタンの accessible name（既定: 閉じる） */
+    closeLabel?: string;
     onConfirm?: () => void;
     destructive?: boolean;
     showClose?: boolean;
     confirmLoading?: boolean;
     confirmDisabled?: boolean;
 }
-declare function Dialog({ open, defaultOpen, onOpenChange, trigger, title, description, children, confirmLabel, cancelLabel, onConfirm, destructive, showClose, confirmLoading, confirmDisabled, }: DialogProps): react.JSX.Element;
+declare function Dialog({ open, defaultOpen, onOpenChange, trigger, title, description, children, confirmLabel, cancelLabel, closeLabel, onConfirm, destructive, showClose, confirmLoading, confirmDisabled, }: DialogProps): react.JSX.Element;
 declare const DialogClose: react.ForwardRefExoticComponent<DialogPrimitive.DialogCloseProps & react.RefAttributes<HTMLButtonElement>>;
 declare const DialogTrigger: react.ForwardRefExoticComponent<DialogPrimitive.DialogTriggerProps & react.RefAttributes<HTMLButtonElement>>;
 
@@ -520,6 +677,8 @@ interface ToastItemProps {
     open?: boolean;
     defaultOpen?: boolean;
     onOpenChange?: (open: boolean) => void;
+    /** 閉じるボタンの accessible name（既定: 閉じる） */
+    closeLabel?: string;
 }
 interface ToastRecord extends ToastItemProps {
     id: string;
@@ -535,7 +694,7 @@ interface ToastProviderProps {
 }
 declare function ToastProvider({ children, duration }: ToastProviderProps): react.JSX.Element;
 declare function useToast(): ToastContextValue;
-declare function Toast({ title, description, variant, duration, open, defaultOpen, onOpenChange, }: ToastItemProps): react.JSX.Element;
+declare function Toast({ title, description, variant, duration, open, defaultOpen, onOpenChange, closeLabel, }: ToastItemProps): react.JSX.Element;
 
 interface SiteHeaderProps {
     /** ロゴ・ブランドマーク（リンクは呼び出し側で内包） */
@@ -552,8 +711,14 @@ interface SiteHeaderProps {
      */
     contentMaxWidth?: string;
     className?: string;
+    /** デスクトップ nav の accessible name（既定: メイン） */
+    navLabel?: string;
+    /** モバイル drawer nav の accessible name（既定: モバイルメニュー） */
+    mobileNavLabel?: string;
+    openMenuLabel?: string;
+    closeMenuLabel?: string;
 }
-declare function SiteHeader({ logo, nav, actions, variant, contentMaxWidth, className, }: SiteHeaderProps): react.JSX.Element;
+declare function SiteHeader({ logo, nav, actions, variant, contentMaxWidth, className, navLabel, mobileNavLabel, openMenuLabel, closeMenuLabel, }: SiteHeaderProps): react.JSX.Element;
 interface SiteHeaderLinkProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
     active?: boolean;
     /** marketing = 下線アクティブ（公式サイト Header 準拠） */
@@ -571,13 +736,18 @@ declare function Skeleton({ variant, width, height, className, style, "aria-hidd
 interface SkeletonListProps {
     count?: number;
     className?: string;
+    /** ローディング領域の accessible name（既定: 読み込み中） */
+    label?: string;
 }
 /** リスト行のローディングプレースホルダ */
-declare function SkeletonList({ count, className }: SkeletonListProps): react.JSX.Element;
-/** Card 内コンテンツのローディングプレースホルダ */
-declare function SkeletonCard({ className }: {
+declare function SkeletonList({ count, className, label }: SkeletonListProps): react.JSX.Element;
+interface SkeletonCardProps {
     className?: string;
-}): react.JSX.Element;
+    /** ローディング領域の accessible name（既定: 読み込み中） */
+    label?: string;
+}
+/** Card 内コンテンツのローディングプレースホルダ */
+declare function SkeletonCard({ className, label }: SkeletonCardProps): react.JSX.Element;
 
 type SortDirection = "asc" | "desc";
 interface TableProps extends TableHTMLAttributes<HTMLTableElement> {
@@ -623,8 +793,10 @@ interface DataTableProps<T extends Record<string, unknown>> {
     selectedKeys?: Set<string>;
     onSelectionChange?: (keys: Set<string>) => void;
     rowLabel?: (row: T) => string;
+    /** ヘッダ「すべて選択」チェックの accessible name（既定: すべて選択） */
+    selectAllLabel?: string;
     striped?: boolean;
 }
-declare function DataTable<T extends Record<string, unknown>>({ columns, rows, getRowKey, caption, sortKey, sortDirection, onSort, selectable, selectedKeys, onSelectionChange, rowLabel, striped, }: DataTableProps<T>): react.JSX.Element;
+declare function DataTable<T extends Record<string, unknown>>({ columns, rows, getRowKey, caption, sortKey, sortDirection, onSort, selectable, selectedKeys, onSelectionChange, rowLabel, selectAllLabel, striped, }: DataTableProps<T>): react.JSX.Element;
 
-export { ADMIN_DISPLAY_NAME, Accordion, AccordionContent, type AccordionContentProps, AccordionItem, type AccordionItemProps, type AccordionProps, AccordionTrigger, type AccordionTriggerProps, BRAND_BACKGROUNDS, BRAND_DISPLAY_NAMES, Badge, type BadgeProps, type BadgeVariant, Blockquote, type BlockquoteProps, BottomNavigation, type BottomNavigationItem, type BottomNavigationProps, BrandBackground, type BrandBackgroundEntry, type BrandBackgroundKind, type BrandBackgroundProps, type BrandId, Breadcrumb, type BreadcrumbItem, type BreadcrumbProps, Button, type ButtonProps, type ButtonVariant, Card, type CardProps, type CardVariant, Checkbox, type CheckboxProps, Chip, type ChipProps, DataTable, type DataTableColumn, type DataTableProps, DescriptionDetails, type DescriptionDetailsProps, DescriptionList, type DescriptionListProps, DescriptionTerm, type DescriptionTermProps, Dialog, DialogClose, type DialogProps, DialogTrigger, Disclosure, type DisclosureProps, Divider, type DividerProps, Drawer, DrawerClose, type DrawerProps, type DrawerSide, DrawerTrigger, FileUpload, type FileUploadProps, GridBackground, type GridBackgroundProps, HamburgerMenuButton, type HamburgerMenuButtonProps, Heading, type HeadingLevel, type HeadingProps, HorizontalMenu, type HorizontalMenuProps, Image, type ImageProps, Input, type InputProps, List, ListItem, type ListItemProps, type ListProps, type ListVariant, MenuList, type MenuListItem, type MenuListProps, MobileMenu, type MobileMenuProps, type NavItem, NoticeBlock, type NoticeBlockProps, type NoticeBlockVariant, PageNavigation, type PageNavigationProps, ProgressIndicator, type ProgressIndicatorProps, Radio, RadioGroup, type RadioGroupProps, type RadioProps, ResourceList, type ResourceListItem, type ResourceListProps, ScrollTopButton, type ScrollTopButtonProps, SearchBox, type SearchBoxProps, Select, type SelectProps, SiteHeader, SiteHeaderLink, type SiteHeaderLinkProps, type SiteHeaderProps, Skeleton, SkeletonCard, SkeletonList, type SkeletonListProps, type SkeletonProps, type SkeletonVariant, type SortDirection, StepNavigation, type StepNavigationItem, type StepNavigationProps, Switch, type SwitchProps, Tab, TabList, type TabListProps, TabPanel, type TabPanelProps, type TabProps, Table, TableBody, TableCell, TableCheckboxCell, type TableCheckboxCellProps, TableHead, type TableHeadProps, TableHeader, TableOfContents, type TableOfContentsItem, type TableOfContentsProps, type TableProps, TableRow, type TableRowProps, Tabs, type TabsProps, Textarea, type TextareaProps, Toast, type ToastItemProps, ToastProvider, type ToastProviderProps, type ToastVariant, UtilityLink, type UtilityLinkProps, WaveBackground, type WaveBackgroundProps, type WavePalette, getBrandBackground, getBrandDisplayName, useToast };
+export { ADMIN_DISPLAY_NAME, Accordion, AccordionContent, type AccordionContentProps, AccordionItem, type AccordionItemProps, type AccordionProps, AccordionTrigger, type AccordionTriggerProps, BRAND_BACKGROUNDS, BRAND_DISPLAY_NAMES, Badge, type BadgeProps, type BadgeVariant, Blockquote, type BlockquoteProps, BottomNavigation, type BottomNavigationItem, type BottomNavigationProps, BrandBackground, type BrandBackgroundEntry, type BrandBackgroundKind, type BrandBackgroundProps, type BrandId, Breadcrumb, type BreadcrumbItem, type BreadcrumbProps, Button, type ButtonProps, type ButtonVariant, Calendar, type CalendarProps, Card, type CardProps, type CardVariant, Carousel, type CarouselProps, Checkbox, type CheckboxProps, Chip, type ChipProps, Combobox, type ComboboxOption, type ComboboxProps, DataTable, type DataTableColumn, type DataTableProps, DatePicker, type DatePickerProps, DescriptionDetails, type DescriptionDetailsProps, DescriptionList, type DescriptionListProps, DescriptionTerm, type DescriptionTermProps, Dialog, DialogClose, type DialogProps, DialogTrigger, Disclosure, type DisclosureProps, Divider, type DividerProps, Drawer, DrawerClose, type DrawerProps, type DrawerSide, DrawerTrigger, FileUpload, type FileUploadProps, GridBackground, type GridBackgroundProps, HamburgerMenuButton, type HamburgerMenuButtonProps, Heading, type HeadingLevel, type HeadingProps, HorizontalMenu, type HorizontalMenuProps, Image, type ImageProps, ImageSlider, type ImageSliderItem, type ImageSliderProps, Input, type InputProps, List, ListItem, type ListItemProps, type ListProps, type ListVariant, MegaMenu, type MegaMenuItem, type MegaMenuLink, type MegaMenuProps, type MegaMenuSection, MenuList, MenuListBox, type MenuListBoxOption, type MenuListBoxProps, type MenuListItem, type MenuListProps, MobileMenu, type MobileMenuProps, type NavItem, NoticeBlock, type NoticeBlockProps, type NoticeBlockVariant, PageNavigation, type PageNavigationProps, ProgressIndicator, type ProgressIndicatorProps, Radio, RadioGroup, type RadioGroupProps, type RadioProps, ResourceList, type ResourceListItem, type ResourceListProps, ScrollTopButton, type ScrollTopButtonProps, SearchBox, type SearchBoxProps, Select, type SelectProps, SiteHeader, SiteHeaderLink, type SiteHeaderLinkProps, type SiteHeaderProps, Skeleton, SkeletonCard, SkeletonList, type SkeletonListProps, type SkeletonProps, type SkeletonVariant, type SortDirection, StepNavigation, type StepNavigationItem, type StepNavigationProps, Switch, type SwitchProps, Tab, TabList, type TabListProps, TabPanel, type TabPanelProps, type TabProps, Table, TableBody, TableCell, TableCheckboxCell, type TableCheckboxCellProps, TableControls, type TableControlsProps, type TableControlsSearchProps, TableHead, type TableHeadProps, TableHeader, TableOfContents, type TableOfContentsItem, type TableOfContentsProps, type TableProps, TableRow, type TableRowProps, Tabs, type TabsProps, Textarea, type TextareaProps, Toast, type ToastItemProps, ToastProvider, type ToastProviderProps, type ToastVariant, UtilityLink, type UtilityLinkProps, WaveBackground, type WaveBackgroundProps, type WavePalette, getBrandBackground, getBrandDisplayName, useToast };

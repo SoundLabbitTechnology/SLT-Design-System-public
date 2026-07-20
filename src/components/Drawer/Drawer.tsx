@@ -15,6 +15,8 @@ export interface DrawerProps {
   children?: ReactNode;
   side?: DrawerSide;
   showClose?: boolean;
+  /** 閉じるボタンの accessible name（既定: 閉じる） */
+  closeLabel?: string;
 }
 
 export function Drawer({
@@ -27,6 +29,7 @@ export function Drawer({
   children,
   side = "right",
   showClose = true,
+  closeLabel = "閉じる",
 }: DrawerProps) {
   return (
     <DialogPrimitive.Root open={open} defaultOpen={defaultOpen} onOpenChange={onOpenChange}>
@@ -42,7 +45,7 @@ export function Drawer({
             <DialogPrimitive.Title className="slt-drawer__title">{title}</DialogPrimitive.Title>
             {showClose ? (
               <DialogPrimitive.Close asChild>
-                <Button variant="ghost" className="slt-drawer__close" aria-label="閉じる">
+                <Button variant="ghost" className="slt-drawer__close" aria-label={closeLabel}>
                   ×
                 </Button>
               </DialogPrimitive.Close>

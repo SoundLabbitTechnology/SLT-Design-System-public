@@ -10,6 +10,10 @@ export interface FileUploadProps
   /** 選択ファイル名の表示（制御しない場合は内部表示） */
   onFilesChange?: (files: FileList | null) => void;
   buttonLabel?: ReactNode;
+  /** 未選択時の表示（既定: 選択されていません） */
+  emptyLabel?: string;
+  /** 複数選択時の表示（既定: `{n} 件のファイル`） */
+  multipleFilesLabel?: (count: number) => string;
 }
 
 export function FileUpload({
@@ -19,6 +23,8 @@ export function FileUpload({
   errorMessage,
   onFilesChange,
   buttonLabel = "ファイルを選択",
+  emptyLabel = "選択されていません",
+  multipleFilesLabel = (count) => `${count} 件のファイル`,
   id,
   className,
   disabled,
@@ -37,7 +43,7 @@ export function FileUpload({
     onFilesChange?.(files);
     if (files && files.length > 0) {
       setFileName(
-        files.length === 1 ? files[0].name : `${files.length} 件のファイル`,
+        files.length === 1 ? files[0].name : multipleFilesLabel(files.length),
       );
     } else {
       setFileName(null);
@@ -65,7 +71,7 @@ export function FileUpload({
           {buttonLabel}
         </label>
         <span className="slt-file-upload__name">
-          {fileName ?? "選択されていません"}
+          {fileName ?? emptyLabel}
         </span>
       </div>
       {errorMessage ? (

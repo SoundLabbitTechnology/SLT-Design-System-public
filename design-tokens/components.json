@@ -107,6 +107,16 @@
     "radius":       { "$type": "dimension", "$value": "{shape.radius-md}" },
     "min-height":   { "$type": "dimension", "$value": { "value": 44, "unit": "px" } }
   },
+  "combobox": {
+    "bg":           { "$type": "color", "$value": "{color.surface.primary}" },
+    "border":       { "$type": "color", "$value": "{color.border.default}" },
+    "border-focus": { "$type": "color", "$value": "{color.border.focus}" },
+    "border-error": { "$type": "color", "$value": "{color.feedback.danger}" },
+    "text":         { "$type": "color", "$value": "{color.text.primary}" },
+    "icon":         { "$type": "color", "$value": "{color.text.secondary}" },
+    "radius":       { "$type": "dimension", "$value": "{shape.radius-md}" },
+    "min-height":   { "$type": "dimension", "$value": { "value": 44, "unit": "px" } }
+  },
   "switch": {
     "track-width":    { "$type": "dimension", "$value": { "value": 44, "unit": "px" } },
     "track-height":   { "$type": "dimension", "$value": { "value": 24, "unit": "px" } },
@@ -317,5 +327,24 @@
     "text-current":   { "$type": "color", "$value": "{color.text.primary}" },
     "shadow":         { "$type": "shadow", "$value": "{elevation.raised}" },
     "min-height":     { "$type": "dimension", "$value": { "value": 56, "unit": "px" } }
+  },
+  "datepicker": {
+    "bg":           { "$type": "color", "$value": "{color.surface.primary}" },
+    "border":       { "$type": "color", "$value": "{color.border.default}" },
+    "border-error": { "$type": "color", "$value": "{color.feedback.danger}" },
+    "text":         { "$type": "color", "$value": "{color.text.primary}" },
+    "radius":       { "$type": "dimension", "$value": "{shape.radius-md}" },
+    "min-height":   { "$type": "dimension", "$value": { "value": 44, "unit": "px" } }
+  },
+  "mega-menu": {
+    "text":           { "$type": "color", "$value": "{color.text.secondary}" },
+    "text-current":   { "$type": "color", "$value": "{color.text.primary}" },
+    "min-height":     { "$type": "dimension", "$value": { "value": 44, "unit": "px" } }
+  },
+  "menu-listbox": {
+    "min-height":   { "$type": "dimension", "$value": { "value": 44, "unit": "px" } }
+  },
+  "carousel": {
+    "nav-size":   { "$type": "dimension", "$value": { "value": 44, "unit": "px" } }
   }
 }

@@ -18,6 +18,7 @@ export function ProgressIndicator({
   showValueLabel = true,
   className,
   id,
+  "aria-label": ariaLabel = "進捗",
   ...props
 }: ProgressIndicatorProps) {
   const determinate = value != null && Number.isFinite(value);
@@ -47,7 +48,7 @@ export function ProgressIndicator({
         value={clamped}
         max={max}
         aria-labelledby={label && id ? `${id}-label` : undefined}
-        aria-label={!label ? "進捗" : undefined}
+        aria-label={!label ? ariaLabel : undefined}
         {...props}
       />
     </div>
