@@ -1,39 +1,76 @@
-# コントリビューションガイド
+# コントリビューションガイド（社内限定）
 
-このリポジトリは **配布ミラー**です。実装・品質ゲート・Storybook の変更は Private リポジトリで行い、公開してよい差分だけをここに反映します。
+**Sound Labbit Technology の社内メンバーのみ**が、このデザインシステムへ変更を入れられます。
 
-Public ミラー上で直接大きな機能追加は行わないでください。
+| 受け付ける | 受け付けない |
+|------------|--------------|
+| org メンバーによる Private リポへの PR | 外部からの PR / Issue / Fork のマージ |
+| 社内チャネル経由の改善要望 | Public ミラーへの直接の機能追加 |
 
-## Public で直してよいもの
+Public ミラー（`SLT-Design-System-public`）は**配布用のスナップショット**です。コードや文書の修正は必ず Private 正本で行い、Private での export 手順 で反映します。外部の方は Issue を立てず、利用上の問題は社内の担当者へ連絡してください。
 
-- Docs site の誤字・リンク切れ・導入例の修正（`site/src/content/docs/`、`site/src/content/components/*.mdx`）
-- README / CHANGELOG の公開向け文言
-- ビルド成果物の再生成（`npm run build:all`）が必要な場合の追随
+脆弱性の報告手順は [SECURITY.md](../../../SECURITY.md) を参照してください。
 
-## 変更の流れ（概要）
+---
 
-1. Private で実装・ハーネス・レビュー
-2. Private から Public へ許可ツリーを export
-3. 本リポで `npm run docs:build` が通ることを確認
-4. version / CHANGELOG / tag を揃えて公開
+SLT Design System へ安全に変更を入れるための標準手順です。
 
-## ローカル確認（本ミラー）
+## 変更前
+
+1. [L0 原則](./L0-principles.md) と対象レイヤーの正本を確認する。
+2. 既存 token、component、pattern で表現できないか検索する。
+3. public API、視覚差分、消費者移行の有無を判定する。
+4. 設計判断が長期間残る場合は [`decisions/`](./decisions/) に ADR を作る。
+
+AI エージェントは Private エージェント規則 を先に読み、非公開の primitive token source を読みません。
+
+## 変更の種類
+
+| 種類 | 例 | 必要な作業 |
+|------|----|------------|
+| Docs only | ガイド、リンク、説明 | `npm run docs:build`、影響面の目視 |
+| Token | semantic / component token | build、G0/G1/G2、テーマ比較、CHANGELOG |
+| Component | props、state、behavior | Component | props、state、behavior | component MDX、DoD、CHANGELOG |
+| Pattern / content | L3/L4 の規約 | 例、a11y、関連 component へのリンク |
+| Breaking | rename、remove、挙動変更 | ADR、移行ガイド、major 判定、非推奨期間 |
+
+## コンポーネント変更
+
+最低限、次を同じ変更に含めます。
+
+- `src/components/<Name>/` の実装と型
+- `*.stories.tsx` の主要状態、必要な `play` テスト
+- `site/src/content/components/<slug>.mdx` のデモ、利用判断、Props
+- - semantic / component token のみを使ったスタイル
+- 破壊的操作、44px、フォーカス、キーボード、reduced motion の確認
+
+完成条件は ## ローカルループ
 
 ```bash
-npm ci
+npm run docs:build（Public ミラー）
 npm run docs:build
-npm run docs:dev
+npm run storybook       # 状態・操作・テーマの目視
+npm run docs:dev        # Docs site（ローカル）とリンクの目視
 ```
+
+`check` が失敗したら最初の失敗を正本側で修正し、green になるまで繰り返します。exit code 2 の場合は `Fix:` 行を実行可能な指示として扱います。
 
 ## レビュー依頼前
 
 - [ ] 変更理由と利用者への影響が説明されている
 - [ ] public API とトークンの互換性を判定した
-- [ ] `npm run docs:build` が通る
-- [ ] 導入例（README / getting-started）が公開物と一致する
+- [ ] Storybook と Docs site の責務に沿って更新した
+- [ ] keyboard、focus、contrast、touch target を確認した
+- [ ] 全テーマ／対応モードで視覚確認した
+- [ ] `npm run docs:build
+- [ ] 公開面を変えた場合 `npm run ci` 相当を確認した
+- [ ] CHANGELOG / migration / ADR の要否を判断した
 
-## 関連
+## 禁止事項
 
-- リリース手順: [RELEASING.md](./RELEASING.md)
-- ドキュメント運用: [DOCUMENTATION.md](./DOCUMENTATION.md)
-- ガバナンス概要: [L6-governance.md](./L6-governance.md)
+- `dist/`、`dist-ui/`、`site/dist/` を正本として手編集する
+- raw color / arbitrary spacing を追加する
+- consumer 固有 URL やビジネスロジックを共有 component に入れる
+- テスト失敗を許可リストだけで回避する
+- 監査スナップショットを書き換えて現行仕様に見せる
+- Public ミラーへ社内戦略・PII・秘密情報を載せる

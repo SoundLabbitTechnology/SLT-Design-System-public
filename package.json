@@ -45,7 +45,8 @@
     "build:all": "npm run build && npm run build:ui",
     "prepublishOnly": "npm run build:all",
     "docs:dev": "npm run build:all && npm run dev -w site",
-    "docs:build": "npm run build:all && npm run build -w site",
+    "docs:pagefind": "npx --yes pagefind@1.3.0 --site site/dist",
+    "docs:build": "npm run build:all && npm run build -w site && npm run docs:pagefind",
     "docs:preview": "npm run preview -w site",
     "ci": "npm run docs:build"
   },
@@ -73,30 +74,13 @@
     "clsx": "^2.1.1"
   },
   "devDependencies": {
-    "@chromatic-com/storybook": "^5.2.1",
-    "@radix-ui/react-dialog": "^1.1.18",
-    "@radix-ui/react-slot": "^1.3.0",
-    "@storybook/addon-a11y": "^10.4.6",
-    "@storybook/addon-docs": "^10.4.6",
-    "@storybook/addon-mcp": "^0.6.0",
-    "@storybook/addon-vitest": "^10.4.6",
-    "@storybook/react-vite": "^10.4.6",
     "@types/react": "^19.2.17",
     "@types/react-dom": "^19.2.3",
     "@vitejs/plugin-react": "^6.0.3",
-    "@vitest/browser-playwright": "4.1.9",
-    "@vitest/coverage-v8": "4.1.9",
-    "chromatic": "^13.3.5",
-    "clsx": "^2.1.1",
-    "isotc-cli": "^0.5.0",
-    "playwright": "^1.61.1",
     "react": "^19.2.7",
     "react-dom": "^19.2.7",
-    "storybook": "^10.4.6",
-    "style-dictionary": "^4.4.0",
     "tsup": "^8.5.1",
     "typescript": "^6.0.3",
-    "vite": "^8.1.2",
-    "vitest": "4.1.9"
+    "vite": "^8.1.2"
   }
 }

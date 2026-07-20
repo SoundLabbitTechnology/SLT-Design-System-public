@@ -4,16 +4,53 @@
 
 ### Changed
 
-- Docs site を GitHub Pages で公開（`main` push 自動デプロイ）: https://soundlabbittechnology.github.io/SLT-Design-System-public/
+- Docs に **Pagefind サイト内検索**、導入面の平易化、[L4 用語](docs/L4-terminology.md) に基盤・運用用語を追加
+- 貢献を **社内限定**に明文化（CONTRIBUTING / L6 / Public Issues オフ）。[SECURITY.md](SECURITY.md) を追加
+- Public export: 機微スキャン強化、devDependencies 縮小、Dependabot / CODEOWNERS、CI `permissions: contents: read`
 
 ## 0.4.6 — 2026-07-20
 
 ### Changed
 
-- 配布ミラーとして README / Docs 運用文言を整理（Private 開発資産への誤リンクを除去）
-- CONTRIBUTING / DOCUMENTATION / RELEASING / L6 governance を Public 向けに再構成
-- getting-started の CSS 例を Tailwind `@layer` パターンに更新
-- 自社アプリは `github:SoundLabbitTechnology/SLT-Design-System-public#v0.4.6` を標準参照とする
+- Docs を **Private 実験場 / Public ミラー**の二リポ運用に再編（DUAL_REPO（Private）、`npm run check:public-export`）。戦略は `（社内戦略・非公開）` に戻し、site には恒常原則のみ
+- Docs site を Public ミラーの **GitHub Pages** で公開（`main` push 自動デプロイ）。URL: https://soundlabbittechnology.github.io/SLT-Design-System-public/（#28）
+
+### Added
+
+- G5 consumer harness — [Runbook](（社内 adoption）)、`templates/consumer-g5/`（Lighthouse CI + E2E smoke checklist）、L6 cadence / ownership（#37）
+- DADS（デジタル庁デザインシステム）参照モデル追従の方針・ギャップ分析 — [ADR-003](docs/decisions/ADR-003-dads-alignment.md) / [dads-alignment-audit-2026-07-16.md](（社内監査）)
+- semantic token カテゴリ `space`（xs〜2xl）/ `shape`（radius-sm〜full）/ `elevation`（raised / overlay / modal）— 全 6 semantic ファイルに追加、primitives の薄いラッパーとして公開
+- `color.text.link-hover` — 全 6 semantic ファイルに追加
+- `color.blue.400` / `color.gold.700` / `color.gold.800` primitives — コントラスト 4.5:1 棚卸しで検出した未達リンク色の是正用
+- [コントラスト 4.5:1 棚卸し監査](（社内監査）) — 全 6 semantic ファイル × text/surface 60 ペアを実測、2 件の未達を是正
+- L1 基盤にアイコン配置原則・レイアウト原則（DADS 基本デザイン準拠）を追記
+- `Checkbox` component（P0）— DADS「チェックボックス」に対応。DADS コンポーネント拡充 wave 1 #32 着手分
+- Docs site デプロイ workflow（`.github/workflows/docs-deploy.yml`）— Public ミラーで `main` push → GitHub Pages（#28）
+- [ADR-004](docs/decisions/ADR-004-laws-of-ux.md) — Laws of UX を UX 参照モデルとする。L0 / L3 に原則対応表を追加
+- Laws of UX P1 適用 — `.slt-field-stack`（Proximity）、Primary 1 ビュー 1 つ（DoD / guides）、Doherty &lt;400ms 方針（L3 / motion）
+- `SiteHeader`: sticky full-bleed + 内側バー（高さ 64px・左右ガターのみ）。本文揃えは `contentMaxWidth` + `--site-header-padding-x`
+- Input: `readOnly` 見た目、`layout="horizontal"`（DADS Readonly / ラベル横並び）
+- Table / DataTable: `striped`、セル結合作例（`colSpan` / `rowSpan`）
+- ドキュメント契約ゲート — local link、canonical docs、version、component / Storybook / Docs site / nav の同期を検証
+- L1 spacing / motion、L4 terminology、contributing、releasing、documentation operations の正本
+- Storybook Accessibility ガイドと `GridBackground` の専用 stories
+- Docs site の guideline index、保守者向けページ、canonical metadata
+- L3 metrics 週次運用 — `--since` / `--base` / `--save`、`metrics/thresholds.json`、`metrics/history/`、3× override テンプレ、L6 Runbook（#4）
+- `Breadcrumb`（P1）— DADS パンくずリスト。`wrap` / `scroll`、aria-current、component tokens（#33 wave 2 着手）
+- `Tabs`（P1）— `Tabs` / `TabList` / `Tab` / `TabPanel`、矢印キー、horizontal / vertical（#33）
+- `Accordion` / `Disclosure`（P1）— DADS の開閉区別。Accordion は同種連続、Disclosure は `details` による補足（#33）
+- `List` / `DescriptionList` / `Blockquote` / `Chip`（P1）— 箇条書き（項番は地テキスト）、説明リスト、引用、チップタグ（#33）
+- `PageNavigation` / `StepNavigation` / `ProgressIndicator` / `SearchBox`（P1）— wave 2 完了（#33）
+- DADS wave 3 需要優先バッチ（P2）— `ScrollTopButton` / `UtilityLink` / `HamburgerMenuButton` / `Drawer` / `FileUpload` / `TableOfContents` / `ResourceList` / `Image`（#34）
+- wave 3 続: `HorizontalMenu` / `MenuList` / `BottomNavigation` / `MobileMenu`（#34）
+
+### Changed
+
+- `design-tokens/components.json` — `radius.*` / `space.*` / `shadow.*`（primitives 直接参照）を `shape.radius-*` / `space.*` / `elevation.*`（semantic 参照）に是正。ヘッダー注記「semantic層のみを参照する」との不整合を解消
+- ルート README と L0〜L6 文書を読者 task と正本責務に沿って再編
+- `npm run check` に docs contract、`npm run ci` に Docs site static build を追加
+- Storybook / Docs site / Markdown の役割分担と Docs 完了条件を明文化
+- L3 metrics を diff-only の token compliance signal に変更
 
 ## 0.4.5 — 2026-07-10
 
@@ -22,9 +59,9 @@
 - Storybook **Samples / Landing Canvas** — 本番統合前の判断用一枚もの LP（6 ストーリー + Smoke play、製品配布外）
 - Sound Laboratory 公式コピー正本 — `stories/samples/sound-laboratory-home-content.ts`、`SoundLaboratoryHome.tsx`
 - `src/lib/brand-labels.ts` — ブランド正式表示名（`BRAND_DISPLAY_NAMES`）
-- [audits/sample-landing-review-2026-07-09.md](docs/audits/sample-landing-review-2026-07-09.md) — キャンバス網羅レビュー
-- [audits/sound-laboratory-breakdown-2026-07-09.md](docs/audits/sound-laboratory-breakdown-2026-07-09.md) — 公式サイト ↔ DS トークン差分
-- [audits/storybook-signoff-2026-07-10.md](docs/audits/storybook-signoff-2026-07-10.md) — Landing Canvas / SiteHeader 目視サインオフ
+- [audits/sample-landing-review-2026-07-09.md](（社内監査）) — キャンバス網羅レビュー
+- [audits/sound-laboratory-breakdown-2026-07-09.md](（社内監査）) — 公式サイト ↔ DS トークン差分
+- [audits/storybook-signoff-2026-07-10.md](（社内監査）) — Landing Canvas / SiteHeader 目視サインオフ
 
 ### Changed
 
@@ -68,7 +105,7 @@
 - P2 `Table` — compound API + `DataTable`（ソート・行選択・全選択）
 - G3: Table キーボードソート / 選択 play テスト
 - `design-tokens/components.json` に `skeleton.*` / `table.*`
-- `docs/ROADMAP.md`, `docs/L2-components/README.md`
+- `CHANGELOG`, `docs/L2-components/README.md`
 
 ### Changed
 
@@ -90,7 +127,7 @@
 - P1 `WaveBackground` — トークン CSS 変数ベースの palette（`ai-dash` / `sound-laboratory` / `slt-corporate`）
 - P0 DoD: [guides.md](docs/L2-components/guides.md), [figma-props-mapping.md](docs/L2-components/figma-props-mapping.md)
 - [ADR-001](docs/decisions/ADR-001-coral-brand-colors.md) — coral 正式値（判断待ち）
-- [docs/adoption/](docs/adoption/) — AI-Dash / Homepages 導入手順
+- [（社内 adoption）](（社内 adoption）) — AI-Dash / Homepages 導入手順
 - Storybook キーボードフォーカス play テスト（Button / Input）
 
 ### Changed
@@ -104,11 +141,11 @@
 ### Added
 
 - DS ハーネス: `npm run check` / `check:fast`（G0〜G3 + isotc）
-- `scripts/harness/` — gate-g0-tokens, gate-g1-no-raw-values, generate-token-types, metrics
+- `（Private harness）` — gate-g0-tokens, gate-g1-no-raw-values, generate-token-types, metrics
 - `isotc-cli` + `.spec/constitution.toml`（DS 向けレイヤー憲法）
 - G2: `src/types/semantic-tokens.d.ts` 自動生成 + `tsc` 接続
 - G3: P0 Storybook vitest（30 tests）+ a11y strict（vitest 時）
-- [docs/L6-harness-and-loops.md](docs/L6-harness-and-loops.md), [docs/ROADMAP.md](docs/ROADMAP.md)
+- [docs/L6-harness-and-loops.md](docs/L6-harness-and-loops.md), [CHANGELOG](CHANGELOG)
 - P0 ストーリー拡充: disabled / error / loading 状態（Textarea, Dialog, Card, Badge）
 - Dialog: `confirmLoading` / `confirmDisabled` props
 

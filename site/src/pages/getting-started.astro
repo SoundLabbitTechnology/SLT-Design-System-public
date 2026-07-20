@@ -10,35 +10,41 @@ const href = (path: string) => `${base}${path.replace(/^\//, "")}`;
   <PageHero
     eyebrow="概要"
     title="導入方法"
-    description="CSS token、theme attributes、React component を最小構成から導入します。"
+    description="パッケージを入れ、見た目（ブランド）を決め、部品を置くまでの最短手順です。"
   />
   <div class="docs-prose">
-    <h2>1. Version を固定する</h2>
-    <p>現在は Git dependency で配布します。再現可能な build のため、release tag または commit を固定します。</p>
+    <p>
+      専門用語はできるだけ避けています。出てきたときは
+      <a href={href("guidelines/terminology/")}>用語と命名</a>を見てください。
+    </p>
+
+    <h2>1. バージョンを固定して入れる</h2>
+    <p>
+      配布用リポジトリ（Public ミラー）を Git 依存として追加します。
+      再現しやすいよう、<strong>リリース用の tag</strong>（例: <code>v0.4.6</code>）を固定してください。
+      社内の開発用リポジトリや、<code>main</code> ブランチの直参照は使いません。
+    </p>
     <pre><code>{`{
   "dependencies": {
     "@soundlabbit/design-system": "github:SoundLabbitTechnology/SLT-Design-System-public#v0.4.6"
   }
 }`}</code></pre>
 
-    <h2>2. CSS を読み込む</h2>
-    <p>Tailwind v4 を使う場合は、DS components を <code>layer(components)</code> に置き、utility が上書きできるようにします。</p>
-    <pre><code>{`@layer theme, base, components, utilities;
-
-@import '@soundlabbit/design-system/tokens.css';
-@import '@soundlabbit/design-system/components.css' layer(components);
-@import '@soundlabbit/design-system/utilities.css';
-@import 'tailwindcss';`}</code></pre>
-    <p>Tailwind を使わない場合の最小構成:</p>
+    <h2>2. スタイルを読み込む</h2>
+    <p>アプリの CSS の先頭で、次の 2 行を読み込みます。</p>
     <pre><code>{`@import '@soundlabbit/design-system/tokens.css';
 @import '@soundlabbit/design-system/components.css';`}</code></pre>
-    <p>共有 utility が必要な場合だけ追加します。</p>
+    <p>共有の便利クラスが必要なときだけ、次も追加します。</p>
     <pre><code>{`@import '@soundlabbit/design-system/utilities.css';`}</code></pre>
 
-    <h2>3. Theme と mode を指定する</h2>
+    <h2>3. ブランドと明るさを指定する</h2>
+    <p>
+      HTML のルートに、ブランド（テーマ）と明るさ（カラーモード）を書きます。
+      変数の<strong>名前</strong>はブランド間で同じで、<strong>値だけ</strong>が切り替わります。
+    </p>
     <pre><code>{`<html data-theme="ai-dash" data-color-mode="dark">`}</code></pre>
     <table>
-      <thead><tr><th>Theme</th><th>対応 mode</th><th>既定</th></tr></thead>
+      <thead><tr><th>ブランド（data-theme）</th><th>使える明るさ</th><th>指定しないときの既定</th></tr></thead>
       <tbody>
         <tr><td><code>ai-dash</code></td><td>light / dark</td><td>dark</td></tr>
         <tr><td><code>sound-laboratory</code></td><td>light / dark</td><td>dark</td></tr>
@@ -46,9 +52,8 @@ const href = (path: string) => `${base}${path.replace(/^\//, "")}`;
         <tr><td><code>admin</code></td><td>light</td><td>light</td></tr>
       </tbody>
     </table>
-    <p>Theme 間で token 名は同じです。値だけが切り替わります。</p>
 
-    <h2>4. React component を使う</h2>
+    <h2>4. React 部品を使う</h2>
     <pre><code>{`import { Button, Card, Input } from '@soundlabbit/design-system/ui';
 
 export function ProfileForm() {
@@ -59,30 +64,30 @@ export function ProfileForm() {
     </Card>
   );
 }`}</code></pre>
-    <p><a href={href("components/")}>コンポーネント一覧</a>から demo、props、利用判断を確認できます。</p>
+    <p><a href={href("components/")}>部品一覧</a>で見た目・使い方・Props を確認できます。</p>
 
-    <h2>5. 導入を確認する</h2>
+    <h2>5. うまく入ったか確認する</h2>
     <ul>
-      <li>surface、text、focus ring が選択 theme に追従する。</li>
-      <li>Button / Input の高さと font が component CSS から適用される。</li>
-      <li>keyboard で focus が見え、主要操作を完了できる。</li>
-      <li>production build で package exports が解決する。</li>
+      <li>背景色・文字色・フォーカスの輪郭が、選んだブランドに追従する。</li>
+      <li>ボタンや入力の高さ・フォントが部品用スタイルから当たっている。</li>
+      <li>キーボードの Tab でフォーカスが見え、主な操作を完了できる。</li>
+      <li>本番向けビルドでもパッケージの import が解決する。</li>
     </ul>
 
-    <h2>重要な制約</h2>
+    <h2>守ってほしいこと</h2>
     <ul>
-      <li>semantic / component token だけを参照する。</li>
-      <li>raw color、任意の寸法、`primitives.json` の生値を UI に持ち込まない（semantic / component のみ）。</li>
-      <li>Tailwind v4 の <code>@theme</code> に custom <code>--spacing-*</code> を追加しない。</li>
-      <li><code>danger</code> action は cancel、undo、confirmation のいずれかと組み合わせる。</li>
+      <li>色や余白は、<a href={href("guidelines/terminology/#基盤運用用語")}>用途つきのデザイン変数</a>（セマンティック / コンポーネントトークン）だけを使う。</li>
+      <li>色コード（例: <code>#0F172A</code>）やその場しのぎの <code>px</code> を UI に直接書かない。</li>
+      <li>Tailwind v4 の <code>@theme</code> に独自の <code>--spacing-*</code> を足さない（既存ユーティリティと衝突します）。</li>
+      <li>危険な操作（削除など）は、キャンセルや確認とセットにする。</li>
     </ul>
 
     <h2>次に読む</h2>
     <ul>
-      <li><a href={href("foundations/tokens/")}>トークンの使い方</a></li>
-      <li><a href={href("components/")}>コンポーネント</a></li>
-      <li><a href={href("guidelines/patterns/")}>パターン</a></li>
-      <li><a href={href("guidelines/quality/")}>品質基準</a></li>
+      <li><a href={href("foundations/tokens/")}>デザイン変数（トークン）の使い方</a></li>
+      <li><a href={href("components/")}>部品一覧</a></li>
+      <li><a href={href("guidelines/patterns/")}>よくある画面の組み立て方</a></li>
+      <li><a href={href("guidelines/quality/")}>品質の見方</a></li>
     </ul>
   </div>
 </DocLayout>

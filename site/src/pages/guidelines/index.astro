@@ -3,14 +3,16 @@ import DocLayout from "../../layouts/DocLayout.astro";
 import PageHero from "../../components/PageHero.astro";
 
 const sections = [
-  { title: "パターン", description: "フォーム、状態、データ、AI 体験の標準", href: "/guidelines/patterns/" },
-  { title: "コンテンツ", description: "Voice、action label、状態文言、inclusive content", href: "/guidelines/content/" },
-  { title: "用語と命名", description: "ブランド表示、UI 語彙、AI 体験の用語", href: "/guidelines/terminology/" },
-  { title: "品質基準", description: "アクセシビリティ、テスト、性能、互換性", href: "/guidelines/quality/" },
-  { title: "ドキュメント運用", description: "正本と公開面の役割、同期、公開基準", href: "/guidelines/documentation/" },
-  { title: "コントリビューション", description: "変更の分類、実装、レビュー準備", href: "/guidelines/contributing/" },
-  { title: "リリース", description: "SemVer、公開前後、ロールバック", href: "/guidelines/releasing/" },
-  { title: "ガバナンス", description: "正本、所有権、非推奨、例外", href: "/guidelines/governance/" },
+  { title: "パターン", description: "フォーム、状態表示、データの見せ方の標準", href: "/guidelines/patterns/" },
+  { title: "コンテンツ", description: "文言のトーン、ボタンの言い方、状態の伝え方", href: "/guidelines/content/" },
+  { title: "用語と命名", description: "画面の言い方と、デザインシステムの技術語", href: "/guidelines/terminology/" },
+  { title: "品質基準", description: "アクセシビリティ、テスト、性能の見方", href: "/guidelines/quality/" },
+  { title: "Storybook 標準", description: "部品カタログの書き方（社内）", href: "/guidelines/storybook/" },
+  { title: "ドキュメント運用", description: "正本と公開面の役割、同期の仕方", href: "/guidelines/documentation/" },
+  { title: "メンテナー向け（社内）", description: "変更の分類とレビュー準備。外部貢献は受け付けません", href: "/guidelines/contributing/" },
+  { title: "リリース", description: "バージョンの上げ方、公開前後の確認", href: "/guidelines/releasing/" },
+  { title: "ハーネス", description: "自動チェックと改善ループ（社内）", href: "/guidelines/harness/" },
+  { title: "ガバナンス", description: "正本、所有権、社内限定の貢献ルール", href: "/guidelines/governance/" },
 ];
 const base = import.meta.env.BASE_URL.replace(/\/$/, "");
 ---
@@ -19,7 +21,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, "");
   <PageHero
     eyebrow="ガイドライン"
     title="設計・品質・運用"
-    description="単体コンポーネントを製品体験へ組み上げ、継続的に保守するための基準です。"
+    description="部品をプロダクトに載せ、長く手入れするための基準です。変更作業は社内メンバー向けです。"
   />
   <div class="docs-card-grid">
     {

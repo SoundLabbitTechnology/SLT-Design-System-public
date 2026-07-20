@@ -4,7 +4,7 @@ SLT Design System のドキュメント閲覧面（Astro）。
 
 | 項目 | 値 |
 |------|-----|
-| 公開 URL | https://soundlabbittechnology.github.io/SLT-Design-System-public/ |
+| 公開 URL | [https://soundlabbittechnology.github.io/SLT-Design-System-public/](https://soundlabbittechnology.github.io/SLT-Design-System-public/) |
 | デプロイ | `main` push → GitHub Pages（[`docs-deploy.yml`](../.github/workflows/docs-deploy.yml)） |
 | ローカル | `npm run docs:dev` |
 | 技術 | Astro + MDX + React デモ |
@@ -32,18 +32,20 @@ npm run docs:build     # build:all + static build → site/dist/
 npm run docs:preview   # site/dist を preview
 ```
 
-CI は `npm run docs:build` で package と Docs 静的ビルドを検証します。`main` への push で Pages へデプロイします。
+CI は `npm run docs:build`（Pagefind インデックス含む）で検証します。`main` への push で Pages へデプロイします。ヘッダーの「検索」でサイト内検索できます。
+
+貢献は **社内メンバーのみ**です。外部からの Issue / PR は受け付けません。
 
 ## ページ構成
 
 | Route | 内容 / Source |
 |-------|---------------|
 | `/` | 対象読者と主要入口 |
-| `/getting-started/` | install、theme、CSS、React、verification |
+| `/getting-started/` | 導入手順 |
 | `/principles/` | `src/content/docs/L0-principles.md` |
 | `/foundations/*` | L1 Markdown + live token reference |
 | `/components/*` | public component の demo / code / props / usage |
-| `/guidelines/*` | L3〜L6、contributing、releasing 等 |
+| `/guidelines/*` | L3〜L6、メンテナー向け（社内）、releasing 等 |
 
 ADR、consumer 固有 migration、監査 snapshot、roadmap は GitHub へリンクし、ガイド本文へ混在させません。
 

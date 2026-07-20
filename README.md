@@ -5,7 +5,9 @@ DTCG トークン、テーマ対応 CSS、React コンポーネントを **GitHu
 
 このリポジトリは **配布ミラー**です。品質ハーネス・Storybook・社内運用文書は Private リポジトリ側にあります。
 
-**Docs site**: https://soundlabbittechnology.github.io/SLT-Design-System-public/（`main` push で GitHub Pages へ自動デプロイ）
+**Docs site**: https://soundlabbittechnology.github.io/SLT-Design-System-public/（`main` push で GitHub Pages へ自動デプロイ。サイト内検索あり）
+
+**貢献**: Sound Labbit Technology **社内メンバーのみ**（Private 正本経由）。外部からの Issue / PR / Fork のマージは受け付けません。脆弱性は [SECURITY.md](./SECURITY.md) へ。
 
 ## 5 分で導入
 
@@ -122,4 +124,4 @@ npm run docs:build  # package build + Docs site
 
 ## ライセンス
 
-UNLICENSED（All Rights Reserved）。公開ミラーとして閲覧・クローンは可。利用・改変・再配布は Sound Labbit Technology および許可された消費者プロダクトに限定。詳細は [LICENSE](./LICENSE)。
+UNLICENSED（All Rights Reserved）。公開ミラーとして閲覧・クローンは可。利用・改変・再配布は Sound Labbit Technology および許可された消費者プロダクトに限定。外部からの Issue / PR は受け付けません。詳細は [LICENSE](./LICENSE) / [SECURITY.md](./SECURITY.md)。

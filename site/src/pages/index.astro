@@ -3,11 +3,31 @@ import DocLayout from "../layouts/DocLayout.astro";
 import { BrandBackground } from "@soundlabbit/design-system/ui";
 
 const sections = [
-  { title: "導入する", description: "Version、CSS、Theme、React component を最小構成で導入", href: "/getting-started/" },
-  { title: "原則", description: "デザイン品質の判断順序（恒常原則）。企業戦略は含まない", href: "/principles/" },
-  { title: "スタイル", description: "Color、typography、spacing、motion、token", href: "/foundations/" },
-  { title: "コンポーネント", description: "全 public component の demo、code、props、usage", href: "/components/" },
-  { title: "ガイドライン", description: "Pattern、content、quality、contribution、release", href: "/guidelines/" },
+  {
+    title: "はじめに使う",
+    description: "パッケージを入れて、見た目を決め、部品を置くまでの最短手順",
+    href: "/getting-started/",
+  },
+  {
+    title: "判断の原則",
+    description: "迷ったときに何を優先するか（見た目より伝わりやすさ、など）",
+    href: "/principles/",
+  },
+  {
+    title: "色・文字・余白",
+    description: "用途つきのデザイン変数と、ブランドごとの見た目",
+    href: "/foundations/",
+  },
+  {
+    title: "部品一覧",
+    description: "ボタンや入力など、そのまま使える React 部品",
+    href: "/components/",
+  },
+  {
+    title: "書き方と品質",
+    description: "文言の揃え方、アクセシビリティ、社内向けの手入れ手順",
+    href: "/guidelines/",
+  },
 ];
 const base = import.meta.env.BASE_URL.replace(/\/$/, "");
 ---
@@ -19,9 +39,11 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, "");
     </div>
     <div class="docs-hero__content">
       <p class="docs-page-hero__eyebrow">SLT Design System</p>
-      <h1 class="docs-page-hero__title">一つの語彙で、複数ブランドを設計する</h1>
+      <h1 class="docs-page-hero__title">同じ言葉で、複数ブランドの画面を揃える</h1>
       <p class="docs-page-hero__description">
-        Semantic token、React component、実装 pattern、品質 gate を共有し、AI-DASH、Sound Laboratory、Corporate、Admin の体験を一貫して構築します。
+        AI-DASH、Sound Laboratory、コーポレート、Admin 向けに、色・余白・部品の使い方を共有します。
+        ヘッダーの「検索」からドキュメント内を探せます。わからない用語は
+        <a href={`${base}/guidelines/terminology/`}>用語と命名</a>を参照してください。
       </p>
     </div>
   </section>

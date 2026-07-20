@@ -10,7 +10,7 @@ export function getStaticPaths() {
 const { slug } = Astro.params as { slug: GuidelineSlug };
 const guideline = GUIDELINES[slug];
 const entry = await getEntry("guidelines", guideline.id);
-if (!entry) throw new Error(`${guideline.source} not found in guidelines collection`);
+if (!entry) throw new Error(`docs/${guideline.source} not found in guidelines collection`);
 const { Content } = await render(entry);
 ---
 
