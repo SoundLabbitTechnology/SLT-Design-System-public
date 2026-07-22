@@ -5,53 +5,53 @@ import "@soundlabbit/design-system/utilities.css";
 import "../styles/site.css";
 
 interface Props {
-  title: string;
-  description?: string;
+ title: string;
+ description?: string;
 }
 
 const { title, description = "SLT Design System のトークン・コンポーネント・ガイドラインをまとめたドキュメントサイト" } =
-  Astro.props;
+ Astro.props;
 const canonical = Astro.site ? new URL(Astro.url.pathname, Astro.site) : undefined;
 ---
 
 <html lang="ja" data-theme="ai-dash" data-color-mode="dark">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>{title} | SLT Design System</title>
-    <meta name="description" content={description} />
-    <meta
-      http-equiv="Content-Security-Policy"
-      content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data:; connect-src 'self'; worker-src 'self' blob:; base-uri 'self'; form-action 'self'; frame-ancestors 'none'"
-    />
-    {canonical ? <link rel="canonical" href={canonical} /> : null}
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content={`${title} | SLT Design System`} />
-    <meta property="og:description" content={description} />
-    {canonical ? <meta property="og:url" content={canonical} /> : null}
-    <link rel="icon" href={`${import.meta.env.BASE_URL}favicon.svg`} />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;500;700&family=M+PLUS+Rounded+1c:wght@400;500;700&family=Inter:wght@400;500;700&family=Noto+Sans+JP:wght@400;500;700&display=swap"
-    />
-    <script is:inline>
-      (function () {
-        try {
-          var raw = localStorage.getItem("slt-docs-theme");
-          if (!raw) return;
-          var saved = JSON.parse(raw);
-          if (saved.brand) document.documentElement.setAttribute("data-theme", saved.brand);
-          if (saved.mode) document.documentElement.setAttribute("data-color-mode", saved.mode);
-        } catch (e) {
-          /* localStorage 不可・不正値は既定テーマのまま */
-        }
-      })();
-    </script>
-  </head>
-  <body>
-    <a class="docs-skip-link" href="#main-content">メインコンテンツへスキップ</a>
-    <slot />
-  </body>
+ <head>
+ <meta charset="utf-8" />
+ <meta name="viewport" content="width=device-width, initial-scale=1" />
+ <title>{title} | SLT Design System</title>
+ <meta name="description" content={description} />
+ <meta
+ http-equiv="Content-Security-Policy"
+ content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data:; connect-src 'self'; worker-src 'self' blob:; base-uri 'self'; form-action 'self'; frame-ancestors 'none'"
+ />
+ {canonical ? <link rel="canonical" href={canonical} /> : null}
+ <meta property="og:type" content="website" />
+ <meta property="og:title" content={`${title} | SLT Design System`} />
+ <meta property="og:description" content={description} />
+ {canonical ? <meta property="og:url" content={canonical} /> : null}
+ <link rel="icon" href={`${import.meta.env.BASE_URL}favicon.svg`} />
+ <link rel="preconnect" href="https://fonts.googleapis.com" />
+ <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+ <link
+ rel="stylesheet"
+ href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;500;700&family=M+PLUS+Rounded+1c:wght@400;500;700&family=Inter:wght@400;500;700&family=Noto+Sans+JP:wght@400;500;700&display=swap"
+ />
+ <script is:inline>
+ (function {
+ try {
+ var raw = localStorage.getItem("slt-docs-theme");
+ if (!raw) return;
+ var saved = JSON.parse(raw);
+ if (saved.brand) document.documentElement.setAttribute("data-theme", saved.brand);
+ if (saved.mode) document.documentElement.setAttribute("data-color-mode", saved.mode);
+ } catch (e) {
+ /* localStorage 不可・不正値は既定テーマのまま */
+ }
+ });
+ </script>
+ </head>
+ <body>
+ <a class="docs-skip-link" href="#main-content">メインコンテンツへスキップ</a>
+ <slot />
+ </body>
 </html>

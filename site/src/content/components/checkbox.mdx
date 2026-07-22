@@ -6,10 +6,10 @@ order: 7
 description: 単一または複数選択の真偽値入力。
 tokenPrefix: checkbox
 props:
-  - { name: label, type: string, description: フィールドラベル（省略時は非表示だが原則必須） }
-  - { name: hint, type: string, description: 補足説明テキスト }
-  - { name: error, type: boolean, default: "false", description: エラー状態の表示切替 }
-  - { name: errorMessage, type: string, description: エラーメッセージ本文 }
+ - { name: label, type: string, description: フィールドラベル（省略時は非表示だが原則必須） }
+ - { name: hint, type: string, description: 補足説明テキスト }
+ - { name: error, type: boolean, default: "false", description: エラー状態の表示切替 }
+ - { name: errorMessage, type: string, description: エラーメッセージ本文 }
 ---
 
 import Demo from "../../components/Demo.astro";
@@ -19,15 +19,15 @@ import CheckboxDemo from "../../demos/CheckboxDemo";
 ## デモ
 
 <Demo>
-  <CheckboxDemo client:visible slot="stage" />
-  <Fragment slot="code">
-    ```tsx
-    import { Checkbox } from "@soundlabbit/design-system/ui";
+ <CheckboxDemo client:visible slot="stage" />
+ <Fragment slot="code">
+ ```tsx
+ import { Checkbox } from "@soundlabbit/design-system/ui";
 
-    <Checkbox label="利用規約に同意する" />
-    <Checkbox label="メール通知を受け取る" defaultChecked />
-    ```
-  </Fragment>
+ <Checkbox label="利用規約に同意する" />
+ <Checkbox label="メール通知を受け取る" defaultChecked />
+ ```
+ </Fragment>
 </Demo>
 
 ## 使い方
@@ -35,8 +35,8 @@ import CheckboxDemo from "../../demos/CheckboxDemo";
 単一項目の真偽値選択、または複数選択リストの各項目に使う。単一選択肢からの排他選択には [Radio](/components/radio/) を使う。
 
 <DoDont
-  dos={["label を必ず付与し、クリック領域をラベルまで広げる", "複数選択の関連グループには fieldset / legend を併用する"]}
-  donts={["ラベルなしでアイコンのみの意味を持たせる", "単一選択肢の排他選択に使う（Radio を使う）"]}
+ dos={["label を必ず付与し、クリック領域をラベルまで広げる", "複数選択の関連グループには fieldset / legend を併用する"]}
+ donts={["ラベルなしでアイコンのみの意味を持たせる", "単一選択肢の排他選択に使う（Radio を使う）"]}
 />
 
 **状態**: `error` / `disabled` / `checked`。キーボードで Tab フォーカスと Space トグルを確認できる。

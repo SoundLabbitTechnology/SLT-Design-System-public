@@ -1,7 +1,5 @@
 # L1. デザイントークン標準
 
-文書番号: SLT-DS-001 §4
-
 正本: [`design-tokens/`](../../design-tokens/)
 
 判断の上位: [L0 原則](../L0-principles.md)
@@ -10,7 +8,7 @@
 
 ## 目的
 
-**デザイン変数（トークン）**は、ブランドや明るさが変わっても、同じ用途名で画面を書けるようにするための約束です。  
+**デザイン変数（トークン）**は、ブランドや明るさが変わっても、同じ用途名で画面を書けるようにするための約束です。
 「どの色を使うか」を決める仕組みと、「画面コードが参照する名前」を分けます。
 
 ## 3 層の考え方
@@ -32,11 +30,11 @@
 
 ```css
 .product-panel {
-  color: var(--color-text-primary);
-  background: var(--color-surface-secondary);
-  border: 1px solid var(--color-border-default);
-  border-radius: var(--shape-radius-md);
-  padding: var(--space-md);
+ color: var(--color-text-primary);
+ background: var(--color-surface-secondary);
+ border: 1px solid var(--color-border-default);
+ border-radius: var(--shape-radius-md);
+ padding: var(--space-md);
 }
 ```
 
@@ -94,9 +92,9 @@ import { Button } from '@soundlabbit/design-system/ui';
 | space / shape / elevation | 余白、角の形状、高さの度合い（semantic 層で公開） | [spacing-motion.md](./spacing-motion.md) |
 | motion | duration、easing、reduced motion | [spacing-motion.md](./spacing-motion.md) / [motion-craft.md](./motion-craft.md) |
 | breakpoint / z-index / focus | responsive、重なり、keyboard focus | [spacing-motion.md](./spacing-motion.md) |
-| component | Button、Input、Dialog、SiteHeader などの局所仕様（例: `site-header.padding-x`、高さ駆動の chrome） | [L2 コンポーネント](../L2-components/README.md) |
+| component | Button、Input、Dialog、SiteHeader などの局所仕様（例: `site-header.padding-x`、高さ駆動の chrome） | L2 コンポーネント |
 
-DADS の基本デザイン（カラー・タイポグラフィ・余白・角の形状・エレベーション等）との対応関係は [ADR-003](../decisions/ADR-003-dads-alignment.md) と ギャップ分析（社内監査） を参照してください。
+DADS の基本デザイン（カラー・タイポグラフィ・余白・角の形状・エレベーション等）との対応関係はデジタル庁デザインシステム（DADS）を参照モデルとする。
 
 ## 編集と生成物
 
@@ -117,7 +115,7 @@ npm run check:fast
 
 追加・変更時は全テーマで key が一致すること、参照が解決すること、公開ドキュメントが primitive 値を露出しないことを G0 と docs contract で検証します。
 
-Figma Variables との同期手順は [design-tokens/figma-sync-runbook.md](../../design-tokens/figma-sync-runbook.md)（#15）。
+Figma Variables との同期手順は社内正本側の runbook を参照してください。
 
 ## Tailwind v4
 

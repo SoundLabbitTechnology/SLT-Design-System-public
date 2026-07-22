@@ -6,9 +6,9 @@ order: 40
 description: "キャプション付き画像。"
 tokenPrefix: image
 props:
-  - { name: alt, type: string, description: "代替テキスト（decorative 時は空）" }
-  - { name: caption, type: ReactNode, description: "figcaption" }
-  - { name: decorative, type: boolean, default: "false", description: "装飾画像" }
+ - { name: alt, type: string, description: "代替テキスト（decorative 時は空）" }
+ - { name: caption, type: ReactNode, description: "figcaption" }
+ - { name: decorative, type: boolean, default: "false", description: "装飾画像" }
 ---
 
 import Demo from "../../components/Demo.astro";
@@ -18,12 +18,12 @@ import ImageDemo from "../../demos/ImageDemo";
 ## デモ
 
 <Demo>
-  <ImageDemo client:visible slot="stage" />
-  <Fragment slot="code">
-    ```tsx
-    import { Image } from "@soundlabbit/design-system/ui";
-    ```
-  </Fragment>
+ <ImageDemo client:visible slot="stage" />
+ <Fragment slot="code">
+ ```tsx
+ import { Image } from "@soundlabbit/design-system/ui";
+ ```
+ </Fragment>
 </Demo>
 
 ## 使い方
@@ -31,6 +31,6 @@ import ImageDemo from "../../demos/ImageDemo";
 意味のある画像には alt、装飾は decorative。
 
 <DoDont
-  dos={["情報画像には具体的な alt", "出典や補足は caption"]}
-  donts={["テキスト情報を画像だけに閉じ込める", "装飾に意味のある alt を付ける"]}
+ dos={["情報画像には具体的な alt", "出典や補足は caption"]}
+ donts={["テキスト情報を画像だけに閉じ込める", "装飾に意味のある alt を付ける"]}
 />

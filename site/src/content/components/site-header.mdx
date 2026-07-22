@@ -6,14 +6,14 @@ order: 18
 description: プロダクト共通のトップナビゲーションシェル。
 tokenPrefix: site-header
 props:
-  - { name: logo, type: ReactNode, description: ロゴスロット }
-  - { name: nav, type: ReactNode, description: "desktop / mobile で共有するナビゲーションスロット" }
-  - { name: actions, type: ReactNode, description: 右側アクションスロット（テーマ切替・ボタン等） }
-  - { name: variant, type: '"default" | "marketing"', default: '"default"', description: header の密度と表現 }
-  - { name: className, type: string, description: header へ追加する class }
-  - { name: contentMaxWidth, type: string, description: "内側バーの最大幅。本文コンテナと揃えるときに指定（例: 75rem）" }
-  - { name: SiteHeaderLink.active, type: boolean, default: "false", description: 現在地を見た目と aria-current で示す }
-  - { name: SiteHeaderLink.variant, type: '"default" | "marketing"', default: '"default"', description: link の表現 }
+ - { name: logo, type: ReactNode, description: ロゴスロット }
+ - { name: nav, type: ReactNode, description: "desktop / mobile で共有するナビゲーションスロット" }
+ - { name: actions, type: ReactNode, description: 右側アクションスロット（テーマ切替・ボタン等） }
+ - { name: variant, type: '"default" | "marketing"', default: '"default"', description: header の密度と表現 }
+ - { name: className, type: string, description: header へ追加する class }
+ - { name: contentMaxWidth, type: string, description: "内側バーの最大幅。本文コンテナと揃えるときに指定（例: 75rem）" }
+ - { name: SiteHeaderLink.active, type: boolean, default: "false", description: 現在地を見た目と aria-current で示す }
+ - { name: SiteHeaderLink.variant, type: '"default" | "marketing"', default: '"default"', description: link の表現 }
 ---
 
 import Demo from "../../components/Demo.astro";
@@ -25,21 +25,21 @@ import SiteHeaderDemo from "../../demos/SiteHeaderDemo";
 このドキュメントサイトのヘッダーも SiteHeader を使用しています（ドッグフーディング）。sticky full-bleed + 内側バーで、縦は高さトークン、横はガターで揃えます。
 
 <Demo>
-  <SiteHeaderDemo client:visible slot="stage" />
-  <Fragment slot="code">
-    ```tsx
-    import { SiteHeader, SiteHeaderLink } from "@soundlabbit/design-system/ui";
+ <SiteHeaderDemo client:visible slot="stage" />
+ <Fragment slot="code">
+ ```tsx
+ import { SiteHeader, SiteHeaderLink } from "@soundlabbit/design-system/ui";
 
-    <SiteHeader
-      logo={<Logo />}
-      nav={[
-        <SiteHeaderLink href="/" active>ホーム</SiteHeaderLink>,
-        <SiteHeaderLink href="/docs">ドキュメント</SiteHeaderLink>,
-      ]}
-      actions={<ThemeSwitcher />}
-    />
-    ```
-  </Fragment>
+ <SiteHeader
+ logo={<Logo />}
+ nav={[
+ <SiteHeaderLink href="/" active>ホーム</SiteHeaderLink>,
+ <SiteHeaderLink href="/docs">ドキュメント</SiteHeaderLink>,
+ ]}
+ actions={<ThemeSwitcher />}
+ />
+ ```
+ </Fragment>
 </Demo>
 
 ## 使い方
@@ -48,8 +48,6 @@ import SiteHeaderDemo from "../../demos/SiteHeaderDemo";
 
 {/* Do/Don't の出典: docs/L2-components/guides.md#siteheader */}
 <DoDont
-  dos={["logo / nav / actions スロットで composition する", "SiteHeaderLink で現在地表示（active）する", "本文揃えは contentMaxWidth と --site-header-padding-x で行う"]}
-  donts={["DS 内にプロダクト固有 URL をハードコードする", "モバイル用に別リンクセットを二重定義する", "上下 padding でヘッダーを膨らませる・Docs でコンポーネント CSS を上書きする"]}
+ dos={["logo / nav / actions スロットで composition する", "SiteHeaderLink で現在地表示（active）する", "本文揃えは contentMaxWidth と --site-header-padding-x で行う"]}
+ donts={["DS 内にプロダクト固有 URL をハードコードする", "モバイル用に別リンクセットを二重定義する", "上下 padding でヘッダーを膨らませる・Docs でコンポーネント CSS を上書きする"]}
 />
-
-設計の背景: [ADR-002](https://github.com/SoundLabbitTechnology/SLT-Design-System-public/blob/main/docs/decisions/ADR-002-site-header-slots.md)

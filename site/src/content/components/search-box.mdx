@@ -6,9 +6,9 @@ order: 30
 description: "キーワード検索のための入力と実行。"
 tokenPrefix: search-box
 props:
-  - { name: label, type: string, description: "検索の accessible / 視覚ラベル" }
-  - { name: hideLabel, type: boolean, default: "false", description: "ラベルを visually hidden" }
-  - { name: onSearch, type: "(value: string) => void", description: "送信時コールバック" }
+ - { name: label, type: string, description: "検索の accessible / 視覚ラベル" }
+ - { name: hideLabel, type: boolean, default: "false", description: "ラベルを visually hidden" }
+ - { name: onSearch, type: "(value: string) => void", description: "送信時コールバック" }
 ---
 
 import Demo from "../../components/Demo.astro";
@@ -18,14 +18,14 @@ import SearchBoxDemo from "../../demos/SearchBoxDemo";
 ## デモ
 
 <Demo>
-  <SearchBoxDemo client:visible slot="stage" />
-  <Fragment slot="code">
-    ```tsx
-    import { SearchBox } from "@soundlabbit/design-system/ui";
+ <SearchBoxDemo client:visible slot="stage" />
+ <Fragment slot="code">
+ ```tsx
+ import { SearchBox } from "@soundlabbit/design-system/ui";
 
-    <SearchBox label="サイト内検索" onSearch={(q) => console.log(q)} />
-    ```
-  </Fragment>
+ <SearchBox label="サイト内検索" onSearch={(q) => console.log(q)} />
+ ```
+ </Fragment>
 </Demo>
 
 ## 使い方
@@ -33,6 +33,6 @@ import SearchBoxDemo from "../../demos/SearchBoxDemo";
 `role="search"` のフォーム。汎用テキスト入力は Input。詳細条件の折りたたみは Disclosure と組み合わせる。
 
 <DoDont
-  dos={["必ず label を付ける（hideLabel でも可）", "type=search の意味を保つ"]}
-  donts={["検索以外の汎用入力に流用する", "送信ボタンなしで Enter だけに依存しすぎる"]}
+ dos={["必ず label を付ける（hideLabel でも可）", "type=search の意味を保つ"]}
+ donts={["検索以外の汎用入力に流用する", "送信ボタンなしで Enter だけに依存しすぎる"]}
 />

@@ -6,8 +6,8 @@ order: 24
 description: "用語とその説明を対で示す。"
 tokenPrefix: description-list
 props:
-  - { name: "DescriptionTerm", type: "ReactNode", description: "用語（dt）" }
-  - { name: "DescriptionDetails", type: "ReactNode", description: "説明（dd）" }
+ - { name: "DescriptionTerm", type: "ReactNode", description: "用語（dt）" }
+ - { name: "DescriptionDetails", type: "ReactNode", description: "説明（dd）" }
 ---
 
 import Demo from "../../components/Demo.astro";
@@ -17,21 +17,21 @@ import DescriptionListDemo from "../../demos/DescriptionListDemo";
 ## デモ
 
 <Demo>
-  <DescriptionListDemo client:visible slot="stage" />
-  <Fragment slot="code">
-    ```tsx
-    import {
-      DescriptionDetails,
-      DescriptionList,
-      DescriptionTerm,
-    } from "@soundlabbit/design-system/ui";
+ <DescriptionListDemo client:visible slot="stage" />
+ <Fragment slot="code">
+ ```tsx
+ import {
+ DescriptionDetails,
+ DescriptionList,
+ DescriptionTerm,
+ } from "@soundlabbit/design-system/ui";
 
-    <DescriptionList>
-      <DescriptionTerm>申請者</DescriptionTerm>
-      <DescriptionDetails>山田 太郎</DescriptionDetails>
-    </DescriptionList>
-    ```
-  </Fragment>
+ <DescriptionList>
+ <DescriptionTerm>申請者</DescriptionTerm>
+ <DescriptionDetails>山田 太郎</DescriptionDetails>
+ </DescriptionList>
+ ```
+ </Fragment>
 </Demo>
 
 ## 使い方
@@ -39,6 +39,6 @@ import DescriptionListDemo from "../../demos/DescriptionListDemo";
 キーと値の対を示す。表形式の大量データは Table を使う。
 
 <DoDont
-  dos={["用語と説明の対応が明確なメタ情報に使う", "ネイティブ dl / dt / dd の意味を保つ"]}
-  donts={["長い手続き本文を説明リストに押し込む", "見た目だけの2カラムに使う"]}
+ dos={["用語と説明の対応が明確なメタ情報に使う", "ネイティブ dl / dt / dd の意味を保つ"]}
+ donts={["長い手続き本文を説明リストに押し込む", "見た目だけの2カラムに使う"]}
 />

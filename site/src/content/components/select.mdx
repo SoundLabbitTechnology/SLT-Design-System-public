@@ -6,11 +6,11 @@ order: 9
 description: 複数の選択肢から1つを選ぶドロップダウン。
 tokenPrefix: select
 props:
-  - { name: label, type: string, description: フィールドラベル（原則必須） }
-  - { name: hint, type: string, description: 補足説明テキスト }
-  - { name: error, type: boolean, default: "false", description: エラー状態の表示切替 }
-  - { name: errorMessage, type: string, description: エラーメッセージ本文 }
-  - { name: layout, type: '"vertical" | "horizontal"', default: '"vertical"', description: ラベル配置 }
+ - { name: label, type: string, description: フィールドラベル（原則必須） }
+ - { name: hint, type: string, description: 補足説明テキスト }
+ - { name: error, type: boolean, default: "false", description: エラー状態の表示切替 }
+ - { name: errorMessage, type: string, description: エラーメッセージ本文 }
+ - { name: layout, type: '"vertical" | "horizontal"', default: '"vertical"', description: ラベル配置 }
 ---
 
 import Demo from "../../components/Demo.astro";
@@ -20,17 +20,17 @@ import SelectDemo from "../../demos/SelectDemo";
 ## デモ
 
 <Demo>
-  <SelectDemo client:visible slot="stage" />
-  <Fragment slot="code">
-    ```tsx
-    import { Select } from "@soundlabbit/design-system/ui";
+ <SelectDemo client:visible slot="stage" />
+ <Fragment slot="code">
+ ```tsx
+ import { Select } from "@soundlabbit/design-system/ui";
 
-    <Select label="都道府県">
-      <option value="">選択してください</option>
-      <option value="tokyo">東京都</option>
-    </Select>
-    ```
-  </Fragment>
+ <Select label="都道府県">
+ <option value="">選択してください</option>
+ <option value="tokyo">東京都</option>
+ </Select>
+ ```
+ </Fragment>
 </Demo>
 
 ## 使い方
@@ -38,6 +38,6 @@ import SelectDemo from "../../demos/SelectDemo";
 選択肢がおおむね6個以上のときに使う。展開リストの見た目は OS 標準に任せる。
 
 <DoDont
-  dos={["長いリストは事前質問で選択肢を減らす", "ラベルで入力項目を端的に表す"]}
-  donts={["5個以下の選択肢に使う（Radio を推奨）", "placeholder だけでラベルを代用する"]}
+ dos={["長いリストは事前質問で選択肢を減らす", "ラベルで入力項目を端的に表す"]}
+ donts={["5個以下の選択肢に使う（Radio を推奨）", "placeholder だけでラベルを代用する"]}
 />

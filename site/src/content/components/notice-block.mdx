@@ -6,8 +6,8 @@ order: 13
 description: 手続きや入力を助ける強調された補足情報。
 tokenPrefix: notice-block
 props:
-  - { name: variant, type: '"info" | "success" | "warning" | "danger"', default: '"info"', description: 意味に応じたトーン }
-  - { name: title, type: string, description: 注釈の見出し }
+ - { name: variant, type: '"info" | "success" | "warning" | "danger"', default: '"info"', description: 意味に応じたトーン }
+ - { name: title, type: string, description: 注釈の見出し }
 ---
 
 import Demo from "../../components/Demo.astro";
@@ -17,16 +17,16 @@ import NoticeBlockDemo from "../../demos/NoticeBlockDemo";
 ## デモ
 
 <Demo>
-  <NoticeBlockDemo client:visible slot="stage" />
-  <Fragment slot="code">
-    ```tsx
-    import { NoticeBlock } from "@soundlabbit/design-system/ui";
+ <NoticeBlockDemo client:visible slot="stage" />
+ <Fragment slot="code">
+ ```tsx
+ import { NoticeBlock } from "@soundlabbit/design-system/ui";
 
-    <NoticeBlock title="本人確認書類の例">
-      運転免許証、マイナンバーカードのいずれか1点をご用意ください。
-    </NoticeBlock>
-    ```
-  </Fragment>
+ <NoticeBlock title="本人確認書類の例">
+ 運転免許証、マイナンバーカードのいずれか1点をご用意ください。
+ </NoticeBlock>
+ ```
+ </Fragment>
 </Demo>
 
 ## 使い方
@@ -34,6 +34,6 @@ import NoticeBlockDemo from "../../demos/NoticeBlockDemo";
 入力例・必要書類・注意事項など、手続きに役立つ補足を強調して示す。通常の本文や Toast の代替にはしない。
 
 <DoDont
-  dos={["具体的なサンプルや必要資料の例示に使う", "意味に合った variant を選ぶ"]}
-  donts={["本文の代わりに長い説明を載せる", "一時的な操作結果の通知に使う（Toast を使う）"]}
+ dos={["具体的なサンプルや必要資料の例示に使う", "意味に合った variant を選ぶ"]}
+ donts={["本文の代わりに長い説明を載せる", "一時的な操作結果の通知に使う（Toast を使う）"]}
 />

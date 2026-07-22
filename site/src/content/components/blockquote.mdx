@@ -6,9 +6,9 @@ order: 25
 description: "他者の発言や文書からの引用を示す。"
 tokenPrefix: blockquote
 props:
-  - { name: children, type: ReactNode, description: "引用本文" }
-  - { name: attribution, type: ReactNode, description: "出典・話者の表示" }
-  - { name: cite, type: string, description: "引用元 URL（blockquote cite 属性）" }
+ - { name: children, type: ReactNode, description: "引用本文" }
+ - { name: attribution, type: ReactNode, description: "出典・話者の表示" }
+ - { name: cite, type: string, description: "引用元 URL（blockquote cite 属性）" }
 ---
 
 import Demo from "../../components/Demo.astro";
@@ -18,16 +18,16 @@ import BlockquoteDemo from "../../demos/BlockquoteDemo";
 ## デモ
 
 <Demo>
-  <BlockquoteDemo client:visible slot="stage" />
-  <Fragment slot="code">
-    ```tsx
-    import { Blockquote } from "@soundlabbit/design-system/ui";
+ <BlockquoteDemo client:visible slot="stage" />
+ <Fragment slot="code">
+ ```tsx
+ import { Blockquote } from "@soundlabbit/design-system/ui";
 
-    <Blockquote attribution="出典">
-      引用文
-    </Blockquote>
-    ```
-  </Fragment>
+ <Blockquote attribution="出典">
+ 引用文
+ </Blockquote>
+ ```
+ </Fragment>
 </Demo>
 
 ## 使い方
@@ -35,6 +35,6 @@ import BlockquoteDemo from "../../demos/BlockquoteDemo";
 原則や声明の引用、証言など。装飾目的の大きな引用スタイルだけに使わない。
 
 <DoDont
-  dos={["出典が分かるときは attribution を付ける", "意味のある引用に使う"]}
-  donts={["強調見出しの代わりに使う", "出典不明のまま長文を引用する"]}
+ dos={["出典が分かるときは attribution を付ける", "意味のある引用に使う"]}
+ donts={["強調見出しの代わりに使う", "出典不明のまま長文を引用する"]}
 />

@@ -6,8 +6,8 @@ order: 44
 description: "ハンバーガーとドロワーとメニューリストの複合。"
 tokenPrefix: ""
 props:
-  - { name: items, type: "MenuListItem[]", description: "メニュー項目" }
-  - { name: side, type: '"left" | "right"', default: '"right"', description: "ドロワー方向" }
+ - { name: items, type: "MenuListItem[]", description: "メニュー項目" }
+ - { name: side, type: '"left" | "right"', default: '"right"', description: "ドロワー方向" }
 ---
 
 import Demo from "../../components/Demo.astro";
@@ -17,12 +17,12 @@ import MobileMenuDemo from "../../demos/MobileMenuDemo";
 ## デモ
 
 <Demo>
-  <MobileMenuDemo client:visible slot="stage" />
-  <Fragment slot="code">
-    ```tsx
-    import { MobileMenu } from "@soundlabbit/design-system/ui";
-    ```
-  </Fragment>
+ <MobileMenuDemo client:visible slot="stage" />
+ <Fragment slot="code">
+ ```tsx
+ import { MobileMenu } from "@soundlabbit/design-system/ui";
+ ```
+ </Fragment>
 </Demo>
 
 ## 使い方
@@ -30,6 +30,6 @@ import MobileMenuDemo from "../../demos/MobileMenuDemo";
 HamburgerMenuButton + Drawer + MenuList の組み合わせ。SiteHeader 内蔵メニューの代替。
 
 <DoDont
-  dos={["開閉状態を同期する", "項目は MenuList で一貫させる"]}
-  donts={["デスクトップ常時ナビの代わりにする", "メガメニュー相当の深い階層を押し込む"]}
+ dos={["開閉状態を同期する", "項目は MenuList で一貫させる"]}
+ donts={["デスクトップ常時ナビの代わりにする", "メガメニュー相当の深い階層を押し込む"]}
 />

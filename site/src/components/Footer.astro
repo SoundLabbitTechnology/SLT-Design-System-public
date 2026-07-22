@@ -1,24 +1,24 @@
 ---
 const base = import.meta.env.BASE_URL.replace(/\/$/, "");
 const githubUrl =
-  import.meta.env.PUBLIC_DOCS_GITHUB_URL ??
-  "https://github.com/SoundLabbitTechnology/SLT-Design-System-public";
+ import.meta.env.PUBLIC_DOCS_GITHUB_URL ??
+ "https://github.com/SoundLabbitTechnology/SLT-Design-System-public";
 ---
 
 <footer class="docs-footer">
-  <p>
-    SLT Design System —
-    <a href={`${base}/guidelines/contributing/`}>メンテナー向け（社内）</a>
-    ·
-    <a href={`${base}/guidelines/releasing/`}>リリース</a>
-    ·
-    <a href={`${base}/guidelines/terminology/`}>用語</a>
-    ·
-    <a href={githubUrl} target="_blank" rel="noreferrer">
-      GitHub（配布ミラー）
-    </a>
-  </p>
-  <p class="docs-footer__note">
-    貢献は社内メンバーのみ。外部からの Issue / PR は受け付けません。
-  </p>
+ <p>
+ SLT Design System —
+ <a href={`${base}/guidelines/contributing/`}>メンテナー向け（社内）</a>
+ ·
+ <a href={`${base}/guidelines/releasing/`}>リリース</a>
+ ·
+ <a href={`${base}/guidelines/terminology/`}>用語</a>
+ ·
+ <a href={githubUrl} target="_blank" rel="noreferrer">
+ GitHub（配布ミラー）
+ </a>
+ </p>
+ <p class="docs-footer__note">
+ 貢献は社内メンバーのみ。外部からの Issue / PR は受け付けません。
+ </p>
 </footer>

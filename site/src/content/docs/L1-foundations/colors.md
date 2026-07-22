@@ -17,9 +17,9 @@ UI と AI は semantic / component token だけを参照します。
 
 ```css
 .notice {
-  color: var(--color-text-primary);
-  background: var(--color-feedback-info-surface);
-  border: 1px solid var(--color-feedback-info);
+ color: var(--color-text-primary);
+ background: var(--color-feedback-info-surface);
+ border: 1px solid var(--color-feedback-info);
 }
 ```
 
@@ -49,12 +49,12 @@ Button や Input の見た目は component token が semantic token を参照し
 
 ```css
 .slt-btn--primary {
-  background: var(--button-primary-bg);
-  color: var(--button-primary-text);
+ background: var(--button-primary-bg);
+ color: var(--button-primary-text);
 }
 ```
 
-component 利用側はこれらを上書きせず、props で意図を指定します。新しい見た目が必要なら [L2 DoD](../L2-components/dod.md) に沿って variant と token を設計します。
+component 利用側はこれらを上書きせず、props で意図を指定します。新しい見た目が必要なら L2 DoD に沿って variant と token を設計します。
 
 ## アクセシビリティ
 

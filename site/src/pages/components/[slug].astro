@@ -5,12 +5,12 @@ import PageHero from "../../components/PageHero.astro";
 import PropsTable from "../../components/PropsTable.astro";
 import TokenTable from "../../components/TokenTable.astro";
 
-export async function getStaticPaths() {
-  const entries = await getCollection("components");
-  return entries.map((entry) => ({
-    params: { slug: entry.id },
-    props: { entry },
-  }));
+export async function getStaticPaths {
+ const entries = await getCollection("components");
+ return entries.map((entry) => ({
+ params: { slug: entry.id },
+ props: { entry },
+ }));
 }
 
 const { entry } = Astro.props;
@@ -18,19 +18,19 @@ const { Content } = await render(entry);
 ---
 
 <DocLayout title={entry.data.titleJa}>
-  <PageHero eyebrow={entry.data.tier} title={entry.data.titleJa} description={entry.data.description} />
-  <div class="docs-prose">
-    <Content />
-    <h2>Props</h2>
-    <p>Design System 固有の props を掲載しています。native element を継承する component は、対応する標準 HTML attributes も利用できます。</p>
-    <PropsTable props={entry.data.props} />
-    {
-      entry.data.tokenPrefix ? (
-        <>
-          <h2>トークン</h2>
-          <TokenTable prefix={entry.data.tokenPrefix} />
-        </>
-      ) : null
-    }
-  </div>
+ <PageHero eyebrow={entry.data.tier} title={entry.data.titleJa} description={entry.data.description} />
+ <div class="docs-prose">
+ <Content />
+ <h2>Props</h2>
+ <p>Design System 固有の props を掲載しています。native element を継承する component は、対応する標準 HTML attributes も利用できます。</p>
+ <PropsTable props={entry.data.props} />
+ {
+ entry.data.tokenPrefix ? (
+ <>
+ <h2>トークン</h2>
+ <TokenTable prefix={entry.data.tokenPrefix} />
+ </>
+ ) : null
+ }
+ </div>
 </DocLayout>

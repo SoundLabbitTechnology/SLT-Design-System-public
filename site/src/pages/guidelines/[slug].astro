@@ -3,8 +3,8 @@ import { getEntry, render } from "astro:content";
 import DocLayout from "../../layouts/DocLayout.astro";
 import { GUIDELINE_SLUGS, GUIDELINES, type GuidelineSlug } from "../../lib/nav";
 
-export function getStaticPaths() {
-  return GUIDELINE_SLUGS.map((slug) => ({ params: { slug } }));
+export function getStaticPaths {
+ return GUIDELINE_SLUGS.map((slug) => ({ params: { slug } }));
 }
 
 const { slug } = Astro.params as { slug: GuidelineSlug };
@@ -15,7 +15,7 @@ const { Content } = await render(entry);
 ---
 
 <DocLayout title={guideline.title}>
-  <div class="docs-prose">
-    <Content />
-  </div>
+ <div class="docs-prose">
+ <Content />
+ </div>
 </DocLayout>

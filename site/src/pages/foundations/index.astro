@@ -3,29 +3,29 @@ import DocLayout from "../../layouts/DocLayout.astro";
 import PageHero from "../../components/PageHero.astro";
 
 const links = [
-  { title: "色", description: "surface / text / border / action / feedback / interactive", href: "/foundations/colors/" },
-  { title: "タイポグラフィ", description: "見出し・本文・キャプションのタイプスケール", href: "/foundations/typography/" },
-  { title: "余白・形状・モーション", description: "space / radius / shadow / motion / breakpoint", href: "/foundations/spacing/" },
-  { title: "モーションクラフト", description: "動かす判断、easing、頻度ゲート、レビュー観点", href: "/foundations/motion/" },
-  { title: "トークンの使い方", description: "3層構造とコードでの参照方法", href: "/foundations/tokens/" },
+ { title: "色", description: "surface / text / border / action / feedback / interactive", href: "/foundations/colors/" },
+ { title: "タイポグラフィ", description: "見出し・本文・キャプションのタイプスケール", href: "/foundations/typography/" },
+ { title: "余白・形状・モーション", description: "space / radius / shadow / motion / breakpoint", href: "/foundations/spacing/" },
+ { title: "モーションクラフト", description: "動かす判断、easing、頻度ゲート、レビュー観点", href: "/foundations/motion/" },
+ { title: "トークンの使い方", description: "3層構造とコードでの参照方法", href: "/foundations/tokens/" },
 ];
 const base = import.meta.env.BASE_URL.replace(/\/$/, "");
 ---
 
 <DocLayout title="スタイル">
-  <PageHero
-    eyebrow="スタイル"
-    title="スタイル"
-    description="SLT Design System の色・タイポグラフィ・余白などのトークンをブランド横断で確認できます。右上のスイッチャーでテーマを切り替えると、このサイト全体がライブに再着色されます。"
-  />
-  <div class="docs-card-grid">
-    {
-      links.map((l) => (
-        <a class="slt-card" href={`${base}${l.href}`}>
-          <h2 class="docs-section-card__title">{l.title}</h2>
-          <p class="docs-section-card__desc">{l.description}</p>
-        </a>
-      ))
-    }
-  </div>
+ <PageHero
+ eyebrow="スタイル"
+ title="スタイル"
+ description="SLT Design System の色・タイポグラフィ・余白などのトークンをブランド横断で確認できます。右上のスイッチャーでテーマを切り替えると、このサイト全体がライブに再着色されます。"
+ />
+ <div class="docs-card-grid">
+ {
+ links.map((l) => (
+ <a class="slt-card" href={`${base}${l.href}`}>
+ <h2 class="docs-section-card__title">{l.title}</h2>
+ <p class="docs-section-card__desc">{l.description}</p>
+ </a>
+ ))
+ }
+ </div>
 </DocLayout>

@@ -5,8 +5,8 @@ import Sidebar from "../components/Sidebar.astro";
 import BaseLayout from "./BaseLayout.astro";
 
 interface Props {
-  title: string;
-  description?: string;
+ title: string;
+ description?: string;
 }
 
 const { title, description } = Astro.props;
@@ -15,12 +15,12 @@ const currentPath = Astro.url.pathname.replace(base, "/").replace(/^\/?/, "/");
 ---
 
 <BaseLayout title={title} description={description}>
-  <HeaderNav client:load currentPath={currentPath} base={base} />
-  <div class="docs-shell">
-    <Sidebar currentPath={currentPath} />
-    <main id="main-content" class="docs-main">
-      <slot />
-    </main>
-  </div>
-  <Footer />
+ <HeaderNav client:load currentPath={currentPath} base={base} />
+ <div class="docs-shell">
+ <Sidebar currentPath={currentPath} />
+ <main id="main-content" class="docs-main">
+ <slot />
+ </main>
+ </div>
+ <Footer />
 </BaseLayout>

@@ -6,9 +6,9 @@ order: 36
 description: "側面から開くパネル。設定やモバイルナビに使う。"
 tokenPrefix: drawer
 props:
-  - { name: side, type: '"left" | "right"', default: '"right"', description: "出現方向" }
-  - { name: title, type: string, description: "見出し" }
-  - { name: trigger, type: ReactNode, description: "開くトリガー" }
+ - { name: side, type: '"left" | "right"', default: '"right"', description: "出現方向" }
+ - { name: title, type: string, description: "見出し" }
+ - { name: trigger, type: ReactNode, description: "開くトリガー" }
 ---
 
 import Demo from "../../components/Demo.astro";
@@ -18,12 +18,12 @@ import DrawerDemo from "../../demos/DrawerDemo";
 ## デモ
 
 <Demo>
-  <DrawerDemo client:visible slot="stage" />
-  <Fragment slot="code">
-    ```tsx
-    import { Drawer } from "@soundlabbit/design-system/ui";
-    ```
-  </Fragment>
+ <DrawerDemo client:visible slot="stage" />
+ <Fragment slot="code">
+ ```tsx
+ import { Drawer } from "@soundlabbit/design-system/ui";
+ ```
+ </Fragment>
 </Demo>
 
 ## 使い方
@@ -31,6 +31,6 @@ import DrawerDemo from "../../demos/DrawerDemo";
 モーダル確認は Dialog。側面パネルは Drawer。
 
 <DoDont
-  dos={["タイトルで目的を示す", "Escape / オーバーレイで閉じられる"]}
-  donts={["短い確認に Dialog の代わりに使う", "ページ全体を Drawer だけで構成する"]}
+ dos={["タイトルで目的を示す", "Escape / オーバーレイで閉じられる"]}
+ donts={["短い確認に Dialog の代わりに使う", "ページ全体を Drawer だけで構成する"]}
 />

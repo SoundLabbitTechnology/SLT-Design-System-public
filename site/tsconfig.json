@@ -1,14 +1,14 @@
 {
-  "extends": "astro/tsconfigs/strict",
-  "include": [".astro/types.d.ts", "src/**/*"],
-  "exclude": ["dist"],
-  "compilerOptions": {
-    "jsx": "react-jsx",
-    "jsxImportSource": "react",
-    "resolveJsonModule": true,
-    "paths": {
-      "@soundlabbit/design-system/ui": ["../dist-ui/index.d.ts"],
-      "@soundlabbit/design-system/tokens.json": ["../dist/slt-tokens.json"]
-    }
-  }
+ "extends": "astro/tsconfigs/strict",
+ "include": [".astro/types.d.ts", "src/**/*"],
+ "exclude": ["dist"],
+ "compilerOptions": {
+ "jsx": "react-jsx",
+ "jsxImportSource": "react",
+ "resolveJsonModule": true,
+ "paths": {
+ "@soundlabbit/design-system/ui": ["../dist-ui/index.d.ts"],
+ "@soundlabbit/design-system/tokens.json": ["../dist/slt-tokens.json"]
+ }
+ }
 }

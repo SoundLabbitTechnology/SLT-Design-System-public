@@ -1,112 +1,112 @@
 {
-  "$description": "SLT Design Tokens — Tier 2: Semantic(AI-DASH / ダークモード)。現行 SLT-AI-Dash-Website の globals.css 体系に準拠。",
-  "color": {
-    "surface": {
-      "primary":   { "$type": "color", "$value": "{color.gray.900}", "$description": "ページ基準背景 #0F172A" },
-      "secondary": { "$type": "color", "$value": "{color.gray.800}", "$description": "カード / elevated #1E293B" },
-      "tertiary":  { "$type": "color", "$value": "{color.gray.700}", "$description": "elevated-2 #334155" },
-      "brand":     { "$type": "color", "$value": "{color.gray.900}" },
-      "inverse":   { "$type": "color", "$value": "{color.gray.0}" },
-      "overlay":   { "$type": "color", "$value": "{color.alpha.slate-90}" }
-    },
-    "text": {
-      "primary":   { "$type": "color", "$value": "{color.gray.0}",   "$description": "見出し。surface-primary 上 ~15.5:1" },
-      "secondary": { "$type": "color", "$value": "{color.gray.200}", "$description": "本文。~11.5:1" },
-      "disabled":  { "$type": "color", "$value": "{color.gray.500}", "$description": "非活性 / プレースホルダ ~3.5:1" },
-      "inverse":   { "$type": "color", "$value": "{color.gray.900}" },
-      "link":      { "$type": "color", "$value": "{color.blue.400}", "$description": "surface.primary/secondary 双方で 4.5:1 以上" },
-      "link-hover": { "$type": "color", "$value": "{color.blue.300}" },
-      "brand":     { "$type": "color", "$value": "{color.gold.400}", "$description": "明るいゴールドアクセント ~9.3:1" }
-    },
-    "border": {
-      "default": { "$type": "color", "$value": "{color.alpha.white-15}" },
-      "strong":  { "$type": "color", "$value": "{color.alpha.white-25}" },
-      "focus":   { "$type": "color", "$value": "{color.gold.300}", "$description": "ゴールドフォーカスリング" }
-    },
-    "action": {
-      "primary":         { "$type": "color", "$value": "{color.gold.300}", "$description": "ゴールドCTA" },
-      "primary-hover":   { "$type": "color", "$value": "{color.gold.500}" },
-      "primary-active":  { "$type": "color", "$value": "{color.gold.600}" },
-      "secondary":       { "$type": "color", "$value": "{color.blue.500}" },
-      "secondary-hover": { "$type": "color", "$value": "{color.blue.600}" }
-    },
-    "feedback": {
-      "success":            { "$type": "color", "$value": "{color.emerald.500}" },
-      "success-surface":    { "$type": "color", "$value": "{color.alpha.emerald-30}" },
-      "success-on-surface": { "$type": "color", "$value": "{color.emerald.300}", "$description": "success-surface 上のテキスト用。emerald-500 は暗背景でコントラスト不足のため明るいトーンを使用" },
-      "warning":            { "$type": "color", "$value": "{color.amber.500}" },
-      "warning-surface":    { "$type": "color", "$value": "{color.alpha.amber-30}" },
-      "warning-on-surface": { "$type": "color", "$value": "{color.amber.400}" },
-      "danger":             { "$type": "color", "$value": "{color.red.500}" },
-      "danger-surface":     { "$type": "color", "$value": "{color.alpha.red-30}" },
-      "danger-on-surface":  { "$type": "color", "$value": "{color.red.300}" },
-      "info":               { "$type": "color", "$value": "{color.blue.500}" },
-      "info-surface":       { "$type": "color", "$value": "{color.alpha.blue-30}" },
-      "info-on-surface":    { "$type": "color", "$value": "{color.blue.300}" }
-    },
-    "interactive": {
-      "hover":  { "$type": "color", "$value": "{color.alpha.white-05}" },
-      "active": { "$type": "color", "$value": "{color.alpha.white-10}" }
-    }
-  },
-  "typography": {
-    "display": {
-      "$type": "typography",
-      "$value": { "fontFamily": "{font.family.display}", "fontSize": "{font.size.3xl}", "fontWeight": "{font.weight.bold}", "lineHeight": "{font.lineHeight.tight}" }
-    },
-    "heading-1": {
-      "$type": "typography",
-      "$value": { "fontFamily": "{font.family.display}", "fontSize": "{font.size.2xl}", "fontWeight": "{font.weight.bold}", "lineHeight": "{font.lineHeight.tight}" }
-    },
-    "heading-2": {
-      "$type": "typography",
-      "$value": { "fontFamily": "{font.family.jp}", "fontSize": "{font.size.xl}", "fontWeight": "{font.weight.bold}", "lineHeight": "{font.lineHeight.tight}" }
-    },
-    "heading-3": {
-      "$type": "typography",
-      "$value": { "fontFamily": "{font.family.jp}", "fontSize": "{font.size.lg}", "fontWeight": "{font.weight.medium}", "lineHeight": "{font.lineHeight.base}" }
-    },
-    "body": {
-      "$type": "typography",
-      "$value": { "fontFamily": "{font.family.jp}", "fontSize": "{font.size.md}", "fontWeight": "{font.weight.regular}", "lineHeight": "{font.lineHeight.base}" }
-    },
-    "body-small": {
-      "$type": "typography",
-      "$value": { "fontFamily": "{font.family.jp}", "fontSize": "{font.size.sm}", "fontWeight": "{font.weight.regular}", "lineHeight": "{font.lineHeight.base}" }
-    },
-    "caption": {
-      "$type": "typography",
-      "$value": { "fontFamily": "{font.family.jp}", "fontSize": "{font.size.xs}", "fontWeight": "{font.weight.regular}", "lineHeight": "{font.lineHeight.tight}" }
-    },
-    "code": {
-      "$type": "typography",
-      "$value": { "fontFamily": "{font.family.mono}", "fontSize": "{font.size.sm}", "fontWeight": "{font.weight.regular}", "lineHeight": "{font.lineHeight.base}" }
-    }
-  },
-  "focus": {
-    "ring-width":  { "$type": "dimension", "$value": { "value": 2, "unit": "px" } },
-    "ring-offset": { "$type": "dimension", "$value": { "value": 2, "unit": "px" } }
-  },
-  "space": {
-    "$description": "レイアウト余白。全 theme 共通値（primitives.space の薄いラッパー）。",
-    "xs": { "$type": "dimension", "$value": "{space.1}" },
-    "sm": { "$type": "dimension", "$value": "{space.2}" },
-    "md": { "$type": "dimension", "$value": "{space.4}" },
-    "lg": { "$type": "dimension", "$value": "{space.6}" },
-    "xl": { "$type": "dimension", "$value": "{space.8}" },
-    "2xl": { "$type": "dimension", "$value": "{space.12}" }
-  },
-  "shape": {
-    "$description": "角の形状。全 theme 共通値（primitives.radius の薄いラッパー）。",
-    "radius-sm": { "$type": "dimension", "$value": "{radius.sm}" },
-    "radius-md": { "$type": "dimension", "$value": "{radius.md}" },
-    "radius-lg": { "$type": "dimension", "$value": "{radius.lg}" },
-    "radius-full": { "$type": "dimension", "$value": "{radius.full}" }
-  },
-  "elevation": {
-    "$description": "コンポーネントの高さの度合い。全 theme 共通値（primitives.shadow の薄いラッパー）。",
-    "raised":  { "$type": "shadow", "$value": "{shadow.level1}", "$description": "Card など基本の浮き" },
-    "overlay": { "$type": "shadow", "$value": "{shadow.level2}", "$description": "Toast など一時的な浮き" },
-    "modal":   { "$type": "shadow", "$value": "{shadow.level3}", "$description": "Dialog など最前面" }
-  }
+ "$description": "SLT Design Tokens — Tier 2: Semantic(AI-DASH / ダークモード)。現行 SLT-AI-Dash-Website の globals.css 体系に準拠。",
+ "color": {
+ "surface": {
+ "primary": { "$type": "color", "$value": "{color.gray.900}", "$description": "ページ基準背景 #0F172A" },
+ "secondary": { "$type": "color", "$value": "{color.gray.800}", "$description": "カード / elevated #1E293B" },
+ "tertiary": { "$type": "color", "$value": "{color.gray.700}", "$description": "elevated-2 #334155" },
+ "brand": { "$type": "color", "$value": "{color.gray.900}" },
+ "inverse": { "$type": "color", "$value": "{color.gray.0}" },
+ "overlay": { "$type": "color", "$value": "{color.alpha.slate-90}" }
+ },
+ "text": {
+ "primary": { "$type": "color", "$value": "{color.gray.0}", "$description": "見出し。surface-primary 上 ~15.5:1" },
+ "secondary": { "$type": "color", "$value": "{color.gray.200}", "$description": "本文。~11.5:1" },
+ "disabled": { "$type": "color", "$value": "{color.gray.500}", "$description": "非活性 / プレースホルダ ~3.5:1" },
+ "inverse": { "$type": "color", "$value": "{color.gray.900}" },
+ "link": { "$type": "color", "$value": "{color.blue.400}", "$description": "surface.primary/secondary 双方で 4.5:1 以上" },
+ "link-hover": { "$type": "color", "$value": "{color.blue.300}" },
+ "brand": { "$type": "color", "$value": "{color.gold.400}", "$description": "明るいゴールドアクセント ~9.3:1" }
+ },
+ "border": {
+ "default": { "$type": "color", "$value": "{color.alpha.white-15}" },
+ "strong": { "$type": "color", "$value": "{color.alpha.white-25}" },
+ "focus": { "$type": "color", "$value": "{color.gold.300}", "$description": "ゴールドフォーカスリング" }
+ },
+ "action": {
+ "primary": { "$type": "color", "$value": "{color.gold.300}", "$description": "ゴールドCTA" },
+ "primary-hover": { "$type": "color", "$value": "{color.gold.500}" },
+ "primary-active": { "$type": "color", "$value": "{color.gold.600}" },
+ "secondary": { "$type": "color", "$value": "{color.blue.500}" },
+ "secondary-hover": { "$type": "color", "$value": "{color.blue.600}" }
+ },
+ "feedback": {
+ "success": { "$type": "color", "$value": "{color.emerald.500}" },
+ "success-surface": { "$type": "color", "$value": "{color.alpha.emerald-30}" },
+ "success-on-surface": { "$type": "color", "$value": "{color.emerald.300}", "$description": "success-surface 上のテキスト用。emerald-500 は暗背景でコントラスト不足のため明るいトーンを使用" },
+ "warning": { "$type": "color", "$value": "{color.amber.500}" },
+ "warning-surface": { "$type": "color", "$value": "{color.alpha.amber-30}" },
+ "warning-on-surface": { "$type": "color", "$value": "{color.amber.400}" },
+ "danger": { "$type": "color", "$value": "{color.red.500}" },
+ "danger-surface": { "$type": "color", "$value": "{color.alpha.red-30}" },
+ "danger-on-surface": { "$type": "color", "$value": "{color.red.300}" },
+ "info": { "$type": "color", "$value": "{color.blue.500}" },
+ "info-surface": { "$type": "color", "$value": "{color.alpha.blue-30}" },
+ "info-on-surface": { "$type": "color", "$value": "{color.blue.300}" }
+ },
+ "interactive": {
+ "hover": { "$type": "color", "$value": "{color.alpha.white-05}" },
+ "active": { "$type": "color", "$value": "{color.alpha.white-10}" }
+ }
+ },
+ "typography": {
+ "display": {
+ "$type": "typography",
+ "$value": { "fontFamily": "{font.family.display}", "fontSize": "{font.size.3xl}", "fontWeight": "{font.weight.bold}", "lineHeight": "{font.lineHeight.tight}" }
+ },
+ "heading-1": {
+ "$type": "typography",
+ "$value": { "fontFamily": "{font.family.display}", "fontSize": "{font.size.2xl}", "fontWeight": "{font.weight.bold}", "lineHeight": "{font.lineHeight.tight}" }
+ },
+ "heading-2": {
+ "$type": "typography",
+ "$value": { "fontFamily": "{font.family.jp}", "fontSize": "{font.size.xl}", "fontWeight": "{font.weight.bold}", "lineHeight": "{font.lineHeight.tight}" }
+ },
+ "heading-3": {
+ "$type": "typography",
+ "$value": { "fontFamily": "{font.family.jp}", "fontSize": "{font.size.lg}", "fontWeight": "{font.weight.medium}", "lineHeight": "{font.lineHeight.base}" }
+ },
+ "body": {
+ "$type": "typography",
+ "$value": { "fontFamily": "{font.family.jp}", "fontSize": "{font.size.md}", "fontWeight": "{font.weight.regular}", "lineHeight": "{font.lineHeight.base}" }
+ },
+ "body-small": {
+ "$type": "typography",
+ "$value": { "fontFamily": "{font.family.jp}", "fontSize": "{font.size.sm}", "fontWeight": "{font.weight.regular}", "lineHeight": "{font.lineHeight.base}" }
+ },
+ "caption": {
+ "$type": "typography",
+ "$value": { "fontFamily": "{font.family.jp}", "fontSize": "{font.size.xs}", "fontWeight": "{font.weight.regular}", "lineHeight": "{font.lineHeight.tight}" }
+ },
+ "code": {
+ "$type": "typography",
+ "$value": { "fontFamily": "{font.family.mono}", "fontSize": "{font.size.sm}", "fontWeight": "{font.weight.regular}", "lineHeight": "{font.lineHeight.base}" }
+ }
+ },
+ "focus": {
+ "ring-width": { "$type": "dimension", "$value": { "value": 2, "unit": "px" } },
+ "ring-offset": { "$type": "dimension", "$value": { "value": 2, "unit": "px" } }
+ },
+ "space": {
+ "$description": "レイアウト余白。全 theme 共通値（primitives.space の薄いラッパー）。",
+ "xs": { "$type": "dimension", "$value": "{space.1}" },
+ "sm": { "$type": "dimension", "$value": "{space.2}" },
+ "md": { "$type": "dimension", "$value": "{space.4}" },
+ "lg": { "$type": "dimension", "$value": "{space.6}" },
+ "xl": { "$type": "dimension", "$value": "{space.8}" },
+ "2xl": { "$type": "dimension", "$value": "{space.12}" }
+ },
+ "shape": {
+ "$description": "角の形状。全 theme 共通値（primitives.radius の薄いラッパー）。",
+ "radius-sm": { "$type": "dimension", "$value": "{radius.sm}" },
+ "radius-md": { "$type": "dimension", "$value": "{radius.md}" },
+ "radius-lg": { "$type": "dimension", "$value": "{radius.lg}" },
+ "radius-full": { "$type": "dimension", "$value": "{radius.full}" }
+ },
+ "elevation": {
+ "$description": "コンポーネントの高さの度合い。全 theme 共通値（primitives.shadow の薄いラッパー）。",
+ "raised": { "$type": "shadow", "$value": "{shadow.level1}", "$description": "Card など基本の浮き" },
+ "overlay": { "$type": "shadow", "$value": "{shadow.level2}", "$description": "Toast など一時的な浮き" },
+ "modal": { "$type": "shadow", "$value": "{shadow.level3}", "$description": "Dialog など最前面" }
+ }
 }

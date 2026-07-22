@@ -6,7 +6,7 @@ order: 42
 description: "縦並びのメニュー項目一覧。"
 tokenPrefix: menu-list
 props:
-  - { name: items, type: "MenuListItem[]", description: "href または onSelect" }
+ - { name: items, type: "MenuListItem[]", description: "href または onSelect" }
 ---
 
 import Demo from "../../components/Demo.astro";
@@ -16,12 +16,12 @@ import MenuListDemo from "../../demos/MenuListDemo";
 ## デモ
 
 <Demo>
-  <MenuListDemo client:visible slot="stage" />
-  <Fragment slot="code">
-    ```tsx
-    import { MenuList } from "@soundlabbit/design-system/ui";
-    ```
-  </Fragment>
+ <MenuListDemo client:visible slot="stage" />
+ <Fragment slot="code">
+ ```tsx
+ import { MenuList } from "@soundlabbit/design-system/ui";
+ ```
+ </Fragment>
 </Demo>
 
 ## 使い方
@@ -29,6 +29,6 @@ import MenuListDemo from "../../demos/MenuListDemo";
 ドロワーやモバイルメニュー内の項目列挙。
 
 <DoDont
-  dos={["リンクとボタンを用途で分ける", "現在地を明示する"]}
-  donts={["水平ナビの代わりに使う", "listbox 選択 UI と混同する"]}
+ dos={["リンクとボタンを用途で分ける", "現在地を明示する"]}
+ donts={["水平ナビの代わりに使う", "listbox 選択 UI と混同する"]}
 />

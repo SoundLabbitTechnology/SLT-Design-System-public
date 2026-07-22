@@ -2,8 +2,8 @@
 import { THEME_IDS, tokensByPrefix } from "../lib/tokens";
 
 interface Props {
-  prefix: string;
-  title?: string;
+ prefix: string;
+ title?: string;
 }
 
 const { prefix, title } = Astro.props;
@@ -11,33 +11,33 @@ const rows = tokensByPrefix(prefix);
 ---
 
 {
-  rows.length > 0 ? (
-    <div class="docs-token-table__wrap">
-      {title ? <h3>{title}</h3> : null}
-      <table class="docs-token-table">
-        <thead>
-          <tr>
-            <th>トークン</th>
-            <th>CSS 変数</th>
-            {THEME_IDS.map((id) => (
-              <th>{id}</th>
-            ))}
-          </tr>
-        </thead>
-        <tbody>
-          {rows.map((row) => (
-            <tr>
-              <td>{row.key}</td>
-              <td>
-                <code>var({row.cssVar})</code>
-              </td>
-              {THEME_IDS.map((id) => (
-                <td>{row.valuesByTheme[id]}</td>
-              ))}
-            </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
-  ) : null
+ rows.length > 0 ? (
+ <div class="docs-token-table__wrap">
+ {title ? <h3>{title}</h3> : null}
+ <table class="docs-token-table">
+ <thead>
+ <tr>
+ <th>トークン</th>
+ <th>CSS 変数</th>
+ {THEME_IDS.map((id) => (
+ <th>{id}</th>
+ ))}
+ </tr>
+ </thead>
+ <tbody>
+ {rows.map((row) => (
+ <tr>
+ <td>{row.key}</td>
+ <td>
+ <code>var({row.cssVar})</code>
+ </td>
+ {THEME_IDS.map((id) => (
+ <td>{row.valuesByTheme[id]}</td>
+ ))}
+ </tr>
+ ))}
+ </tbody>
+ </table>
+ </div>
+ ) : null
 }

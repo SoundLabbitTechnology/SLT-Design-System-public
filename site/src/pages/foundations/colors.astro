@@ -9,27 +9,27 @@ if (!entry) throw new Error("docs/L1-foundations/colors.md not found in tokenGui
 const { Content } = await render(entry);
 
 const groups: { group: "surface" | "text" | "border" | "action" | "feedback" | "interactive"; title: string }[] = [
-  { group: "surface", title: "Surface（背景）" },
-  { group: "text", title: "Text（文字）" },
-  { group: "border", title: "Border（枠線）" },
-  { group: "action", title: "Action（操作）" },
-  { group: "feedback", title: "Feedback（状態）" },
-  { group: "interactive", title: "Interactive（インタラクション）" },
+ { group: "surface", title: "Surface（背景）" },
+ { group: "text", title: "Text（文字）" },
+ { group: "border", title: "Border（枠線）" },
+ { group: "action", title: "Action（操作）" },
+ { group: "feedback", title: "Feedback（状態）" },
+ { group: "interactive", title: "Interactive（インタラクション）" },
 ];
 ---
 
 <DocLayout title="色">
-  <PageHero
-    eyebrow="スタイル"
-    title="色"
-    description="用途で選ぶ semantic カラートークンだけを掲載します。内部の生値スケールは公開しません。"
-  />
-  <div class="docs-prose">
-    <h2>スウォッチ</h2>
-    <p>現在のテーマ（ヘッダーの Theme / Mode）で解決される値です。</p>
-    {groups.map((g) => <ColorSwatchGrid group={g.group} title={g.title} />)}
-    <hr />
-    <h2>ガイド（docs）</h2>
-    <Content />
-  </div>
+ <PageHero
+ eyebrow="スタイル"
+ title="色"
+ description="用途で選ぶ semantic カラートークンだけを掲載します。内部の生値スケールは公開しません。"
+ />
+ <div class="docs-prose">
+ <h2>スウォッチ</h2>
+ <p>現在のテーマ（ヘッダーの Theme / Mode）で解決される値です。</p>
+ {groups.map((g) => <ColorSwatchGrid group={g.group} title={g.title} />)}
+ <hr />
+ <h2>ガイド（docs）</h2>
+ <Content />
+ </div>
 </DocLayout>

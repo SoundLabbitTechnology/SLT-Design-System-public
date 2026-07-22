@@ -6,8 +6,8 @@ order: 51
 description: 画像ギャラリー向けカルーセル（Carousel + Image）。
 tokenPrefix: ""
 props:
-  - { name: images, type: "ImageSliderItem[]", description: "src / alt / caption" }
-  - { name: "(Carousel props)", type: "—", description: index / autoPlayMs 等を継承 }
+ - { name: images, type: "ImageSliderItem[]", description: "src / alt / caption" }
+ - { name: "(Carousel props)", type: "—", description: index / autoPlayMs 等を継承 }
 ---
 
 import Demo from "../../components/Demo.astro";
@@ -17,14 +17,14 @@ import ImageSliderDemo from "../../demos/ImageSliderDemo";
 ## デモ
 
 <Demo>
-  <ImageSliderDemo client:visible slot="stage" />
-  <Fragment slot="code">
-    ```tsx
-    import { ImageSlider } from "@soundlabbit/design-system/ui";
+ <ImageSliderDemo client:visible slot="stage" />
+ <Fragment slot="code">
+ ```tsx
+ import { ImageSlider } from "@soundlabbit/design-system/ui";
 
-    <ImageSlider images={[{ src: "...", alt: "説明" }]} />
-    ```
-  </Fragment>
+ <ImageSlider images={[{ src: "...", alt: "説明" }]} />
+ ```
+ </Fragment>
 </Demo>
 
 ## 使い方
@@ -32,6 +32,6 @@ import ImageSliderDemo from "../../demos/ImageSliderDemo";
 マーケやギャラリーの画像送り。任意コンテンツは Carousel。
 
 <DoDont
-  dos={["各画像に意味のある alt を付ける", "キャプションは必要時のみ"]}
-  donts={["装飾だけの画像をスライダーで自動送りする", "テキスト主体のお知らせに使う（Carousel）"]}
+ dos={["各画像に意味のある alt を付ける", "キャプションは必要時のみ"]}
+ donts={["装飾だけの画像をスライダーで自動送りする", "テキスト主体のお知らせに使う（Carousel）"]}
 />

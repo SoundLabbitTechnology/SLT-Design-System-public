@@ -6,11 +6,11 @@ order: 19
 description: 1秒以上の読み込みに使うプレースホルダ。
 tokenPrefix: skeleton
 props:
-  - { name: variant, type: '"rect" | "text" | "circle"', default: '"rect"', description: 形状バリアント }
-  - { name: width, type: "CSSProperties['width']", description: 幅の上書き }
-  - { name: height, type: "CSSProperties['height']", description: 高さの上書き }
-  - { name: className, type: string, description: Skeleton / SkeletonCard / SkeletonList へ追加する class }
-  - { name: SkeletonList.count, type: number, default: "3", description: 生成する placeholder 行数 }
+ - { name: variant, type: '"rect" | "text" | "circle"', default: '"rect"', description: 形状バリアント }
+ - { name: width, type: "CSSProperties['width']", description: 幅の上書き }
+ - { name: height, type: "CSSProperties['height']", description: 高さの上書き }
+ - { name: className, type: string, description: Skeleton / SkeletonCard / SkeletonList へ追加する class }
+ - { name: SkeletonList.count, type: number, default: "3", description: 生成する placeholder 行数 }
 ---
 
 import Demo from "../../components/Demo.astro";
@@ -20,16 +20,16 @@ import SkeletonDemo from "../../demos/SkeletonDemo";
 ## デモ
 
 <Demo>
-  <SkeletonDemo client:visible slot="stage" />
-  <Fragment slot="code">
-    ```tsx
-    import { Skeleton, SkeletonCard, SkeletonList } from "@soundlabbit/design-system/ui";
+ <SkeletonDemo client:visible slot="stage" />
+ <Fragment slot="code">
+ ```tsx
+ import { Skeleton, SkeletonCard, SkeletonList } from "@soundlabbit/design-system/ui";
 
-    <Skeleton variant="circle" />
-    <SkeletonCard />
-    <SkeletonList count={3} />
-    ```
-  </Fragment>
+ <Skeleton variant="circle" />
+ <SkeletonCard />
+ <SkeletonList count={3} />
+ ```
+ </Fragment>
 </Demo>
 
 ## 使い方
@@ -38,8 +38,8 @@ import SkeletonDemo from "../../demos/SkeletonDemo";
 
 {/* Do/Don't の出典: docs/L2-components/guides.md#skeleton */}
 <DoDont
-  dos={["SkeletonCard / SkeletonList でレイアウトを維持する", "aria-busy + aria-label を親に付与する"]}
-  donts={["1秒未満のちらつき用スピナーとして使う", "Skeleton だけでエラー文言を代替する"]}
+ dos={["SkeletonCard / SkeletonList でレイアウトを維持する", "aria-busy + aria-label を親に付与する"]}
+ donts={["1秒未満のちらつき用スピナーとして使う", "Skeleton だけでエラー文言を代替する"]}
 />
 
 **状態**: `rect` / `text` / `circle`。`prefers-reduced-motion` でアニメーション停止。

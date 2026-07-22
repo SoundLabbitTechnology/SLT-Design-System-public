@@ -6,7 +6,7 @@ order: 43
 description: "モバイル向け下部タブナビ。"
 tokenPrefix: bottom-navigation
 props:
-  - { name: items, type: "BottomNavigationItem[]", description: "label / href / current / icon" }
+ - { name: items, type: "BottomNavigationItem[]", description: "label / href / current / icon" }
 ---
 
 import Demo from "../../components/Demo.astro";
@@ -16,12 +16,12 @@ import BottomNavigationDemo from "../../demos/BottomNavigationDemo";
 ## デモ
 
 <Demo>
-  <BottomNavigationDemo client:visible slot="stage" />
-  <Fragment slot="code">
-    ```tsx
-    import { BottomNavigation } from "@soundlabbit/design-system/ui";
-    ```
-  </Fragment>
+ <BottomNavigationDemo client:visible slot="stage" />
+ <Fragment slot="code">
+ ```tsx
+ import { BottomNavigation } from "@soundlabbit/design-system/ui";
+ ```
+ </Fragment>
 </Demo>
 
 ## 使い方
@@ -29,6 +29,6 @@ import BottomNavigationDemo from "../../demos/BottomNavigationDemo";
 主要4〜5画面への常時アクセス。
 
 <DoDont
-  dos={["項目は少なく保つ", "現在地を aria-current で示す"]}
-  donts={["デスクトップの主ナビ代わりにする", "深い階層を載せる"]}
+ dos={["項目は少なく保つ", "現在地を aria-current で示す"]}
+ donts={["デスクトップの主ナビ代わりにする", "深い階層を載せる"]}
 />
