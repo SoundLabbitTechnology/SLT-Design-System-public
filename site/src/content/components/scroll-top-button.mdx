@@ -6,8 +6,8 @@ order: 33
 description: "長いページで上部へ戻るボタン。"
 tokenPrefix: scroll-top-button
 props:
- - { name: threshold, type: number, default: "400", description: "表示開始のスクロール量" }
- - { name: label, type: string, default: '"ページ上部へ"', description: "accessible name / 表示文言" }
+  - { name: threshold, type: number, default: "400", description: "表示開始のスクロール量" }
+  - { name: label, type: string, default: '"ページ上部へ"', description: "accessible name / 表示文言" }
 ---
 
 import Demo from "../../components/Demo.astro";
@@ -17,12 +17,12 @@ import ScrollTopButtonDemo from "../../demos/ScrollTopButtonDemo";
 ## デモ
 
 <Demo>
- <ScrollTopButtonDemo client:visible slot="stage" />
- <Fragment slot="code">
- ```tsx
- import { ScrollTopButton } from "@soundlabbit/design-system/ui";
- ```
- </Fragment>
+  <ScrollTopButtonDemo client:visible slot="stage" />
+  <Fragment slot="code">
+    ```tsx
+    import { ScrollTopButton } from "@soundlabbit/design-system/ui";
+    ```
+  </Fragment>
 </Demo>
 
 ## 使い方
@@ -30,6 +30,6 @@ import ScrollTopButtonDemo from "../../demos/ScrollTopButtonDemo";
 長いページの回遊補助。
 
 <DoDont
- dos={["閾値を超えたら表示する", "accessible name を付ける"]}
- donts={["短いページで常時表示する", "装飾だけの矢印にする"]}
+  dos={["閾値を超えたら表示する", "accessible name を付ける"]}
+  donts={["短いページで常時表示する", "装飾だけの矢印にする"]}
 />

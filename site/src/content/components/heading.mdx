@@ -6,8 +6,8 @@ order: 11
 description: ページやセクションの主題を表す見出し。
 tokenPrefix: heading
 props:
- - { name: as, type: "1 | 2 | 3 | 4 | 5 | 6", default: "2", description: セマンティックな見出し要素 }
- - { name: level, type: "1 | 2 | 3 | 4 | 5 | 6", description: 見た目の階層（未指定時は as に合わせる） }
+  - { name: as, type: "1 | 2 | 3 | 4 | 5 | 6", default: "2", description: セマンティックな見出し要素 }
+  - { name: level, type: "1 | 2 | 3 | 4 | 5 | 6", description: 見た目の階層（未指定時は as に合わせる） }
 ---
 
 import Demo from "../../components/Demo.astro";
@@ -17,15 +17,15 @@ import HeadingDemo from "../../demos/HeadingDemo";
 ## デモ
 
 <Demo>
- <HeadingDemo client:visible slot="stage" />
- <Fragment slot="code">
- ```tsx
- import { Heading } from "@soundlabbit/design-system/ui";
+  <HeadingDemo client:visible slot="stage" />
+  <Fragment slot="code">
+    ```tsx
+    import { Heading } from "@soundlabbit/design-system/ui";
 
- <Heading as={1}>ページ見出し</Heading>
- <Heading as={2}>セクション見出し</Heading>
- ```
- </Fragment>
+    <Heading as={1}>ページ見出し</Heading>
+    <Heading as={2}>セクション見出し</Heading>
+    ```
+  </Fragment>
 </Demo>
 
 ## 使い方
@@ -33,6 +33,6 @@ import HeadingDemo from "../../demos/HeadingDemo";
 ページ冒頭やセクション前に配置し、文書構造を示す。見た目とセマンティクスを分けたいときは `as` と `level` を併用する。
 
 <DoDont
- dos={["見出し階層を飛ばさず文書構造に合わせる", "セクションの主題を短い文言で表す"]}
- donts={["装飾目的だけで見出し要素を使う", "本文の強調に Heading を使う"]}
+  dos={["見出し階層を飛ばさず文書構造に合わせる", "セクションの主題を短い文言で表す"]}
+  donts={["装飾目的だけで見出し要素を使う", "本文の強調に Heading を使う"]}
 />

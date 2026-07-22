@@ -6,7 +6,7 @@ order: 4
 description: 関連コンテンツをグルーピングするコンテナ。
 tokenPrefix: card
 props:
- - { name: variant, type: '"default" | "glass"', default: '"default"', description: "見た目のバリアント。glass は暗色背景上のヒーロー・強調セクション向け" }
+  - { name: variant, type: '"default" | "glass"', default: '"default"', description: "見た目のバリアント。glass は暗色背景上のヒーロー・強調セクション向け" }
 ---
 
 import Demo from "../../components/Demo.astro";
@@ -16,15 +16,15 @@ import CardDemo from "../../demos/CardDemo";
 ## デモ
 
 <Demo>
- <CardDemo client:visible slot="stage" />
- <Fragment slot="code">
- ```tsx
- import { Card } from "@soundlabbit/design-system/ui";
+  <CardDemo client:visible slot="stage" />
+  <Fragment slot="code">
+    ```tsx
+    import { Card } from "@soundlabbit/design-system/ui";
 
- <Card>関連コンテンツをグルーピングする</Card>
- <Card variant="glass">暗色背景上のヒーロー・強調セクション</Card>
- ```
- </Fragment>
+    <Card>関連コンテンツをグルーピングする</Card>
+    <Card variant="glass">暗色背景上のヒーロー・強調セクション</Card>
+    ```
+  </Fragment>
 </Demo>
 
 ## 使い方
@@ -33,6 +33,6 @@ import CardDemo from "../../demos/CardDemo";
 
 {/* Do/Don't の出典: docs/L2-components/guides.md#card */}
 <DoDont
- dos={["variant=\"glass\" を暗色背景上で使う", "読み込み中は aria-busy を付与"]}
- donts={["情報量の多いフォーム全体を Card でネストしすぎる", "クリック可能な Card に button 語彙を使わない（<a> / Button を内包する）"]}
+  dos={["variant=\"glass\" を暗色背景上で使う", "読み込み中は aria-busy を付与"]}
+  donts={["情報量の多いフォーム全体を Card でネストしすぎる", "クリック可能な Card に button 語彙を使わない（<a> / Button を内包する）"]}
 />

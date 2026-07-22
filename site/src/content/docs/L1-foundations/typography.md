@@ -19,13 +19,13 @@
 
 ```css
 .page-title {
- font: var(--typography-heading-1);
- color: var(--color-text-primary);
+  font: var(--typography-heading-1);
+  color: var(--color-text-primary);
 }
 
 .page-description {
- font: var(--typography-body);
- color: var(--color-text-secondary);
+  font: var(--typography-body);
+  color: var(--color-text-secondary);
 }
 ```
 

@@ -6,10 +6,10 @@ order: 1
 description: 主要・副次・破壊的アクションを表すボタン。
 tokenPrefix: button
 props:
- - { name: variant, type: '"primary" | "secondary" | "ghost" | "danger"', default: '"primary"', description: 見た目のバリアント }
- - { name: loading, type: boolean, default: "false", description: 非同期処理中のスピナー表示（二重送信防止のため disabled も自動で true になる） }
- - { name: asChild, type: boolean, default: "false", description: Radix Slot によるレンダリング委譲（<a> 等に見た目だけ適用する場合に使用） }
- - { name: disabled, type: boolean, default: "false", description: 無効化 }
+  - { name: variant, type: '"primary" | "secondary" | "ghost" | "danger"', default: '"primary"', description: 見た目のバリアント }
+  - { name: loading, type: boolean, default: "false", description: 非同期処理中のスピナー表示（二重送信防止のため disabled も自動で true になる） }
+  - { name: asChild, type: boolean, default: "false", description: Radix Slot によるレンダリング委譲（<a> 等に見た目だけ適用する場合に使用） }
+  - { name: disabled, type: boolean, default: "false", description: 無効化 }
 ---
 
 import Demo from "../../components/Demo.astro";
@@ -19,16 +19,16 @@ import ButtonDemo from "../../demos/ButtonDemo";
 ## デモ
 
 <Demo>
- <ButtonDemo client:visible slot="stage" />
- <Fragment slot="code">
- ```tsx
- import { Button } from "@soundlabbit/design-system/ui";
+  <ButtonDemo client:visible slot="stage" />
+  <Fragment slot="code">
+    ```tsx
+    import { Button } from "@soundlabbit/design-system/ui";
 
- <Button>保存する</Button>
- <Button variant="secondary">キャンセル</Button>
- <Button variant="danger">削除する</Button>
- ```
- </Fragment>
+    <Button>保存する</Button>
+    <Button variant="secondary">キャンセル</Button>
+    <Button variant="danger">削除する</Button>
+    ```
+  </Fragment>
 </Demo>
 
 ## 使い方
@@ -38,12 +38,12 @@ import ButtonDemo from "../../demos/ButtonDemo";
 
 {/* Do/Don't の出典: docs/L2-components/guides.md#button */}
 <DoDont
- dos={[
- "Primary は 1 ビュー（画面 / Dialog）に 1 つ",
- "danger は必ず secondary（キャンセル）と併置",
- "loading で非同期処理中を示す（反応は 400ms 未満）",
- ]}
- donts={["複数 Primary を並置", "削除ボタンの単独配置", "二重送信を防がない / 無反応のまま待たせる"]}
+  dos={[
+    "Primary は 1 ビュー（画面 / Dialog）に 1 つ",
+    "danger は必ず secondary（キャンセル）と併置",
+    "loading で非同期処理中を示す（反応は 400ms 未満）",
+  ]}
+  donts={["複数 Primary を並置", "削除ボタンの単独配置", "二重送信を防がない / 無反応のまま待たせる"]}
 />
 
 **状態**: `disabled` / `loading` は props。hover / active / focus は CSS（`:focus-visible`）で制御される。

@@ -6,9 +6,9 @@ order: 35
 description: "モバイルメニューの開閉トリガー。"
 tokenPrefix: hamburger-menu-button
 props:
- - { name: open, type: boolean, default: "false", description: "開閉状態" }
- - { name: openLabel, type: string, description: "閉じているときの aria-label" }
- - { name: closeLabel, type: string, description: "開いているときの aria-label" }
+  - { name: open, type: boolean, default: "false", description: "開閉状態" }
+  - { name: openLabel, type: string, description: "閉じているときの aria-label" }
+  - { name: closeLabel, type: string, description: "開いているときの aria-label" }
 ---
 
 import Demo from "../../components/Demo.astro";
@@ -18,12 +18,12 @@ import HamburgerMenuButtonDemo from "../../demos/HamburgerMenuButtonDemo";
 ## デモ
 
 <Demo>
- <HamburgerMenuButtonDemo client:visible slot="stage" />
- <Fragment slot="code">
- ```tsx
- import { HamburgerMenuButton } from "@soundlabbit/design-system/ui";
- ```
- </Fragment>
+  <HamburgerMenuButtonDemo client:visible slot="stage" />
+  <Fragment slot="code">
+    ```tsx
+    import { HamburgerMenuButton } from "@soundlabbit/design-system/ui";
+    ```
+  </Fragment>
 </Demo>
 
 ## 使い方
@@ -31,6 +31,6 @@ import HamburgerMenuButtonDemo from "../../demos/HamburgerMenuButtonDemo";
 Drawer / モバイルナビと組み合わせる。
 
 <DoDont
- dos={["aria-expanded と label を状態に合わせる", "44px 以上のタップ領域を保つ"]}
- donts={["見た目だけのアイコンにする", "デスクトップ常時ナビの代わりに多用する"]}
+  dos={["aria-expanded と label を状態に合わせる", "44px 以上のタップ領域を保つ"]}
+  donts={["見た目だけのアイコンにする", "デスクトップ常時ナビの代わりに多用する"]}
 />

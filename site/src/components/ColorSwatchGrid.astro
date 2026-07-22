@@ -2,8 +2,8 @@
 import { colorGroup, THEME_IDS } from "../lib/tokens";
 
 interface Props {
- group: "surface" | "text" | "border" | "action" | "feedback" | "interactive";
- title: string;
+  group: "surface" | "text" | "border" | "action" | "feedback" | "interactive";
+  title: string;
 }
 
 const { group, title } = Astro.props;
@@ -11,42 +11,42 @@ const rows = colorGroup(group);
 ---
 
 {
- rows.length > 0 ? (
- <section>
- <h3>{title}</h3>
- <div class="docs-swatch-grid">
- {rows.map((row) => (
- <div class="docs-swatch">
- <div class="docs-swatch__color" style={`background: var(${row.cssVar})`} />
- <div class="docs-swatch__meta">
- <span class="docs-swatch__name">{row.label}</span>
- <span class="docs-swatch__var">var({row.cssVar})</span>
- </div>
- </div>
- ))}
- </div>
- <div class="docs-token-table__wrap">
- <table class="docs-token-table">
- <thead>
- <tr>
- <th>トークン</th>
- {THEME_IDS.map((id) => (
- <th>{id}</th>
- ))}
- </tr>
- </thead>
- <tbody>
- {rows.map((row) => (
- <tr>
- <td>{row.key}</td>
- {THEME_IDS.map((id) => (
- <td>{row.valuesByTheme[id]}</td>
- ))}
- </tr>
- ))}
- </tbody>
- </table>
- </div>
- </section>
- ) : null
+  rows.length > 0 ? (
+    <section>
+      <h3>{title}</h3>
+      <div class="docs-swatch-grid">
+        {rows.map((row) => (
+          <div class="docs-swatch">
+            <div class="docs-swatch__color" style={`background: var(${row.cssVar})`} />
+            <div class="docs-swatch__meta">
+              <span class="docs-swatch__name">{row.label}</span>
+              <span class="docs-swatch__var">var({row.cssVar})</span>
+            </div>
+          </div>
+        ))}
+      </div>
+      <div class="docs-token-table__wrap">
+        <table class="docs-token-table">
+          <thead>
+            <tr>
+              <th>トークン</th>
+              {THEME_IDS.map((id) => (
+                <th>{id}</th>
+              ))}
+            </tr>
+          </thead>
+          <tbody>
+            {rows.map((row) => (
+              <tr>
+                <td>{row.key}</td>
+                {THEME_IDS.map((id) => (
+                  <td>{row.valuesByTheme[id]}</td>
+                ))}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </section>
+  ) : null
 }

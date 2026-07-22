@@ -6,9 +6,9 @@ order: 19
 description: "サイト階層内の現在位置を示し、上位階層へ戻れるナビゲーション。"
 tokenPrefix: breadcrumb
 props:
- - { name: items, type: "BreadcrumbItem[]", description: "階層ラベルと任意の href。最終項目は現在地" }
- - { name: separator, type: ReactNode, default: "›", description: "項目間の区切り文字" }
- - { name: overflow, type: '"wrap" | "scroll"', default: '"wrap"', description: "はみ出し時の改行または横スクロール" }
+  - { name: items, type: "BreadcrumbItem[]", description: "階層ラベルと任意の href。最終項目は現在地" }
+  - { name: separator, type: ReactNode, default: "›", description: "項目間の区切り文字" }
+  - { name: overflow, type: '"wrap" | "scroll"', default: '"wrap"', description: "はみ出し時の改行または横スクロール" }
 ---
 
 import Demo from "../../components/Demo.astro";
@@ -18,20 +18,20 @@ import BreadcrumbDemo from "../../demos/BreadcrumbDemo";
 ## デモ
 
 <Demo>
- <BreadcrumbDemo client:visible slot="stage" />
- <Fragment slot="code">
- ```tsx
- import { Breadcrumb } from "@soundlabbit/design-system/ui";
+  <BreadcrumbDemo client:visible slot="stage" />
+  <Fragment slot="code">
+    ```tsx
+    import { Breadcrumb } from "@soundlabbit/design-system/ui";
 
- <Breadcrumb
- items={[
- { label: "ホーム", href: "/" },
- { label: "コンポーネント", href: "/components" },
- { label: "パンくずリスト" },
- ]}
- />
- ```
- </Fragment>
+    <Breadcrumb
+      items={[
+        { label: "ホーム", href: "/" },
+        { label: "コンポーネント", href: "/components" },
+        { label: "パンくずリスト" },
+      ]}
+    />
+    ```
+  </Fragment>
 </Demo>
 
 ## 使い方
@@ -39,6 +39,6 @@ import BreadcrumbDemo from "../../demos/BreadcrumbDemo";
 ヘッダーとページ見出しのあいだに置き、階層の深さを伝える。長い場合は既定の改行（`overflow="wrap"`）を使い、押し下げを避けたいときは `scroll` を検討する（DADS ではその場合ページ下部に wrap 版の併置を推奨）。
 
 <DoDont
- dos={["現在地はリンクにせず aria-current=page にする", "祖先には意味のある href を渡す"]}
- donts={["装飾だけの短いパンくずを置く", "ページ内アンカー一覧の代わりに使う"]}
+  dos={["現在地はリンクにせず aria-current=page にする", "祖先には意味のある href を渡す"]}
+  donts={["装飾だけの短いパンくずを置く", "ページ内アンカー一覧の代わりに使う"]}
 />

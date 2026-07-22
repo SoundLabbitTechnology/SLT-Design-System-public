@@ -17,9 +17,9 @@ UI と AI は semantic / component token だけを参照します。
 
 ```css
 .notice {
- color: var(--color-text-primary);
- background: var(--color-feedback-info-surface);
- border: 1px solid var(--color-feedback-info);
+  color: var(--color-text-primary);
+  background: var(--color-feedback-info-surface);
+  border: 1px solid var(--color-feedback-info);
 }
 ```
 
@@ -49,8 +49,8 @@ Button や Input の見た目は component token が semantic token を参照し
 
 ```css
 .slt-btn--primary {
- background: var(--button-primary-bg);
- color: var(--button-primary-text);
+  background: var(--button-primary-bg);
+  color: var(--button-primary-text);
 }
 ```
 

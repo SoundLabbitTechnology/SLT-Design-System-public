@@ -6,8 +6,8 @@ order: 8
 description: 複数の選択肢から1つだけを選ぶ排他選択。
 tokenPrefix: radio
 props:
- - { name: label, type: string, description: 選択肢ラベル（原則必須） }
- - { name: error, type: boolean, default: "false", description: エラー状態の表示切替 }
+  - { name: label, type: string, description: 選択肢ラベル（原則必須） }
+  - { name: error, type: boolean, default: "false", description: エラー状態の表示切替 }
 ---
 
 import Demo from "../../components/Demo.astro";
@@ -17,17 +17,17 @@ import RadioDemo from "../../demos/RadioDemo";
 ## デモ
 
 <Demo>
- <RadioDemo client:visible slot="stage" />
- <Fragment slot="code">
- ```tsx
- import { Radio, RadioGroup } from "@soundlabbit/design-system/ui";
+  <RadioDemo client:visible slot="stage" />
+  <Fragment slot="code">
+    ```tsx
+    import { Radio, RadioGroup } from "@soundlabbit/design-system/ui";
 
- <RadioGroup legend="連絡方法" name="contact">
- <Radio name="contact" label="メール" value="email" defaultChecked />
- <Radio name="contact" label="電話" value="phone" />
- </RadioGroup>
- ```
- </Fragment>
+    <RadioGroup legend="連絡方法" name="contact">
+      <Radio name="contact" label="メール" value="email" defaultChecked />
+      <Radio name="contact" label="電話" value="phone" />
+    </RadioGroup>
+    ```
+  </Fragment>
 </Demo>
 
 ## 使い方
@@ -35,8 +35,8 @@ import RadioDemo from "../../demos/RadioDemo";
 複数の選択肢からひとつの項目だけを選ぶときに使う。任意項目では「あてはまるものはない」など無選択を表す選択肢を用意する。
 
 <DoDont
- dos={["同じ name の Radio を RadioGroup（fieldset）でまとめる", "任意選択では無選択を意味する選択肢を設ける"]}
- donts={["複数回答できる設問に使う（Checkbox を使う）", "選択解除できない仕様のまま任意項目にする"]}
+  dos={["同じ name の Radio を RadioGroup（fieldset）でまとめる", "任意選択では無選択を意味する選択肢を設ける"]}
+  donts={["複数回答できる設問に使う（Checkbox を使う）", "選択解除できない仕様のまま任意項目にする"]}
 />
 
 **状態**: `disabled` / `error` / `checked`。キーボードで矢印キーによるグループ内移動と Space 選択を確認できる。

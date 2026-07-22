@@ -6,19 +6,19 @@ order: 45
 description: 入力で候補を絞り込み、一覧から1つを選ぶコンボボックス。
 tokenPrefix: combobox
 props:
- - { name: label, type: string, description: フィールドラベル（原則必須） }
- - { name: options, type: "ComboboxOption[]", description: "value / label / disabled の候補" }
- - { name: value, type: string, description: 選択値（controlled） }
- - { name: defaultValue, type: string, description: 非制御の初期選択値 }
- - { name: onValueChange, type: "(value: string) => void", description: 選択変更時 }
- - { name: placeholder, type: string, default: '"選択または入力"', description: 未選択時のプレースホルダ }
- - { name: emptyLabel, type: string, default: '"該当なし"', description: 一致候補がないとき }
- - { name: toggleLabel, type: string, default: '"候補を開く"', description: 開閉ボタンの accessible name }
- - { name: hint, type: string, description: 補足説明 }
- - { name: error, type: boolean, default: "false", description: エラー状態 }
- - { name: errorMessage, type: string, description: エラーメッセージ }
- - { name: disabled, type: boolean, default: "false", description: 無効化 }
- - { name: name, type: string, description: フォーム送信用の hidden input 名 }
+  - { name: label, type: string, description: フィールドラベル（原則必須） }
+  - { name: options, type: "ComboboxOption[]", description: "value / label / disabled の候補" }
+  - { name: value, type: string, description: 選択値（controlled） }
+  - { name: defaultValue, type: string, description: 非制御の初期選択値 }
+  - { name: onValueChange, type: "(value: string) => void", description: 選択変更時 }
+  - { name: placeholder, type: string, default: '"選択または入力"', description: 未選択時のプレースホルダ }
+  - { name: emptyLabel, type: string, default: '"該当なし"', description: 一致候補がないとき }
+  - { name: toggleLabel, type: string, default: '"候補を開く"', description: 開閉ボタンの accessible name }
+  - { name: hint, type: string, description: 補足説明 }
+  - { name: error, type: boolean, default: "false", description: エラー状態 }
+  - { name: errorMessage, type: string, description: エラーメッセージ }
+  - { name: disabled, type: boolean, default: "false", description: 無効化 }
+  - { name: name, type: string, description: フォーム送信用の hidden input 名 }
 ---
 
 import Demo from "../../components/Demo.astro";
@@ -28,20 +28,20 @@ import ComboboxDemo from "../../demos/ComboboxDemo";
 ## デモ
 
 <Demo>
- <ComboboxDemo client:visible slot="stage" />
- <Fragment slot="code">
- ```tsx
- import { Combobox } from "@soundlabbit/design-system/ui";
+  <ComboboxDemo client:visible slot="stage" />
+  <Fragment slot="code">
+    ```tsx
+    import { Combobox } from "@soundlabbit/design-system/ui";
 
- <Combobox
- label="都道府県"
- options={[
- { value: "tokyo", label: "東京都" },
- { value: "osaka", label: "大阪府" },
- ]}
- />
- ```
- </Fragment>
+    <Combobox
+      label="都道府県"
+      options={[
+        { value: "tokyo", label: "東京都" },
+        { value: "osaka", label: "大阪府" },
+      ]}
+    />
+    ```
+  </Fragment>
 </Demo>
 
 ## 使い方
@@ -49,6 +49,6 @@ import ComboboxDemo from "../../demos/ComboboxDemo";
 長いリストを入力で絞り込むときに使う。短い固定リストは Select または Radio を優先する。
 
 <DoDont
- dos={["候補は value と表示 label を分けて渡す", "キーボード（Arrow / Enter / Escape）で操作できるようにする"]}
- donts={["少数の固定選択肢に使う（Select / Radio）", "自由入力だけが目的の検索欄に使う（SearchBox）"]}
+  dos={["候補は value と表示 label を分けて渡す", "キーボード（Arrow / Enter / Escape）で操作できるようにする"]}
+  donts={["少数の固定選択肢に使う（Select / Radio）", "自由入力だけが目的の検索欄に使う（SearchBox）"]}
 />

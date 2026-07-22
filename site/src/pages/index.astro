@@ -3,59 +3,59 @@ import DocLayout from "../layouts/DocLayout.astro";
 import { BrandBackground } from "@soundlabbit/design-system/ui";
 
 const sections = [
- {
- title: "はじめに使う",
- description: "パッケージを入れて、見た目を決め、部品を置くまでの最短手順",
- href: "/getting-started/",
- },
- {
- title: "判断の原則",
- description: "迷ったときに何を優先するか（見た目より伝わりやすさ、など）",
- href: "/principles/",
- },
- {
- title: "色・文字・余白",
- description: "用途つきのデザイン変数と、ブランドごとの見た目",
- href: "/foundations/",
- },
- {
- title: "部品一覧",
- description: "ボタンや入力など、そのまま使える React 部品",
- href: "/components/",
- },
- {
- title: "書き方と品質",
- description: "文言の揃え方、アクセシビリティ、社内向けの手入れ手順",
- href: "/guidelines/",
- },
+  {
+    title: "はじめに使う",
+    description: "パッケージを入れて、見た目を決め、部品を置くまでの最短手順",
+    href: "/getting-started/",
+  },
+  {
+    title: "判断の原則",
+    description: "迷ったときに何を優先するか（見た目より伝わりやすさ、など）",
+    href: "/principles/",
+  },
+  {
+    title: "色・文字・余白",
+    description: "用途つきのデザイン変数と、ブランドごとの見た目",
+    href: "/foundations/",
+  },
+  {
+    title: "部品一覧",
+    description: "ボタンや入力など、そのまま使える React 部品",
+    href: "/components/",
+  },
+  {
+    title: "書き方と品質",
+    description: "文言の揃え方、アクセシビリティ、社内向けの手入れ手順",
+    href: "/guidelines/",
+  },
 ];
 const base = import.meta.env.BASE_URL.replace(/\/$/, "");
 ---
 
 <DocLayout title="はじめに">
- <section class="docs-hero">
- <div class="docs-hero__background">
- <BrandBackground client:load />
- </div>
- <div class="docs-hero__content">
- <p class="docs-page-hero__eyebrow">SLT Design System</p>
- <h1 class="docs-page-hero__title">同じ言葉で、複数ブランドの画面を揃える</h1>
- <p class="docs-page-hero__description">
- AI-DASH、Sound Laboratory、コーポレート、Admin 向けに、色・余白・部品の使い方を共有します。
- ヘッダーの「検索」からドキュメント内を探せます。わからない用語は
- <a href={`${base}/guidelines/terminology/`}>用語と命名</a>を参照してください。
- </p>
- </div>
- </section>
+  <section class="docs-hero">
+    <div class="docs-hero__background">
+      <BrandBackground client:load />
+    </div>
+    <div class="docs-hero__content">
+      <p class="docs-page-hero__eyebrow">SLT Design System</p>
+      <h1 class="docs-page-hero__title">同じ言葉で、複数ブランドの画面を揃える</h1>
+      <p class="docs-page-hero__description">
+        AI-DASH、Sound Laboratory、コーポレート、Admin 向けに、色・余白・部品の使い方を共有します。
+        ヘッダーの「検索」からドキュメント内を探せます。わからない用語は
+        <a href={`${base}/guidelines/terminology/`}>用語と命名</a>を参照してください。
+      </p>
+    </div>
+  </section>
 
- <div class="docs-card-grid">
- {
- sections.map((section) => (
- <a class="slt-card" href={`${base}${section.href}`}>
- <h2 class="docs-section-card__title">{section.title}</h2>
- <p class="docs-section-card__desc">{section.description}</p>
- </a>
- ))
- }
- </div>
+  <div class="docs-card-grid">
+    {
+      sections.map((section) => (
+        <a class="slt-card" href={`${base}${section.href}`}>
+          <h2 class="docs-section-card__title">{section.title}</h2>
+          <p class="docs-section-card__desc">{section.description}</p>
+        </a>
+      ))
+    }
+  </div>
 </DocLayout>

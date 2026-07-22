@@ -6,10 +6,10 @@ order: 29
 description: "処理やアップロードなどの進捗を示す。"
 tokenPrefix: progress-indicator
 props:
- - { name: value, type: number, description: "現在値（省略で indeterminate）" }
- - { name: max, type: number, default: "100", description: "最大値" }
- - { name: label, type: string, description: "進捗の名称" }
- - { name: showValueLabel, type: boolean, default: "true", description: "パーセント表示" }
+  - { name: value, type: number, description: "現在値（省略で indeterminate）" }
+  - { name: max, type: number, default: "100", description: "最大値" }
+  - { name: label, type: string, description: "進捗の名称" }
+  - { name: showValueLabel, type: boolean, default: "true", description: "パーセント表示" }
 ---
 
 import Demo from "../../components/Demo.astro";
@@ -19,14 +19,14 @@ import ProgressIndicatorDemo from "../../demos/ProgressIndicatorDemo";
 ## デモ
 
 <Demo>
- <ProgressIndicatorDemo client:visible slot="stage" />
- <Fragment slot="code">
- ```tsx
- import { ProgressIndicator } from "@soundlabbit/design-system/ui";
+  <ProgressIndicatorDemo client:visible slot="stage" />
+  <Fragment slot="code">
+    ```tsx
+    import { ProgressIndicator } from "@soundlabbit/design-system/ui";
 
- <ProgressIndicator label="アップロード" value={40} id="upload" />
- ```
- </Fragment>
+    <ProgressIndicator label="アップロード" value={40} id="upload" />
+    ```
+  </Fragment>
 </Demo>
 
 ## 使い方
@@ -34,6 +34,6 @@ import ProgressIndicatorDemo from "../../demos/ProgressIndicatorDemo";
 確定した進捗があるときは `value`、不明な待ちは value 省略（indeterminate）。手続きの段階表示は StepNavigation。
 
 <DoDont
- dos={["分かる進捗はパーセントまたは分数で示す", "ラベルで何の進捗か伝える"]}
- donts={["ステップ進捗に Progress を使う", "完了後も indeterminate のままにする"]}
+  dos={["分かる進捗はパーセントまたは分数で示す", "ラベルで何の進捗か伝える"]}
+  donts={["ステップ進捗に Progress を使う", "完了後も indeterminate のままにする"]}
 />

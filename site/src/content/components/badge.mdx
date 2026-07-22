@@ -6,7 +6,7 @@ order: 6
 description: ステータス・カテゴリの短いラベル。
 tokenPrefix: badge
 props:
- - { name: variant, type: '"default" | "success" | "warning" | "danger" | "info"', default: '"default"', description: 意味に応じたトーン }
+  - { name: variant, type: '"default" | "success" | "warning" | "danger" | "info"', default: '"default"', description: 意味に応じたトーン }
 ---
 
 import Demo from "../../components/Demo.astro";
@@ -16,15 +16,15 @@ import BadgeDemo from "../../demos/BadgeDemo";
 ## デモ
 
 <Demo>
- <BadgeDemo client:visible slot="stage" />
- <Fragment slot="code">
- ```tsx
- import { Badge } from "@soundlabbit/design-system/ui";
+  <BadgeDemo client:visible slot="stage" />
+  <Fragment slot="code">
+    ```tsx
+    import { Badge } from "@soundlabbit/design-system/ui";
 
- <Badge variant="success">完了</Badge>
- <Badge variant="danger">エラー</Badge>
- ```
- </Fragment>
+    <Badge variant="success">完了</Badge>
+    <Badge variant="danger">エラー</Badge>
+    ```
+  </Fragment>
 </Demo>
 
 ## 使い方
@@ -33,6 +33,6 @@ import BadgeDemo from "../../demos/BadgeDemo";
 
 {/* Do/Don't の出典: docs/L2-components/guides.md#badge */}
 <DoDont
- dos={["1〜3 語の短いラベルにする", "意味に合った variant（success / warning 等）を使う"]}
- donts={["段落テキストを入れる", "装飾だけの色分けをする"]}
+  dos={["1〜3 語の短いラベルにする", "意味に合った variant（success / warning 等）を使う"]}
+  donts={["段落テキストを入れる", "装飾だけの色分けをする"]}
 />

@@ -6,8 +6,8 @@ order: 12
 description: セクションやコンテンツグループ間の視覚的な区切り。
 tokenPrefix: divider
 props:
- - { name: label, type: string, description: "区切り線上のラベル（例: 「または」）" }
- - { name: orientation, type: '"horizontal" | "vertical"', default: '"horizontal"', description: 向き }
+  - { name: label, type: string, description: "区切り線上のラベル（例: 「または」）" }
+  - { name: orientation, type: '"horizontal" | "vertical"', default: '"horizontal"', description: 向き }
 ---
 
 import Demo from "../../components/Demo.astro";
@@ -17,15 +17,15 @@ import DividerDemo from "../../demos/DividerDemo";
 ## デモ
 
 <Demo>
- <DividerDemo client:visible slot="stage" />
- <Fragment slot="code">
- ```tsx
- import { Divider } from "@soundlabbit/design-system/ui";
+  <DividerDemo client:visible slot="stage" />
+  <Fragment slot="code">
+    ```tsx
+    import { Divider } from "@soundlabbit/design-system/ui";
 
- <Divider />
- <Divider label="または" />
- ```
- </Fragment>
+    <Divider />
+    <Divider label="または" />
+    ```
+  </Fragment>
 </Demo>
 
 ## 使い方
@@ -33,6 +33,6 @@ import DividerDemo from "../../demos/DividerDemo";
 異なるセクションやコンポーネント群のあいだに視覚的な区切りを置く。余白だけで十分なら使わない。
 
 <DoDont
- dos={["意味の異なるコンテンツ群の境界に使う", "必要なら短い label で関係を補足する"]}
- donts={["装飾のためだけに多用する", "見出しの代わりに使う"]}
+  dos={["意味の異なるコンテンツ群の境界に使う", "必要なら短い label で関係を補足する"]}
+  donts={["装飾のためだけに多用する", "見出しの代わりに使う"]}
 />

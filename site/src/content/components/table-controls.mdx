@@ -6,10 +6,10 @@ order: 49
 description: DataTable 上部の検索・フィルタ・アクション帯。
 tokenPrefix: ""
 props:
- - { name: title, type: "ReactNode", description: 件数などの見出し }
- - { name: search, type: "TableControlsSearchProps", description: SearchBox を内蔵 }
- - { name: actions, type: "ReactNode", description: 追加・エクスポート等 }
- - { name: children, type: "ReactNode", description: フィルタ Chip 等 }
+  - { name: title, type: "ReactNode", description: 件数などの見出し }
+  - { name: search, type: "TableControlsSearchProps", description: SearchBox を内蔵 }
+  - { name: actions, type: "ReactNode", description: 追加・エクスポート等 }
+  - { name: children, type: "ReactNode", description: フィルタ Chip 等 }
 ---
 
 import Demo from "../../components/Demo.astro";
@@ -19,14 +19,14 @@ import TableControlsDemo from "../../demos/TableControlsDemo";
 ## デモ
 
 <Demo>
- <TableControlsDemo client:visible slot="stage" />
- <Fragment slot="code">
- ```tsx
- import { TableControls, Button } from "@soundlabbit/design-system/ui";
+  <TableControlsDemo client:visible slot="stage" />
+  <Fragment slot="code">
+    ```tsx
+    import { TableControls, Button } from "@soundlabbit/design-system/ui";
 
- <TableControls title="12 件" search={{ label: "検索" }} actions={<Button>追加</Button>} />
- ```
- </Fragment>
+    <TableControls title="12 件" search={{ label: "検索" }} actions={<Button>追加</Button>} />
+    ```
+  </Fragment>
 </Demo>
 
 ## 使い方
@@ -34,6 +34,6 @@ import TableControlsDemo from "../../demos/TableControlsDemo";
 DataTable の直上に置く操作帯。複雑なフィルタ UI は product 側で組み立てる。
 
 <DoDont
- dos={["toolbar として aria-label を付ける", "検索と破壊的アクションを視覚的に分ける"]}
- donts={["テーブル本体のソート UI をここに移す", "ページ全体のサイト検索に転用する"]}
+  dos={["toolbar として aria-label を付ける", "検索と破壊的アクションを視覚的に分ける"]}
+  donts={["テーブル本体のソート UI をここに移す", "ページ全体のサイト検索に転用する"]}
 />

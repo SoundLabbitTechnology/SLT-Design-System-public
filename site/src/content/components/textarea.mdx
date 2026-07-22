@@ -6,10 +6,10 @@ order: 3
 description: 複数行入力（問い合わせ・コメント等）。
 tokenPrefix: input
 props:
- - { name: label, type: string, description: フィールドラベル }
- - { name: hint, type: string, description: 補足説明テキスト }
- - { name: error, type: boolean, default: "false", description: エラー状態の表示切替 }
- - { name: errorMessage, type: string, description: エラーメッセージ本文 }
+  - { name: label, type: string, description: フィールドラベル }
+  - { name: hint, type: string, description: 補足説明テキスト }
+  - { name: error, type: boolean, default: "false", description: エラー状態の表示切替 }
+  - { name: errorMessage, type: string, description: エラーメッセージ本文 }
 ---
 
 import Demo from "../../components/Demo.astro";
@@ -18,14 +18,14 @@ import TextareaDemo from "../../demos/TextareaDemo";
 ## デモ
 
 <Demo>
- <TextareaDemo client:visible slot="stage" />
- <Fragment slot="code">
- ```tsx
- import { Textarea } from "@soundlabbit/design-system/ui";
+  <TextareaDemo client:visible slot="stage" />
+  <Fragment slot="code">
+    ```tsx
+    import { Textarea } from "@soundlabbit/design-system/ui";
 
- <Textarea label="お問い合わせ内容" hint="1000文字以内でご記入ください" rows={4} />
- ```
- </Fragment>
+    <Textarea label="お問い合わせ内容" hint="1000文字以内でご記入ください" rows={4} />
+    ```
+  </Fragment>
 </Demo>
 
 ## 使い方

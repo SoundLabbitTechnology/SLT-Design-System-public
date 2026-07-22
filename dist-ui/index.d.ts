@@ -4,316 +4,316 @@ import * as DialogPrimitive from '@radix-ui/react-dialog';
 
 type ButtonVariant = "primary" | "secondary" | "danger" | "ghost";
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
- variant?: ButtonVariant;
- asChild?: boolean;
- loading?: boolean;
+    variant?: ButtonVariant;
+    asChild?: boolean;
+    loading?: boolean;
 }
 declare function Button({ variant, asChild, loading, disabled, className, children, type, ...props }: ButtonProps): react.JSX.Element;
 
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
- label?: string;
- hint?: string;
- error?: boolean;
- errorMessage?: string;
- /** DADS ラベル横並び作例。既定は縦並び */
- layout?: "vertical" | "horizontal";
+    label?: string;
+    hint?: string;
+    error?: boolean;
+    errorMessage?: string;
+    /** DADS ラベル横並び作例。既定は縦並び */
+    layout?: "vertical" | "horizontal";
 }
 declare function Input({ label, hint, error, errorMessage, layout, id, className, "aria-describedby": ariaDescribedBy, ...props }: InputProps): react.JSX.Element;
 
 interface TextareaProps extends TextareaHTMLAttributes<HTMLTextAreaElement> {
- label?: string;
- hint?: string;
- error?: boolean;
- errorMessage?: string;
+    label?: string;
+    hint?: string;
+    error?: boolean;
+    errorMessage?: string;
 }
 declare function Textarea({ label, hint, error, errorMessage, id, className, "aria-describedby": ariaDescribedBy, ...props }: TextareaProps): react.JSX.Element;
 
 interface CheckboxProps extends Omit<InputHTMLAttributes<HTMLInputElement>, "type"> {
- label?: string;
- hint?: string;
- error?: boolean;
- errorMessage?: string;
+    label?: string;
+    hint?: string;
+    error?: boolean;
+    errorMessage?: string;
 }
 declare function Checkbox({ label, hint, error, errorMessage, id, className, "aria-describedby": ariaDescribedBy, ...props }: CheckboxProps): react.JSX.Element;
 
 interface RadioProps extends Omit<InputHTMLAttributes<HTMLInputElement>, "type"> {
- label?: string;
- error?: boolean;
+    label?: string;
+    error?: boolean;
 }
 declare function Radio({ label, error, id, className, ...props }: RadioProps): react.JSX.Element;
 interface RadioGroupProps {
- legend: string;
- name: string;
- children: ReactNode;
- hint?: string;
- error?: boolean;
- errorMessage?: string;
- className?: string;
+    legend: string;
+    name: string;
+    children: ReactNode;
+    hint?: string;
+    error?: boolean;
+    errorMessage?: string;
+    className?: string;
 }
 declare function RadioGroup({ legend, name, children, hint, error, errorMessage, className, }: RadioGroupProps): react.JSX.Element;
 
 interface SelectProps extends SelectHTMLAttributes<HTMLSelectElement> {
- label?: string;
- hint?: string;
- error?: boolean;
- errorMessage?: string;
- layout?: "vertical" | "horizontal";
+    label?: string;
+    hint?: string;
+    error?: boolean;
+    errorMessage?: string;
+    layout?: "vertical" | "horizontal";
 }
 declare function Select({ label, hint, error, errorMessage, layout, id, className, children, "aria-describedby": ariaDescribedBy, ...props }: SelectProps): react.JSX.Element;
 
 interface ComboboxOption {
- value: string;
- label: string;
- disabled?: boolean;
+    value: string;
+    label: string;
+    disabled?: boolean;
 }
 interface ComboboxProps extends Omit<HTMLAttributes<HTMLDivElement>, "onChange" | "defaultValue"> {
- label?: string;
- hint?: string;
- error?: boolean;
- errorMessage?: string;
- options: ComboboxOption[];
- /** 選択値（controlled） */
- value?: string;
- defaultValue?: string;
- onValueChange?: (value: string) => void;
- placeholder?: string;
- disabled?: boolean;
- /** 一致なし時の listbox 文言（既定: 該当なし） */
- emptyLabel?: string;
- /** リスト開閉ボタンの accessible name（既定: 候補を開く） */
- toggleLabel?: string;
- name?: string;
- id?: string;
+    label?: string;
+    hint?: string;
+    error?: boolean;
+    errorMessage?: string;
+    options: ComboboxOption[];
+    /** 選択値（controlled） */
+    value?: string;
+    defaultValue?: string;
+    onValueChange?: (value: string) => void;
+    placeholder?: string;
+    disabled?: boolean;
+    /** 一致なし時の listbox 文言（既定: 該当なし） */
+    emptyLabel?: string;
+    /** リスト開閉ボタンの accessible name（既定: 候補を開く） */
+    toggleLabel?: string;
+    name?: string;
+    id?: string;
 }
 declare function Combobox({ label, hint, error, errorMessage, options, value: valueProp, defaultValue, onValueChange, placeholder, disabled, emptyLabel, toggleLabel, name, id, className, ...props }: ComboboxProps): react.JSX.Element;
 
 interface CalendarProps extends Omit<HTMLAttributes<HTMLDivElement>, "onChange"> {
- /** YYYY-MM-DD */
- value?: string;
- defaultValue?: string;
- onValueChange?: (value: string) => void;
- /** 表示月の基準（YYYY-MM-DD または YYYY-MM）。未指定時は value / 今日 */
- displayMonth?: string;
- onDisplayMonthChange?: (yearMonth: string) => void;
- min?: string;
- max?: string;
- disabled?: boolean;
- previousMonthLabel?: string;
- nextMonthLabel?: string;
- "aria-label"?: string;
+    /** YYYY-MM-DD */
+    value?: string;
+    defaultValue?: string;
+    onValueChange?: (value: string) => void;
+    /** 表示月の基準（YYYY-MM-DD または YYYY-MM）。未指定時は value / 今日 */
+    displayMonth?: string;
+    onDisplayMonthChange?: (yearMonth: string) => void;
+    min?: string;
+    max?: string;
+    disabled?: boolean;
+    previousMonthLabel?: string;
+    nextMonthLabel?: string;
+    "aria-label"?: string;
 }
 declare function Calendar({ value: valueProp, defaultValue, onValueChange, displayMonth: displayMonthProp, onDisplayMonthChange, min, max, disabled, previousMonthLabel, nextMonthLabel, "aria-label": ariaLabel, className, ...props }: CalendarProps): react.JSX.Element;
 interface DatePickerProps extends Omit<InputHTMLAttributes<HTMLInputElement>, "type" | "value" | "defaultValue" | "onChange"> {
- label?: string;
- hint?: string;
- error?: boolean;
- errorMessage?: string;
- value?: string;
- defaultValue?: string;
- onValueChange?: (value: string) => void;
- /** true のときカレンダーグリッドも表示 */
- showCalendar?: boolean;
+    label?: string;
+    hint?: string;
+    error?: boolean;
+    errorMessage?: string;
+    value?: string;
+    defaultValue?: string;
+    onValueChange?: (value: string) => void;
+    /** true のときカレンダーグリッドも表示 */
+    showCalendar?: boolean;
 }
 declare function DatePicker({ label, hint, error, errorMessage, value: valueProp, defaultValue, onValueChange, showCalendar, id, className, disabled, min, max, "aria-describedby": ariaDescribedBy, ...props }: DatePickerProps): react.JSX.Element;
 
 interface MegaMenuLink {
- label: ReactNode;
- href: string;
- description?: ReactNode;
+    label: ReactNode;
+    href: string;
+    description?: ReactNode;
 }
 interface MegaMenuSection {
- title?: ReactNode;
- links: MegaMenuLink[];
+    title?: ReactNode;
+    links: MegaMenuLink[];
 }
 interface MegaMenuItem {
- label: ReactNode;
- href?: string;
- current?: boolean;
- /** あるときメガパネルを開く */
- sections?: MegaMenuSection[];
+    label: ReactNode;
+    href?: string;
+    current?: boolean;
+    /** あるときメガパネルを開く */
+    sections?: MegaMenuSection[];
 }
 interface MegaMenuProps extends HTMLAttributes<HTMLElement> {
- items: MegaMenuItem[];
- "aria-label"?: string;
+    items: MegaMenuItem[];
+    "aria-label"?: string;
 }
 declare function MegaMenu({ items, className, "aria-label": ariaLabel, ...props }: MegaMenuProps): react.JSX.Element;
 
 interface MenuListBoxOption {
- value: string;
- label: ReactNode;
- disabled?: boolean;
+    value: string;
+    label: ReactNode;
+    disabled?: boolean;
 }
 interface MenuListBoxProps extends Omit<HTMLAttributes<HTMLUListElement>, "onChange"> {
- options: MenuListBoxOption[];
- /** 単一選択（既定） */
- value?: string;
- defaultValue?: string;
- onValueChange?: (value: string) => void;
- /** 複数選択 */
- multiple?: boolean;
- values?: string[];
- defaultValues?: string[];
- onValuesChange?: (values: string[]) => void;
- "aria-label"?: string;
+    options: MenuListBoxOption[];
+    /** 単一選択（既定） */
+    value?: string;
+    defaultValue?: string;
+    onValueChange?: (value: string) => void;
+    /** 複数選択 */
+    multiple?: boolean;
+    values?: string[];
+    defaultValues?: string[];
+    onValuesChange?: (values: string[]) => void;
+    "aria-label"?: string;
 }
 declare function MenuListBox({ options, value: valueProp, defaultValue, onValueChange, multiple, values: valuesProp, defaultValues, onValuesChange, className, "aria-label": ariaLabel, ...props }: MenuListBoxProps): react.JSX.Element;
 
 interface TableControlsSearchProps {
- label: string;
- hideLabel?: boolean;
- value?: string;
- defaultValue?: string;
- onValueChange?: (value: string) => void;
- onSearch?: (value: string) => void;
- placeholder?: string;
+    label: string;
+    hideLabel?: boolean;
+    value?: string;
+    defaultValue?: string;
+    onValueChange?: (value: string) => void;
+    onSearch?: (value: string) => void;
+    placeholder?: string;
 }
 interface TableControlsProps extends Omit<HTMLAttributes<HTMLDivElement>, "title"> {
- /** ツールバー全体の accessible name */
- "aria-label"?: string;
- /** 左側の見出し（件数など） */
- title?: ReactNode;
- /** 右側アクション（追加・エクスポート等） */
- actions?: ReactNode;
- /** 検索ボックスを内蔵する場合 */
- search?: TableControlsSearchProps;
- /** フィルタチップ等 */
- children?: ReactNode;
+    /** ツールバー全体の accessible name */
+    "aria-label"?: string;
+    /** 左側の見出し（件数など） */
+    title?: ReactNode;
+    /** 右側アクション（追加・エクスポート等） */
+    actions?: ReactNode;
+    /** 検索ボックスを内蔵する場合 */
+    search?: TableControlsSearchProps;
+    /** フィルタチップ等 */
+    children?: ReactNode;
 }
 /** DataTable 上部の検索・フィルタ・アクション帯 */
 declare function TableControls({ title, actions, search, children, className, "aria-label": ariaLabel, ...props }: TableControlsProps): react.JSX.Element;
 
 interface CarouselProps extends Omit<HTMLAttributes<HTMLDivElement>, "onChange"> {
- slides: ReactNode[];
- index?: number;
- defaultIndex?: number;
- onIndexChange?: (index: number) => void;
- /** 自動送り ms。0 / 未指定で無効。reduced motion では無効化 */
- autoPlayMs?: number;
- previousLabel?: string;
- nextLabel?: string;
- "aria-label"?: string;
- showDots?: boolean;
- getDotLabel?: (index: number) => string;
+    slides: ReactNode[];
+    index?: number;
+    defaultIndex?: number;
+    onIndexChange?: (index: number) => void;
+    /** 自動送り ms。0 / 未指定で無効。reduced motion では無効化 */
+    autoPlayMs?: number;
+    previousLabel?: string;
+    nextLabel?: string;
+    "aria-label"?: string;
+    showDots?: boolean;
+    getDotLabel?: (index: number) => string;
 }
 declare function Carousel({ slides, index: indexProp, defaultIndex, onIndexChange, autoPlayMs, previousLabel, nextLabel, "aria-label": ariaLabel, showDots, getDotLabel, className, ...props }: CarouselProps): react.JSX.Element;
 
 interface ImageSliderItem {
- src: string;
- alt: string;
- caption?: ReactNode;
+    src: string;
+    alt: string;
+    caption?: ReactNode;
 }
 interface ImageSliderProps extends Omit<CarouselProps, "slides"> {
- images: ImageSliderItem[];
+    images: ImageSliderItem[];
 }
 /** 画像専用カルーセル（Carousel + Image） */
 declare function ImageSlider({ images, className, "aria-label": ariaLabel, getDotLabel, ...props }: ImageSliderProps): react.JSX.Element;
 
 interface SwitchProps extends Omit<InputHTMLAttributes<HTMLInputElement>, "type" | "role"> {
- label?: string;
- hint?: string;
+    label?: string;
+    hint?: string;
 }
 declare function Switch({ label, hint, id, className, "aria-describedby": ariaDescribedBy, ...props }: SwitchProps): react.JSX.Element;
 
 type HeadingLevel = 1 | 2 | 3 | 4 | 5 | 6;
 interface HeadingProps extends HTMLAttributes<HTMLHeadingElement> {
- /** 見た目の階層。未指定時は `as` に合わせる */
- level?: HeadingLevel;
- /** セマンティックな見出し要素 */
- as?: HeadingLevel;
+    /** 見た目の階層。未指定時は `as` に合わせる */
+    level?: HeadingLevel;
+    /** セマンティックな見出し要素 */
+    as?: HeadingLevel;
 }
 declare function Heading({ level, as, className, children, ...props }: HeadingProps): react.JSX.Element;
 
 interface DividerProps extends HTMLAttributes<HTMLDivElement> {
- label?: string;
- orientation?: "horizontal" | "vertical";
+    label?: string;
+    orientation?: "horizontal" | "vertical";
 }
 declare function Divider({ label, orientation, className, ...props }: DividerProps): react.JSX.Element;
 
 type NoticeBlockVariant = "info" | "success" | "warning" | "danger";
 interface NoticeBlockProps extends HTMLAttributes<HTMLElement> {
- variant?: NoticeBlockVariant;
- title?: string;
- children: ReactNode;
+    variant?: NoticeBlockVariant;
+    title?: string;
+    children: ReactNode;
 }
 declare function NoticeBlock({ variant, title, className, children, ...props }: NoticeBlockProps): react.JSX.Element;
 
 interface BreadcrumbItem {
- label: ReactNode;
- /** 省略または最終項目は現在地（リンクにしない） */
- href?: string;
+    label: ReactNode;
+    /** 省略または最終項目は現在地（リンクにしない） */
+    href?: string;
 }
 interface BreadcrumbProps extends HTMLAttributes<HTMLElement> {
- items: BreadcrumbItem[];
- /** 項目間の区切り。既定は › */
- separator?: ReactNode;
- /**
- * はみ出し時の挙動（DADS 準拠）。
- * - `wrap`: 改行（既定。デスクトップ / モバイル改行仕様）
- * - `scroll`: 単一行の横スクロール（長い階層向け。ページ下部に wrap 版の併置を推奨）
- */
- overflow?: "wrap" | "scroll";
+    items: BreadcrumbItem[];
+    /** 項目間の区切り。既定は › */
+    separator?: ReactNode;
+    /**
+     * はみ出し時の挙動（DADS 準拠）。
+     * - `wrap`: 改行（既定。デスクトップ / モバイル改行仕様）
+     * - `scroll`: 単一行の横スクロール（長い階層向け。ページ下部に wrap 版の併置を推奨）
+     */
+    overflow?: "wrap" | "scroll";
 }
 declare function Breadcrumb({ items, separator, overflow, className, "aria-label": ariaLabel, ...props }: BreadcrumbProps): react.JSX.Element | null;
 
 interface TabsProps extends Omit<HTMLAttributes<HTMLDivElement>, "defaultValue"> {
- value?: string;
- defaultValue?: string;
- onValueChange?: (value: string) => void;
- orientation?: "horizontal" | "vertical";
- children: ReactNode;
+    value?: string;
+    defaultValue?: string;
+    onValueChange?: (value: string) => void;
+    orientation?: "horizontal" | "vertical";
+    children: ReactNode;
 }
 declare function Tabs({ value: valueProp, defaultValue, onValueChange, orientation, className, children, ...props }: TabsProps): react.JSX.Element;
 interface TabListProps extends HTMLAttributes<HTMLDivElement> {
- children: ReactNode;
+    children: ReactNode;
 }
 declare function TabList({ className, children, onKeyDown, ...props }: TabListProps): react.JSX.Element;
 interface TabProps extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, "value"> {
- value: string;
- children: ReactNode;
+    value: string;
+    children: ReactNode;
 }
 declare function Tab({ value, className, disabled, children, ...props }: TabProps): react.JSX.Element;
 interface TabPanelProps extends HTMLAttributes<HTMLDivElement> {
- value: string;
- children: ReactNode;
- /** 非選択時も DOM に残す（既定は非選択でアンマウント） */
- forceMount?: boolean;
+    value: string;
+    children: ReactNode;
+    /** 非選択時も DOM に残す（既定は非選択でアンマウント） */
+    forceMount?: boolean;
 }
 declare function TabPanel({ value, className, children, forceMount, ...props }: TabPanelProps): react.JSX.Element | null;
 
 type AccordionType = "single" | "multiple";
 interface AccordionProps extends Omit<HTMLAttributes<HTMLDivElement>, "defaultValue"> {
- type?: AccordionType;
- /** single: 開いている value。multiple: 開いている value の配列 */
- value?: string | string[];
- defaultValue?: string | string[];
- onValueChange?: (value: string | string[]) => void;
- children: ReactNode;
+    type?: AccordionType;
+    /** single: 開いている value。multiple: 開いている value の配列 */
+    value?: string | string[];
+    defaultValue?: string | string[];
+    onValueChange?: (value: string | string[]) => void;
+    children: ReactNode;
 }
 declare function Accordion({ type, value: valueProp, defaultValue, onValueChange, className, children, ...props }: AccordionProps): react.JSX.Element;
 interface AccordionItemProps extends HTMLAttributes<HTMLDivElement> {
- value: string;
- children: ReactNode;
+    value: string;
+    children: ReactNode;
 }
 declare function AccordionItem({ value, className, children, ...props }: AccordionItemProps): react.JSX.Element;
 interface AccordionTriggerProps extends ButtonHTMLAttributes<HTMLButtonElement> {
- children: ReactNode;
+    children: ReactNode;
 }
 declare function AccordionTrigger({ className, children, ...props }: AccordionTriggerProps): react.JSX.Element;
 interface AccordionContentProps extends HTMLAttributes<HTMLDivElement> {
- children: ReactNode;
- forceMount?: boolean;
+    children: ReactNode;
+    forceMount?: boolean;
 }
 declare function AccordionContent({ className, children, forceMount, ...props }: AccordionContentProps): react.JSX.Element | null;
 
 interface DisclosureProps extends Omit<DetailsHTMLAttributes<HTMLDetailsElement>, "open"> {
- /** トリガー文言（summary） */
- summary: ReactNode;
- /** 制御: 開閉状態 */
- open?: boolean;
- /** 非制御の初期開閉 */
- defaultOpen?: boolean;
- onOpenChange?: (open: boolean) => void;
- children: ReactNode;
+    /** トリガー文言（summary） */
+    summary: ReactNode;
+    /** 制御: 開閉状態 */
+    open?: boolean;
+    /** 非制御の初期開閉 */
+    defaultOpen?: boolean;
+    onOpenChange?: (open: boolean) => void;
+    children: ReactNode;
 }
 /**
  * メイン情報に対する追加・補足を折りたたむ（DADS ディスクロージャー）。
@@ -323,233 +323,233 @@ declare function Disclosure({ summary, open: openProp, defaultOpen, onOpenChange
 
 type ListVariant = "bullet" | "numbered";
 interface ListProps extends HTMLAttributes<HTMLUListElement> {
- /**
- * `bullet`: リストマーク。
- * `numbered`: 項番は CSS カウンタではなく、各 ListItem の `marker` を地のテキストとして表示（DADS）。
- */
- variant?: ListVariant;
- children: ReactNode;
+    /**
+     * `bullet`: リストマーク。
+     * `numbered`: 項番は CSS カウンタではなく、各 ListItem の `marker` を地のテキストとして表示（DADS）。
+     */
+    variant?: ListVariant;
+    children: ReactNode;
 }
 declare function List({ variant, className, children, ...props }: ListProps): react.JSX.Element;
 interface ListItemProps extends LiHTMLAttributes<HTMLLIElement> {
- /** numbered 時の項番テキスト（例: "1." / "（1）"）。bullet では無視 */
- marker?: ReactNode;
- children: ReactNode;
+    /** numbered 時の項番テキスト（例: "1." / "（1）"）。bullet では無視 */
+    marker?: ReactNode;
+    children: ReactNode;
 }
 declare function ListItem({ marker, className, children, ...props }: ListItemProps): react.JSX.Element;
 
 interface DescriptionListProps extends HTMLAttributes<HTMLDListElement> {
- children: ReactNode;
+    children: ReactNode;
 }
 declare function DescriptionList({ className, children, ...props }: DescriptionListProps): react.JSX.Element;
 interface DescriptionTermProps extends HTMLAttributes<HTMLElement> {
- children: ReactNode;
+    children: ReactNode;
 }
 declare function DescriptionTerm({ className, children, ...props }: DescriptionTermProps): react.JSX.Element;
 interface DescriptionDetailsProps extends HTMLAttributes<HTMLElement> {
- children: ReactNode;
+    children: ReactNode;
 }
 declare function DescriptionDetails({ className, children, ...props }: DescriptionDetailsProps): react.JSX.Element;
 
 interface BlockquoteProps extends BlockquoteHTMLAttributes<HTMLQuoteElement> {
- children: ReactNode;
- /** 出典表示（視覚）。cite 属性とは別に渡す */
- attribution?: ReactNode;
+    children: ReactNode;
+    /** 出典表示（視覚）。cite 属性とは別に渡す */
+    attribution?: ReactNode;
 }
 declare function Blockquote({ className, children, attribution, ...props }: BlockquoteProps): react.JSX.Element;
 
 interface ChipProps extends HTMLAttributes<HTMLSpanElement> {
- children: ReactNode;
- /** 選択状態（フィルタ等） */
- selected?: boolean;
- /** 削除可能なとき。ボタンに accessible name を付ける */
- onRemove?: => void;
- removeLabel?: string;
+    children: ReactNode;
+    /** 選択状態（フィルタ等） */
+    selected?: boolean;
+    /** 削除可能なとき。ボタンに accessible name を付ける */
+    onRemove?: () => void;
+    removeLabel?: string;
 }
 declare function Chip({ children, selected, onRemove, removeLabel, className, ...props }: ChipProps): react.JSX.Element;
 
 interface PageNavigationProps extends Omit<HTMLAttributes<HTMLElement>, "onChange"> {
- page: number;
- totalPages: number;
- onPageChange?: (page: number) => void;
- previousLabel?: string;
- nextLabel?: string;
- /** 各ページ番号ボタンの accessible name（既定: `{n}ページ`） */
- getPageLabel?: (page: number) => string;
- /** 省略記号の前後に表示する隣ページ数（既定 1） */
- siblingCount?: number;
+    page: number;
+    totalPages: number;
+    onPageChange?: (page: number) => void;
+    previousLabel?: string;
+    nextLabel?: string;
+    /** 各ページ番号ボタンの accessible name（既定: `{n}ページ`） */
+    getPageLabel?: (page: number) => string;
+    /** 省略記号の前後に表示する隣ページ数（既定 1） */
+    siblingCount?: number;
 }
 declare function PageNavigation({ page, totalPages, onPageChange, previousLabel, nextLabel, getPageLabel, siblingCount, className, "aria-label": ariaLabel, ...props }: PageNavigationProps): react.JSX.Element;
 
 interface StepNavigationItem {
- label: ReactNode;
- description?: ReactNode;
+    label: ReactNode;
+    description?: ReactNode;
 }
 interface StepNavigationProps extends HTMLAttributes<HTMLElement> {
- steps: StepNavigationItem[];
- /** 1-based current step */
- current: number;
+    steps: StepNavigationItem[];
+    /** 1-based current step */
+    current: number;
 }
 declare function StepNavigation({ steps, current, className, "aria-label": ariaLabel, ...props }: StepNavigationProps): react.JSX.Element;
 
 interface ProgressIndicatorProps extends Omit<ProgressHTMLAttributes<HTMLProgressElement>, "value"> {
- /** 0〜max。省略時は indeterminate */
- value?: number;
- max?: number;
- /** 視覚ラベル（progress の accessible name にも使う） */
- label?: string;
- showValueLabel?: boolean;
+    /** 0〜max。省略時は indeterminate */
+    value?: number;
+    max?: number;
+    /** 視覚ラベル（progress の accessible name にも使う） */
+    label?: string;
+    showValueLabel?: boolean;
 }
 declare function ProgressIndicator({ value, max, label, showValueLabel, className, id, "aria-label": ariaLabel, ...props }: ProgressIndicatorProps): react.JSX.Element;
 
 interface SearchBoxProps extends Omit<FormHTMLAttributes<HTMLFormElement>, "onSubmit"> {
- label: string;
- /** ラベルを視覚的に隠す（sr-only） */
- hideLabel?: boolean;
- placeholder?: string;
- defaultValue?: string;
- value?: string;
- onValueChange?: (value: string) => void;
- onSearch?: (value: string) => void;
- submitLabel?: ReactNode;
- inputProps?: Omit<InputHTMLAttributes<HTMLInputElement>, "type" | "value" | "defaultValue" | "onChange" | "placeholder" | "name">;
+    label: string;
+    /** ラベルを視覚的に隠す（sr-only） */
+    hideLabel?: boolean;
+    placeholder?: string;
+    defaultValue?: string;
+    value?: string;
+    onValueChange?: (value: string) => void;
+    onSearch?: (value: string) => void;
+    submitLabel?: ReactNode;
+    inputProps?: Omit<InputHTMLAttributes<HTMLInputElement>, "type" | "value" | "defaultValue" | "onChange" | "placeholder" | "name">;
 }
 declare function SearchBox({ label, hideLabel, placeholder, defaultValue, value, onValueChange, onSearch, submitLabel, className, inputProps, ...props }: SearchBoxProps): react.JSX.Element;
 
 interface ScrollTopButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
- /** 表示を開始するスクロール量（px）。既定 400 */
- threshold?: number;
- label?: string;
+    /** 表示を開始するスクロール量（px）。既定 400 */
+    threshold?: number;
+    label?: string;
 }
 declare function ScrollTopButton({ threshold, label, className, onClick, ...props }: ScrollTopButtonProps): react.JSX.Element | null;
 
 interface UtilityLinkProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
- children: ReactNode;
+    children: ReactNode;
 }
 /** フッター等の補助リンク（言語切替・ヘルプなど） */
 declare function UtilityLink({ className, children, ...props }: UtilityLinkProps): react.JSX.Element;
 
 interface HamburgerMenuButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
- open?: boolean;
- openLabel?: string;
- closeLabel?: string;
+    open?: boolean;
+    openLabel?: string;
+    closeLabel?: string;
 }
 declare function HamburgerMenuButton({ open, openLabel, closeLabel, className, ...props }: HamburgerMenuButtonProps): react.JSX.Element;
 
 type DrawerSide = "left" | "right";
 interface DrawerProps {
- open?: boolean;
- defaultOpen?: boolean;
- onOpenChange?: (open: boolean) => void;
- trigger?: ReactNode;
- title: string;
- description?: string;
- children?: ReactNode;
- side?: DrawerSide;
- showClose?: boolean;
- /** 閉じるボタンの accessible name（既定: 閉じる） */
- closeLabel?: string;
+    open?: boolean;
+    defaultOpen?: boolean;
+    onOpenChange?: (open: boolean) => void;
+    trigger?: ReactNode;
+    title: string;
+    description?: string;
+    children?: ReactNode;
+    side?: DrawerSide;
+    showClose?: boolean;
+    /** 閉じるボタンの accessible name（既定: 閉じる） */
+    closeLabel?: string;
 }
 declare function Drawer({ open, defaultOpen, onOpenChange, trigger, title, description, children, side, showClose, closeLabel, }: DrawerProps): react.JSX.Element;
 declare const DrawerClose: react.ForwardRefExoticComponent<DialogPrimitive.DialogCloseProps & react.RefAttributes<HTMLButtonElement>>;
 declare const DrawerTrigger: react.ForwardRefExoticComponent<DialogPrimitive.DialogTriggerProps & react.RefAttributes<HTMLButtonElement>>;
 
 interface FileUploadProps extends Omit<InputHTMLAttributes<HTMLInputElement>, "type" | "onChange"> {
- label: string;
- hint?: string;
- error?: boolean;
- errorMessage?: string;
- /** 選択ファイル名の表示（制御しない場合は内部表示） */
- onFilesChange?: (files: FileList | null) => void;
- buttonLabel?: ReactNode;
- /** 未選択時の表示（既定: 選択されていません） */
- emptyLabel?: string;
- /** 複数選択時の表示（既定: `{n} 件のファイル`） */
- multipleFilesLabel?: (count: number) => string;
+    label: string;
+    hint?: string;
+    error?: boolean;
+    errorMessage?: string;
+    /** 選択ファイル名の表示（制御しない場合は内部表示） */
+    onFilesChange?: (files: FileList | null) => void;
+    buttonLabel?: ReactNode;
+    /** 未選択時の表示（既定: 選択されていません） */
+    emptyLabel?: string;
+    /** 複数選択時の表示（既定: `{n} 件のファイル`） */
+    multipleFilesLabel?: (count: number) => string;
 }
 declare function FileUpload({ label, hint, error, errorMessage, onFilesChange, buttonLabel, emptyLabel, multipleFilesLabel, id, className, disabled, "aria-describedby": ariaDescribedBy, ...props }: FileUploadProps): react.JSX.Element;
 
 interface TableOfContentsItem {
- id: string;
- label: ReactNode;
- level?: 2 | 3 | 4;
+    id: string;
+    label: ReactNode;
+    level?: 2 | 3 | 4;
 }
 interface TableOfContentsProps extends HTMLAttributes<HTMLElement> {
- items: TableOfContentsItem[];
- title?: string;
+    items: TableOfContentsItem[];
+    title?: string;
 }
 declare function TableOfContents({ items, title, className, ...props }: TableOfContentsProps): react.JSX.Element | null;
 
 interface ResourceListItem {
- title: ReactNode;
- description?: ReactNode;
- href: string;
- meta?: ReactNode;
+    title: ReactNode;
+    description?: ReactNode;
+    href: string;
+    meta?: ReactNode;
 }
 interface ResourceListProps extends HTMLAttributes<HTMLUListElement> {
- items: ResourceListItem[];
+    items: ResourceListItem[];
 }
 declare function ResourceList({ items, className, ...props }: ResourceListProps): react.JSX.Element;
 
 interface ImageProps extends ImgHTMLAttributes<HTMLImageElement> {
- /** キャプション（figcaption） */
- caption?: ReactNode;
- /** 装飾画像のとき true（空 alt を強制） */
- decorative?: boolean;
+    /** キャプション（figcaption） */
+    caption?: ReactNode;
+    /** 装飾画像のとき true（空 alt を強制） */
+    decorative?: boolean;
 }
 declare function Image({ caption, decorative, alt, className, ...props }: ImageProps): react.JSX.Element;
 
 interface NavItem {
- label: ReactNode;
- href: string;
- current?: boolean;
+    label: ReactNode;
+    href: string;
+    current?: boolean;
 }
 interface HorizontalMenuProps extends HTMLAttributes<HTMLElement> {
- items: NavItem[];
- "aria-label"?: string;
+    items: NavItem[];
+    "aria-label"?: string;
 }
 /** ヘッダー等の水平ナビ。メガメニューは別途。 */
 declare function HorizontalMenu({ items, className, "aria-label": ariaLabel, ...props }: HorizontalMenuProps): react.JSX.Element;
 
 interface MenuListItem {
- label: ReactNode;
- href?: string;
- current?: boolean;
- disabled?: boolean;
- onSelect?: => void;
+    label: ReactNode;
+    href?: string;
+    current?: boolean;
+    disabled?: boolean;
+    onSelect?: () => void;
 }
 interface MenuListProps extends HTMLAttributes<HTMLUListElement> {
- items: MenuListItem[];
- /** listbox 的な選択 UI ではなくナビ / アクション一覧 */
- "aria-label"?: string;
+    items: MenuListItem[];
+    /** listbox 的な選択 UI ではなくナビ / アクション一覧 */
+    "aria-label"?: string;
 }
 /** 縦並びのメニュー項目一覧（ドロワー・モバイルメニュー内など） */
 declare function MenuList({ items, className, ...props }: MenuListProps): react.JSX.Element;
 
 interface BottomNavigationItem {
- label: ReactNode;
- href: string;
- current?: boolean;
- /** アイコン等のスロット（任意） */
- icon?: ReactNode;
+    label: ReactNode;
+    href: string;
+    current?: boolean;
+    /** アイコン等のスロット（任意） */
+    icon?: ReactNode;
 }
 interface BottomNavigationProps extends HTMLAttributes<HTMLElement> {
- items: BottomNavigationItem[];
- "aria-label"?: string;
+    items: BottomNavigationItem[];
+    "aria-label"?: string;
 }
 /** モバイル向け下部タブナビ（4〜5 項目想定） */
 declare function BottomNavigation({ items, className, "aria-label": ariaLabel, ...props }: BottomNavigationProps): react.JSX.Element;
 
 interface MobileMenuProps {
- open?: boolean;
- defaultOpen?: boolean;
- onOpenChange?: (open: boolean) => void;
- title?: string;
- items: MenuListItem[];
- side?: "left" | "right";
- className?: string;
- triggerClassName?: string;
- children?: ReactNode;
+    open?: boolean;
+    defaultOpen?: boolean;
+    onOpenChange?: (open: boolean) => void;
+    title?: string;
+    items: MenuListItem[];
+    side?: "left" | "right";
+    className?: string;
+    triggerClassName?: string;
+    children?: ReactNode;
 }
 /**
  * ハンバーガー + ドロワー + メニューリストの複合。
@@ -559,27 +559,27 @@ declare function MobileMenu({ open: openProp, defaultOpen, onOpenChange, title, 
 
 type CardVariant = "default" | "glass";
 interface CardProps extends HTMLAttributes<HTMLDivElement> {
- variant?: CardVariant;
+    variant?: CardVariant;
 }
 declare function Card({ variant, className, children, ...props }: CardProps): react.JSX.Element;
 
 interface DialogProps {
- open?: boolean;
- defaultOpen?: boolean;
- onOpenChange?: (open: boolean) => void;
- trigger?: ReactNode;
- title: string;
- description?: string;
- children?: ReactNode;
- confirmLabel?: string;
- cancelLabel?: string;
- /** 閉じるボタンの accessible name（既定: 閉じる） */
- closeLabel?: string;
- onConfirm?: => void;
- destructive?: boolean;
- showClose?: boolean;
- confirmLoading?: boolean;
- confirmDisabled?: boolean;
+    open?: boolean;
+    defaultOpen?: boolean;
+    onOpenChange?: (open: boolean) => void;
+    trigger?: ReactNode;
+    title: string;
+    description?: string;
+    children?: ReactNode;
+    confirmLabel?: string;
+    cancelLabel?: string;
+    /** 閉じるボタンの accessible name（既定: 閉じる） */
+    closeLabel?: string;
+    onConfirm?: () => void;
+    destructive?: boolean;
+    showClose?: boolean;
+    confirmLoading?: boolean;
+    confirmDisabled?: boolean;
 }
 declare function Dialog({ open, defaultOpen, onOpenChange, trigger, title, description, children, confirmLabel, cancelLabel, closeLabel, onConfirm, destructive, showClose, confirmLoading, confirmDisabled, }: DialogProps): react.JSX.Element;
 declare const DialogClose: react.ForwardRefExoticComponent<DialogPrimitive.DialogCloseProps & react.RefAttributes<HTMLButtonElement>>;
@@ -587,23 +587,23 @@ declare const DialogTrigger: react.ForwardRefExoticComponent<DialogPrimitive.Dia
 
 type BadgeVariant = "default" | "success" | "warning" | "danger" | "info";
 interface BadgeProps extends HTMLAttributes<HTMLSpanElement> {
- variant?: BadgeVariant;
+    variant?: BadgeVariant;
 }
 declare function Badge({ variant, className, children, ...props }: BadgeProps): react.JSX.Element;
 
 declare const WAVE_PALETTE_VARS: {
- /** Matches tokens/brand.json ai-dash wavePalette: blue / copper / gold */
- readonly "ai-dash": readonly ["--color-action-secondary", "--color-action-primary-hover", "--color-action-primary"];
- readonly "slt-corporate": readonly ["--color-action-primary", "--color-action-secondary", "--color-text-brand"];
+    /** Matches tokens/brand.json ai-dash wavePalette: blue / copper / gold */
+    readonly "ai-dash": readonly ["--color-action-secondary", "--color-action-primary-hover", "--color-action-primary"];
+    readonly "slt-corporate": readonly ["--color-action-primary", "--color-action-secondary", "--color-text-brand"];
 };
 type WavePalette = keyof typeof WAVE_PALETTE_VARS;
 
 interface WaveBackgroundProps {
- /** Token-based preset; reads CSS vars from active theme */
- palette?: WavePalette;
- /** Override with CSS variable names, e.g. `--color-action-secondary` */
- colorVars?: string[];
- className?: string;
+    /** Token-based preset; reads CSS vars from active theme */
+    palette?: WavePalette;
+    /** Override with CSS variable names, e.g. `--color-action-secondary` */
+    colorVars?: string[];
+    className?: string;
 }
 declare function WaveBackground({ palette, colorVars, className, }: WaveBackgroundProps): react.JSX.Element;
 
@@ -611,26 +611,26 @@ declare function WaveBackground({ palette, colorVars, className, }: WaveBackgrou
 type BrandId = "ai-dash" | "sound-laboratory" | "slt-corporate";
 type BrandBackgroundKind = "wave-mesh" | "grid";
 interface GridBackgroundSpec {
- light: {
- minorVar: string;
- majorVar: string;
- };
- dark: {
- minorVar: string;
- majorVar: string;
- };
- minorSize: number;
- majorSize: number;
- /** Mouse parallax max shift in px; 0 disables */
- parallaxMax: number;
- surfaceVar: string;
+    light: {
+        minorVar: string;
+        majorVar: string;
+    };
+    dark: {
+        minorVar: string;
+        majorVar: string;
+    };
+    minorSize: number;
+    majorSize: number;
+    /** Mouse parallax max shift in px; 0 disables */
+    parallaxMax: number;
+    surfaceVar: string;
 }
 type BrandBackgroundEntry = {
- kind: "wave-mesh";
- palette: WavePalette;
+    kind: "wave-mesh";
+    palette: WavePalette;
 } | {
- kind: "grid";
- grid: GridBackgroundSpec;
+    kind: "grid";
+    grid: GridBackgroundSpec;
 };
 /**
  * Per-brand background registry.
@@ -644,13 +644,13 @@ declare const BRAND_BACKGROUNDS: Record<BrandId, BrandBackgroundEntry>;
 declare function getBrandBackground(brand: BrandId): BrandBackgroundEntry;
 
 interface BrandBackgroundProps {
- /**
- * Brand preset. When omitted, reads `data-theme` on `<html>` (falls back to ai-dash).
- */
- brand?: BrandId;
- /** Override wave mesh colors (wave-mesh brands only) */
- colorVars?: string[];
- className?: string;
+    /**
+     * Brand preset. When omitted, reads `data-theme` on `<html>` (falls back to ai-dash).
+     */
+    brand?: BrandId;
+    /** Override wave mesh colors (wave-mesh brands only) */
+    colorVars?: string[];
+    className?: string;
 }
 declare function BrandBackground({ brand: brandProp, colorVars, className }: BrandBackgroundProps): react.JSX.Element;
 
@@ -662,140 +662,140 @@ declare function getBrandDisplayName(brand: BrandId): string;
 type ColorMode = "light" | "dark";
 
 interface GridBackgroundProps {
- spec: GridBackgroundSpec;
- colorMode?: ColorMode;
- className?: string;
+    spec: GridBackgroundSpec;
+    colorMode?: ColorMode;
+    className?: string;
 }
 declare function GridBackground({ spec, colorMode, className }: GridBackgroundProps): react.JSX.Element;
 
 type ToastVariant = "default" | "success" | "warning" | "danger" | "info";
 interface ToastItemProps {
- title: string;
- description?: string;
- variant?: ToastVariant;
- duration?: number;
- open?: boolean;
- defaultOpen?: boolean;
- onOpenChange?: (open: boolean) => void;
- /** 閉じるボタンの accessible name（既定: 閉じる） */
- closeLabel?: string;
+    title: string;
+    description?: string;
+    variant?: ToastVariant;
+    duration?: number;
+    open?: boolean;
+    defaultOpen?: boolean;
+    onOpenChange?: (open: boolean) => void;
+    /** 閉じるボタンの accessible name（既定: 閉じる） */
+    closeLabel?: string;
 }
 interface ToastRecord extends ToastItemProps {
- id: string;
+    id: string;
 }
 interface ToastContextValue {
- toast: (item: Omit<ToastRecord, "id">) => string;
- dismiss: (id: string) => void;
+    toast: (item: Omit<ToastRecord, "id">) => string;
+    dismiss: (id: string) => void;
 }
 interface ToastProviderProps {
- children: ReactNode;
- /** デフォルトの自動 dismiss 時間（ms）。個別 toast で上書き可 */
- duration?: number;
+    children: ReactNode;
+    /** デフォルトの自動 dismiss 時間（ms）。個別 toast で上書き可 */
+    duration?: number;
 }
 declare function ToastProvider({ children, duration }: ToastProviderProps): react.JSX.Element;
-declare function useToast: ToastContextValue;
+declare function useToast(): ToastContextValue;
 declare function Toast({ title, description, variant, duration, open, defaultOpen, onOpenChange, closeLabel, }: ToastItemProps): react.JSX.Element;
 
 interface SiteHeaderProps {
- /** ロゴ・ブランドマーク（リンクは呼び出し側で内包） */
- logo?: ReactNode;
- /** デスクトップ / ドロワー共通のナビゲーション */
- nav?: ReactNode;
- /** 右端アクション（ログイン・CTA 等）。マーケ LP では通常省略 */
- actions?: ReactNode;
- /** marketing = 半透明ブラー・下線ナビ（sound-laboratory.org 等） */
- variant?: "default" | "marketing";
- /**
- * 内側バーの最大幅。本文コンテナと揃えるときに指定する（例: "75rem" / "var(--docs-content-max)"）。
- * 未指定時は full bleed 背景のままバーも全幅（padding-x のみ）。
- */
- contentMaxWidth?: string;
- className?: string;
- /** デスクトップ nav の accessible name（既定: メイン） */
- navLabel?: string;
- /** モバイル drawer nav の accessible name（既定: モバイルメニュー） */
- mobileNavLabel?: string;
- openMenuLabel?: string;
- closeMenuLabel?: string;
+    /** ロゴ・ブランドマーク（リンクは呼び出し側で内包） */
+    logo?: ReactNode;
+    /** デスクトップ / ドロワー共通のナビゲーション */
+    nav?: ReactNode;
+    /** 右端アクション（ログイン・CTA 等）。マーケ LP では通常省略 */
+    actions?: ReactNode;
+    /** marketing = 半透明ブラー・下線ナビ（sound-laboratory.org 等） */
+    variant?: "default" | "marketing";
+    /**
+     * 内側バーの最大幅。本文コンテナと揃えるときに指定する（例: "75rem" / "var(--docs-content-max)"）。
+     * 未指定時は full bleed 背景のままバーも全幅（padding-x のみ）。
+     */
+    contentMaxWidth?: string;
+    className?: string;
+    /** デスクトップ nav の accessible name（既定: メイン） */
+    navLabel?: string;
+    /** モバイル drawer nav の accessible name（既定: モバイルメニュー） */
+    mobileNavLabel?: string;
+    openMenuLabel?: string;
+    closeMenuLabel?: string;
 }
 declare function SiteHeader({ logo, nav, actions, variant, contentMaxWidth, className, navLabel, mobileNavLabel, openMenuLabel, closeMenuLabel, }: SiteHeaderProps): react.JSX.Element;
 interface SiteHeaderLinkProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
- active?: boolean;
- /** marketing = 下線アクティブ（公式サイト Header 準拠） */
- variant?: "default" | "marketing";
+    active?: boolean;
+    /** marketing = 下線アクティブ（公式サイト Header 準拠） */
+    variant?: "default" | "marketing";
 }
 declare function SiteHeaderLink({ active, variant, className, ...props }: SiteHeaderLinkProps): react.JSX.Element;
 
 type SkeletonVariant = "rect" | "text" | "circle";
 interface SkeletonProps extends HTMLAttributes<HTMLDivElement> {
- variant?: SkeletonVariant;
- width?: CSSProperties["width"];
- height?: CSSProperties["height"];
+    variant?: SkeletonVariant;
+    width?: CSSProperties["width"];
+    height?: CSSProperties["height"];
 }
 declare function Skeleton({ variant, width, height, className, style, "aria-hidden": ariaHidden, ...props }: SkeletonProps): react.JSX.Element;
 interface SkeletonListProps {
- count?: number;
- className?: string;
- /** ローディング領域の accessible name（既定: 読み込み中） */
- label?: string;
+    count?: number;
+    className?: string;
+    /** ローディング領域の accessible name（既定: 読み込み中） */
+    label?: string;
 }
 /** リスト行のローディングプレースホルダ */
 declare function SkeletonList({ count, className, label }: SkeletonListProps): react.JSX.Element;
 interface SkeletonCardProps {
- className?: string;
- /** ローディング領域の accessible name（既定: 読み込み中） */
- label?: string;
+    className?: string;
+    /** ローディング領域の accessible name（既定: 読み込み中） */
+    label?: string;
 }
 /** Card 内コンテンツのローディングプレースホルダ */
 declare function SkeletonCard({ className, label }: SkeletonCardProps): react.JSX.Element;
 
 type SortDirection = "asc" | "desc";
 interface TableProps extends TableHTMLAttributes<HTMLTableElement> {
- /** DADS ストライプ行 */
- striped?: boolean;
+    /** DADS ストライプ行 */
+    striped?: boolean;
 }
 declare function Table({ striped, className, children, ...props }: TableProps): react.JSX.Element;
 declare function TableHeader({ className, children, ...props }: HTMLAttributes<HTMLTableSectionElement>): react.JSX.Element;
 declare function TableBody({ className, children, ...props }: HTMLAttributes<HTMLTableSectionElement>): react.JSX.Element;
 interface TableRowProps extends HTMLAttributes<HTMLTableRowElement> {
- selected?: boolean;
+    selected?: boolean;
 }
 declare function TableRow({ selected, className, children, ...props }: TableRowProps): react.JSX.Element;
 interface TableHeadProps extends ThHTMLAttributes<HTMLTableCellElement> {
- sortable?: boolean;
- sortDirection?: SortDirection | false;
- onSort?: => void;
+    sortable?: boolean;
+    sortDirection?: SortDirection | false;
+    onSort?: () => void;
 }
 declare function TableHead({ sortable, sortDirection, onSort, className, children, ...props }: TableHeadProps): react.JSX.Element;
 declare function TableCell({ className, children, ...props }: TdHTMLAttributes<HTMLTableCellElement>): react.JSX.Element;
 interface TableCheckboxCellProps {
- checked?: boolean;
- indeterminate?: boolean;
- onChange?: (checked: boolean) => void;
- label: string;
+    checked?: boolean;
+    indeterminate?: boolean;
+    onChange?: (checked: boolean) => void;
+    label: string;
 }
 declare function TableCheckboxCell({ checked, indeterminate, onChange, label, }: TableCheckboxCellProps): react.JSX.Element;
 interface DataTableColumn<T> {
- key: string;
- header: string;
- sortable?: boolean;
- render?: (row: T) => ReactNode;
+    key: string;
+    header: string;
+    sortable?: boolean;
+    render?: (row: T) => ReactNode;
 }
 interface DataTableProps<T extends Record<string, unknown>> {
- columns: DataTableColumn<T>[];
- rows: T[];
- getRowKey: (row: T) => string;
- caption?: string;
- sortKey?: string;
- sortDirection?: SortDirection;
- onSort?: (key: string) => void;
- selectable?: boolean;
- selectedKeys?: Set<string>;
- onSelectionChange?: (keys: Set<string>) => void;
- rowLabel?: (row: T) => string;
- /** ヘッダ「すべて選択」チェックの accessible name（既定: すべて選択） */
- selectAllLabel?: string;
- striped?: boolean;
+    columns: DataTableColumn<T>[];
+    rows: T[];
+    getRowKey: (row: T) => string;
+    caption?: string;
+    sortKey?: string;
+    sortDirection?: SortDirection;
+    onSort?: (key: string) => void;
+    selectable?: boolean;
+    selectedKeys?: Set<string>;
+    onSelectionChange?: (keys: Set<string>) => void;
+    rowLabel?: (row: T) => string;
+    /** ヘッダ「すべて選択」チェックの accessible name（既定: すべて選択） */
+    selectAllLabel?: string;
+    striped?: boolean;
 }
 declare function DataTable<T extends Record<string, unknown>>({ columns, rows, getRowKey, caption, sortKey, sortDirection, onSort, selectable, selectedKeys, onSelectionChange, rowLabel, selectAllLabel, striped, }: DataTableProps<T>): react.JSX.Element;
 

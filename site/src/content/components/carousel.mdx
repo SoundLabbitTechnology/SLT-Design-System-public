@@ -6,9 +6,9 @@ order: 50
 description: 複数スライドの送り UI（ドット・前後・キーボード）。
 tokenPrefix: carousel
 props:
- - { name: slides, type: "ReactNode[]", description: 各スライドの内容 }
- - { name: "index / onIndexChange", type: "number | function", description: 制御用 }
- - { name: autoPlayMs, type: number, default: "0", description: 自動送り（reduced motion では無効） }
+  - { name: slides, type: "ReactNode[]", description: 各スライドの内容 }
+  - { name: "index / onIndexChange", type: "number | function", description: 制御用 }
+  - { name: autoPlayMs, type: number, default: "0", description: 自動送り（reduced motion では無効） }
 ---
 
 import Demo from "../../components/Demo.astro";
@@ -18,14 +18,14 @@ import CarouselDemo from "../../demos/CarouselDemo";
 ## デモ
 
 <Demo>
- <CarouselDemo client:visible slot="stage" />
- <Fragment slot="code">
- ```tsx
- import { Carousel } from "@soundlabbit/design-system/ui";
+  <CarouselDemo client:visible slot="stage" />
+  <Fragment slot="code">
+    ```tsx
+    import { Carousel } from "@soundlabbit/design-system/ui";
 
- <Carousel slides={[<p>1</p>, <p>2</p>]} />
- ```
- </Fragment>
+    <Carousel slides={[<p>1</p>, <p>2</p>]} />
+    ```
+  </Fragment>
 </Demo>
 
 ## 使い方
@@ -33,6 +33,6 @@ import CarouselDemo from "../../demos/CarouselDemo";
 お知らせやコンテンツの横送り。画像専用は ImageSlider。
 
 <DoDont
- dos={["自動送りは控えめに、reduced motion を尊重", "前後ボタンに accessible name を付ける"]}
- donts={["主要導線をカルーセル内だけに隠す", "自動送りを止められない状態にする"]}
+  dos={["自動送りは控えめに、reduced motion を尊重", "前後ボタンに accessible name を付ける"]}
+  donts={["主要導線をカルーセル内だけに隠す", "自動送りを止められない状態にする"]}
 />

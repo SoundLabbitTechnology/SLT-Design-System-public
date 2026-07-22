@@ -30,11 +30,11 @@
 
 ```css
 .product-panel {
- color: var(--color-text-primary);
- background: var(--color-surface-secondary);
- border: 1px solid var(--color-border-default);
- border-radius: var(--shape-radius-md);
- padding: var(--space-md);
+  color: var(--color-text-primary);
+  background: var(--color-surface-secondary);
+  border: 1px solid var(--color-border-default);
+  border-radius: var(--shape-radius-md);
+  padding: var(--space-md);
 }
 ```
 

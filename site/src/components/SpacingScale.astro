@@ -9,50 +9,50 @@ const shadow = tokensByPrefix("shadow");
 
 <h3>余白 (space)</h3>
 <div class="docs-scale-list">
- {
- space.map((row) => (
- <div class="docs-scale-row">
- <span class="docs-scale-row__label">{row.key}</span>
- <span class="docs-scale-row__bar" style={`width: var(${row.cssVar})`} />
- </div>
- ))
- }
+  {
+    space.map((row) => (
+      <div class="docs-scale-row">
+        <span class="docs-scale-row__label">{row.key}</span>
+        <span class="docs-scale-row__bar" style={`width: var(${row.cssVar})`} />
+      </div>
+    ))
+  }
 </div>
 
 <h3>角丸 (radius)</h3>
 <div class="docs-swatch-grid">
- {
- radius.map((row) => (
- <div class="docs-swatch">
- <div
- class="docs-swatch__color"
- style={`background: var(--color-action-primary); border-radius: var(${row.cssVar})`}
- />
- <div class="docs-swatch__meta">
- <span class="docs-swatch__name">{row.label}</span>
- <span class="docs-swatch__var">var({row.cssVar})</span>
- </div>
- </div>
- ))
- }
+  {
+    radius.map((row) => (
+      <div class="docs-swatch">
+        <div
+          class="docs-swatch__color"
+          style={`background: var(--color-action-primary); border-radius: var(${row.cssVar})`}
+        />
+        <div class="docs-swatch__meta">
+          <span class="docs-swatch__name">{row.label}</span>
+          <span class="docs-swatch__var">var({row.cssVar})</span>
+        </div>
+      </div>
+    ))
+  }
 </div>
 
 <h3>エレベーション (shadow)</h3>
 <div class="docs-swatch-grid">
- {
- shadow.map((row) => (
- <div class="docs-swatch">
- <div
- class="docs-swatch__color"
- style={`background: var(--color-surface-primary); box-shadow: var(${row.cssVar})`}
- />
- <div class="docs-swatch__meta">
- <span class="docs-swatch__name">{row.label}</span>
- <span class="docs-swatch__var">var({row.cssVar})</span>
- </div>
- </div>
- ))
- }
+  {
+    shadow.map((row) => (
+      <div class="docs-swatch">
+        <div
+          class="docs-swatch__color"
+          style={`background: var(--color-surface-primary); box-shadow: var(${row.cssVar})`}
+        />
+        <div class="docs-swatch__meta">
+          <span class="docs-swatch__name">{row.label}</span>
+          <span class="docs-swatch__var">var({row.cssVar})</span>
+        </div>
+      </div>
+    ))
+  }
 </div>
 
 <TokenTable prefix="motion" title="モーション" />

@@ -31,7 +31,7 @@
 - `color.blue.400` / `color.gold.700` / `color.gold.800` primitives — コントラスト 4.5:1 棚卸しで検出した未達リンク色の是正用
 - [コントラスト 4.5:1 棚卸し監査](（社内監査）) — 全 6 semantic ファイル × text/surface 60 ペアを実測、2 件の未達を是正
 - L1 基盤にアイコン配置原則・レイアウト原則（DADS 基本デザイン準拠）を追記
-- `Checkbox` component（P0）— DADS「チェックボックス」に対応。DADS コンポーネント拡充 wave 1 着手分
+- `Checkbox` component（P0）— DADS「チェックボックス」に対応。DADS コンポーネント拡充 wave 1  着手分
 - Docs site デプロイ workflow（`.github/workflows/docs-deploy.yml`）— Public ミラーで `main` push → GitHub Pages
 - Laws of UX 参照方針 — Laws of UX を UX 参照モデルとする。L0 / L3 に原則対応表を追加
 - Laws of UX P1 適用 — `.slt-field-stack`（Proximity）、Primary 1 ビュー 1 つ（DoD / guides）、Doherty &lt;400ms 方針（L3 / motion）

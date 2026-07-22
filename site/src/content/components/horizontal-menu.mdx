@@ -6,7 +6,7 @@ order: 41
 description: "ヘッダー等の水平ナビゲーション。"
 tokenPrefix: horizontal-menu
 props:
- - { name: items, type: "NavItem[]", description: "label / href / current" }
+  - { name: items, type: "NavItem[]", description: "label / href / current" }
 ---
 
 import Demo from "../../components/Demo.astro";
@@ -16,12 +16,12 @@ import HorizontalMenuDemo from "../../demos/HorizontalMenuDemo";
 ## デモ
 
 <Demo>
- <HorizontalMenuDemo client:visible slot="stage" />
- <Fragment slot="code">
- ```tsx
- import { HorizontalMenu } from "@soundlabbit/design-system/ui";
- ```
- </Fragment>
+  <HorizontalMenuDemo client:visible slot="stage" />
+  <Fragment slot="code">
+    ```tsx
+    import { HorizontalMenu } from "@soundlabbit/design-system/ui";
+    ```
+  </Fragment>
 </Demo>
 
 ## 使い方
@@ -29,6 +29,6 @@ import HorizontalMenuDemo from "../../demos/HorizontalMenuDemo";
 デスクトップヘッダーの主ナビ。深い階層はメガメニューや Drawer を検討。
 
 <DoDont
- dos={["現在地に aria-current=page", "項目数を抑える"]}
- donts={["モバイル専用ナビの代わりに詰め込む", "ドロップダウン階層を無理に載せる"]}
+  dos={["現在地に aria-current=page", "項目数を抑える"]}
+  donts={["モバイル専用ナビの代わりに詰め込む", "ドロップダウン階層を無理に載せる"]}
 />

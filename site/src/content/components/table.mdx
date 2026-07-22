@@ -6,18 +6,18 @@ order: 20
 description: Admin / ダッシュボードの一覧データ表示。
 tokenPrefix: table
 props:
- - { name: columns, type: "DataTableColumn<T>[]", description: "列定義（key / header / sortable / render）" }
- - { name: rows, type: "T[]", description: 行データ }
- - { name: getRowKey, type: "(row: T) => string", description: 行の一意キーを返す }
- - { name: selectable, type: boolean, default: "false", description: 行選択 UI（チェックボックス）を有効化 }
- - { name: striped, type: boolean, default: "false", description: ストライプ行（DADS） }
- - { name: caption, type: string, description: table の accessible caption }
- - { name: sortKey, type: string, description: 現在のソートキー }
- - { name: sortDirection, type: '"asc" | "desc"', description: 現在のソート方向 }
- - { name: onSort, type: "(key: string) => void", description: ソート可能な列ヘッダー押下時のコールバック }
- - { name: selectedKeys, type: "Set<string>", description: controlled selection state }
- - { name: onSelectionChange, type: "(keys: Set<string>) => void", description: selection state 変更 callback }
- - { name: rowLabel, type: "(row: T) => string", description: 行選択 checkbox の accessible label }
+  - { name: columns, type: "DataTableColumn<T>[]", description: "列定義（key / header / sortable / render）" }
+  - { name: rows, type: "T[]", description: 行データ }
+  - { name: getRowKey, type: "(row: T) => string", description: 行の一意キーを返す }
+  - { name: selectable, type: boolean, default: "false", description: 行選択 UI（チェックボックス）を有効化 }
+  - { name: striped, type: boolean, default: "false", description: ストライプ行（DADS） }
+  - { name: caption, type: string, description: table の accessible caption }
+  - { name: sortKey, type: string, description: 現在のソートキー }
+  - { name: sortDirection, type: '"asc" | "desc"', description: 現在のソート方向 }
+  - { name: onSort, type: "(key: string) => void", description: ソート可能な列ヘッダー押下時のコールバック }
+  - { name: selectedKeys, type: "Set<string>", description: controlled selection state }
+  - { name: onSelectionChange, type: "(keys: Set<string>) => void", description: selection state 変更 callback }
+  - { name: rowLabel, type: "(row: T) => string", description: 行選択 checkbox の accessible label }
 ---
 
 import Demo from "../../components/Demo.astro";
@@ -29,21 +29,21 @@ import TableDemo from "../../demos/TableDemo";
 列ヘッダーをクリックしてソート、チェックボックスで行選択できます。
 
 <Demo>
- <TableDemo client:visible slot="stage" />
- <Fragment slot="code">
- ```tsx
- import { DataTable } from "@soundlabbit/design-system/ui";
+  <TableDemo client:visible slot="stage" />
+  <Fragment slot="code">
+    ```tsx
+    import { DataTable } from "@soundlabbit/design-system/ui";
 
- <DataTable
- columns={[{ key: "title", header: "曲名", sortable: true }]}
- rows={rows}
- getRowKey={(row) => row.id}
- selectable
- selectedKeys={selected}
- onSelectionChange={setSelected}
- />
- ```
- </Fragment>
+    <DataTable
+      columns={[{ key: "title", header: "曲名", sortable: true }]}
+      rows={rows}
+      getRowKey={(row) => row.id}
+      selectable
+      selectedKeys={selected}
+      onSelectionChange={setSelected}
+    />
+    ```
+  </Fragment>
 </Demo>
 
 ## 使い方
@@ -52,8 +52,8 @@ Admin / ダッシュボードの一覧データに使う。複雑なフィルタ
 
 {/* Do/Don't の出典: docs/L2-components/guides.md#table */}
 <DoDont
- dos={["DataTable でソート・選択の最小 API を使う", "TableHead の sortable + aria-sort を使う", "TableCheckboxCell で行選択する"]}
- donts={["複雑なフィルタ UI を Table に内包する", "ソート可能な見た目だけにする（ボタンなし）", "行クリックのみで選択する（キーボード不可）"]}
+  dos={["DataTable でソート・選択の最小 API を使う", "TableHead の sortable + aria-sort を使う", "TableCheckboxCell で行選択する"]}
+  donts={["複雑なフィルタ UI を Table に内包する", "ソート可能な見た目だけにする（ボタンなし）", "行クリックのみで選択する（キーボード不可）"]}
 />
 
 **状態**: ソート asc/desc、行選択、ヘッダー全選択（indeterminate 対応）、`striped`、セル結合（`colSpan` / `rowSpan`）。外周枠線あり。

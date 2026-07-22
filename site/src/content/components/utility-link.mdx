@@ -6,8 +6,8 @@ order: 34
 description: "フッター等の補助リンク。"
 tokenPrefix: utility-link
 props:
- - { name: href, type: string, description: "リンク先" }
- - { name: children, type: ReactNode, description: "リンク文言" }
+  - { name: href, type: string, description: "リンク先" }
+  - { name: children, type: ReactNode, description: "リンク文言" }
 ---
 
 import Demo from "../../components/Demo.astro";
@@ -17,12 +17,12 @@ import UtilityLinkDemo from "../../demos/UtilityLinkDemo";
 ## デモ
 
 <Demo>
- <UtilityLinkDemo client:visible slot="stage" />
- <Fragment slot="code">
- ```tsx
- import { UtilityLink } from "@soundlabbit/design-system/ui";
- ```
- </Fragment>
+  <UtilityLinkDemo client:visible slot="stage" />
+  <Fragment slot="code">
+    ```tsx
+    import { UtilityLink } from "@soundlabbit/design-system/ui";
+    ```
+  </Fragment>
 </Demo>
 
 ## 使い方
@@ -30,6 +30,6 @@ import UtilityLinkDemo from "../../demos/UtilityLinkDemo";
 サイトマップ・ポリシーなど補助ナビ。
 
 <DoDont
- dos={["フッターやヘッダー端の補助導線に使う", "本文リンクと見た目を区別する"]}
- donts={["主要 CTA の代わりに使う", "長い説明文をリンクにする"]}
+  dos={["フッターやヘッダー端の補助導線に使う", "本文リンクと見た目を区別する"]}
+  donts={["主要 CTA の代わりに使う", "長い説明文をリンクにする"]}
 />

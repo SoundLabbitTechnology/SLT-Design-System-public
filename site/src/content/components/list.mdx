@@ -6,8 +6,8 @@ order: 23
 description: "項目を列挙する。項番が情報のときは地のテキストとして表記する。"
 tokenPrefix: list
 props:
- - { name: variant, type: '"bullet" | "numbered"', default: '"bullet"', description: "リストマークまたは項番テキスト" }
- - { name: "ListItem.marker", type: ReactNode, description: "numbered 時の項番（例: 1.）" }
+  - { name: variant, type: '"bullet" | "numbered"', default: '"bullet"', description: "リストマークまたは項番テキスト" }
+  - { name: "ListItem.marker", type: ReactNode, description: "numbered 時の項番（例: 1.）" }
 ---
 
 import Demo from "../../components/Demo.astro";
@@ -17,17 +17,17 @@ import ListDemo from "../../demos/ListDemo";
 ## デモ
 
 <Demo>
- <ListDemo client:visible slot="stage" />
- <Fragment slot="code">
- ```tsx
- import { List, ListItem } from "@soundlabbit/design-system/ui";
+  <ListDemo client:visible slot="stage" />
+  <Fragment slot="code">
+    ```tsx
+    import { List, ListItem } from "@soundlabbit/design-system/ui";
 
- <List>
- <ListItem>項目 A</ListItem>
- <ListItem>項目 B</ListItem>
- </List>
- ```
- </Fragment>
+    <List>
+      <ListItem>項目 A</ListItem>
+      <ListItem>項目 B</ListItem>
+    </List>
+    ```
+  </Fragment>
 </Demo>
 
 ## 使い方
@@ -35,6 +35,6 @@ import ListDemo from "../../demos/ListDemo";
 常に `ul` ベース。法律・規約など項番自体が情報のときは `variant="numbered"` と `marker` を使い、`ol` や CSS カウンタは使わない（DADS）。
 
 <DoDont
- dos={["項番が情報なら marker をテキストで渡す", "順序に意味がない列挙は bullet"]}
- donts={["ol や CSS counter で項番を自動生成する", "手順の番号をコピー不能な装飾にする"]}
+  dos={["項番が情報なら marker をテキストで渡す", "順序に意味がない列挙は bullet"]}
+  donts={["ol や CSS counter で項番を自動生成する", "手順の番号をコピー不能な装飾にする"]}
 />

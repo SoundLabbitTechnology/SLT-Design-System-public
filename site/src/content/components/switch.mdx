@@ -6,8 +6,8 @@ order: 10
 description: 切り替えたら即座に反映される設定用トグル。
 tokenPrefix: switch
 props:
- - { name: label, type: string, description: 設定項目ラベル（原則必須） }
- - { name: hint, type: string, description: 補足説明テキスト }
+  - { name: label, type: string, description: 設定項目ラベル（原則必須） }
+  - { name: hint, type: string, description: 補足説明テキスト }
 ---
 
 import Demo from "../../components/Demo.astro";
@@ -17,15 +17,15 @@ import SwitchDemo from "../../demos/SwitchDemo";
 ## デモ
 
 <Demo>
- <SwitchDemo client:visible slot="stage" />
- <Fragment slot="code">
- ```tsx
- import { Switch } from "@soundlabbit/design-system/ui";
+  <SwitchDemo client:visible slot="stage" />
+  <Fragment slot="code">
+    ```tsx
+    import { Switch } from "@soundlabbit/design-system/ui";
 
- <Switch label="メール通知" />
- <Switch label="プッシュ通知" defaultChecked />
- ```
- </Fragment>
+    <Switch label="メール通知" />
+    <Switch label="プッシュ通知" defaultChecked />
+    ```
+  </Fragment>
 </Demo>
 
 ## 使い方
@@ -33,6 +33,6 @@ import SwitchDemo from "../../demos/SwitchDemo";
 切り替えた結果がその場で目視できる設定に使う。送信後に反映されるフォーム項目には Checkbox を使う。
 
 <DoDont
- dos={["即時反映される設定に使う", "label で何がオンになるかを明示する"]}
- donts={["送信ボタン付きフォームの同意に使う（Checkbox を使う）", "オン／オフの結果が画面上で分からない項目に使う"]}
+  dos={["即時反映される設定に使う", "label で何がオンになるかを明示する"]}
+  donts={["送信ボタン付きフォームの同意に使う（Checkbox を使う）", "オン／オフの結果が画面上で分からない項目に使う"]}
 />

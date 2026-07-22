@@ -6,8 +6,8 @@ order: 28
 description: "手続きの進捗（ステップ）を示す。"
 tokenPrefix: step-navigation
 props:
- - { name: steps, type: "StepNavigationItem[]", description: "ステップラベルと任意の説明" }
- - { name: current, type: number, description: "現在ステップ（1始まり）" }
+  - { name: steps, type: "StepNavigationItem[]", description: "ステップラベルと任意の説明" }
+  - { name: current, type: number, description: "現在ステップ（1始まり）" }
 ---
 
 import Demo from "../../components/Demo.astro";
@@ -17,21 +17,21 @@ import StepNavigationDemo from "../../demos/StepNavigationDemo";
 ## デモ
 
 <Demo>
- <StepNavigationDemo client:visible slot="stage" />
- <Fragment slot="code">
- ```tsx
- import { StepNavigation } from "@soundlabbit/design-system/ui";
+  <StepNavigationDemo client:visible slot="stage" />
+  <Fragment slot="code">
+    ```tsx
+    import { StepNavigation } from "@soundlabbit/design-system/ui";
 
- <StepNavigation
- current={2}
- steps={[
- { label: "申請内容" },
- { label: "確認" },
- { label: "完了" },
- ]}
- />
- ```
- </Fragment>
+    <StepNavigation
+      current={2}
+      steps={[
+        { label: "申請内容" },
+        { label: "確認" },
+        { label: "完了" },
+      ]}
+    />
+    ```
+  </Fragment>
 </Demo>
 
 ## 使い方
@@ -39,6 +39,6 @@ import StepNavigationDemo from "../../demos/StepNavigationDemo";
 ウィザードや申請フローの位置表示。現在ステップは `aria-current="step"`。
 
 <DoDont
- dos={["ステップ数を少なく保つ", "各ステップの目的がラベルで分かるようにする"]}
- donts={["ページ分割に使う（PageNavigation）", "完了済みをスキップ不能な必須確認なしで飛ばす UX を暗黙に作る"]}
+  dos={["ステップ数を少なく保つ", "各ステップの目的がラベルで分かるようにする"]}
+  donts={["ページ分割に使う（PageNavigation）", "完了済みをスキップ不能な必須確認なしで飛ばす UX を暗黙に作る"]}
 />

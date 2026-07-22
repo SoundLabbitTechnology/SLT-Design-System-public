@@ -6,20 +6,20 @@ order: 5
 description: 確認・破壊的操作の再確認・短い通知に使うモーダル。
 tokenPrefix: dialog
 props:
- - { name: title, type: string, description: ダイアログのタイトル（必須） }
- - { name: description, type: string, description: 補足説明 }
- - { name: trigger, type: ReactNode, description: 開くトリガー要素 }
- - { name: children, type: ReactNode, description: description と actions の間に表示する本文 }
- - { name: open, type: boolean, description: controlled open state }
- - { name: defaultOpen, type: boolean, description: uncontrolled の初期 open state }
- - { name: onOpenChange, type: "(open: boolean) => void", description: open state 変更 callback }
- - { name: confirmLabel, type: string, default: '"確認"', description: 確認ボタンのラベル }
- - { name: cancelLabel, type: string, default: '"キャンセル"', description: キャンセルボタンのラベル }
- - { name: destructive, type: boolean, default: "false", description: 破壊的操作向けの見た目・確認ボタン色 }
- - { name: showClose, type: boolean, default: "true", description: 右上の閉じるボタンを表示 }
- - { name: confirmLoading, type: boolean, default: "false", description: 保存中の状態表示 }
- - { name: confirmDisabled, type: boolean, default: "false", description: 確認ボタンの無効化 }
- - { name: onConfirm, type: " => void", description: 確認ボタン押下時のコールバック }
+  - { name: title, type: string, description: ダイアログのタイトル（必須） }
+  - { name: description, type: string, description: 補足説明 }
+  - { name: trigger, type: ReactNode, description: 開くトリガー要素 }
+  - { name: children, type: ReactNode, description: description と actions の間に表示する本文 }
+  - { name: open, type: boolean, description: controlled open state }
+  - { name: defaultOpen, type: boolean, description: uncontrolled の初期 open state }
+  - { name: onOpenChange, type: "(open: boolean) => void", description: open state 変更 callback }
+  - { name: confirmLabel, type: string, default: '"確認"', description: 確認ボタンのラベル }
+  - { name: cancelLabel, type: string, default: '"キャンセル"', description: キャンセルボタンのラベル }
+  - { name: destructive, type: boolean, default: "false", description: 破壊的操作向けの見た目・確認ボタン色 }
+  - { name: showClose, type: boolean, default: "true", description: 右上の閉じるボタンを表示 }
+  - { name: confirmLoading, type: boolean, default: "false", description: 保存中の状態表示 }
+  - { name: confirmDisabled, type: boolean, default: "false", description: 確認ボタンの無効化 }
+  - { name: onConfirm, type: "() => void", description: 確認ボタン押下時のコールバック }
 ---
 
 import Demo from "../../components/Demo.astro";
@@ -29,19 +29,19 @@ import DialogDemo from "../../demos/DialogDemo";
 ## デモ
 
 <Demo>
- <DialogDemo client:visible slot="stage" />
- <Fragment slot="code">
- ```tsx
- import { Button, Dialog } from "@soundlabbit/design-system/ui";
+  <DialogDemo client:visible slot="stage" />
+  <Fragment slot="code">
+    ```tsx
+    import { Button, Dialog } from "@soundlabbit/design-system/ui";
 
- <Dialog
- trigger={<Button variant="danger">削除する</Button>}
- title="本当に削除しますか？"
- destructive
- onConfirm={handleDelete}
- />
- ```
- </Fragment>
+    <Dialog
+      trigger={<Button variant="danger">削除する</Button>}
+      title="本当に削除しますか？"
+      destructive
+      onConfirm={handleDelete}
+    />
+    ```
+  </Fragment>
 </Demo>
 
 ## 使い方
@@ -50,6 +50,6 @@ import DialogDemo from "../../demos/DialogDemo";
 
 {/* Do/Don't の出典: docs/L2-components/guides.md#dialog */}
 <DoDont
- dos={["破壊的操作は destructive + キャンセルを併置", "confirmLoading で保存中を表示", "Esc で閉じられる（Radix 標準）"]}
- donts={["長文フォームを Dialog に詰め込む", "処理中に閉じられる UI にする", "フォーカストラップなしの独自モーダルを作る"]}
+  dos={["破壊的操作は destructive + キャンセルを併置", "confirmLoading で保存中を表示", "Esc で閉じられる（Radix 標準）"]}
+  donts={["長文フォームを Dialog に詰め込む", "処理中に閉じられる UI にする", "フォーカストラップなしの独自モーダルを作る"]}
 />
