@@ -1,5 +1,5 @@
 {
-  "$description": "SLT Design Tokens — Tier 2: Semantic(Sound Laboratory / ライトモード)。sound-laboratory-official-site DESIGN_SYSTEM.md / https://sound-laboratory.org/ 準拠。ゴールド・クリーム基調（coral は ADR-001 保留）。",
+  "$description": "SLT Design Tokens — Tier 2: Semantic(Sound Laboratory / ライトモード)。sound-laboratory-official-site DESIGN_SYSTEM.md / https://sound-laboratory.org/ 準拠。ゴールド・クリーム基調（coral は正式値保留）。",
   "color": {
     "surface": {
       "primary":   { "$type": "color", "$value": "{color.gray.0}", "$description": "base — 方眼紙グリッドの下地" },

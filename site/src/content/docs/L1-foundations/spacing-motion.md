@@ -1,7 +1,5 @@
 # 余白・形状・エレベーション・モーション
 
-文書番号: SLT-DS-001 §4.4
-
 正本: [`design-tokens/`](../../design-tokens/) の semantic / component 層
 
 ## 基本原則
@@ -23,7 +21,7 @@
 | ブレークポイント | `breakpoint.*` | レスポンシブ境界の共有 |
 | フォーカス | `var(--focus-ring-width)` | キーボードフォーカス |
 
-余白・角の形状・エレベーションは semantic 層（`design-tokens/semantic.*.json`）で全 theme 共通のラベルとして公開しています。primitives の生スケール（`radius.sm` など）は内部実装であり、UI からは semantic ラベル経由で参照してください。DADS の「余白」「角の形状」「エレベーション」カテゴリとの対応は [ADR-003](../decisions/ADR-003-dads-alignment.md) を参照。
+余白・角の形状・エレベーションは semantic 層（`design-tokens/semantic.*.json`）で全 theme 共通のラベルとして公開しています。primitives の生スケール（`radius.sm` など）は内部実装であり、UI からは semantic ラベル経由で参照してください。DADS の「余白」「角の形状」「エレベーション」カテゴリとの対応はデジタル庁デザインシステム（DADS）を参照モデルとする。
 
 ## 余白の使い分け
 
@@ -55,7 +53,7 @@
 | 状況 | 方針 |
 |------|------|
 | hover / focus | `motion.duration.fast`。操作結果を妨げない |
-| Dialog / Toast / drawer | `fast` または `base`（いずれも &lt;400ms）。Doherty Threshold（[ADR-004](../decisions/ADR-004-laws-of-ux.md)） |
+| Dialog / Toast / drawer | `fast` または `base`（いずれも &lt;400ms）。Doherty Threshold |
 | loading | 即時に busy 状態へ。1 秒以上は Skeleton。進捗が分かる場合は進捗表示を優先 |
 | 装飾背景 / Skeleton pulse | `slow` 可。操作待ちには使わない |
 | reduced motion | 意味を失わない範囲で停止または即時遷移 |
@@ -84,7 +82,7 @@ DADS は文書構造内でアイコンが使われる位置ごとに仕様を分
 | 装飾（見出し補助等） | `aria-hidden="true"` で支援技術から隠す |
 | ステータス表示 | `color.feedback.*` と組み合わせ、色だけに依存しない（テキストラベル併記） |
 
-アイコンサイズの semantic トークン化は [DADS コンポーネント拡充](../ROADMAP.md) の実装時に合わせて検討します。
+アイコンサイズの semantic トークン化は DADS コンポーネント拡充 の実装時に合わせて検討します。
 
 ## レイアウト原則
 
@@ -92,4 +90,4 @@ DADS は文書構造内でアイコンが使われる位置ごとに仕様を分
 - 情報の優先順位に沿って配置し、視覚的な近さと意味的な関係を一致させる。
 - レスポンシブ切り替えで情報や操作を欠落させない（[余白の使い分け](#余白の使い分け)、[レスポンシブとタッチ](#レスポンシブとタッチ) を参照）。
 
-詳細なグリッドシステムのトークン化は [DADS 追従 Phase B 残タスク](../ROADMAP.md) で扱います。
+詳細なグリッドシステムのトークン化は DADS 追従 Phase B 残タスク で扱います。

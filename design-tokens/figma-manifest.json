@@ -1,5 +1,5 @@
 {
-  "$description": "Repo-side manifest for Figma Variables / Tokens Studio parity (#15). Regenerate after token changes.",
+  "$description": "Repo-side manifest for Figma Variables / Tokens Studio parity. Regenerate after token changes.",
   "generatedAt": "2026-07-16T09:43:43.327Z",
   "sourceOfTruth": "design-tokens/",
   "blockedWithout": [
